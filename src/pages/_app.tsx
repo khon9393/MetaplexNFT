@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { ContextProvider } from '../contexts/ContextProvider';
 import { AppBar } from '../components/AppBar';
 import { ContentContainer } from '../components/ContentContainer';
@@ -8,20 +8,24 @@ import { Footer } from '../components/Footer';
 import Notifications from '../components/Notification'
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
-
+import { Card2025 } from 'components/Card2025';
 const App: FC<AppProps> = ({ Component, pageProps }) => {
+
+ const [isOpenStates, setIsOpenStates] = useState(false)
+
     return (
         <>
           <Head>
-            <title>Solana Scaffold Lite</title>
+            <title>Candibarnft.io</title>
           </Head>
-
           <ContextProvider>
             <div className="flex flex-col h-screen">
               <Notifications />
               <AppBar/>
               <ContentContainer>
-                <Component {...pageProps} />
+                {/* <Component {...pageProps} /> */}
+                <Card2025 children={''}/>
+                {/* <br/> */}
                 <Footer/>
               </ContentContainer>
             </div>

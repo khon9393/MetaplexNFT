@@ -29,10 +29,10 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           />
           </li>
           <li>
-          <NavElement
+          {/* <NavElement
             label="Basics"
             href="/basics"
-          />
+          /> */}
           </li>
         </ul>
       </div>
