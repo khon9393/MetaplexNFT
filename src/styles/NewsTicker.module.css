@@ -1,0 +1,26 @@
+/* NewsTicker.module.css */
+.newsTicker {
+  background-color: #222;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 50px; /* Adjust height as needed */
+}
+
+.newsTickerTrack {
+  display: inline-flex;
+  gap: 50px; /* Space between news items */
+  width: max-content;
+}
+
+.newsItem {
+  display: inline-block;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 1rem;
+}

@@ -28,4 +28,9 @@ a {
 .wallet-adapter-button:not([disabled]):hover {
   background-color: #707070;
 }
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
 

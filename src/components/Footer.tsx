@@ -1,15 +1,37 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+  } from "@/components/ui/accordion"
+import { Button } from '@/components/ui/button';
+import { DrawerWindow } from './DrawerWindow';
+  
+
 export const Footer: FC = () => {
+
+      const [isOpenStates, setIsOpenStates] = useState([false]);
+
     return (
         <div className="flex">
+           
             <footer className="border-t-2 border-[#141414] bg-black hover:text-white w-screen" >
-                <div className="ml-12 py-12 mr-12">
+                 <div className="ml-12 py-12 mr-12">
                     <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-8 md:space-x-12 relative">
                         <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
                             <div className='flex flex-row ml-1'>
-                                <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
+
+
+            {/* <footer className="" >
+                <div className="">
+                    <div className="">
+                        <div className=''>
+                            <div className='flex flex-row ml-1'> */}
+
+                                {/* <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
                                     <div className='flex flex-row ml-1'>
                                         <Image
                                             src="/solanaLogo.png"
@@ -18,10 +40,14 @@ export const Footer: FC = () => {
                                             height={96}
                                         />
                                     </div>
-                                </Link>
+                                </Link> */}
+
                             </div>
                             <div className="flex md:ml-2">
-                                <a href="https://twitter.com/solana_devs" type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+
+                            Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
+                            
+                                {/* <a href="https://twitter.com/solana_devs" type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                                     <svg aria-hidden="true"
                                         focusable="false"
                                         data-prefix="fab"
@@ -52,14 +78,104 @@ export const Footer: FC = () => {
                                             d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
                                         ></path>
                                     </svg>
-                                </a>
+                                </a> */}
+
+
                             </div>
                             <div className="mb-6 m-1 sm:text-left place-items-start items-start font-normal tracking-tight text-secondary">
-                                        © 2023 Solana Foundation
+                                        © 2024 Candibarnft.io. 
+                                      
                             </div>
+
+                            <div className="disclaimer-container">
+      <h1 className="disclaimer-title">Legal Disclaimer</h1>
+      <Accordion type="single" collapsible>
+        {/* Accordion Item: No Investment Advice */}
+        <AccordionItem value="no-investment-advice">
+          <AccordionTrigger>No Investment Advice</AccordionTrigger>
+          <AccordionContent>
+            <p>
+              The content on this website, including information about Candibar
+              Crypto and NFTs, is provided for{" "}
+              <strong>fun, entertainment, and educational purposes only</strong>
+              . It is not intended to provide financial, investment, or legal
+              advice. Any decisions you make based on the content of this
+              website are your sole responsibility.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Accordion Item: No Liability */}
+        <AccordionItem value="no-liability">
+          <AccordionTrigger>No Liability</AccordionTrigger>
+          <AccordionContent>
+            <p>
+              We hold no liability for any loss, damage, or harm resulting from
+              the use of this website or participation in Candibar Crypto and
+              NFTs. By accessing or using this site, you agree that you are
+              engaging with the platform at your own risk.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Accordion Item: Not a Financial Product */}
+        <AccordionItem value="not-a-financial-product">
+          <AccordionTrigger>Not a Financial Product</AccordionTrigger>
+          <AccordionContent>
+            <p>
+              Candibar Crypto and NFTs are not financial products or securities.
+              They are designed solely as a form of digital entertainment and
+              creativity. This website does not facilitate or encourage
+              investment activity or speculative trading.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Accordion Item: Educational Purpose Only */}
+        <AccordionItem value="educational-purpose-only">
+          <AccordionTrigger>Educational Purpose Only</AccordionTrigger>
+          <AccordionContent>
+            <p>
+              Any references to cryptocurrency, blockchain technology, or NFTs
+              are intended to educate and inform users about these technologies.
+              This website does not guarantee the accuracy, completeness, or
+              reliability of its content.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Accordion Item: Age and Jurisdiction */}
+        <AccordionItem value="age-and-jurisdiction">
+          <AccordionTrigger>Age and Jurisdiction</AccordionTrigger>
+          <AccordionContent>
+            <p>
+              This platform is intended for users who are legally permitted to
+              access cryptocurrency and NFT-related content in their respective
+              jurisdictions. It is the user’s responsibility to ensure
+              compliance with local laws and regulations.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Accordion Item: Changes to this Disclaimer */}
+        <AccordionItem value="changes-to-disclaimer">
+          <AccordionTrigger>Changes to this Disclaimer</AccordionTrigger>
+          <AccordionContent>
+            <p>
+              We reserve the right to update or modify this disclaimer at any
+              time without prior notice. Continued use of the website
+              constitutes acceptance of the updated terms.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+
+
+
                         </div>
 
-                        <div className="mb-6 items-center mx-auto max-w-screen-lg">
+                        {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
                             <div className="font-normal capitalize mb-2.5">SOLANA</div>
 
                             <div className="flex flex-col mb-0 gap-2">
@@ -80,30 +196,16 @@ export const Footer: FC = () => {
                                 </Link>
                             </div>
                         </div>
+*/}
 
-                        <div className="mb-6 items-center mx-auto max-w-screen-lg">
-                            <h5 className="font-normal capitalize tracking-tight  mb-2.5">DEVELOPERS</h5>
 
-                            <div className="flex flex-col mb-0 gap-2">
-                                <Link href="https://docs.solana.com/developers" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Documentation
-                                </Link>
-                                <Link href="https://github.com/solana-mobile/solana-mobile-stack-sdk" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Mobile SDK
-                                </Link>
-                                <Link href="https://github.com/solana-labs/solana-pay" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Pay SDK
-                                </Link>
-                                <Link href="https://solanacookbook.com/" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Cookbook
-                                </Link>
-                                <Link href="https://solana.com/developers/dao" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    DAOs
-                                </Link>
-                            </div>
+
+                         <div className="mb-6 items-center mx-auto max-w-screen-lg">
+      
+                        <DrawerWindow />
                         </div>
 
-                        <div className="mb-6 items-center mx-auto max-w-screen-lg">
+                        {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
                             <h5 className="font-normal tracking-tight  mb-2.5">ECOSYSTEM</h5>
 
                             <div className="flex flex-col mb-0 gap-2">
@@ -123,7 +225,13 @@ export const Footer: FC = () => {
                                     Solana U
                                 </Link>
                             </div>
-                        </div>
+                            
+                        </div>  */}
+
+
+
+
+
                     </div>
                 </div>
             </footer>
