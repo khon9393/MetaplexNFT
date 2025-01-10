@@ -1,8 +1,5 @@
-import React, {useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import Text from './Text';
-import NavElement from './nav-element';
-
+import React, {useState, useEffect, useRef, FC } from "react";
+import Image from 'next/image'
 import snake00 from "../../public/2025/snake0_2025_500.jpg"
 import snake01 from "../../public/2025//snake1_2025_500.jpg";
 import snake02 from "../../public/2025//snake2_2025_500.jpg";
@@ -13,7 +10,7 @@ import {MintSnake02} from "../components/MintSnake02"
 import {MintSnake03} from "../components/MintSnake03"
 import {MintSnake04} from "../components/MintSnake04"
 import {getCandyMachinesBalance}   from '../stores/useCandyMachine';
-import { publicKey, PublicKey } from '@metaplex-foundation/umi';
+import { publicKey} from '@metaplex-foundation/umi';
 import  customstyles from "../styles/NewsTicker.module.css";
 
 import {
@@ -27,12 +24,8 @@ import {
 import { ChevronsUpDown } from 'lucide-react';
 import { Card, CardContent } from "src/components/ui/card"
 
-interface Props {
-    children: React.ReactNode;
-  }
-
 //export async function Card2025() {
-export const Card2025: React.FC<Props> = ({ children}) => {
+export const Card2025: FC = () => {
 
     const [isPaused, setIsPaused] = useState(false);
     const tickerRef = useRef(null);
@@ -46,19 +39,21 @@ export const Card2025: React.FC<Props> = ({ children}) => {
 
       const [isOpenStates, setIsOpenStates] = useState([false, false, false, false]);
 
-        const candyMachineKeys = [
-          publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
-          publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
-          publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
-          publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
-        ];
-      
+        
         const [balances, setBalances] = useState<
           { publicKey: string; itemsRedeemed: number; itemsAvailable: number, collectionMint: string}[]
         >([]);
       
         useEffect(() => {
           const fetchBalances = async () => {
+
+            const candyMachineKeys = [
+              publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
+              publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
+              publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
+              publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
+            ];    
+
             const results = await getCandyMachinesBalance(candyMachineKeys);
             setBalances(results);
           };
@@ -128,11 +123,11 @@ export const Card2025: React.FC<Props> = ({ children}) => {
 
             <div className="text-center p-3">
               <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-100 my-2">
-                {children}
+             
                 <p>Unlock the future of digital assets with Snake Coin 2025 NFT!</p>
                 <br />
                 <p className="text-slate-300 text-xl md:text-xl">
-                  Embodying the wisdom and mystique of the Year of the Snake, this NFT represents transformation, intelligence, and prosperity. By owning one or more of these unique collectibles, you tap into the Snake's energy—symbolizing intuition, adaptability, and resourcefulness. Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!
+                  <div>Embodying the wisdom and mystique of the Year of the Snake, this NFT represents transformation, intelligence, and prosperity. By owning one or more of these unique collectibles, you tap into the Snake&apos;s energy—symbolizing intuition, adaptability, and resourcefulness. Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!</div>
                 </p>
               </h4>
             </div>
@@ -179,7 +174,11 @@ export const Card2025: React.FC<Props> = ({ children}) => {
                             </div>
                           </CollapsibleContent>
                         </Collapsible>
-                        <img className="flex" src={machine.image} alt={`Snake ${machine.id}`} />
+                        <Image 
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          style={{ width: '100%', height: 'auto' }}  src={machine.image} alt={`Snake ${machine.id}`} />
                         <machine.MintComponent />
                       </span>
                     </CardContent>
