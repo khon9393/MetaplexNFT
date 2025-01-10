@@ -108,7 +108,7 @@ export const MintSnake04: FC = () => {
                     wind={0.02} // Slight drift
                     colors={["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"]}
                 />
-            )};
+            )}
 
             {showFireworks && (
                 <div className="fixed inset-0 z-50">
