@@ -3,15 +3,15 @@ import Link from "next/link";
 import Text from './Text';
 import NavElement from './nav-element';
 
-import snake00 from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/snake0_2025_500.jpg";
-import snake01 from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/snake1_2025_500.jpg";
-import snake02 from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/snake2_2025_500.jpg";
-import snake03 from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/snake3_2025_500.jpg";
+import snake00 from "../../public/2025/snake0_2025_500.jpg"
+import snake01 from "../../public/2025//snake1_2025_500.jpg";
+import snake02 from "../../public/2025//snake2_2025_500.jpg";
+import snake03 from "../../public/2025//snake3_2025_500.jpg";
 
-import {MintSnake01} from "/home/ksayakho/myapp/Candibar/CandibarNFTs/src/components/MintSnake01"
-import {MintSnake02} from "/home/ksayakho/myapp/Candibar/CandibarNFTs/src/components/MintSnake02"
-import {MintSnake03} from "/home/ksayakho/myapp/Candibar/CandibarNFTs/src/components/MintSnake03"
-import {MintSnake04} from "/home/ksayakho/myapp/Candibar/CandibarNFTs/src/components/MintSnake04"
+import {MintSnake01} from "../components/MintSnake01"
+import {MintSnake02} from "../components/MintSnake02"
+import {MintSnake03} from "../components/MintSnake03"
+import {MintSnake04} from "../components/MintSnake04"
 import {getCandyMachinesBalance}   from '../stores/useCandyMachine';
 import { publicKey, PublicKey } from '@metaplex-foundation/umi';
 import  customstyles from "../styles/NewsTicker.module.css";
