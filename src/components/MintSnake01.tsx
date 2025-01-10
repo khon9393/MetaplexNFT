@@ -16,7 +16,6 @@ const candyMachineAddress = publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01
 const collectionMint = publicKey(process.env.NEXT_PUBLIC_COLLECTION_ID01);
 import { Fireworks } from "@fireworks-js/react";
 
-
 export const MintSnake01: FC = () => {
     const { connection } = useConnection();
     const wallet = useWallet();
@@ -30,8 +29,11 @@ export const MintSnake01: FC = () => {
             .use(walletAdapterIdentity(wallet))
             .use(mplCandyMachine())
             .use(mplTokenMetadata()),
-        [wallet, mplCandyMachine, walletAdapterIdentity, mplTokenMetadata, quicknodeEndpoint, createUmi]
+        [wallet]
     );
+
+
+
 
     const onClick = useCallback(async () => {
         if (!wallet.publicKey) {
@@ -40,11 +42,12 @@ export const MintSnake01: FC = () => {
             return;
         }
 
-        // Fetch the Candy Machine.
-        const candyMachine = await fetchCandyMachine(
-            umi,
-            candyMachineAddress,
-        );
+            // Fetch the Candy Machine.
+            const candyMachine = await fetchCandyMachine(
+                umi,
+                candyMachineAddress,
+            );
+            
         // Fetch the Candy Guard.
         const candyGuard = await safeFetchCandyGuard(
             umi,

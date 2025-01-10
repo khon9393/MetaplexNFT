@@ -1,9 +1,9 @@
 
-import { FC, useCallback } from 'react';
+import { FC} from 'react';
 import * as React from "react";
 import Candibar from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/CandiBarNoBG.png";
 import snake00 from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/snake0_2025_500.jpg";
-
+import Image from 'next/image'
 import {
   Drawer,
   DrawerClose,
@@ -38,7 +38,7 @@ export const DrawerWindow: FC = () => {
             </DrawerHeader>
             <div className="p-4 pb-0">
               <div className="flex items-center justify-center space-x-8"> {/* Adjust spacing */}
-                <img
+                <Image
                   className="w-24 h-24 object-cover p-2" /* Consistent image size */
                   src={snake00.src}
                   alt="Snake NFT"
@@ -47,7 +47,7 @@ export const DrawerWindow: FC = () => {
                 <span className="text-4xl font-bold text-gray-700 mx-4"> {/* Bigger arrow */}
                 &#10233;
                 </span>
-                <img
+                <Image
                   className="w-24 h-24 object-cover p-2" /* Consistent image size */
                   src={Candibar.src}
                   alt="Candibar tokens"
