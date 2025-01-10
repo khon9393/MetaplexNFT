@@ -29,7 +29,7 @@ export const DrawerWindow: FC = () => {
         <DrawerTrigger asChild>
           <Button variant="outline" className="text-black">Exchange NFT</Button>
         </DrawerTrigger>
-        <DrawerContent className="h-[40vh] bg-gray-400"> {/* Background color added */}
+        <DrawerContent className="h-[43vh] bg-gray-400"> {/* Background color added */}
           <div className="mx-auto w-full max-w-sm">
             <DrawerHeader>
               <DrawerTitle className="text-black">Check back soon!</DrawerTitle>
@@ -38,7 +38,11 @@ export const DrawerWindow: FC = () => {
             <div className="p-4 pb-0">
               <div className="flex items-center justify-center space-x-8"> {/* Adjust spacing */}
                 <Image
-                  className="w-24 h-24 object-cover p-2" /* Consistent image size */
+                  className="p-2" /* Consistent image size */
+                  width={0}
+                  height={0}
+                  sizes="25vw"
+                  style={{ width: '100%', height: 'auto' }} 
                   src={snake00.src}
                   alt="Snake NFT"
                 />
@@ -47,7 +51,11 @@ export const DrawerWindow: FC = () => {
                 &#10233;
                 </span>
                 <Image
-                  className="w-24 h-24 object-cover p-2" /* Consistent image size */
+                  className="p-2" /* Consistent image size */
+                  width={0}
+                  height={0}
+                  sizes="25vw"
+                  style={{ width: '100%', height: 'auto' }} 
                   src={Candibar.src}
                   alt="Candibar tokens"
                 />

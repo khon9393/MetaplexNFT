@@ -32,7 +32,7 @@ export const Card2025: FC = () => {
   const newsItems = [
     "🚀 Exciting updates are coming to Candibar!",
     "💎 Swap your NFTs for Candibar Tokens soon!",
-    "🎉 Join our community and stay ahead of the game!",
+    //"🎉 Join our community and stay ahead of the game!",
     "🔥 Only 2 NFTs per collection set per wallet!",
   ];
 
@@ -113,13 +113,13 @@ export const Card2025: FC = () => {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       > */}
-        <div className={customstyles.newsTickerTrack}>
+        {/* <div className={customstyles.newsTickerTrack} >
           {newsItems.map((item, index) => (
             <span key={index} className={customstyles.newsItem}>
               {item}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
 
       <div className="text-center p-3">
