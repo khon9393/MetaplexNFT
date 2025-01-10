@@ -42,7 +42,7 @@ export const DrawerWindow: FC = () => {
                   width={0}
                   height={0}
                   sizes="25vw"
-                  style={{ width: '100%', height: 'auto' }} 
+                  style={{ width: '50%', height: 'auto' }} 
                   src={snake00.src}
                   alt="Snake NFT"
                 />
@@ -54,8 +54,8 @@ export const DrawerWindow: FC = () => {
                   className="p-2" /* Consistent image size */
                   width={0}
                   height={0}
-                  sizes="25vw"
-                  style={{ width: '100%', height: 'auto' }} 
+                  sizes="10vw"
+                  style={{ width: '50%', height: 'auto' }} 
                   src={Candibar.src}
                   alt="Candibar tokens"
                 />

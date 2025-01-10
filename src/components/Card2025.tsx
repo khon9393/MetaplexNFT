@@ -26,16 +26,6 @@ import { Card, CardContent } from "src/components/ui/card"
 
 export const Card2025: FC = () => {
 
-  // const [isPaused, setIsPaused] = useState(false);
-  // const tickerRef = useRef(null);
-
-  const newsItems = [
-    "🚀 Exciting updates are coming to Candibar!",
-    "💎 Swap your NFTs for Candibar Tokens soon!",
-    //"🎉 Join our community and stay ahead of the game!",
-    "🔥 Only 2 NFTs per collection set per wallet!",
-  ];
-
   const [isOpenStates, setIsOpenStates] = useState([false, false, false, false]);
 
 
@@ -58,39 +48,7 @@ export const Card2025: FC = () => {
     };
     fetchBalances();
 
-    // const ticker = tickerRef.current;
-    // let animationFrame;
-    // const scroll = () => {
-    //   if (!isPaused && ticker) {
-    //     const speed = Math.max(1, ticker.offsetWidth / 900); // Adjust speed
-    //     ticker.scrollBy({ left: speed, behavior: "auto" });
-
-    //     if (ticker.scrollLeft >= ticker.scrollWidth - ticker.offsetWidth) {
-    //       ticker.scrollLeft = 0; // Loop back to start
-    //     }
-    //   }
-    //   animationFrame = requestAnimationFrame(scroll);
-    // };
-
-    // animationFrame = requestAnimationFrame(scroll);
-
-    // return () => cancelAnimationFrame(animationFrame);
-
   },[])
-
-  // }, [isPaused]);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (tickerRef.current) {
-  //       tickerRef.current.scrollLeft = 0; // Reset on resize/fullscreen
-  //     }
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
 
   const candyMachines = balances.map((balance, index) => ({
     id: index + 1,
@@ -104,23 +62,7 @@ export const Card2025: FC = () => {
   }));
 
   return (
-    <div className="md:w-full">
-
-
-      <div>
-        {/* className={customstyles.newsTicker}
-        ref={tickerRef}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      > */}
-        {/* <div className={customstyles.newsTickerTrack} >
-          {newsItems.map((item, index) => (
-            <span key={index} className={customstyles.newsItem}>
-              {item}
-            </span>
-          ))}
-        </div> */}
-      </div>
+    <div className="">
 
       <div className="text-center p-3">
         <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-100 my-2">
@@ -131,15 +73,15 @@ export const Card2025: FC = () => {
             <div>Embodying the wisdom and mystique of the Year of the Snake, this NFT represents transformation, intelligence, and prosperity. By owning one or more of these unique collectibles, you tap into the Snake&apos;s energy—symbolizing intuition, adaptability, and resourcefulness. Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!</div>
           </p>
         </h4>
-      </div>
+      </div> 
 
-      <div style={styles.container}>
+    <div className="flex flex-wrap items-center text-center justify-center gap-4 md:flex-nowrap">
         {candyMachines.map((machine, index) => (
-          <div key={machine.id} style={styles.box}>
+          <div key={machine.id}>
             <Card className="flex">
               <CardContent className="flex aspect-square items-center justify-center p-1">
                 <span className="text-1xl text-black font-semibold">
-                  <Collapsible
+                <Collapsible
                     open={isOpenStates[index]}
                     onOpenChange={(isOpen) => {
                       const updatedStates = [...isOpenStates];
@@ -176,8 +118,8 @@ export const Card2025: FC = () => {
                     </CollapsibleContent>
                   </Collapsible>
                   <Image
-                    width={0}
-                    height={0}
+                    width={500}
+                    height={500}
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }} src={machine.image} alt={`Snake ${machine.id}`} />
                   <machine.MintComponent />
@@ -192,19 +134,3 @@ export const Card2025: FC = () => {
 
 };
 export default Card2025;
-
-const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "0px",
-  },
-  box: {
-    flex: 1,
-    margin: "0 10px",
-    textAlign: "center",
-    border: "0px solid #ccc",
-
-  },
-};
-
