@@ -15,7 +15,6 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from '@/components/ui/button';
-import CandiBarpng from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/CandiBarNoBG.png";
 
 export const DrawerWindow: FC = () => {
 

@@ -76,7 +76,7 @@ export const MintSnake03: FC = () => {
 
             getUserSOLBalance(wallet.publicKey, connection);
             setShowConfetti(true);
-            setTimeout(() => setShowConfetti(false), 5000); // Show confetti for 8 seconds
+            setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
 
         } catch (error: any) {
             notify({ type: 'error', message: `Error minting!`, description: error?.message });
