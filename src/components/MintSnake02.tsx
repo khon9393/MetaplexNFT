@@ -106,7 +106,7 @@ export const MintSnake02: FC = () => {
                     wind={0.02} // Slight drift
                     colors={["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd", "#ffbfd9"]}
                 />
-            )};
+            )}
         </div>
     );
 };

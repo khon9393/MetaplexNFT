@@ -2,7 +2,6 @@ import Link from "next/link";
 import dynamic from 'next/dynamic';
 import React, { useState } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
-import NetworkSwitcher from './NetworkSwitcher';
 import NavElement from './nav-element';
 
 const WalletMultiButtonDynamic = dynamic(
@@ -78,7 +77,7 @@ export const AppBar: React.FC = () => {
               style={{ transform: "rotate(135deg)" }}>
             </div>
         </label>
-      <div>
+      {/* <div>
         <span className="absolute block h-0.5 w-12 bg-zinc-600 rotate-90 right-14"></span>
       </div>
         <div className="dropdown dropdown-end">
@@ -99,7 +98,20 @@ export const AppBar: React.FC = () => {
               </div>
             </li>
           </ul>
-        </div>
+        </div> */}
+          <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-52">
+            <li>
+              {/* <div className="form-control bg-opacity-100">
+                <label className="cursor-pointer label">
+                  <a>Autoconnect</a>
+                  <input type="checkbox" checked={autoConnect} onChange={(e) => setAutoConnect(e.target.checked)} className="toggle" />
+                </label>
+                </div> */}
+            </li>
+          </ul>
+
+
+
         </div>
       </div>
                           
