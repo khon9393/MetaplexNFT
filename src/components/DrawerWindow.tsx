@@ -1,8 +1,8 @@
 
 import { FC} from 'react';
 import * as React from "react";
-import Candibar from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/CandiBarNoBG.png";
-import snake00 from "/home/ksayakho/myapp/Candibar/CandibarNFTs/public/2025/snake0_2025_500.jpg";
+import Candibar from "../../public/2025/CandiBarNoBG.png";
+import snake00 from "../../public/2025/snake0_2025_500.jpg";
 import Image from 'next/image'
 import {
   Drawer,
