@@ -79,7 +79,7 @@ export const MintSnake01: FC = () => {
 
             setShowFireworks(true);
 
-            setTimeout(() => setShowFireworks(false), 5000); // Fireworks for 8 seconds
+            setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 8 seconds
 
         } catch (error: any) {
             //notify({ type: 'error', message: `Error minting!`, description: error?.message });

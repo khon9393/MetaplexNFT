@@ -79,8 +79,8 @@ export const MintSnake04: FC = () => {
             getUserSOLBalance(wallet.publicKey, connection);
             setShowFireworks(true);
             setShowConfetti(true);
-            setTimeout(() => setShowFireworks(false), 5000); // Fireworks for 8 seconds
-            setTimeout(() => setShowConfetti(false), 5000); // Show confetti for 8 seconds
+            setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 8 seconds
+            setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
         } catch (error: any) {
             notify({ type: 'error', message: `Error minting!`, description: error?.message });
             console.log('error', `Mint failed! ${error?.message}`);
