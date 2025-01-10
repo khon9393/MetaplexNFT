@@ -34,23 +34,25 @@ export const DrawerWindow: FC = () => {
           <div className="mx-auto w-full max-w-sm">
             <DrawerHeader>
               <DrawerTitle className="text-black">Check back soon!</DrawerTitle>
-              <DrawerDescription>Value to your NFT is ###.###</DrawerDescription>
+              <DrawerDescription>Value to your NFT to Candibar tokens 500</DrawerDescription>
             </DrawerHeader>
             <div className="p-4 pb-0">
               <div className="flex items-center justify-center space-x-8"> {/* Adjust spacing */}
                 <img
-                  className="w-24 h-24 object-cover" /* Consistent image size */
+                  className="w-24 h-24 object-cover p-2" /* Consistent image size */
                   src={snake00.src}
                   alt="Snake NFT"
                 />
+                1 NFT
                 <span className="text-4xl font-bold text-gray-700 mx-4"> {/* Bigger arrow */}
                 &#10233;
                 </span>
                 <img
-                  className="w-24 h-24 object-cover" /* Consistent image size */
+                  className="w-24 h-24 object-cover p-2" /* Consistent image size */
                   src={Candibar.src}
                   alt="Candibar tokens"
                 />
+                500 Candibars
               </div>
             </div>
             <DrawerFooter>
