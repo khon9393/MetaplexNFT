@@ -45,7 +45,7 @@ export const HomeView: FC = ({ }) => {
           <span className="font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-teal-500 to-green-600 animate-pulse">
             &nbsp;prosperity
           </span>.
-          By owning one or more of these unique collectibles, you tap into the Snake's energy—symbolizing
+          By owning one or more of these unique collectibles, you tap into the Snake&apos;s energy—symbolizing
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 animate-pulse">
             &nbsp;intuition
           </span>,

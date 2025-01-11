@@ -27,8 +27,8 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const wallets = useMemo(
         () => [
             //new UnsafeBurnerWalletAdapter(),
-        ],
-        [network]
+        ],[]
+       // [network]
     );
 
     const onError = useCallback(

@@ -86,7 +86,7 @@ export const MintSnake01: FC = () => {
             //notify({ type: 'error', message: `Error minting!`, description: error?.message });
             console.log('error', `Mint failed! ${error?.message}`);
         }
-    }, [wallet, connection, getUserSOLBalance, umi, candyMachineAddress, treasury]);
+    }, [wallet, connection, getUserSOLBalance, umi]);
 
     return (
         <div className="flex flex-row justify-center">
