@@ -13,8 +13,10 @@ export function useNetworkConfiguration(): NetworkConfigurationState {
     return useContext(NetworkConfigurationContext);
 }
 
+                                                                                // mainnet-beta
+                                                                                // devnet
 export const NetworkConfigurationProvider: FC<{ children: ReactNode }> = ({ children }) => {
-    const [networkConfiguration, setNetworkConfiguration] = useLocalStorage("network", "Mainnet");
+    const [networkConfiguration, setNetworkConfiguration] = useLocalStorage("network", "mainnet-beta");
 
     return (
         <NetworkConfigurationContext.Provider value={{ networkConfiguration, setNetworkConfiguration }}>{children}</NetworkConfigurationContext.Provider>

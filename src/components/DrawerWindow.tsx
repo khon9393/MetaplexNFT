@@ -27,9 +27,10 @@ export const DrawerWindow: FC = () => {
     <div className="flex flex-row justify-center">
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="outline" className="text-black">Exchange NFT</Button>
+          <Button variant="outline" className="px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+          >Exchange NFT</Button>
         </DrawerTrigger>
-        <DrawerContent className="h-[43vh] bg-gray-400"> {/* Background color added */}
+        <DrawerContent className="h-[60vh] bg-gray-400"> {/* Background color added */}
           <div className="mx-auto w-full max-w-sm">
             <DrawerHeader>
               <DrawerTitle className="text-black">Check back soon!</DrawerTitle>
@@ -65,7 +66,9 @@ export const DrawerWindow: FC = () => {
             <DrawerFooter>
               <Button>Comming Soon!</Button>
               <DrawerClose asChild>
-                <Button variant="outline" className="text-black">Cancel</Button>
+             
+                <Button variant="outline" className="text-black"
+                >Cancel</Button>
               </DrawerClose>
             </DrawerFooter>
           </div>

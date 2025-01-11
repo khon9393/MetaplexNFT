@@ -10,7 +10,7 @@ import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
 import { clusterApiUrl } from '@solana/web3.js';
 import * as bs58 from 'bs58';
 import { mintV1, fetchCandyMachine, safeFetchCandyGuard, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-machine";
-const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC || clusterApiUrl('devnet');
+const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC || clusterApiUrl('mainnet-beta');
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const candyMachineAddress = publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01);
 const collectionMint = publicKey(process.env.NEXT_PUBLIC_COLLECTION_ID01);
@@ -65,6 +65,7 @@ export const MintSnake01: FC = () => {
                         collection: collectionMint,
                         mintArgs: {
                             solPayment: some({ destination: treasury }),
+                            mintLimit: some({ id: 1 }),
                         },
                     })
                 );

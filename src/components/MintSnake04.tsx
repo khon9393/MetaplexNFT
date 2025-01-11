@@ -66,6 +66,7 @@ export const MintSnake04: FC = () => {
                         collection: collectionMint,
                         mintArgs: {
                             solPayment: some({ destination: treasury }),
+                            mintLimit: some({ id: 1 }),
                         },
                     })
                 );
