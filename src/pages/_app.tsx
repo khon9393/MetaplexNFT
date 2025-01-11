@@ -8,8 +8,8 @@ import { Footer } from '../components/Footer';
 import Notifications from '../components/Notification'
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
-import { Card2025 } from 'components/Card2025';
-const App: FC = () => {
+
+const App: FC<AppProps> = ({ Component, pageProps }) => {
 
  const [isOpenStates, setIsOpenStates] = useState(false)
 
@@ -23,10 +23,7 @@ const App: FC = () => {
               <Notifications />
               <AppBar/>
               <ContentContainer>
-
-                {/* <Component {...pageProps} /> */}
-                <Card2025 />
-                {/* <br/> */}
+                 <Component {...pageProps} /> 
                 <Footer/>
               </ContentContainer>
             </div>

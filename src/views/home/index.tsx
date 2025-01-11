@@ -1,15 +1,15 @@
 // Next, React
 import { FC, useEffect, useState } from 'react';
-import Link from 'next/link';
 
 // Wallet
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 
 // Components
-import { Card2025 } from 'components/Card2025';
+import Card2025 from 'components/Card2025';
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
+
 
 export const HomeView: FC = ({ }) => {
   const wallet = useWallet();
@@ -26,34 +26,49 @@ export const HomeView: FC = ({ }) => {
   }, [wallet.publicKey, connection, getUserSOLBalance])
 
   return (
-    <div>
-      <div className="md:hero-content flex flex-col">
-        <div className='mt-6'>
-        </div>
-        <div className="relative group">
-          
-          <div className="max-w-md mx-autobg-primary border-2 border-[#5252529f] p-6 px-10 my-2">
-            <pre data-prefix=">">
-              {/* <code className="truncate">{<Card2025/>} </code> */}
-            </pre>
-          </div>
-        </div>
-        <div className="flex flex-col mt-2">
-          
-          <h4 className="md:w-full text-2xl text-slate-300 my-2">
-          {wallet &&
-          <div className="flex flex-row justify-center">
-            <div>
-              {(balance || 0).toLocaleString()}
-              </div>
-              <div className='text-slate-600 ml-2'>
-                SOL
-              </div>
-          </div>
-          }
-          </h4>
-        </div>
+    <div className="flex flex-col items-center justify-center p-2">
+
+      {/* <p className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-purple-600 drop-shadow-lg animate-pulse p-7"> */}
+      <p className="text-center text-4xl font-extrabold p-3">
+        Unlock the future of digital assets with Snake Coin 2025 NFT!
+      </p>
+
+      <div className="flex flex-col text-2xl items-center justify-center p-5">
+        <p className="text-center max-w-7xl leading-relaxed">
+          Embodying the wisdom and mystique of the Year of the Snake, this NFT represents
+          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
+            &nbsp;transformation
+          </span>,
+          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
+            &nbsp;intelligence
+          </span>, and
+          <span className="font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-teal-500 to-green-600 animate-pulse">
+            &nbsp;prosperity
+          </span>.
+          By owning one or more of these unique collectibles, you tap into the Snake's energy—symbolizing
+          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 animate-pulse">
+            &nbsp;intuition
+          </span>,
+          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-600 animate-pulse">
+            &nbsp;adaptability
+          </span>, and
+          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-green-500 to-teal-600 animate-pulse">
+            &nbsp;resourcefulness
+          </span>.
+          &nbsp;Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!
+        </p>
       </div>
+
+      <div className="flex items-center justify-center max-w-7xl p-2">
+        <Card2025 />
+      </div>
+      {/* <div className="mb-6 items-center mx-auto max-w-screen-lg p-7">
+      <DrawerWindow />
+      </div> */}
+      <div className="mb-6 items-center mx-auto max-w-screen-lg p-4">
+      Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
+      </div>
+     
     </div>
   );
 };

@@ -43,7 +43,7 @@ export const Footer: FC = () => {
                             </div>
                             <div className="flex md:ml-2">
 
-                            Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
+                           
                             
                                 {/* <a href="https://twitter.com/solana_devs" type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                                     <svg aria-hidden="true"
@@ -80,12 +80,13 @@ export const Footer: FC = () => {
 
 
                             </div>
-                            <div className="mb-6 m-1 sm:text-left place-items-start items-start font-normal tracking-tight text-secondary">
+                            {/* <div className="mb-6 m-1 sm:text-left place-items-start items-start font-normal tracking-tight text-secondary">
                                         © 2024 Candibarnft.io. 
                                       
-                            </div>
+                            </div> */}
 
                             <div className="disclaimer-container">
+                            © 2024 Candibarnft.io. 
       <h1 className="disclaimer-title">Legal Disclaimer</h1>
       <Accordion type="single" collapsible>
         {/* Accordion Item: No Investment Advice */}
@@ -172,7 +173,7 @@ export const Footer: FC = () => {
 
 
                         </div>
-
+                        
                         {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
                             <div className="font-normal capitalize mb-2.5">SOLANA</div>
 
@@ -198,10 +199,7 @@ export const Footer: FC = () => {
 
 
 
-                         <div className="mb-6 items-center mx-auto max-w-screen-lg">
-      
-                        <DrawerWindow />
-                        </div>
+
 
                         {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
                             <h5 className="font-normal tracking-tight  mb-2.5">ECOSYSTEM</h5>

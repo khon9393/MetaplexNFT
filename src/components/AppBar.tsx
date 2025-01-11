@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React, { useState } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 import NavElement from './nav-element';
-
+import NetworkSwitcher from './NetworkSwitcher';
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
@@ -17,12 +17,22 @@ export const AppBar: React.FC = () => {
       {/* NavBar / Header */}
       
       <div className="navbar flex h-20 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
-      <h1 className="text-center text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Candibar
+      <h1 className="text-center text-3xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
+      <Link href="https://candibarnft.io/"
+      target="_blank" rel="noopener noreferrer"
+      >
+            Candibarnft.io </Link>
         </h1>
-      
+        <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
+      |
+        </h1>
+        <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
+
+        <Link href="/">
+            Snake&nbsp;NFT&nbsp;2025 </Link>
+        </h1>
         <div className="navbar-start align-items-center">
-          <div className="hidden sm:inline w-22 h-22 md:p-2 ml-10">
+          {/* <div className="hidden sm:inline w-22 h-22 md:p-2 ml-10">
             <Link href="https://candibar.io" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
               <svg width="105%" height="24" viewBox="0 0 646 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                 
@@ -41,7 +51,7 @@ export const AppBar: React.FC = () => {
                 </defs>
               </svg>
             </Link>
-          </div>
+          </div> */}
           <WalletMultiButtonDynamic className="btn-ghost btn-sm relative flex md:hidden text-lg " />
         </div>
 
@@ -54,11 +64,23 @@ export const AppBar: React.FC = () => {
             href="/"
             navigationStarts={() => setIsNavOpen(false)}
           />
-          {/* <NavElement
+           {/* <NavElement
             label="Basics"
             href="/basics"
             navigationStarts={() => setIsNavOpen(false)}
-          /> */}
+          />  */}
+
+            <NavElement
+              label="Need&nbsp;Wallet?"
+              href="/getstarted"
+              navigationStarts={() => setIsNavOpen(false)}
+            />
+          <NavElement
+            label="NFT&nbsp;Swap"
+            href="/nftswap"
+            navigationStarts={() => setIsNavOpen(false)}
+          /> 
+          
           <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mr-6 " />
         </div>
           <label
@@ -77,7 +99,7 @@ export const AppBar: React.FC = () => {
               style={{ transform: "rotate(135deg)" }}>
             </div>
         </label>
-      {/* <div>
+       {/* <div>
         <span className="absolute block h-0.5 w-12 bg-zinc-600 rotate-90 right-14"></span>
       </div>
         <div className="dropdown dropdown-end">
@@ -98,8 +120,10 @@ export const AppBar: React.FC = () => {
               </div>
             </li>
           </ul>
-        </div> */}
-          <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-52">
+        </div>  */}
+        
+        <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
+          {/* <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-52"> */}
             <li>
               {/* <div className="form-control bg-opacity-100">
                 <label className="cursor-pointer label">

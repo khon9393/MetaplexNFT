@@ -11,7 +11,6 @@ import { MintSnake03 } from "../components/MintSnake03"
 import { MintSnake04 } from "../components/MintSnake04"
 import { getCandyMachinesBalance } from '../stores/useCandyMachine';
 import { publicKey } from '@metaplex-foundation/umi';
-import customstyles from "../styles/NewsTicker.module.css";
 
 import {
   Collapsible,
@@ -64,7 +63,7 @@ export const Card2025: FC = () => {
   return (
     <div className="">
 
-      <div className="text-center p-3">
+      {/* <div className="text-center p-3">
         <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-100 my-2">
 
           <p>Unlock the future of digital assets with Snake Coin 2025 NFT!</p>
@@ -73,7 +72,9 @@ export const Card2025: FC = () => {
             <div>Embodying the wisdom and mystique of the Year of the Snake, this NFT represents transformation, intelligence, and prosperity. By owning one or more of these unique collectibles, you tap into the Snake&apos;s energy—symbolizing intuition, adaptability, and resourcefulness. Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!</div>
           </p>
         </h4>
-      </div> 
+      </div>  */}
+
+    
 
     <div className="flex flex-wrap items-center text-center justify-center gap-4 md:flex-nowrap">
         {candyMachines.map((machine, index) => (
@@ -106,9 +107,6 @@ export const Card2025: FC = () => {
                       {/* {machine.cost} */}
                     </div>
                     <CollapsibleContent className="space-y-2">
-                      <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                        mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                      </div>
                       <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
                         Candibar value: {machine.candibarValue}
                       </div>
