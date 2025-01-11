@@ -119,7 +119,7 @@ export const GetStartedView: FC = ({ }) => {
           <section>
           <h3 className="text-2xl font-semibold mb-4">Step 3: Start Exploring</h3>
           <p>
-            Now that your wallet is set up and funded, you are ready to return to the home page and connect your wallet to access the 2025 Snake Collection NFTs. Start your journey and claim your piece of this exclusive collection today!
+            Now that your wallet is set up and funded, you&apos;re ready to return to the home page and connect your wallet to access the 2025 Snake Collection NFTs. Start your journey and claim your piece of this exclusive collection today!
           </p>
         </section>
         </article>

@@ -33,7 +33,7 @@ export const MintSnake02: FC = () => {
             .use(walletAdapterIdentity(wallet))
             .use(mplCandyMachine())
             .use(mplTokenMetadata()),
-        [wallet, mplCandyMachine, walletAdapterIdentity, mplTokenMetadata, quicknodeEndpoint, createUmi]
+        [wallet]
     );
 
     const onClick = useCallback(async () => {
@@ -84,7 +84,7 @@ export const MintSnake02: FC = () => {
             notify({ type: 'error', message: `Error minting!`, description: error?.message });
             console.log('error', `Mint failed! ${error?.message}`);
         }
-    }, [wallet, connection, getUserSOLBalance, umi, candyMachineAddress, treasury]);
+    }, [wallet, connection, getUserSOLBalance, umi]);
 
     return (
         <div className="flex flex-row justify-center">
