@@ -26,7 +26,6 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
               <Component {...pageProps} /> 
               <Footer/>
               </ContentContainer>
-
             </div>
           </ContextProvider>
         </>
