@@ -28,6 +28,18 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           />
           </li>
           <li>
+          <NavElement
+            label="Need&nbsp;Wallet?"
+            href="/getstarted"
+          />
+          </li>
+          <li>
+          <NavElement
+            label="NFT&nbsp;Swap"
+            href="/nftswap"
+          />
+          </li>
+          <li>
           {/* <NavElement
             label="Basics"
             href="/basics"
