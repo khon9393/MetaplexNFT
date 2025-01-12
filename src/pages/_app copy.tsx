@@ -13,27 +13,24 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 
  const [isOpenStates, setIsOpenStates] = useState(false)
 
- return (
-  <>
-    <Head>
-      <title>Candibarnft.io</title>
-    </Head>
-    <ContextProvider>
-      {/* Ensure full height and centered content */}
-      <div className="flex flex-col min-h-screen w-full">
-        <Notifications />
-        <AppBar />
-     
-          {/* Center content within ContentContainer */}
-          <div className="flex flex-grow flex-col justify-center items-center w-full">
-            <Component {...pageProps} />
-          </div>
-          <Footer />
-   
-      </div>
-    </ContextProvider>
-  </>
-);
+    return (
+        <>
+          <Head>
+            <title>Candibarnft.io</title>
+          </Head>
+          <ContextProvider>
+            <div className="flex flex-col h-screen">
+              <Notifications />
+              <AppBar/>
+              {/* <ContentContainer>
+
+              </ContentContainer> */}
+                <Component {...pageProps} /> 
+                <Footer/>
+            </div>
+          </ContextProvider>
+        </>
+    );
 };
 
 export default App;
