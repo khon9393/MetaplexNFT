@@ -59,7 +59,7 @@ export const HomeView: FC = ({ }) => {
         </p>
       </div>
 
-      <div className="flex items-center justify-center max-w-7xl p-2">
+      <div className="flex p-2">
         <Card2025 />
       </div>
       {/* <div className="mb-6 items-center mx-auto max-w-screen-lg p-7">
