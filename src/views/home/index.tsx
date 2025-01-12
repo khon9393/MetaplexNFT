@@ -26,15 +26,15 @@ export const HomeView: FC = ({ }) => {
   }, [wallet.publicKey, connection, getUserSOLBalance])
 
   return (
-    <div className="">
+    <div className="flex flex-col items-center justify-center p-2">
 
       {/* <p className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-purple-600 drop-shadow-lg animate-pulse p-7"> */}
-      <p className="text-center text-4xl font-extrabold p-3">
+      <p className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with Snake Coin 2025 NFT!
       </p>
 
       <div className="flex flex-col text-2xl items-center justify-center p-5">
-        <p className="text-center max-w-7xl leading-relaxed">
+        <p className="text-center max-w-5xl leading-relaxed">
           Embodying the wisdom and mystique of the Year of the Snake, this NFT represents
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
             &nbsp;transformation
