@@ -19,7 +19,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             <title>Candibarnft.io</title>
           </Head>
           <ContextProvider>
-            <div className="flex flex-col h-screen">
+            <div className="flex flex-col h-screen w-full">
               <Notifications />
               <AppBar/>
               <ContentContainer>
