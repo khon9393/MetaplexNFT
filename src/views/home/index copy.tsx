@@ -26,7 +26,7 @@ export const HomeView: FC = ({ }) => {
   }, [wallet.publicKey, connection, getUserSOLBalance])
 
   return (
-    <div className="">
+    <div className="flex flex-col items-center justify-center p-2">
 
       {/* <p className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-purple-600 drop-shadow-lg animate-pulse p-7"> */}
       <p className="text-center text-4xl font-extrabold p-3">
