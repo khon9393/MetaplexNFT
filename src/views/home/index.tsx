@@ -27,10 +27,8 @@ export const HomeView: FC = ({ }) => {
 
   return (
     <div className="">
-      {/* <div className="flex items-center justify-center max-w-7xl p-2"> */}
         <Card2025 />
       </div>
-    // </div>
   );
 };
 

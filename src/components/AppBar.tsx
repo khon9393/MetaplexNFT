@@ -21,16 +21,16 @@ export const AppBar: React.FC = () => {
       <Link href="https://candibarnft.io/"
       target="_blank" rel="noopener noreferrer"
       >
-            Candibarnft.io </Link>
+            Candibar </Link>
         </h1>
-        <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
+        {/* <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
       |
         </h1>
         <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
 
         <Link href="/">
             Snake&nbsp;NFT&nbsp;2025 </Link>
-        </h1>
+        </h1> */}
         <div className="navbar-start align-items-center">
           {/* <div className="hidden sm:inline w-22 h-22 md:p-2 ml-10">
             <Link href="https://candibar.io" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
