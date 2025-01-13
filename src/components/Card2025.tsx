@@ -132,7 +132,8 @@ export const Card2025: FC = () => {
                       </CollapsibleTrigger>
                     </div>
                     <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                      SOL cost: {parseFloat(machine.cost).toFixed(1)} | mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                      SOL cost: {parseFloat(machine.cost).toFixed(1)} | 
+                      mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                       {/* {machine.cost} */}
                     </div>
                     <CollapsibleContent className="space-y-2">
