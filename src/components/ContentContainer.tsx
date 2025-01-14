@@ -8,10 +8,13 @@ interface Props {
 export const ContentContainer: React.FC<Props> = ({ children }) => {
 
   return (
-    <div className="flex-1 h-52 flex-col justify-between">
-      <div className="items-center flex flex-col justify-between">
-        {children}
+    <div className="flex-col justify-between relative">
+    <div className="flex-1 drawer drawer-content">
+      <input id="my-drawer" type="checkbox" className="grow drawer-toggle" />
+      <div className="absolute top-0 left-0 w-full h-full">
+      {children}
       </div>
+     
       {/* SideBar / Drawer */}
       <div className="drawer-side">
         <label htmlFor="my-drawer" className="drawer-overlay gap-6"></label>
@@ -46,6 +49,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           </li>
         </ul>
       </div>
+    </div>
     </div>
   );
 };

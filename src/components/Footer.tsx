@@ -1,35 +1,35 @@
 import { FC, useState } from 'react';
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from "@/components/ui/accordion"
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { Button } from '@/components/ui/button';
 import { DrawerWindow } from './DrawerWindow';
-  
+
 
 export const Footer: FC = () => {
 
-      const [isOpenStates, setIsOpenStates] = useState([false]);
+  const [isOpenStates, setIsOpenStates] = useState([false]);
 
-    return (
-        <div className="flex">
-           
-            <footer className="border-t-2 border-[#141414] bg-black hover:text-white w-screen" >
-                 <div className="ml-12 py-12 mr-12">
-                    <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-8 md:space-x-12 relative">
-                        <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
-                            <div className='flex flex-row ml-1'>
+  return (
+    <div className="flex">
+
+      <footer className="border-t-2 border-[#141414] bg-black hover:text-white w-screen" >
+        <div className="ml-12 py-12 mr-12">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-8 md:space-x-12 relative">
+            <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
+              <div className='flex flex-row ml-1'>
 
 
-            {/* <footer className="" >
+                {/* <footer className="" >
                 <div className="">
                     <div className="">
                         <div className=''>
                             <div className='flex flex-row ml-1'> */}
 
-                                {/* <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
+                {/* <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
                                     <div className='flex flex-row ml-1'>
                                         <Image
                                             src="/solanaLogo.png"
@@ -40,12 +40,12 @@ export const Footer: FC = () => {
                                     </div>
                                 </Link> */}
 
-                            </div>
-                            <div className="flex md:ml-2">
+              </div>
+              <div className="flex md:ml-2">
 
-                           
-                            
-                                {/* <a href="https://twitter.com/solana_devs" type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+
+
+                {/* <a href="https://twitter.com/solana_devs" type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                                     <svg aria-hidden="true"
                                         focusable="false"
                                         data-prefix="fab"
@@ -79,129 +79,106 @@ export const Footer: FC = () => {
                                 </a> */}
 
 
-                            </div>
-                            {/* <div className="mb-6 m-1 sm:text-left place-items-start items-start font-normal tracking-tight text-secondary">
+              </div>
+              {/* <div className="mb-6 m-1 sm:text-left place-items-start items-start font-normal tracking-tight text-secondary">
                                         © 2024 Candibarnft.io. 
                                       
                             </div> */}
 
-                            <div className="disclaimer-container">
-                            © 2024 Candibarnft.io. 
-      <h1 className="disclaimer-title">Legal Disclaimer</h1>
-      <Accordion type="single" collapsible>
-        {/* Accordion Item: No Investment Advice */}
-        <AccordionItem value="no-investment-advice">
-          <AccordionTrigger>No Investment Advice</AccordionTrigger>
-          <AccordionContent>
-            <p>
-              The content on this website, including information about Candibar
-              Crypto and NFTs, is provided for{" "}
-              <strong>fun, entertainment, and educational purposes only</strong>
-              . It is not intended to provide financial, investment, or legal
-              advice. Any decisions you make based on the content of this
-              website are your sole responsibility.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
+              <div className="disclaimer-container">
 
-        {/* Accordion Item: No Liability */}
-        <AccordionItem value="no-liability">
-          <AccordionTrigger>No Liability</AccordionTrigger>
-          <AccordionContent>
-            <p>
-              We hold no liability for any loss, damage, or harm resulting from
-              the use of this website or participation in Candibar Crypto and
-              NFTs. By accessing or using this site, you agree that you are
-              engaging with the platform at your own risk.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
+                <h1 className="disclaimer-title">Legal Disclaimer</h1>
+                <Accordion type="single" collapsible>
+                  {/* Accordion Item: No Investment Advice */}
+                  <AccordionItem value="no-investment-advice">
+                    <AccordionTrigger>No Investment Advice</AccordionTrigger>
+                    <AccordionContent>
+                      <p>
+                        The content on this website, including information about Candibar
+                        Crypto and NFTs, is provided for{" "}
+                        <strong>fun, entertainment, and educational purposes only</strong>
+                        . It is not intended to provide financial, investment, or legal
+                        advice. Any decisions you make based on the content of this
+                        website are your sole responsibility.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
 
-        {/* Accordion Item: Not a Financial Product */}
-        <AccordionItem value="not-a-financial-product">
-          <AccordionTrigger>Not a Financial Product</AccordionTrigger>
-          <AccordionContent>
-            <p>
-              Candibar Crypto and NFTs are not financial products or securities.
-              They are designed solely as a form of digital entertainment and
-              creativity. This website does not facilitate or encourage
-              investment activity or speculative trading.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
+                  {/* Accordion Item: No Liability */}
+                  <AccordionItem value="no-liability">
+                    <AccordionTrigger>No Liability</AccordionTrigger>
+                    <AccordionContent>
+                      <p>
+                        We hold no liability for any loss, damage, or harm resulting from
+                        the use of this website or participation in Candibar Crypto and
+                        NFTs. By accessing or using this site, you agree that you are
+                        engaging with the platform at your own risk.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
 
-        {/* Accordion Item: Educational Purpose Only */}
-        <AccordionItem value="educational-purpose-only">
-          <AccordionTrigger>Educational Purpose Only</AccordionTrigger>
-          <AccordionContent>
-            <p>
-              Any references to cryptocurrency, blockchain technology, or NFTs
-              are intended to educate and inform users about these technologies.
-              This website does not guarantee the accuracy, completeness, or
-              reliability of its content.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
+                  {/* Accordion Item: Not a Financial Product */}
+                  <AccordionItem value="not-a-financial-product">
+                    <AccordionTrigger>Not a Financial Product</AccordionTrigger>
+                    <AccordionContent>
+                      <p>
+                        Candibar Crypto and NFTs are not financial products or securities.
+                        They are designed solely as a form of digital entertainment and
+                        creativity. This website does not facilitate or encourage
+                        investment activity or speculative trading.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
 
-        {/* Accordion Item: Age and Jurisdiction */}
-        <AccordionItem value="age-and-jurisdiction">
-          <AccordionTrigger>Age and Jurisdiction</AccordionTrigger>
-          <AccordionContent>
-            <p>
-              This platform is intended for users who are legally permitted to
-              access cryptocurrency and NFT-related content in their respective
-              jurisdictions. It is the user’s responsibility to ensure
-              compliance with local laws and regulations.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
+                  {/* Accordion Item: Educational Purpose Only */}
+                  <AccordionItem value="educational-purpose-only">
+                    <AccordionTrigger>Educational Purpose Only</AccordionTrigger>
+                    <AccordionContent>
+                      <p>
+                        Any references to cryptocurrency, blockchain technology, or NFTs
+                        are intended to educate and inform users about these technologies.
+                        This website does not guarantee the accuracy, completeness, or
+                        reliability of its content.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
 
-        {/* Accordion Item: Changes to this Disclaimer */}
-        <AccordionItem value="changes-to-disclaimer">
-          <AccordionTrigger>Changes to this Disclaimer</AccordionTrigger>
-          <AccordionContent>
-            <p>
-              We reserve the right to update or modify this disclaimer at any
-              time without prior notice. Continued use of the website
-              constitutes acceptance of the updated terms.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </div>
+                  {/* Accordion Item: Age and Jurisdiction */}
+                  <AccordionItem value="age-and-jurisdiction">
+                    <AccordionTrigger>Age and Jurisdiction</AccordionTrigger>
+                    <AccordionContent>
+                      <p>
+                        This platform is intended for users who are legally permitted to
+                        access cryptocurrency and NFT-related content in their respective
+                        jurisdictions. It is the user’s responsibility to ensure
+                        compliance with local laws and regulations.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
 
+                  {/* Accordion Item: Changes to this Disclaimer */}
+                  <AccordionItem value="changes-to-disclaimer">
+                    <AccordionTrigger>Changes to this Disclaimer</AccordionTrigger>
+                    <AccordionContent>
+                      <p>
+                        We reserve the right to update or modify this disclaimer at any
+                        time without prior notice. Continued use of the website
+                        constitutes acceptance of the updated terms.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
 
+            </div>
 
-                        </div>
-                        
-                        {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
-                            <div className="font-normal capitalize mb-2.5">SOLANA</div>
+            <div className="mb-6 items-center mx-auto max-w-screen-lg">
+              <div className="font-normal capitalize mb-2.5">
+                © 2024 Candibarnft.io.
+              </div>
+            </div>
 
-                            <div className="flex flex-col mb-0 gap-2">
-                                <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Labs
-                                </Link>
-                                <Link href="https://solana.org" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Foundation
-                                </Link>
-                                <Link href="https://solanamobile.com/" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Solana Mobile
-                                </Link>
-                                <Link href="https://solanapay.com/" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Solana Pay
-                                </Link>
-                                <Link href="https://solana.org/grants" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Grants
-                                </Link>
-                            </div>
-                        </div>
-*/}
-
-
-
-
-
-                        {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
+            {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
                             <h5 className="font-normal tracking-tight  mb-2.5">ECOSYSTEM</h5>
 
                             <div className="flex flex-col mb-0 gap-2">
@@ -228,9 +205,9 @@ export const Footer: FC = () => {
 
 
 
-                    </div>
-                </div>
-            </footer>
+          </div>
         </div>
-    );
+      </footer>
+    </div>
+  );
 };
