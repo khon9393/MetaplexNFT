@@ -61,7 +61,7 @@ export const Card2025: FC = () => {
   }));
 
   return (
-    <div className="text-center flex flex-col">
+    <div className="">
 
       {/* <div className="text-center p-3">
         <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-100 my-2">
@@ -75,16 +75,16 @@ export const Card2025: FC = () => {
       </div>  */}
 
         {/* <p className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-purple-600 drop-shadow-lg animate-pulse p-7"> */}
-        <p className="text-4xl font-extrabold p-3">
+        <p className="text-center text-4xl font-extrabold p-3">
         Unlock the future of digital assets with Snake Coin 2025 NFT!
       </p>
 
-      <div className="text-2xl p-5">
-        <p className="max-w-7xl leading-relaxed">
+      <div className="flex flex-col text-2xl items-center justify-center p-5">
+        <p className="text-center max-w-7xl leading-relaxed">
           Embodying the wisdom and mystique of the Year of the Snake, this NFT represents
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
-            &nbsp;transformation
-          </span>,
+            &nbsp;transformation,
+          </span>
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
             &nbsp;intelligence
           </span>, and
@@ -105,7 +105,7 @@ export const Card2025: FC = () => {
         </p>
       </div>  
 
-    <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap">
+    <div className="flex flex-wrap items-center text-center justify-center gap-4 md:flex-nowrap">
         {candyMachines.map((machine, index) => (
           <div key={machine.id}>
             <Card className="flex">
@@ -157,7 +157,7 @@ export const Card2025: FC = () => {
           </div>
         ))}
       </div>
-      <div className="mb-6 p-4">
+      <div className="mb-6 items-center mx-auto max-w-screen-lg p-4">
       Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
       </div>
     </div>
