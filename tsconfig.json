@@ -22,7 +22,7 @@
       ]
     },
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "middleware.ts"],
   "exclude": ["node_modules", ".next",],
   "ts-node": {
     "require": ["tsconfig-paths/register"],
