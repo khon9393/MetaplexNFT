@@ -5,11 +5,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prod": "npm run build && npm run start"
+    "start": "node server.js",
+    "lint": "next lint"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
@@ -37,6 +36,7 @@
     "clsx": "^2.1.1",
     "daisyui": "^1.24.3",
     "date-fns": "^2.29.3",
+    "heroku-ssl-redirect": "^0.1.1",
     "immer": "^9.0.12",
     "lucide-react": "^0.469.0",
     "next": "^13.1.5",
