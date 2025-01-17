@@ -41,6 +41,7 @@
     "lucide-react": "^0.469.0",
     "next": "^13.1.5",
     "next-compose-plugins": "^2.2.1",
+    "next-ssl-redirect-middleware": "^0.1.5",
     "next-transpile-modules": "^10.0.0",
     "prod": "^1.0.1",
     "react": "^18.2.0",
