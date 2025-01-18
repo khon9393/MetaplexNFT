@@ -51,10 +51,11 @@ export const AppBar: React.FC = () => {
                 </defs>
               </svg>
             </Link>
-          </div> */}
+          </div> 
           <WalletMultiButtonDynamic className="btn-ghost btn-sm relative flex md:hidden text-lg " />
-        </div>
-
+        
+*/}
+</div>
         {/* Nav Links */}
         {/* Wallet & Settings */}
         <div className="navbar-end">
