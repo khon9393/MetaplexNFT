@@ -146,8 +146,8 @@ export const Card2025: FC = () => {
                     </CollapsibleContent>
                   </Collapsible>
                   <Image
-                    width={300}
-                    height={300}
+                    width={500}
+                    height={500}
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }} src={machine.image} alt={`Snake ${machine.id}`} />
                   <machine.MintComponent />
