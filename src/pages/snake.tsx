@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { SnakeView } from "../views";
+import { SnakeView } from "views";
 
 const Candi0: NextPage = (props) => {
 

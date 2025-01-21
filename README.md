@@ -127,8 +127,3 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
-for Heroku
-
-next-ssl-redirect-middleware
-https://www.npmjs.com/package/next-ssl-redirect-middleware
-npm i next-ssl-redirect-middleware
