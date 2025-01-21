@@ -23,7 +23,6 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           <li>
             <Text variant="heading" className='font-extrabold tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10'>Menu</Text>
           </li>
-          <li>
           <NavElement
             label="Home"
             href="/"
@@ -46,17 +45,11 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
                 href="/nftswap"
               />
           </li>
-          </li>
+
           <li>
           <NavElement
             label="Need&nbsp;Wallet?"
             href="/getstarted"
-          />
-          </li>
-          <li>
-          <NavElement
-            label="NFT&nbsp;Swap"
-            href="/nftswap"
           />
           </li>
           <li>
