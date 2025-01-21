@@ -6,7 +6,6 @@ import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 
 // Components
 import Card2025 from 'components/Card2025';
-import Card2025_candi0 from 'components/Card2025_Candi0';
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
