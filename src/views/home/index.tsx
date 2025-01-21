@@ -33,26 +33,23 @@ export const HomeView: FC = ({ }) => {
         🍭 Introducing the Candibar NFT Collection! 🍭
       </h1>
       <h2 className="text-xl text-pink-400 mt-2">
-        5,000 Sweet Opportunities to Own a Piece of Digital Art on Solana!
+        1,000 Sweet Opportunities to Own a Piece of Digital Art on Solana!
       </h2>
       <p className="text-gray-700 mt-4">
   The <span className="text-pink-600 font-bold">Candibar NFT Collection</span> is here to redefine sweetness in the digital world! 
-  This exclusive collection of <span className="text-pink-600 font-bold">5,000 NFTs&nbsp;</span> 
+  This exclusive collection of <span className="text-pink-600 font-bold">1,000 NFTs&nbsp;</span> 
   is your golden ticket to owning a unique piece of digital art and joining a thriving community of passionate enthusiasts.
 </p>
 <h3 className="text-2xl text-pink-600 font-semibold mt-6">🍬 Why Candibar NFTs?</h3>
 <ul className="text-left list-disc list-inside mx-auto text-gray-700 mt-4 space-y-2">
   <li>
-    <strong>Limited mints:</strong> With only 5,000 NFTs, each Candibar is a rare digital collectible designed to stand out in any portfolio.
+    <strong>Limited mints:</strong> With only 1,000 NFTs, each Candibar is a rare digital collectible designed to stand out in any portfolio.
   </li>
   <li>
     <strong>Built on Solana:</strong> Enjoy blazing-fast transactions, ultra-low fees, and a blockchain ecosystem that prioritizes sustainability and innovation.
   </li>
   <li>
-    <strong>Exclusive perks:</strong> Candibar NFT holders gain access to special events, community rewards, and early access to future drops.
-  </li>
-  <li>
-    <strong>Artistic excellence:</strong> Each NFT is a vibrant, handcrafted piece of digital art inspired by the sweet world of candies.
+    <strong>Artistic excellence:</strong> Each NFT is a vibrant piece of digital art inspired by the sweet world of candies.
   </li>
   <li>
     <strong>Community-driven:</strong> Be part of a passionate community of collectors and enthusiasts, with opportunities to connect, collaborate, and grow together.
@@ -100,9 +97,6 @@ export const HomeView: FC = ({ }) => {
       </li>
       <li>
         <strong>Intuition & Adaptability:</strong> Embodying the Snake&apos;s ability to adapt and transform, these NFTs represent personal growth and renewal.
-      </li>
-      <li>
-        <strong>Exclusive Perks:</strong> Holders will receive access to future collections, exclusive events, and more.
       </li>
     </ul>
     <p className="text-gray-700 mt-6">
