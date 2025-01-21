@@ -11,8 +11,6 @@ require('../styles/globals.css');
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 
- const [isOpenStates, setIsOpenStates] = useState(false)
-
     return (
         <>
           <Head>

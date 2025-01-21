@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { CandiView0, HomeView } from "../views";
+import { SnakeView } from "../views";
 
-const Home: NextPage = (props) => {
+const Candi0: NextPage = (props) => {
 
   return (
     <div>
@@ -10,12 +10,12 @@ const Home: NextPage = (props) => {
         <title>Candibarnft.io</title>
         <meta
           name="Candibar"
-          content="Candibar NFT"
+          content="Candi"
         />
       </Head>
-      <HomeView />
+      <SnakeView />
     </div>
   );
 };
 
-export default Home;
+export default Candi0;

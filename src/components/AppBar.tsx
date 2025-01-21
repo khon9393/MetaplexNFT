@@ -4,6 +4,22 @@ import React, { useState } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 import NavElement from './nav-element';
 import NetworkSwitcher from './NetworkSwitcher';
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
@@ -60,27 +76,49 @@ export const AppBar: React.FC = () => {
         {/* Wallet & Settings */}
         <div className="navbar-end">
           <div className="hidden md:inline-flex align-items-center justify-items gap-6">
+
           <NavElement
             label="Home"
             href="/"
             navigationStarts={() => setIsNavOpen(false)}
           />
-           {/* <NavElement
-            label="Basics"
-            href="/basics"
-            navigationStarts={() => setIsNavOpen(false)}
-          />  */}
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+              <Button variant="link" className="text-white text-lg">NFTs</Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-auto">
+              <DropdownMenuGroup>
+              <DropdownMenuItem>
+              <NavElement
+                label="Candi NFT"
+                href="/candi0"
+                navigationStarts={() => setIsNavOpen(false)}
+              />
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+              <NavElement
+                label="Snake NFT"
+                href="/snake"
+                navigationStarts={() => setIsNavOpen(false)}
+              />
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+              <NavElement
+                label="NFT Swap"
+                href="/nftswap"
+                navigationStarts={() => setIsNavOpen(false)}
+              />
+              </DropdownMenuItem>
+              </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <NavElement
               label="Need&nbsp;Wallet?"
               href="/getstarted"
               navigationStarts={() => setIsNavOpen(false)}
             />
-          <NavElement
-            label="NFT&nbsp;Swap"
-            href="/nftswap"
-            navigationStarts={() => setIsNavOpen(false)}
-          /> 
           
           <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mr-6 " />
         </div>
