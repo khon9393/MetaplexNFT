@@ -7,10 +7,10 @@ const Candi0: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibarnft.io</title>
+        <title>Candibarnft - Snake NFT</title>
         <meta
-          name="Candibar"
-          content="Candi"
+          name="Candibar NFT - Get Snake NFT"
+          content="Snake NFT"
         />
       </Head>
       <SnakeView />
