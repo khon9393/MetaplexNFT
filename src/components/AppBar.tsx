@@ -3,22 +3,9 @@ import dynamic from 'next/dynamic';
 import React, { useState } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 import NavElement from './nav-element';
+import { CandiNavigationMenu } from './nav-element/navmenu';
 import NetworkSwitcher from './NetworkSwitcher';
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+
 
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
@@ -37,7 +24,7 @@ export const AppBar: React.FC = () => {
       <Link href="https://candibarnft.com/"
       target="_blank" rel="noopener noreferrer"
       >
-            Candibar NFT</Link>
+            Candibar&nbsp;NFT</Link>
         </h1>
         {/* <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
       |
@@ -75,44 +62,14 @@ export const AppBar: React.FC = () => {
         {/* Nav Links */}
         {/* Wallet & Settings */}
         <div className="navbar-end">
-          <div className="hidden md:inline-flex align-items-center justify-items gap-6">
+            <div className="hidden md:inline-flex items-center justify-center gap-6">
+            <NavElement
+              label="Home"
+              href="/"
+              navigationStarts={() => setIsNavOpen(false)}
+            />
 
-          <NavElement
-            label="Home"
-            href="/"
-            navigationStarts={() => setIsNavOpen(false)}
-          />
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-              <Button variant="link" className="text-white text-lg">NFTs</Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-auto">
-              <DropdownMenuGroup>
-              <DropdownMenuItem>
-              <NavElement
-                label="Candi NFT"
-                href="/candi0"
-                navigationStarts={() => setIsNavOpen(false)}
-              />
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-              <NavElement
-                label="Snake NFT"
-                href="/snake"
-                navigationStarts={() => setIsNavOpen(false)}
-              />
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-              <NavElement
-                label="NFT Swap"
-                href="/nftswap"
-                navigationStarts={() => setIsNavOpen(false)}
-              />
-              </DropdownMenuItem>
-              </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <CandiNavigationMenu />
 
             <NavElement
               label="Need&nbsp;Wallet?"
