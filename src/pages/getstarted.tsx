@@ -6,10 +6,10 @@ const GetStarted: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Get Started</title>
+        <title>Candibar NFT - Get Started</title>
         <meta
-          name="description"
-          content="Get Started Functionality"
+          name="Candibar NFT - Get Started"
+          content="Get Started Solana Wallet"
         />
       </Head>
       <GetStartedView />

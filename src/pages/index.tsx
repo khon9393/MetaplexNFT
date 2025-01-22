@@ -7,9 +7,9 @@ const Home: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibarnft.io</title>
+        <title>Candibar NFT</title>
         <meta
-          name="Candibar"
+          name="Candibar NFT Home"
           content="Candibar NFT"
         />
       </Head>

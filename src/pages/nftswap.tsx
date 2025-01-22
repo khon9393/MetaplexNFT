@@ -6,10 +6,10 @@ const NFTSwap: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibarnft.io</title>
+        <title>Candibarnft - NFT Swap</title>
         <meta
-          name="description"
-          content="Basic Functionality"
+          name="Candibar NFT - Swap NFT"
+          content="Swap NFT for Candibar tokens"
         />
       </Head>
       <NFTSwapView />

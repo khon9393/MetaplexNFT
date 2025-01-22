@@ -9,8 +9,8 @@ const Candi0: NextPage = (props) => {
       <Head>
         <title>Candibarnft.io</title>
         <meta
-          name="Candibar"
-          content="Candi"
+          name="Candibar NFT - Get Candi NFT"
+          content="Candi NFT"
         />
       </Head>
       <CandiView0 />
