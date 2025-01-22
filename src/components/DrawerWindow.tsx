@@ -34,7 +34,7 @@ export const DrawerWindow: FC = () => {
           <div className="mx-auto w-full max-w-sm">
             <DrawerHeader>
               <DrawerTitle className="text-black">Check back soon!</DrawerTitle>
-              <DrawerDescription>Value to your NFT to Candibar tokens 500</DrawerDescription>
+              <DrawerDescription>Value of your NFT to Candibar tokens is 500</DrawerDescription>
             </DrawerHeader>
             <div className="p-4 pb-0">
               <div className="flex items-center justify-center space-x-8"> {/* Adjust spacing */}
