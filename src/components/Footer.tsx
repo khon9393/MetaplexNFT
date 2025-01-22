@@ -150,7 +150,7 @@ export const Footer: FC = () => {
                       <p>
                         This platform is intended for users who are legally permitted to
                         access cryptocurrency and NFT-related content in their respective
-                        jurisdictions. It is the user’s responsibility to ensure
+                        jurisdictions. It is the user&apos;s responsibility to ensure
                         compliance with local laws and regulations.
                       </p>
                     </AccordionContent>
@@ -174,7 +174,7 @@ export const Footer: FC = () => {
 
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
               <div className="font-normal capitalize mb-2.5">
-                © 2024 Candibarnft.io.
+                © 2024 Candibarnft.com
               </div>
             </div>
 

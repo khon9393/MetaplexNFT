@@ -67,7 +67,7 @@ export const MintCandiRandom: FC = () => {
                         collection: collectionMint,
                         mintArgs: {
                             solPayment: some({ destination: treasury }),
-                            mintLimit: some({ id: 1 }),
+                            mintLimit: some({ id: 2 }),
                         },
                     })
                 );
