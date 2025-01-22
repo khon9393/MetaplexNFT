@@ -78,10 +78,11 @@ export const Card2025_candi0: FC = () => {
 
   return (
 <>   
-
     <div className="text-center justify-center flex flex-col">
-      <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap">
+      <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap mt-4">
+        <Carousel setApi={setApi} className="w-full max-w-lg">
         {candyMachines.map((machine, index) => (
+          
           <div key={machine.id} className="w-full max-w-lg">
             <Collapsible
               open={isOpenStates[index]}
@@ -90,7 +91,7 @@ export const Card2025_candi0: FC = () => {
                 updatedStates[index] = isOpen;
                 setIsOpenStates(updatedStates);
               }}
-              className="md:w-full space-y-2"
+              className="text-black bg-white rounded-md space-y-2"
             >
               <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">
@@ -118,9 +119,7 @@ export const Card2025_candi0: FC = () => {
             </Collapsible>
           </div>
         ))}
-      </div>
-      <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap mt-4">
-        <Carousel setApi={setApi} className="w-full max-w-lg">
+        
           <CarouselContent>
             {images.map((image, index) => (
               <CarouselItem key={index}>
@@ -134,10 +133,11 @@ export const Card2025_candi0: FC = () => {
           </CarouselContent>
           <CarouselPrevious className="text-black" />
           <CarouselNext className="text-black" />
+          {/* NFT # {current} */}
         </Carousel>
       </div>
       <div className="py-2 text-center text-sm text-muted-foreground">
-        Slide {current} of {count}
+        {current === 1 ? "NFT Collection" : `NFT ${current-1} of ${count - 1}`}
       </div>
       <MintCandiRandom />
     </div>
