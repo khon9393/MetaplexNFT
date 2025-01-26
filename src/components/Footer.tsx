@@ -7,12 +7,14 @@ import {
 } from "@/components/ui/accordion"
 import { Button } from '@/components/ui/button';
 import { DrawerWindow } from './DrawerWindow';
-
+import NavElement from './nav-element';
+import Image from 'next/image';
+import solanaLogo from "../../public/solanaLogo.png";
 
 export const Footer: FC = () => {
 
   const [isOpenStates, setIsOpenStates] = useState([false]);
-
+  const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="flex">
 
@@ -173,37 +175,33 @@ export const Footer: FC = () => {
             </div>
 
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
-              <div className="font-normal capitalize mb-2.5">
-                © 2024 Candibarnft.com
-              </div>
+
+              <div className="flex flex-col mb-0 gap-2">
+              <NavElement
+              label="Need&nbsp;Wallet?"
+              href="/getstarted"
+              navigationStarts={() => setIsNavOpen(false)}
+            />
+            </div>
             </div>
 
-            {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
-                            <h5 className="font-normal tracking-tight  mb-2.5">ECOSYSTEM</h5>
+            <div className="mb-6 items-center mx-auto max-w-screen-lg">
 
-                            <div className="flex flex-col mb-0 gap-2">
-                                <Link href="https://solana.com/news" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    News
-                                </Link>
-                                <Link href="https://solana.org/validators" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Validators
-                                </Link>
-                                <Link href="https://www.youtube.com/@SolanaFndn" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Youtube
-                                </Link>
-                                <Link href="https://app.realms.today/discover" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Realms
-                                </Link>
-                                <Link href="https://www.solanau.org" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-                                    Solana U
-                                </Link>
-                            </div>
-                            
-                        </div>  */}
+              <div className="font-normal capitalize mb-2.5">
+                ©&nbsp;2024&nbsp;Candibarnft.com
+              </div>
 
-
-
-
+            <div className="flex flex-col mb-0 p-5">
+              <span className="italic">powered by</span>
+              <Image
+              src={solanaLogo}
+              alt="Solana Logo"
+              width={100}
+              height={100}
+              className="inline-block"
+              />
+            </div>
+            </div> 
 
           </div>
         </div>

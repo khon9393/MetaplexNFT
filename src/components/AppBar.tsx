@@ -71,11 +71,17 @@ export const AppBar: React.FC = () => {
 
             <CandiNavigationMenu />
 
-            <NavElement
+            {/* <NavElement
               label="Need&nbsp;Wallet?"
               href="/getstarted"
               navigationStarts={() => setIsNavOpen(false)}
-            />
+            /> */}
+
+{/* <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
+            <li>
+
+            </li>
+          </ul> */}
           
           <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mr-6 " />
         </div>
