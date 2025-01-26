@@ -91,7 +91,7 @@ export const Card2025_candi0: FC = () => {
                 updatedStates[index] = isOpen;
                 setIsOpenStates(updatedStates);
               }}
-              className="text-black bg-white rounded-md space-y-2"
+              className="rounded-md space-y-2"
             >
               <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">
