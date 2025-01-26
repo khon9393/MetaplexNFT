@@ -11,7 +11,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
     <div className="flex-col justify-between relative">
     <div className="flex-1 drawer drawer-content">
       <input id="my-drawer" type="checkbox" className="grow drawer-toggle" />
-      <div className="absolute top-0 left-0 w-full h-full">
+      <div className="absolute">
       {children}
       </div>
      
