@@ -187,19 +187,21 @@ export const Footer: FC = () => {
 
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
 
-              <div className="font-normal capitalize mb-2.5">
+              <div className="font-normal mb-2.5">
                 ©&nbsp;2024&nbsp;Candibarnft.com
               </div>
 
             <div className="flex flex-col mb-0 p-5">
               <span className="italic">powered by</span>
+              <a href="https://solana.com" target="_blank" rel="noopener noreferrer">
               <Image
-              src={solanaLogo}
-              alt="Solana Logo"
-              width={100}
-              height={100}
-              className="inline-block"
+                src={solanaLogo}
+                alt="Solana Logo"
+                width={100}
+                height={100}
+                className="inline-block"
               />
+              </a>
             </div>
             </div> 
 
