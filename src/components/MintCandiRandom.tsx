@@ -112,7 +112,7 @@ export const MintCandiRandom: FC = () => {
                     numberOfPieces={650} // Dense confetti
                     gravity={0.2} // Slow falling effect
                     wind={0.02} // Slight drift
-                    colors={["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"]}
+                    colors={["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]}
                 />
             )}
 

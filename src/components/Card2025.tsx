@@ -1,16 +1,13 @@
-import React, { useState, useEffect, useRef, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import Image from 'next/image'
 import snake00 from "../../public/2025/snake0_2025_500.jpg"
 import snake01 from "../../public/2025//snake1_2025_500.jpg";
 import snake02 from "../../public/2025//snake2_2025_500.jpg";
 import snake03 from "../../public/2025//snake3_2025_500.jpg";
 
-import { MintSnake01 } from "../components/MintSnake01"
-import { MintSnake02 } from "../components/MintSnake02"
-import { MintSnake03 } from "../components/MintSnake03"
-import { MintSnake04 } from "../components/MintSnake04"
 import { getCandyMachinesBalance } from '../stores/useCandyMachine';
 import { publicKey } from '@metaplex-foundation/umi';
+import {MintSnakes} from "../components/MintSnakes";
 
 import {
   Collapsible,
@@ -32,16 +29,16 @@ export const Card2025: FC = () => {
     { publicKey: string; itemsRedeemed: number; itemsAvailable: number, collectionMint: string }[]
   >([]);
 
+  const candyMachineKeys = [
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
+  ];
+
+
   useEffect(() => {
     const fetchBalances = async () => {
-
-      const candyMachineKeys = [
-        publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
-        publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
-        publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
-        publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
-      ];
-
       const results = await getCandyMachinesBalance(candyMachineKeys);
       setBalances(results);
     };
@@ -54,27 +51,15 @@ export const Card2025: FC = () => {
     cost: `${(index + 1) * 0.1} SOL`,
     candibarValue: [500, 950, 1500, 2025][index],
     image: [snake00.src, snake01.src, snake02.src, snake03.src][index],
-    MintComponent: [MintSnake01, MintSnake02, MintSnake03, MintSnake04][index],
     itemsAvailable: balance.itemsAvailable,
     itemsRedeemed: balance.itemsRedeemed,
     collectionMint: balance.collectionMint,
+    candyMachinekeyId: candyMachineKeys[index],
   }));
 
   return (
     <div className="text-center justify-center flex flex-col">
 
-      {/* <div className="text-center p-3">
-        <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-100 my-2">
-
-          <p>Unlock the future of digital assets with Snake Coin 2025 NFT!</p>
-          <br />
-          <p className="text-slate-300 text-xl md:text-xl">
-            <div>Embodying the wisdom and mystique of the Year of the Snake, this NFT represents transformation, intelligence, and prosperity. By owning one or more of these unique collectibles, you tap into the Snake&apos;s energy—symbolizing intuition, adaptability, and resourcefulness. Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!</div>
-          </p>
-        </h4>
-      </div>  */}
-
-        {/* <p className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-purple-600 drop-shadow-lg animate-pulse p-7"> */}
         <p className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with Snake Coin 2025 NFT!
       </p>
@@ -150,7 +135,7 @@ export const Card2025: FC = () => {
                     height={500}
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }} src={machine.image} alt={`Snake ${machine.id}`} />
-                  <machine.MintComponent />
+                  <MintSnakes candyMachineId={machine.candyMachinekeyId} collectionId={machine.collectionMint} />
                 </span>
               </CardContent>
             </Card>
