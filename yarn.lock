@@ -9319,9 +9319,9 @@ string_decoder@~1.1.1:
     safe-buffer "~5.1.0"
 
 strip-ansi-cjs@^6.0.1:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/strip-ansi-cjs/-/strip-ansi-cjs-8.0.0.tgz#76d90a591aa708eb8b5c95c205ad2757ada599d9"
-  integrity sha512-32gkt3BeWEaDWScWe6w75HZX3dgTwM6SCzYZOJqnQWwGIugHHj5+u/TSzZUbcEsg8v0dpVljHNHcUJ+1dmVRqw==
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/strip-ansi-cjs/-/strip-ansi-cjs-1.0.0.tgz#b918002d63119de245402811e71c8b0b7b756dca"
+  integrity sha512-leEPI93yJhNssNWEH3NUOvOQaSv5NQfi+78qdqs3p5NHBJ6+tVNlZn8YB8+dsP5Xk8bUEE/F04etBMu6MAmQjg==
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1":
   version "6.0.1"
@@ -10316,9 +10316,9 @@ word-wrap@^1.2.5:
   integrity sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==
 
 wrap-ansi-cjs@^7.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/wrap-ansi-cjs/-/wrap-ansi-cjs-8.0.0.tgz#e9b2e842f42a1787e598f15669201f3178e1f79e"
-  integrity sha512-ulIS1SVkr+L2i8Zdp7x7ghDD3HCrrGXnMJ5ZbT1F9HBDugpT9o0e9qkCHj6cXJRLQYHy1xlY2i9BzvvSV/C8sQ==
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi-cjs/-/wrap-ansi-cjs-1.0.0.tgz#549fbe5abb51671487bb828147f6403ab7c2c06c"
+  integrity sha512-fsvNffasX9knEeKVeSX6SPYnWCmO03ayVLfTDDvtgtUZfN034RcrybyWOPpls9tEX4YgfdH9LuwE35D1oxfSyQ==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
