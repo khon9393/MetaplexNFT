@@ -182,12 +182,12 @@ export const HomeView: FC = ({ }) => {
                   <p className="mt-6 text-lg">Step into the next evolution of digital trading and maximize your NFT potential!</p>
 
                   <div className="mt-6">
-                    <a
+                    <Link
                       href="/nftswap"
                       className="inline-block bg-yellow-400 text-blue-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
                     >
                       🚀 Start Trading Candibar NFTs & Tokens Now!
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </CarouselItem>
