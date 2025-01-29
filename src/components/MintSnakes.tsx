@@ -13,6 +13,7 @@ import { mintV1, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-mac
 import { Fireworks } from "@fireworks-js/react";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
+import { toast } from 'hooks/use-toast';
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -76,9 +77,15 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
       const { signature } = await transaction.sendAndConfirm(umi, {
         confirm: { commitment: "confirmed" },
       });
-      const txid = bs58.encode(signature);
-      console.log('success', `Mint successful! ${txid}`)
-      notify({ type: 'success', message: 'Mint successful!', txid });
+      // const txid = bs58.encode(signature);
+      // console.log('success', `Mint successful! ${txid}`)
+      // notify({ type: 'success', message: 'Mint successful!', txid });
+
+      toast({
+        title: "Successful",
+            description: "Mint successful!",
+        });
+
 
       getUserSOLBalance(wallet.publicKey, connection);
 
@@ -102,21 +109,26 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
 
     } catch (error: any) {
-      console.log('error', `Mint failed! ${error?.message}`);
+      // console.log('error', `Mint failed! ${error?.message}`);
+      toast({
+        title: "Mint failed!",
+        description: error.message,
+        variant: "destructive",
+    });
     }
-  }, [wallet, connection, getUserSOLBalance, umi, candyMachineAddress, collectionMint]);
+  }, [wallet, connection, getUserSOLBalance, umi, candyMachineAddress, collectionMint, candyMachineId]);
 
   return (
     <div className="flex flex-row justify-center">
       <div className="relative group items-center">
         <div className="m-1 absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 
           rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-        <button
+        {wallet.connected && ( <button
           className="px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
           onClick={onClick}
         >
           <span>Mint NFT</span>
-        </button>
+        </button> )}
       </div>
       {showConfetti && (
         <Confetti
