@@ -871,7 +871,7 @@
     "string.prototype.trimend": "^1.0.9",
     "string.prototype.trimstart": "^1.0.8",
     "string_decoder": "^0.10.31",
-    "strip-ansi": "^6.0.1",
+    "strip-ansi": "^7.1.0",
     "strip-ansi-cjs": "^6.0.1",
     "strip-bom": "^3.0.0",
     "strip-hex-prefix": "^1.0.0",
