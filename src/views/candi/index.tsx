@@ -9,6 +9,7 @@ import Card2025_candi0 from 'components/Card2025_Candi0';
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
+import { Toaster } from '@/components/ui/toaster';
 
 export const CandiView0: FC = ({ }) => {
   const wallet = useWallet();
@@ -27,6 +28,7 @@ export const CandiView0: FC = ({ }) => {
   return (
     <div className="">
         <Card2025_candi0 />
+         <Toaster />
       </div>
   );
 };

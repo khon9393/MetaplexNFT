@@ -9,6 +9,7 @@ import Card2025 from 'components/Card2025';
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
+import { Toaster } from '@/components/ui/toaster';
 
 
 
@@ -29,6 +30,7 @@ export const SnakeView: FC = ({ }) => {
   return (
     <div className="">
         <Card2025 />
+         <Toaster />
       </div>
   );
 };

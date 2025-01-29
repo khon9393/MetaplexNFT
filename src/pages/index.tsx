@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { CandiView0, HomeView } from "views";
+import { HomeView } from "views";
 
 const Home: NextPage = (props) => {
 

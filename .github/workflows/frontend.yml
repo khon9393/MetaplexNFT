@@ -1,4 +1,4 @@
-name: Frontend
+name: Frontend CI
 
 on:
   push:
@@ -19,5 +19,7 @@ jobs:
         with:
           node-version: "16"
       - run: yarn install
+      - name: Delete .next Cache
+        run: rm -rf .next
       - name: Build
         run: yarn build

@@ -1,5 +1,5 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { notify } from "../utils/notifications";
 import useUserSOLBalanceStore from '../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
@@ -9,7 +9,7 @@ import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
 import { clusterApiUrl } from '@solana/web3.js';
 import * as bs58 from 'bs58';
-import { mintV1, fetchCandyMachine, safeFetchCandyGuard, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-machine";
+import { mintV1, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-machine/dist/src/index";
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC || clusterApiUrl('devnet');
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const candyMachineAddress = publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05);
@@ -17,9 +17,12 @@ const collectionMint = publicKey(process.env.NEXT_PUBLIC_COLLECTION_ID05);
 import { Fireworks } from "@fireworks-js/react";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
+import { toast } from 'hooks/use-toast';
+
+
 
 export const MintCandiRandom: FC = () => {
-    // 👇 Update these constant declarations
+
     const { connection } = useConnection();
     const wallet = useWallet();
     const { getUserSOLBalance } = useUserSOLBalanceStore();
@@ -44,17 +47,6 @@ export const MintCandiRandom: FC = () => {
             return;
         }
 
-        // Fetch the Candy Machine.
-        const candyMachine = await fetchCandyMachine(
-            umi,
-            candyMachineAddress,
-        );
-        // Fetch the Candy Guard.
-        const candyGuard = await safeFetchCandyGuard(
-            umi,
-            candyMachine.mintAuthority,
-        );
-
         try {
             // Mint from the Candy Machine.
             const nftMint = generateSigner(umi);
@@ -76,20 +68,32 @@ export const MintCandiRandom: FC = () => {
                 confirm: { commitment: "confirmed" },
             });
 
-                const txid = bs58.encode(signature);
-                console.log('success', `Mint successful! ${txid}`)
-                notify({ type: 'success', message: 'Mint successful!', txid });
+                // const txid = bs58.encode(signature);
+                // console.log('success', `Mint successful! ${txid}`)
+                // notify({ type: 'success', message: 'Mint successful!', txid });
+                toast({
+                    title: "Successful",
+                        description: "Mint successful!",
+                    });
     
                 getUserSOLBalance(wallet.publicKey, connection);
                 setShowFireworks(true);
                 setShowConfetti(true);
                 setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 8 seconds
                 setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
-            
+
+                // setTimeout(() => {
+                //     window.location.reload();
+                //   }, 11000); // refesh for 3 seconds
         
         } catch (error: any) {
-            notify({ type: 'error', message: `Error minting!`, description: error?.message });
-            console.log('error', `Mint failed! ${error?.message}`);
+            // notify({ type: 'error', message: `Error minting!`, description: error?.message });
+            // console.log('error', `Mint failed! ${error?.message}`);
+            toast({
+                title: "Mint failed!",
+                description: error.message,
+                variant: "destructive",
+            });
         }
     }, [wallet, connection, getUserSOLBalance, umi]);
 
@@ -98,12 +102,17 @@ export const MintCandiRandom: FC = () => {
             <div className="relative group items-center">
                 <div className="m-1 absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 
                     rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                <button
-                    className="px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
-                    onClick={onClick}
-                >
-                    <span>Mint Random NFT</span>
-                </button>
+                {wallet.connected && (
+                    <button
+                        className="px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+                        onClick={onClick}
+                    >
+                        Mint Random NFT
+                    </button>
+                
+                )}
+                 
+            
             </div>
             {showConfetti && (
                 <Confetti

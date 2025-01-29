@@ -1,12 +1,14 @@
 import Link from "next/link";
 import dynamic from 'next/dynamic';
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 import NavElement from './nav-element';
 import { CandiNavigationMenu } from './nav-element/navmenu';
 import NetworkSwitcher from './NetworkSwitcher';
-
-
+import Image from 'next/image';
+import solanaLogo from '../../public/solanaLogo.png';
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import useUserSOLBalanceStore from "stores/useUserSOLBalanceStore";
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
@@ -14,12 +16,24 @@ const WalletMultiButtonDynamic = dynamic(
 
 export const AppBar: React.FC = () => {
   const { autoConnect, setAutoConnect } = useAutoConnect();
+  const { connection } = useConnection();
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const wallet = useWallet();
+  const balance = useUserSOLBalanceStore((s) => s.balance)
+  const { getUserSOLBalance } = useUserSOLBalanceStore()
+
+  useEffect(() => {
+    if (wallet.publicKey) {
+      console.log(wallet.publicKey.toBase58())
+      getUserSOLBalance(wallet.publicKey, connection)
+    }
+  }, [wallet.publicKey, connection, getUserSOLBalance])
+
   return (
     <div>
       {/* NavBar / Header */}
       
-      <div className="navbar flex h-20 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
+      <div className="navbar flex h-30 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
       <h1 className="text-center text-3xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
       <Link href="https://www.candibarnft.com/"
       target="_blank" rel="noopener noreferrer"
@@ -83,7 +97,13 @@ export const AppBar: React.FC = () => {
             </li>
           </ul> */}
           
-          <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mr-6 " />
+            <div className="flex flex-col items-center gap-2 pt-5">
+              <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
+              <div className="flex items-center gap-2">
+              <Image src={solanaLogo} alt="Solana Logo" width={80} />
+                <span className="text-sm">SOL: {(wallet.connected ? balance : 0).toLocaleString()}</span>
+              </div>
+            </div>
         </div>
           <label
               htmlFor="my-drawer"
@@ -135,7 +155,6 @@ export const AppBar: React.FC = () => {
                 </div> */}
             </li>
           </ul>
-
 
 
         </div>

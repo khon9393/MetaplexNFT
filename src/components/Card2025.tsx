@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC, useMemo } from "react";
 import Image from 'next/image'
 import snake00 from "../../public/2025/snake0_2025_500.jpg"
 import snake01 from "../../public/2025//snake1_2025_500.jpg";
@@ -29,12 +29,12 @@ export const Card2025: FC = () => {
     { publicKey: string; itemsRedeemed: number; itemsAvailable: number, collectionMint: string }[]
   >([]);
 
-  const candyMachineKeys = [
+  const candyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
-  ];
+  ], []);
 
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const Card2025: FC = () => {
     };
     fetchBalances();
 
-  },[])
+  }, [candyMachineKeys])
 
   const candyMachines = balances.map((balance, index) => ({
     id: index + 1,

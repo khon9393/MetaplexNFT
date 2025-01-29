@@ -58,14 +58,14 @@ export const HomeView: FC = ({ }) => {
     <>
       <div className="flex flex-col justify-center items-center py-4">
         <div className="text-3xl font-bold p-2">
-        Candibar NFT Collection!
+          Candibar NFT Collection!
         </div>
         <div className="text-2xl font-bold p-2">
           Announcement {current} of {count}
         </div>
       </div>
       <div className="flex justify-center text-black items-center py-3">
-      
+
         <div className="max-w-3xl mx-auto p-6 text-center bg-white rounded-lg shadow-lg">
           <Carousel setApi={setApi}
             plugins={[plugin.current]}
@@ -152,6 +152,43 @@ export const HomeView: FC = ({ }) => {
                   >
                     💎 Grab your Snake NFT today before it&apos;s gone!
                   </Link>
+                </div>
+              </CarouselItem>
+
+              <CarouselItem>
+                <div className="max-w-4xl mx-auto p-8 text-center bg-gradient-to-br from-blue-600 to-green-800 text-white rounded-lg shadow-lg">
+                  <h1 className="text-4xl font-bold">🔄 Swap Candibar NFTs & Tokens Effortlessly! 🔄</h1>
+                  <h2 className="text-2xl mt-2">A seamless exchange between Candibar NFTs and Candibar Tokens</h2>
+
+
+                  <div className="p-6 bg-green-700 rounded-lg shadow-md">
+                    <h3 className="text-xl font-semibold">💎 Convert NFTs to Tokens</h3>
+                    <p className="mt-2">Easily trade your Candibar NFTs for valuable Candibar Tokens.</p>
+                  </div>
+                  <div className="p-6 bg-blue-700 rounded-lg shadow-md">
+                    <h3 className="text-xl font-semibold">🎨 Acquire Exclusive NFTs</h3>
+                    <p className="mt-2">limited-edition Candibar NFTs and expand your collection.</p>
+                  </div>
+                  <div className="p-6 bg-green-700 rounded-lg shadow-md">
+                    <h3 className="text-xl font-semibold">⚡ Ultra-Fast & Low-Cost</h3>
+                    <p className="mt-2">Enjoy high-speed transactions and minimal fees, powered by the Solana blockchain.</p>
+                  </div>
+                  <div className="p-6 bg-blue-700 rounded-lg shadow-md">
+                    <h3 className="text-xl font-semibold">🌎 Join a Thriving Community</h3>
+                    <p className="mt-2">Be part of a global network of NFT enthusiasts and traders shaping the future of digital assets.</p>
+                  </div>
+
+
+                  <p className="mt-6 text-lg">Step into the next evolution of digital trading and maximize your NFT potential!</p>
+
+                  <div className="mt-6">
+                    <a
+                      href="/nftswap"
+                      className="inline-block bg-yellow-400 text-blue-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
+                    >
+                      🚀 Start Trading Candibar NFTs & Tokens Now!
+                    </a>
+                  </div>
                 </div>
               </CarouselItem>
             </CarouselContent>
