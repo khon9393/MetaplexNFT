@@ -3,6 +3,7 @@ import fetchMetadataByMint from "../../lib/mpl-token-metadata/fetchMetadataByMin
 import { JsonMetadata } from "@metaplex-foundation/mpl-token-metadata";
 import { Token } from "@metaplex-foundation/mpl-toolbox";
 import { Metadata } from "next";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -38,9 +39,9 @@ const TokenEscrowSummary = () => {
     <Card className="flex flex-col min-h-[300px] p-8 lg:aspect-square">
       <div className="text-xl">Token Escrow</div>
       <div className="flex flex-1 flex-col justify-center w-full items-center gap-4">
-        {metadata?.image ? (
-          <img alt="" 
-          src={metadata.image} className="w-24 h-24 rounded-full" />
+        {metadata ? (
+          <Image alt="" 
+          src={metadata.image} className="w-24 h-24 rounded-full" width={96} height={96} />
         ) : (
           <Skeleton className="w-24 h-24 rounded-full" />
         )}

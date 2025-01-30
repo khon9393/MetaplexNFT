@@ -35,10 +35,12 @@ const TokenCard = (props: TokenCardProps) => {
   return (
     <Card className="flex items-center w-full border border-foreground-muted rounded-xl shadow-lg p-4 gap-4">
       {tokenAsset ? (
-        <img
+        <Image
           src={TokenImg.src}
           className="rounded-xl w-12 h-12 aspect-square"
           alt="nft collection image"
+          width={48}
+          height={48}
         />
       ) : (
         <Skeleton className="w-24 h-24 rounded-xl" />

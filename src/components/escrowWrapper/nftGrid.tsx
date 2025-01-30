@@ -2,6 +2,7 @@ import {
     DasApiAsset
 } from "@metaplex-foundation/digital-asset-standard-api";
 import { Card } from "@/components/ui/card";
+import Image from 'next/image';
 
 const NftGrid = ({ assets }: { assets: DasApiAsset[] }) => {
 
@@ -19,7 +20,7 @@ const NftGrid = ({ assets }: { assets: DasApiAsset[] }) => {
         : "fallback.png";
       return (
         <Card key={asset.id} className="p-2 flex flex-col gap-4">
-          <img
+          <Image
             src={image}
             alt={asset.content.metadata.name}
             className="rounded-lg w-full aspect-square"

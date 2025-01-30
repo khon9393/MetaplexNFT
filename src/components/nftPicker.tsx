@@ -62,7 +62,7 @@ const NftPicker = ({
         }
       });
     }
-  }, [isOpen, wallet]);
+  }, [isOpen, wallet, wallet1.connected]);
 
   const assetList = assets?.items
     .sort((a, b) =>
