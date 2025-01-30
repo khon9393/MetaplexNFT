@@ -63,7 +63,7 @@ const UpdateEscrowForm = ({ escrowData }: { escrowData: EscrowV1 }) => {
       <DialogTrigger asChild>
         <Button className="w-[200px] self-end">Edit Escrow</Button>
       </DialogTrigger>
-      <DialogContent className="flex flex-col gap-4">
+      <DialogContent className="flex flex-col gap-4 text-black">
         <DialogHeader>
           <DialogTitle>Edit Escrow Settings</DialogTitle>
           <DialogDescription>
