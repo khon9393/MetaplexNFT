@@ -35,27 +35,27 @@ const swap = async ({
         throw new Error("No NFT selected");
       }
 
-      const transaction = transactionBuilder()
-      .add(setComputeUnitLimit(umi, { units: 800_000 }))
-      .add(releaseV1(umi, {
-        owner: umi.identity,
-        escrow: escrow.publicKey,
-        asset: selectedNft.id,
-        collection: escrow.collection,
-        token: escrow.token,
-        feeProjectAccount: escrow.feeLocation,
-      }))
-      // const releaseTx = await releaseV1(umi, {
+      // const transaction = transactionBuilder()
+      // .add(setComputeUnitLimit(umi, { units: 800_000 }))
+      // .add(releaseV1(umi, {
       //   owner: umi.identity,
       //   escrow: escrow.publicKey,
       //   asset: selectedNft.id,
       //   collection: escrow.collection,
       //   token: escrow.token,
       //   feeProjectAccount: escrow.feeLocation,
-      // });
-      const { signature } = await transaction.sendAndConfirm(umi, {
-        confirm: { commitment: "confirmed" },});
-      // return await sendAndConfirmWalletAdapter(releaseTx);
+      // }))
+      const releaseTx = await releaseV1(umi, {
+        owner: umi.identity,
+        escrow: escrow.publicKey,
+        asset: selectedNft.id,
+        collection: escrow.collection,
+        token: escrow.token,
+        feeProjectAccount: escrow.feeLocation,
+      });
+      // const { signature } = await transaction.sendAndConfirm(umi, {
+      //   confirm: { commitment: "confirmed" },});
+      return await sendAndConfirmWalletAdapter(releaseTx);
     case TradeState.tokens:
       console.log("Swapping Tokens");
 
