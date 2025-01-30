@@ -8,10 +8,12 @@ import { Card } from "@/components/ui/card";
 import EscrowSettings from "./escowSettings";
 import NftEscrow from "./nftEscrowSummary";
 import TokenEscrowSummary from "./tokenEscrowSummary";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { publicKey } from "@metaplex-foundation/umi";
 
 const EscrowWrapper = () => {
   const escrowData = useEscrowStore().escrow;
-
+ const AmdinPK = publicKey(process.env.NEXT_PUBLIC_ADMIN);
   useEffect(() => {
     fetchEscrow()
       .then((escrowData) => {
@@ -22,6 +24,21 @@ const EscrowWrapper = () => {
       );
   }, []);
 
+ const wallet = useWallet();
+  if (!wallet.connected) {
+    return (
+      <div className="flex flex-1 flex-col justify-center w-full items-center">
+        <div className="text-red-500">Please connect your wallet</div>
+      </div>
+    );
+  }
+  if (wallet.publicKey.toString() != AmdinPK.toString()) {
+    return (
+      <div className="flex flex-1 flex-col justify-center w-full items-center">
+        <div className="text-red-500">Not Authorized!</div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-8 items-center w-full max-w-[1024px] justify-center flex-1 p-8 lg:p-0">
