@@ -11,21 +11,21 @@ const inter = Inter({ subsets: ["latin"] });
 export const NFTSwapView: FC = ({ }) => {
 
   return (
-     <div className={inter.className + " flex flex-col items-center pt-2 gap-4 w-1/4 h-2/3"}>
- 
-        {/* <h1 className="flex text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8 p-0">
-
-        </h1> */}
+    <div className="md:hero mx-auto p-4">
+      <div className="md:hero-content flex flex-col">
+        <h1 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8 p-2">
+          Comming Soon!
+        </h1>
         {/* CONTENT GOES HERE */}
-          {/* <DrawerWindow/> */}
-          
-          <UmiProvider>
- 
+        <div className="text-center">
+          <DrawerWindow />
+
+          {/* <UmiProvider>
             <SwapWrapper />
             <Toaster />
-         
-          </UmiProvider>
-          
+          </UmiProvider> */}
+        </div>
     </div>
+  </div>
   );
 };
