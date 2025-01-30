@@ -10,6 +10,7 @@ import { DrawerWindow } from './DrawerWindow';
 import NavElement from './nav-element';
 import Image from 'next/image';
 import solanaLogo from "../../public/solanaLogo.png";
+import metaplexLogo from "../../public/metaplex-logo.png";
 
 export const Footer: FC = () => {
 
@@ -187,24 +188,72 @@ export const Footer: FC = () => {
 
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
 
-              <div className="font-normal mb-2.5">
-                ©&nbsp;2024&nbsp;Candibarnft.com
-              </div>
+                <div className="font-normal mb-2.5">
+                <a href="https://candibarnft.com" target="_blank" rel="noopener noreferrer">
+                  ©&nbsp;2024&nbsp;Candibarnft.com
+                </a>
+                </div>
+
+                <div className="font-normal mb-2.5">
+                <a href="https://candibarnft.io" target="_blank" rel="noopener noreferrer">
+                  ©&nbsp;2024&nbsp;Candibarnft.io
+                </a>
+                </div>
 
             <div className="flex flex-col mb-0 p-5">
               <span className="italic">powered by</span>
-              <a href="https://solana.com" target="_blank" rel="noopener noreferrer">
-              <Image
-                src={solanaLogo}
-                alt="Solana Logo"
-                width={100}
-                height={100}
-                className="inline-block"
-              />
-              </a>
+                <a href="https://solana.com" target="_blank" rel="noopener noreferrer" className="mr-4">
+                <Image
+                  src={solanaLogo}
+                  alt="Solana Logo"
+                  width={100}
+                  height={100}
+                  className="inline-block p-2"
+                />
+                </a>
+                <a href="https://metaplex.com" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={metaplexLogo}
+                  alt="Metaplex Logo"
+                  width={100}
+                  height={100}
+                  className="inline-block p-2"
+                />
+                </a>
             </div>
             </div> 
-
+            <div className="mb-6 items-center mx-auto max-w-screen-lg">
+              <a
+                href="https://x.com/KS9393k" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 hover:text-gray-400 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path d="M15.29 3H19.78L13.69 10.38L20.98 21H14.92L10.58 14.92L5.44 21H0.94L7.52 13.06L0.5 3H6.72L10.6 8.45L15.29 3ZM14.25 19.29H15.95L5.86 4.63H4.01L14.25 19.29Z" />
+                </svg>
+                <span className="text-sm">Follow us on X</span>
+              </a>
+                  <a
+                    href="mailto:candibar.support@candibarnft.io"
+                    className="flex items-center space-x-2 hover:text-gray-400 transition"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path d="M12 12.713L0 5.25V18h24V5.25l-12 7.463zM12 0L0 7.5l12 7.5 12-7.5L12 0z" />
+                    </svg>
+                    <span className="text-sm p-4">Contact Us</span>
+                  </a>
+            </div> 
           </div>
         </div>
       </footer>
