@@ -177,31 +177,6 @@ export const Footer: FC = () => {
             {/* <div className="mb-6 items-center mx-auto max-w-screen-lg">
             </div> */}
 
-            {/*<div className="mb-6 items-center mx-auto max-w-screen-lg">
-
-             <div className="flex flex-col mb-0 p-5">
-               <span className="italic">powered by</span>
-                <a href="https://solana.com" target="_blank" rel="noopener noreferrer" className="mr-4">
-                <Image
-                  src={solanaLogo}
-                  alt="Solana Logo"
-                  width={100}
-                  height={100}
-                  className="inline-block p-2"
-                />
-                </a>
-                <a href="https://metaplex.com" target="_blank" rel="noopener noreferrer">
-                <Image
-                  src={metaplexLogo}
-                  alt="Metaplex Logo"
-                  width={100}
-                  height={100}
-                  className="inline-block p-2"
-                />
-                </a> 
-            </div> 
-            </div> */}
-
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
               <a
                 href="https://x.com/KS9393k"

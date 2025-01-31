@@ -24,8 +24,11 @@ export function formatTokenAmount(tokenAccountOrAmount: Token | bigint, decimals
     throw new Error("decimals value is required when passing a raw bigint amount");
   }
    const tokenAccount = typeof tokenAccountOrAmount === 'bigint' ? { amount: tokenAccountOrAmount, header: { lamports: { decimals: decimals! } } } : tokenAccountOrAmount;
-  const divisor = BigInt(10** Number(decimals));
+   const divisor = BigInt(10** Number(decimals));
+  //const divisor = BigInt(10 ** tokenAccount.header.lamports.decimals);
   const whole = tokenAccount.amount / divisor;
+ 
+
 
   //alert(whole)
   const remainder = tokenAccount.amount % divisor;
@@ -54,7 +57,3 @@ export const isValidPublicKey = (key: string) => {
   return true;
 };
 
-// Function that adds zeros to a number, needed for adding the correct amount of decimals
-function addZeros(num: number, numZeros: number): number {
-  return num * Math.pow(10, numZeros)
-}
