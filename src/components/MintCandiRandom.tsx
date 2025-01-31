@@ -18,8 +18,7 @@ import { Fireworks } from "@fireworks-js/react";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
 import { toast } from 'hooks/use-toast';
-
-
+import { getCandyMachinesBalance } from 'stores/useCandyMachine';
 
 export const MintCandiRandom: FC = () => {
 
@@ -47,6 +46,9 @@ export const MintCandiRandom: FC = () => {
             return;
         }
 
+        const candyMachineKeys = [candyMachineAddress];
+        const results = await getCandyMachinesBalance(candyMachineKeys);
+
         try {
             // Mint from the Candy Machine.
             const nftMint = generateSigner(umi);
@@ -59,7 +61,7 @@ export const MintCandiRandom: FC = () => {
                         collection: collectionMint,
                         mintArgs: {
                             solPayment: some({ destination: treasury }),
-                            mintLimit: some({ id: 2 }),
+                            mintLimit: some({ id: results[0].candyGuardId }),
                         },
                     })
                 );
@@ -67,10 +69,6 @@ export const MintCandiRandom: FC = () => {
             const { signature } = await transaction.sendAndConfirm(umi, {
                 confirm: { commitment: "confirmed" },
             });
-
-                // const txid = bs58.encode(signature);
-                // console.log('success', `Mint successful! ${txid}`)
-                // notify({ type: 'success', message: 'Mint successful!', txid });
                 toast({
                     title: "Successful",
                         description: "Mint successful!",
@@ -82,9 +80,6 @@ export const MintCandiRandom: FC = () => {
                 setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 8 seconds
                 setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
 
-                // setTimeout(() => {
-                //     window.location.reload();
-                //   }, 11000); // refesh for 3 seconds
         
         } catch (error: any) {
             // notify({ type: 'error', message: `Error minting!`, description: error?.message });

@@ -14,6 +14,7 @@ import { Fireworks } from "@fireworks-js/react";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
 import { toast } from 'hooks/use-toast';
+import { getCandyMachinesBalance } from 'stores/useCandyMachine';
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -59,6 +60,9 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
     }
 
     try {
+
+      const results = await getCandyMachinesBalance([candyMachineAddress]);
+      
       //Mint from the Candy Machine.
       const nftMint = generateSigner(umi);
       const transaction = await transactionBuilder()
@@ -70,7 +74,7 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
             collection: collectionMint,
             mintArgs: {
               solPayment: some({ destination: treasury }),
-              mintLimit: some({ id: 1 }),
+              mintLimit: some({ id: results[0].candyGuardId}),
             },
           })
         );

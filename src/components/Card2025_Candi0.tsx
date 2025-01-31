@@ -51,7 +51,14 @@ export const Card2025_candi0: FC = () => {
   }, [api]);
 
   const [balances, setBalances] = useState<
-    { publicKey: string; itemsRedeemed: number; itemsAvailable: number, collectionMint: string }[]
+    { publicKey: string,
+      itemsRedeemed: number,
+      itemsAvailable: number, 
+      collectionMint: string, 
+      collectionName: string, 
+      SolCost: number,
+      candyGuardMinLimit: number,
+    }[]
   >([]);
 
   useEffect(() => {
@@ -68,12 +75,14 @@ export const Card2025_candi0: FC = () => {
 
   const candyMachines = balances.map((balance, index) => ({
     id: index + 1,
-    cost: `${0.05} SOL`,
+    cost: `${balance.SolCost} SOL`,
     candibarValue: [50][index],
     image: [candi00.src, candi01.src, candi02.src, candi03.src][index],
     itemsAvailable: balance.itemsAvailable,
     itemsRedeemed: balance.itemsRedeemed,
     collectionMint: balance.collectionMint,
+    collectionName: balance.collectionName,
+    candyGuardMinLimit: balance.candyGuardMinLimit,
   }));
 
   return (
@@ -94,8 +103,8 @@ export const Card2025_candi0: FC = () => {
               className="rounded-md space-y-2"
             >
               <div className="flex items-center justify-between space-x-4 px-4">
-                <h4 className="text-sm font-semibold">
-                  Candi Collection 2025
+                <h4 className="text-1xl font-semibold">
+                {machine.collectionName}
                 </h4>
                 <CollapsibleTrigger asChild>
                   <Button variant="ghost" size="sm">
@@ -109,11 +118,26 @@ export const Card2025_candi0: FC = () => {
                 mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
               </div>
               <CollapsibleContent className="space-y-2">
+              <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+                  Wallet mint limit: {machine.candyGuardMinLimit}
+                </div>
                 <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
                   Candibar value: {machine.candibarValue}
                 </div>
                 <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                  Collection address: {machine.collectionMint}
+                  Collection address: 
+                  <div className="rounded-md px-4 py-2 font-mono text-sm shadow-sm flex items-center">
+                          <span>{machine.collectionMint}</span>
+                            <a 
+                            href={`https://solscan.io/address/${machine.collectionMint}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="ml-1 text-white rounded"
+                            style={{ display: 'inline-block', width: '20px', height: '20px', textAlign: 'center' }}
+                            >
+                            🔗
+                            </a>
+                        </div>
                 </div>
               </CollapsibleContent>
             </Collapsible>
