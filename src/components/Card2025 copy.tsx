@@ -7,7 +7,7 @@ import snake03 from "../../public/2025//snake3_2025_500.jpg";
 
 import { getCandyMachinesBalance } from '../stores/useCandyMachine';
 import { publicKey } from '@metaplex-foundation/umi';
-import { MintSnakes } from "../components/MintSnakes";
+import {MintSnakes} from "../components/MintSnakes";
 
 import {
   Collapsible,
@@ -17,8 +17,6 @@ import {
 import {
   Button
 } from "@/components/ui/button"
-import { motion } from "framer-motion";
-
 import { ChevronsUpDown } from 'lucide-react';
 import { Card, CardContent } from "src/components/ui/card"
 import { getExplorerUrl } from "utils/explorer";
@@ -28,33 +26,12 @@ export const Card2025: FC = () => {
   const [isOpenStates, setIsOpenStates] = useState([false, false, false, false]);
   const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-
-  const imageVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-    hover: { scale: 1.05 },
-  };
-
   const [balances, setBalances] = useState<
-    {
-      publicKey: string,
+    { publicKey: string,
       itemsRedeemed: number,
-      itemsAvailable: number,
-      collectionMint: string,
-      collectionName: string,
+      itemsAvailable: number, 
+      collectionMint: string, 
+      collectionName: string, 
       SolCost: number,
       candyGuardMinLimit: number,
     }[]
@@ -93,7 +70,7 @@ export const Card2025: FC = () => {
   return (
     <div className="text-center justify-center flex flex-col">
 
-      <p className="text-center text-3xl font-extrabold p-3">
+        <p className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with Snake Coin 2025 NFT!
       </p>
 
@@ -121,20 +98,15 @@ export const Card2025: FC = () => {
           </span>.
           &nbsp;Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!
         </p>
-      </div>
+      </div>  
 
-      <motion.div
-        className="flex flex-wrap justify-center gap-4 md:flex-nowrap"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+    <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap">
         {candyMachines.map((machine, index) => (
-          <motion.div key={machine.id} variants={cardVariants} whileHover={{ scale: 1.05 }}>
+          <div key={machine.id}>
             <Card className="flex">
               <CardContent className="flex aspect-square items-center justify-center p-1">
                 <span className="text-1xl font-semibold">
-                  <Collapsible
+                <Collapsible
                     open={isOpenStates[index]}
                     onOpenChange={(isOpen) => {
                       const updatedStates = [...isOpenStates];
@@ -144,9 +116,10 @@ export const Card2025: FC = () => {
                     className="md:w-full space-y-2"
                   >
                     <div className="flex items-center justify-between space-x-4 px-4">
-                      <h4 className="text-sm font-semibold">
+                      <h4
+                        className="text-sm font-semibold">
                         {machine.collectionName}
-                      </h4>
+                        </h4>
                       <CollapsibleTrigger asChild>
                         <Button variant="ghost" size="sm">
                           <ChevronsUpDown className="h-4 w-4" />
@@ -155,61 +128,48 @@ export const Card2025: FC = () => {
                       </CollapsibleTrigger>
                     </div>
                     <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                      SOL cost: {parseFloat(machine.cost).toFixed(1)} |
+                      SOL cost: {parseFloat(machine.cost).toFixed(1)} | 
                       mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                      {/* {machine.cost} */}
                     </div>
                     <CollapsibleContent className="space-y-2">
-                      <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                        Wallet mint limit: {machine.candyGuardMinLimit}
-                      </div>
+                    <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+                      Wallet mint limit: {machine.candyGuardMinLimit}
+                    </div>
                       <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
                         Candibar value: {machine.candibarValue}
                       </div>
                       <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                        Collection address:
+                        Collection address: 
                         <div className="rounded-md px-4 py-2 font-mono text-sm shadow-sm flex items-center">
                           <span>{machine.collectionMint}</span>
-                          <a
-                            href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
-                            target="_blank"
+                            <a 
+                           href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
+                            target="_blank" 
                             rel="noopener noreferrer"
                             className="ml-1 text-white rounded"
                             style={{ display: 'inline-block', width: '20px', height: '20px', textAlign: 'center' }}
-                          >
+                            >
                             🔗
-                          </a>
+                            </a>
                         </div>
-                      </div>
+                </div>
                     </CollapsibleContent>
                   </Collapsible>
-
-                  {/* 🖼️ Animated Image with Fixed Size */}
-                  <motion.div
-                    variants={imageVariants}
-                    initial="hidden"
-                    animate="visible"
-                    whileHover="hover"
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    style={{ width: "300px", height: "300px", overflow: "hidden", borderRadius: "12px" }}
-                  >
-                    <Image
-                      width={400}
-                      height={400}
-                      src={machine.image}
-                      alt={`Snake ${machine.id}`}
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    />
-                  </motion.div>
-
+                  <Image
+                    width={500}
+                    height={500}
+                    sizes="100vw"
+                    style={{ width: '100%', height: 'auto' }} src={machine.image} alt={`Snake ${machine.id}`} />
                   <MintSnakes candyMachineId={machine.candyMachinekeyId} collectionId={machine.collectionMint} />
                 </span>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>;
+      </div>
       <div className="mb-6 p-4">
-        Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
+      Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
       </div>
     </div>
   );

@@ -364,6 +364,7 @@
     "foreground-child": "^3.3.0",
     "forwarded": "^0.2.0",
     "fraction.js": "^4.3.7",
+    "framer-motion": "^12.0.6",
     "fresh": "^0.5.2",
     "fs": "^0.0.1-security",
     "fs.realpath": "^1.0.0",
