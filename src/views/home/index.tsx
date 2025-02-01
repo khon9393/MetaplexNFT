@@ -156,8 +156,9 @@ export const HomeView: FC = ({ }) => {
                 </div>
               </CarouselItem>
 
-              {/* <CarouselItem>
-                <div className="max-w-4xl mx-auto p-8 text-center bg-gradient-to-br from-blue-600 to-green-800 text-white rounded-lg shadow-lg">
+              <CarouselItem>
+                {/* <div className="max-w-4xl mx-auto p-8 text-center bg-gradient-to-br from-blue-600 to-green-800 text-white rounded-lg shadow-lg"> */}
+                <div className="text-center bg-gradient-to-br p-8 from-blue-600 to-green-800">
                   <h1 className="text-4xl font-bold">🔄 Swap Candibar NFTs & Tokens Effortlessly! 🔄</h1>
                   <h2 className="text-2xl mt-2">A seamless exchange between Candibar NFTs and Candibar Tokens</h2>
 
@@ -191,8 +192,7 @@ export const HomeView: FC = ({ }) => {
                     </Link>
                   </div>
                 </div>
-              </CarouselItem> */}
-              
+              </CarouselItem>
             </CarouselContent>
             <CarouselPrevious>Previous</CarouselPrevious>
             <CarouselNext>Next</CarouselNext>
