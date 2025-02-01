@@ -72,7 +72,7 @@ export const HomeView: FC = ({ }) => {
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
-            >
+          >
             <CarouselContent>
               <CarouselItem>
                 <h1 className="text-3xl font-bold text-pink-600">
@@ -158,56 +158,56 @@ export const HomeView: FC = ({ }) => {
               </CarouselItem>
 
               <CarouselItem>
-  <motion.div 
-    initial={{ opacity: 0, y: 30 }} 
-    animate={{ opacity: 1, y: 0 }} 
-    transition={{ duration: 0.6, ease: "easeOut" }} 
-    className="max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-blue-600 to-green-800 text-white rounded-lg shadow-lg"
-  >
-    <h1 className="text-3xl sm:text-4xl font-bold">🔄 Swap Candibar NFTs & Tokens Effortlessly! 🔄</h1>
-    <h2 className="text-xl sm:text-2xl mt-2">A seamless exchange between Candibar NFTs and Candibar Tokens</h2>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-blue-600 to-green-800 text-white rounded-lg shadow-lg"
+                >
+                  <h1 className="text-3xl sm:text-4xl font-bold">🔄 Swap Candibar NFTs & Tokens Effortlessly! 🔄</h1>
+                  <h2 className="text-xl sm:text-2xl mt-2">A seamless exchange between Candibar NFTs and Candibar Tokens</h2>
 
-    <motion.div 
-      className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.6 }}
-    >
-      <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-700 rounded-lg shadow-md">
-        <h3 className="text-lg sm:text-xl font-semibold">💎 Convert NFTs to Tokens</h3>
-        <p className="mt-2 text-sm sm:text-base">Easily trade your Candibar NFTs for valuable Candibar Tokens.</p>
-      </motion.div>
-      <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-blue-700 rounded-lg shadow-md">
-        <h3 className="text-lg sm:text-xl font-semibold">🎨 Acquire Exclusive NFTs</h3>
-        <p className="mt-2 text-sm sm:text-base">Limited-edition Candibar NFTs and expand your collection.</p>
-      </motion.div>
-      <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-700 rounded-lg shadow-md">
-        <h3 className="text-lg sm:text-xl font-semibold">⚡ Ultra-Fast & Low-Cost</h3>
-        <p className="mt-2 text-sm sm:text-base">Enjoy high-speed transactions and minimal fees, powered by the Solana blockchain.</p>
-      </motion.div>
-      <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-blue-700 rounded-lg shadow-md">
-        <h3 className="text-lg sm:text-xl font-semibold">🌎 Join a Thriving Community</h3>
-        <p className="mt-2 text-sm sm:text-base">Be part of a global network of NFT enthusiasts and traders shaping the future of digital assets.</p>
-      </motion.div>
-    </motion.div>
+                  <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                  >
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-700 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">💎 Convert NFTs to Tokens</h3>
+                      <p className="mt-2 text-sm sm:text-base">Easily trade your Candibar NFTs for valuable Candibar Tokens.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-blue-700 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">🎨 Acquire Exclusive NFTs</h3>
+                      <p className="mt-2 text-sm sm:text-base">Limited-edition Candibar NFTs and expand your collection.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-700 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">⚡ Ultra-Fast & Low-Cost</h3>
+                      <p className="mt-2 text-sm sm:text-base">Enjoy high-speed transactions and minimal fees, powered by the Solana blockchain.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-blue-700 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">🌎 Join a Thriving Community</h3>
+                      <p className="mt-2 text-sm sm:text-base">Be part of a global network of NFT enthusiasts and traders shaping the future of digital assets.</p>
+                    </motion.div>
+                  </motion.div>
 
-    <p className="mt-6 text-base sm:text-lg">Step into the next evolution of digital trading and maximize your NFT potential!</p>
+                  <p className="mt-6 text-base sm:text-lg">Step into the next evolution of digital trading and maximize your NFT potential!</p>
 
-    <motion.div 
-      className="mt-6"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.5, duration: 0.6 }}
-    >
-      <Link
-        href="/nftswap"
-        className="inline-block bg-yellow-400 text-blue-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
-      >
-        🚀 Start Trading Candibar NFTs & Tokens Now!
-      </Link>
-    </motion.div>
-  </motion.div>
-</CarouselItem>
+                  <motion.div
+                    className="mt-6"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                  >
+                    <Link
+                      href="/nftswap"
+                      className="inline-block bg-yellow-400 text-blue-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
+                    >
+                      🚀 Start Trading Candibar NFTs & Tokens Now!
+                    </Link>
+                  </motion.div>
+                </motion.div>
+              </CarouselItem>
 
 
             </CarouselContent>
