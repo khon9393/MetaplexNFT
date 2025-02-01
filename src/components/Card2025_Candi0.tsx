@@ -28,14 +28,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { getExplorerUrl } from "utils/explorer";
+import { clusterApiUrl} from "@solana/web3.js";
 
 const images = [candcollection, candi00, candi01, candi02, candi03];
+const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 
 export const Card2025_candi0: FC = () => {
   const [isOpenStates, setIsOpenStates] = useState([false]);
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+
+
 
   useEffect(() => {
     if (!api) {
@@ -85,6 +90,8 @@ export const Card2025_candi0: FC = () => {
     candyGuardMinLimit: balance.candyGuardMinLimit,
   }));
 
+
+
   return (
 <>   
     <div className="text-center justify-center flex flex-col">
@@ -129,7 +136,7 @@ export const Card2025_candi0: FC = () => {
                   <div className="rounded-md px-4 py-2 font-mono text-sm shadow-sm flex items-center">
                           <span>{machine.collectionMint}</span>
                             <a 
-                            href={`https://solscan.io/address/${machine.collectionMint}`} 
+                            href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="ml-1 text-white rounded"

@@ -19,11 +19,12 @@ import {
 } from "@/components/ui/button"
 import { ChevronsUpDown } from 'lucide-react';
 import { Card, CardContent } from "src/components/ui/card"
+import { getExplorerUrl } from "utils/explorer";
 
 export const Card2025: FC = () => {
 
   const [isOpenStates, setIsOpenStates] = useState([false, false, false, false]);
-
+  const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 
   const [balances, setBalances] = useState<
     { publicKey: string,
@@ -143,7 +144,7 @@ export const Card2025: FC = () => {
                         <div className="rounded-md px-4 py-2 font-mono text-sm shadow-sm flex items-center">
                           <span>{machine.collectionMint}</span>
                             <a 
-                            href={`https://solscan.io/address/${machine.collectionMint}`} 
+                           href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="ml-1 text-white rounded"
