@@ -70,7 +70,8 @@ export const HomeView: FC = ({ }) => {
           <Carousel setApi={setApi}
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}>
+            onMouseLeave={plugin.current.reset}
+            >
             <CarouselContent>
               <CarouselItem>
                 <h1 className="text-3xl font-bold text-pink-600">
