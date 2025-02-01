@@ -35,23 +35,6 @@ const SwapWrapper = () => {
   const rerollEnabled = escrow?.path === REROLL_PATH;
   const wallet = useWallet();
 
-//   useEffect(() => {
-//     // Check if the wallet is disconnected AND if we haven't already reloaded
-//     if (!wallet.connected && sessionStorage.getItem('hasReloaded') !== 'true') {
-//         //notify({ type: 'error', message: 'Error', description: 'Wallet not connected!' });
-//         // Mark as reloaded for this session to prevent loops
-//         sessionStorage.setItem('hasReloaded', 'true');
-
-//        // window.location.reload();
-       
-//     } else if (wallet.connected) {
-//        // notify({ type: 'success', message: 'Success', description: 'Wallet is connected' });
-
-//         // Reset reload flag when wallet is reconnected
-//         sessionStorage.removeItem('hasReloaded');
-//     }
-// }, [wallet.connected]);
-
   const handleSwap = async () => {
     setIsTransacting(true);
     console.log("Swapping", tradeState, selectedAsset);
@@ -115,64 +98,82 @@ const SwapWrapper = () => {
 
   return (
     <>
-    <div className="absolute top-2 right-20 p-0">
-      <TokenBalance />
+      {/* <div> */}
+      {/* <div className="flex flex-col gap-8 items-center max-w-[600px] w-full">
+        <h2 className="text-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
+          Swap Summary
+        </h2>
+        <h4 className="text-center text-slate-300 p-5">
+
+          {tradeState === TradeState.nft
+            ? `Swapping NFT: ${selectedAsset?.content.metadata.name || "Select an NFT "} for candibar tokens`
+            : `Swapping candibar tokens to receive NFT: ${selectedAsset?.content.metadata.name || "None"}`}
+        </h4>
+      </div> */}
+       <div className="flex flex-col gap-8 items-center max-w-[600px] w-full">
+
+      <div className="text-center text-xl font-bold text-white">
+      {tradeState === TradeState.nft
+           ? <>Swapping NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"}<br />for candibar tokens</>
+           : <>Swapping candibar tokens<br />to receive NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"}</>}
+       </div>
+
+
+      <div className="absolute top-2 right-20 p-2">
+        <TokenBalance />
       </div>
    
 
-    <div className="flex flex-col gap-8 items-center max-w-[600px] w-full">
+        {tradeState === TradeState.nft ? (
+          <NftCard
+            tradeState={tradeState}
+            setSelectedAsset={(asset) => setSelectedAsset(asset)}
+            selectedAsset={selectedAsset}
+          />
+        ) : (
+          <TokenCard tradeState={tradeState} />
+        )}
+
+        <ArrowsUpDownIcon
+          className="cursor-pointer w-12 h-12 text-foreground mx-auto block"
+          onClick={() => {
+            if (tradeState === TradeState.nft) setTradeState(TradeState.tokens);
+            else setTradeState(TradeState.nft);
+            setSelectedAsset(undefined);
+          }}
+        />
+
+        {tradeState === TradeState.nft ? (
+          <TokenCard tradeState={tradeState} />
+        ) : (
+          <NftCard
+            tradeState={tradeState}
+            setSelectedAsset={setSelectedAsset}
+            selectedAsset={selectedAsset}
+          />
+        )}
+
+        {wallet.connected && (
+          <Button
+            onClick={handleSwap}
+            disabled={isTransacting}
+            className="w-[200px] px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+          >
+            {isTransacting ? <Spinner className="h-4 w-4" /> : "Swap"}
+          </Button>
+        )}
+      </div>
       
-      {/* {tradeState === "tokens" ? <SwapTokens setTradeState={tradeState => setTradeState(tradeState)} /> : <SwapNft setTradeState={tradeState => setTradeState(tradeState)} />} */}
-
-      {tradeState === TradeState.nft ? (
-      <NftCard
-        tradeState={tradeState}
-        setSelectedAsset={(asset) => setSelectedAsset(asset)}
-        selectedAsset={selectedAsset}
-      />
-      ) : (
-      <TokenCard tradeState={tradeState} />
-      )}
-
-      <ArrowsUpDownIcon
-      className="cursor-pointer w-12 h-12 text-foreground mx-auto block"
-      onClick={() => {
-        if (tradeState === TradeState.nft) setTradeState(TradeState.tokens);
-        else setTradeState(TradeState.nft);
-        setSelectedAsset(undefined);
-      }}
-      />
-
-      {tradeState === TradeState.nft ? (
-      <TokenCard tradeState={tradeState} />
-      ) : (
-      <NftCard
-        tradeState={tradeState}
-        setSelectedAsset={setSelectedAsset}
-        selectedAsset={selectedAsset}
-      />
-      )}
-
-      {wallet.connected && (
-      <Button
-        onClick={handleSwap}
-        disabled={isTransacting}
-        className="w-[200px] px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
-      >
-        {isTransacting ? <Spinner className="h-4 w-4" /> : "Swap"}
-      </Button>
-      )}
-    </div>
       {showConfetti && (
-      <Confetti
-        width={width}
-        height={height}
-        numberOfPieces={650} // Dense confetti
-        gravity={0.2} // Slow falling effect
-        wind={0.02} // Slight drift
-        colors={["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]}
-      />
-    )}
+        <Confetti
+          width={width}
+          height={height}
+          numberOfPieces={650} // Dense confetti
+          gravity={0.2} // Slow falling effect
+          wind={0.02} // Slight drift
+          colors={["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]}
+        />
+      )}
     </>
   );
 };

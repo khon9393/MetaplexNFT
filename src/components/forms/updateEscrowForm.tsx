@@ -175,11 +175,11 @@ const UpdateEscrowForm = ({ escrowData }: { escrowData: EscrowV1 }) => {
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="solFeeAmount">Sol Fee Amount</Label>
               <Input
-                type="number"
-                id="solFeeAmount"
-                name="solFeeAmount"
-                defaultValue={Number(escrowData.feeAmount)}
-                required
+              type="number"
+              id="solFeeAmount"
+              name="solFeeAmount"
+              defaultValue={Number(escrowData.solFeeAmount)}
+              required
               />
             </div>
           </div>

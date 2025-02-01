@@ -4,3 +4,4 @@ export { BasicsView } from "./basics";
 export { NFTSwapView } from "./nftswap";
 export { CandiView0 } from "./candi";
 export { SnakeView } from "./snake";
+export { FAQView } from "./faq";
