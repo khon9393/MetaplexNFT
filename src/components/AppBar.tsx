@@ -1,6 +1,6 @@
 import Link from "next/link";
 import dynamic from 'next/dynamic';
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 import NavElement from './nav-element';
 import { CandiNavigationMenu } from './nav-element/navmenu';
@@ -37,134 +37,59 @@ export const AppBar: React.FC = () => {
   return (
     <div>
       {/* NavBar / Header */}
-      
+
       <div className="navbar flex h-30 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
-      <h1 className="text-center text-3xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-      <Link href="https://www.candibarnft.com/"
-      target="_blank" rel="noopener noreferrer"
-      >
+        <h1 className="text-center text-3xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
+          <Link href="https://www.candibarnft.com/"
+            target="_blank" rel="noopener noreferrer"
+          >
             Candibar&nbsp;NFT</Link>
         </h1>
-        {/* <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-      |
-        </h1>
-        <h1 className="text-center text-3xl md:pl-3 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-
-        <Link href="/">
-            Snake&nbsp;NFT&nbsp;2025 </Link>
-        </h1> */}
-        <div className="navbar-start align-items-center">
-          {/* <div className="hidden sm:inline w-22 h-22 md:p-2 ml-10">
-            <Link href="https://candibar.io" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
-              <svg width="105%" height="24" viewBox="0 0 646 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                
-                <defs>
-                  <linearGradient id="paint0_linear_1064_606" x1="10.81" y1="98.29" x2="98.89" y2="-1.01005" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.08" stopColor="#9945FF" />
-                    <stop offset="0.3" stopColor="#8752F3" />
-                    <stop offset="0.5" stopColor="#5497D5" />
-                    <stop offset="0.6" stopColor="#43B4CA" />
-                    <stop offset="0.72" stopColor="#28E0B9" />
-                    <stop offset="0.97" stopColor="#19FB9B" />
-                  </linearGradient>
-                  <clipPath id="clip0_1064_606">
-                    <rect width="646" height="96" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </Link>
-          </div> 
-          <WalletMultiButtonDynamic className="btn-ghost btn-sm relative flex md:hidden text-lg " />
-        
-*/}
-</div>
+         <div className="navbar-start align-items-center gap-1">
+          <div className="btn-ghost btn-sm relative flex md:hidden items-center">
+          <WalletMultiButtonDynamic />
+          </div>
+        </div>
         {/* Nav Links */}
         {/* Wallet & Settings */}
         <div className="navbar-end">
-            <div className="hidden md:inline-flex items-center justify-center gap-6">
+          <div className="hidden md:inline-flex items-center justify-center gap-6">
             <NavElement
               label="Home"
               href="/"
               navigationStarts={() => setIsNavOpen(false)}
             />
-
             <CandiNavigationMenu />
-
-            {/* <NavElement
-              label="Need&nbsp;Wallet?"
-              href="/getstarted"
-              navigationStarts={() => setIsNavOpen(false)}
-            /> */}
-
-{/* <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
-            <li>
-
-            </li>
-          </ul> */}
-          
             <div className="flex flex-col items-center gap-2 pt-5">
               <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
               <div className="flex items-center gap-2">
-              <Image src={solanaLogo} alt="Solana Logo" width={80} />
+                <Image src={solanaLogo} alt="Solana Logo" width={80} />
                 <span className="text-sm">SOL: {(wallet.connected ? balance : 0).toLocaleString()}</span>
               </div>
             </div>
-        </div>
-          <label
-              htmlFor="my-drawer"
-              className="btn-gh items-center justify-between md:hidden mr-6"
-              onClick={() => setIsNavOpen(!isNavOpen)}>
-              <div className="HAMBURGER-ICON space-y-2.5 ml-5">
-              <div className={`h-0.5 w-8 bg-purple-600 ${isNavOpen ? 'hidden' : ''}`} />
-              <div className={`h-0.5 w-8 bg-purple-600 ${isNavOpen ? 'hidden' : ''}`} />
-              <div className={`h-0.5 w-8 bg-purple-600 ${isNavOpen ? 'hidden' : ''}`} />
-            </div>
-            <div className={`absolute block h-0.5 w-8 animate-pulse bg-purple-600 ${isNavOpen ? "" : "hidden"}`}
-              style={{ transform: "rotate(45deg)" }}>
-            </div>
-            <div className={`absolute block h-0.5 w-8 animate-pulse bg-purple-600 ${isNavOpen ? "" : "hidden"}`}
-              style={{ transform: "rotate(135deg)" }}>
-            </div>
-        </label>
-       {/* <div>
-        <span className="absolute block h-0.5 w-12 bg-zinc-600 rotate-90 right-14"></span>
-      </div>
-        <div className="dropdown dropdown-end">
-          <div tabIndex={0} className="btn btn-square btn-ghost text-right mr-4">
-            <svg className="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
           </div>
-          <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-52">
-            <li>
-              <div className="form-control bg-opacity-100">
-                <label className="cursor-pointer label">
-                  <a>Autoconnect</a>
-                  <input type="checkbox" checked={autoConnect} onChange={(e) => setAutoConnect(e.target.checked)} className="toggle" />
-                </label>
-                <NetworkSwitcher />
-              </div>
-            </li>
-          </ul>
-        </div>  */}
-        
-        <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
-          {/* <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-52"> */}
-            <li>
-              {/* <div className="form-control bg-opacity-100">
-                <label className="cursor-pointer label">
-                  <a>Autoconnect</a>
-                  <input type="checkbox" checked={autoConnect} onChange={(e) => setAutoConnect(e.target.checked)} className="toggle" />
-                </label>
-                </div> */}
-            </li>
-          </ul>
+          {/* Hamburger Icon - Always showing */}
+          <label
+            htmlFor="my-drawer"
+            className="btn-gh items-center justify-between md:hidden mr-6"
+            onClick={() => setIsNavOpen(!isNavOpen)} // Optional, but you can still toggle the drawer visibility if needed
+          >
+            <div className="HAMBURGER-ICON space-y-2.5 ml-5">
+              {/* The 3 horizontal lines */}
+              <div className="h-0.5 w-8 bg-purple-600" />
+              <div className="h-0.5 w-8 bg-purple-600" />
+              <div className="h-0.5 w-8 bg-purple-600" />
+            </div>
+          </label>
+          <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
 
+            <li>
+            </li>
+          </ul>
 
         </div>
       </div>
-                          
+
 
     </div>
   );

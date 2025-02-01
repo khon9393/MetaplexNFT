@@ -130,9 +130,14 @@ export const Card2025: FC = () => {
         animate="visible"
       >
         {candyMachines.map((machine, index) => (
-          <motion.div key={machine.id} variants={cardVariants} whileHover={{ scale: 1.05 }}>
+          <motion.div
+            key={machine.id}
+            variants={cardVariants}
+            whileHover={{ scale: 1.05 }}
+            className="transition-transform"
+          >
             <Card className="flex">
-              <CardContent className="flex aspect-square items-center justify-center p-1">
+              <CardContent className="flex flex-col items-center justify-center p-4">
                 <span className="text-1xl font-semibold">
                   <Collapsible
                     open={isOpenStates[index]}
@@ -183,21 +188,21 @@ export const Card2025: FC = () => {
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* 🖼️ Animated Image with Fixed Size */}
+                  {/* 🖼️ Centered & Animated Image */}
                   <motion.div
                     variants={imageVariants}
                     initial="hidden"
                     animate="visible"
                     whileHover="hover"
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    style={{ width: "300px", height: "300px", overflow: "hidden", borderRadius: "12px" }}
+                    className="flex justify-center items-center max-w-[400px] max-h-[400px] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
                   >
                     <Image
-                      width={400}
-                      height={400}
+                      width={350}
+                      height={350}
                       src={machine.image}
                       alt={`Snake ${machine.id}`}
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      className="object-contain rounded-2xl"
                     />
                   </motion.div>
 
@@ -207,7 +212,7 @@ export const Card2025: FC = () => {
             </Card>
           </motion.div>
         ))}
-      </motion.div>;
+      </motion.div>
       <div className="mb-6 p-4">
         Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
       </div>
