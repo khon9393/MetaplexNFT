@@ -127,7 +127,7 @@ export const Footer: FC = () => {
               </div>
             </div>
 
-            <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg space-y-4">
+            <div className="mb-6 items-center col-span-1 mx-auto max-w-screen-lg space-y-4">
 
               <div className="">
               <NavElement
