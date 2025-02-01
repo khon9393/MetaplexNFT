@@ -18,14 +18,19 @@ export const Footer: FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="flex">
-      <footer className="border-t-2 border-[#141414] bg-black hover:text-white w-screen">
+
+<footer className="border-t-2 border-[#141414] bg-black hover:text-white w-screen" >
         <div className="ml-12 py-12 mr-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 relative">
-            <div className="flex flex-col items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-2 md:space-x-16 relative">
+            <div className='flex flex-col mx-6 items-center'>
+              <div className='flex flex-row ml-1'>
+              </div>
+
               <div className="disclaimer-container">
+
                 <h1 className="disclaimer-title">Legal Disclaimer</h1>
                 <Accordion type="single" collapsible>
-                  {/* Accordion Items */}
+                  {/* Accordion Item: No Investment Advice */}
                   <AccordionItem value="no-investment-advice">
                     <AccordionTrigger>No Investment Advice</AccordionTrigger>
                     <AccordionContent>
@@ -39,6 +44,8 @@ export const Footer: FC = () => {
                       </p>
                     </AccordionContent>
                   </AccordionItem>
+
+                  {/* Accordion Item: No Liability */}
                   <AccordionItem value="no-liability">
                     <AccordionTrigger>No Liability</AccordionTrigger>
                     <AccordionContent>
@@ -50,6 +57,8 @@ export const Footer: FC = () => {
                       </p>
                     </AccordionContent>
                   </AccordionItem>
+
+                  {/* Accordion Item: Not a Financial Product */}
                   <AccordionItem value="not-a-financial-product">
                     <AccordionTrigger>Not a Financial Product</AccordionTrigger>
                     <AccordionContent>
@@ -61,6 +70,8 @@ export const Footer: FC = () => {
                       </p>
                     </AccordionContent>
                   </AccordionItem>
+
+                  {/* Accordion Item: Educational Purpose Only */}
                   <AccordionItem value="educational-purpose-only">
                     <AccordionTrigger>Educational Purpose Only</AccordionTrigger>
                     <AccordionContent>
@@ -72,6 +83,8 @@ export const Footer: FC = () => {
                       </p>
                     </AccordionContent>
                   </AccordionItem>
+
+                  {/* Accordion Item: Age and Jurisdiction */}
                   <AccordionItem value="age-and-jurisdiction">
                     <AccordionTrigger>Age and Jurisdiction</AccordionTrigger>
                     <AccordionContent>
@@ -83,6 +96,8 @@ export const Footer: FC = () => {
                       </p>
                     </AccordionContent>
                   </AccordionItem>
+
+                  {/* Accordion Item: Changes to this Disclaimer */}
                   <AccordionItem value="changes-to-disclaimer">
                     <AccordionTrigger>Changes to this Disclaimer</AccordionTrigger>
                     <AccordionContent>
@@ -106,7 +121,8 @@ export const Footer: FC = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center">
+            <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg">
+
               <div className="">
                 <NavElement
                   label="Need&nbsp;Wallet?"
@@ -114,46 +130,52 @@ export const Footer: FC = () => {
                   navigationStarts={() => setIsNavOpen(false)}
                 />
               </div>
+
               <div className="troubleshooting-Container p-5">
-                <h1 className="troubleshooting-title">Troubleshooting</h1>
-                <Accordion type="single" collapsible className="w-full md:w-3/4">
-                  <AccordionItem value="firewall-issue">
-                    <AccordionTrigger className="text-sm md:text-base">Firewall Exceptions</AccordionTrigger>
-                    <AccordionContent>
-                      <p>
-                        If you are experiencing issues with images or content being blocked, please ensure that the following URLs are allowed through your firewall:
-                      </p>
-                      <ul className="list-disc list-inside">
-                        <li>https://entire-wagon-fix.quicknode-ipfs.com/*</li>
-                        <li>https://bark-single-melted.quicknode-ipfs.com/*</li>
-                        <li>https://arweave.net/*</li>
-                        <li>https://solscan.io/*</li>
-                        <li>https://explorer.solana.com/*</li>
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="norton-firewall">
-                    <AccordionTrigger className="text-sm md:text-base">Norton Firewall Configuration</AccordionTrigger>
-                    <AccordionContent>
-                      <p>Follow these steps to allow the necessary URLs through Norton Firewall:</p>
-                      <ol className="list-decimal list-inside">
-                        <li>Open <strong>Norton</strong> and go to <strong>Settings</strong>.</li>
-                        <li>Click on <strong>Firewall</strong>.</li>
-                        <li>Navigate to the <strong>Program Control</strong> tab.</li>
-                        <li>Click <strong>Add</strong> to create a new rule.</li>
-                        <li>Enter the URL or domain to allow (e.g., <em>https://entire-wagon-fix.quicknode-ipfs.com/*</em>).</li>
-                        <li>Choose <strong>Allow</strong> as the action.</li>
-                        <li>Click <strong>OK</strong> to save the rule.</li>
-                        <li>Repeat for each URL listed above.</li>
-                        <li>Restart your browser and check if the issue is resolved.</li>
-                      </ol>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
+
+<h1 className="troubleshooting-title">Troubleshooting</h1>
+<Accordion type="single" collapsible className="w-full md:w-3/4">
+
+  <AccordionItem value="firewall-issue">
+    <AccordionTrigger className="text-sm md:text-base">Firewall Exceptions</AccordionTrigger>
+    <AccordionContent>
+      <p>
+        If you are experiencing issues with images or content being blocked, please ensure that the following URLs are allowed through your firewall:
+      </p>
+      <ul className="list-disc list-inside">
+        <li>https://entire-wagon-fix.quicknode-ipfs.com/*</li>
+        <li>https://bark-single-melted.quicknode-ipfs.com/*</li>
+        <li>https://arweave.net/*</li>
+        <li>https://solscan.io/*</li>
+        <li>https://explorer.solana.com/*</li>
+      </ul>
+    </AccordionContent>
+  </AccordionItem>
+
+  <AccordionItem value="norton-firewall">
+    <AccordionTrigger className="text-sm md:text-base">Norton Firewall Configuration</AccordionTrigger>
+    <AccordionContent>
+      <p>Follow these steps to allow the necessary URLs through Norton Firewall:</p>
+      <ol className="list-decimal list-inside">
+        <li>Open <strong>Norton</strong> and go to <strong>Settings</strong>.</li>
+        <li>Click on <strong>Firewall</strong>.</li>
+        <li>Navigate to the <strong>Program Control</strong> tab.</li>
+        <li>Click <strong>Add</strong> to create a new rule.</li>
+        <li>Enter the URL or domain to allow (e.g., <em>https://entire-wagon-fix.quicknode-ipfs.com/*</em>).</li>
+        <li>Choose <strong>Allow</strong> as the action.</li>
+        <li>Click <strong>OK</strong> to save the rule.</li>
+        <li>Repeat for each URL listed above.</li>
+        <li>Restart your browser and check if the issue is resolved.</li>
+      </ol>
+    </AccordionContent>
+  </AccordionItem>
+
+</Accordion>
+</div>
+
             </div>
 
-            <div className="flex flex-col items-center">
+            <div className="mb-6 items-center mx-auto max-w-screen-lg">
               <a
                 href="https://x.com/KS9393k"
                 target="_blank"
@@ -184,6 +206,8 @@ export const Footer: FC = () => {
                 </svg>
                 <span className="text-sm p-4">Contact Us</span>
               </a>
+
+
               <div className="flex flex-col mb-0 p-5">
                 <span className="italic">powered by</span>
                 <a href="https://solana.com" target="_blank" rel="noopener noreferrer" className="mr-4">
