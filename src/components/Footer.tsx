@@ -147,6 +147,7 @@ export const Footer: FC = () => {
         <li>https://bark-single-melted.quicknode-ipfs.com/*</li>
         <li>https://arweave.net/*</li>
         <li>https://solscan.io/*</li>
+        <li>https://explorer.solana.com/*</li>
       </ul>
     </AccordionContent>
   </AccordionItem>
