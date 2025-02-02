@@ -74,87 +74,105 @@ export const HomeView: FC = ({ }) => {
             onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
-              <CarouselItem>
-                <h1 className="text-2xl font-bold text-pink-600">
-                  🍭 Introducing the Candibar NFT Collection! 🍭
-                </h1>
-                <h2 className="text-xl text-pink-400 mt-2">
-                  1,000 Sweet Opportunities to Own a Piece of Digital Art on Solana!
-                </h2>
-                <p className="text-gray-700 mt-4">
-                  The <span className="text-pink-600 font-bold">Candibar NFT Collection</span> is here to redefine sweetness in the digital world!
-                  This exclusive collection of <span className="text-pink-600 font-bold">1,000 NFTs&nbsp;</span>
-                  is your golden ticket to owning a unique piece of digital art and joining a thriving community of passionate enthusiasts.
-                </p>
-                <h3 className="text-2xl text-pink-600 font-semibold mt-6">🍬 Why Candibar NFTs?</h3>
-                <ul className="text-left list-disc list-inside mx-auto text-gray-700 mt-4 space-y-2">
-                  <li>
-                    <strong>Limited mints:</strong> With only 1,000 NFTs, each Candi is a rare digital collectible designed to stand out in any portfolio.
-                  </li>
-                  <li>
-                    <strong>Built on Solana:</strong> Enjoy blazing-fast transactions, ultra-low fees, and a blockchain ecosystem that prioritizes sustainability and innovation.
-                  </li>
-                  <li>
-                    <strong>Artistic excellence:</strong> Each NFT is a vibrant piece of digital art inspired by the sweet world of candies.
-                  </li>
-                  <li>
-                    <strong>Community-driven:</strong> Be part of a passionate community of collectors and enthusiasts, with opportunities to connect, collaborate, and grow together.
-                  </li>
-                </ul>
-                <p className="text-gray-700 mt-6">
-                  🚀 <span className="text-pink-600 font-bold">The Candy Rush Starts Now!</span>
-                </p>
-                <p className="text-gray-700 mt-2">
-                  Join the start of something extraordinary. Whether you&apos;re an NFT enthusiast, a collector,
-                  or a digital art lover, the Candibar NFT Collection is your chance to be part of a sugary revolution.
-                </p>
-                <div className="mt-6">
-                  <Link
-                    href="/candi0"
-                    className="inline-block bg-pink-600 text-white py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
+
+            <CarouselItem>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-pink-500 to-pink-700 text-white rounded-lg shadow-lg"
+                >
+                  <h1 className="text-2xl sm:text-4xl font-bold">🍭 Introducing the Candibar NFT Collection! 🍭</h1>
+                  <h2 className="text-xl sm:text-2xl mt-2">1,000 Sweet Opportunities to Own a Piece of Digital Art on Solana!</h2>
+
+                  <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
                   >
-                    💎 Grab your Candibar NFT today before it&apos;s gone!
-                  </Link>
-                </div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-600 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">💎 Limited Mints</h3>
+                      <p className="mt-2 text-sm sm:text-base">Only 1,000 NFTs, making each Candi a rare collectible.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-500 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">⚡ Built on Solana</h3>
+                      <p className="mt-2 text-sm sm:text-base">Blazing-fast transactions with ultra-low fees.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-600 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">🎨 Artistic Excellence</h3>
+                      <p className="mt-2 text-sm sm:text-base">Vibrant digital art inspired by the sweet world of candies.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-500 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">🌍 Community-Driven</h3>
+                      <p className="mt-2 text-sm sm:text-base">Join a passionate community of collectors and enthusiasts.</p>
+                    </motion.div>
+                  </motion.div>
+
+                  <p className="mt-6 text-base sm:text-lg">🚀 The Candy Rush Starts Now!</p>
+
+                  <motion.div
+                    className="mt-6"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                  >
+                    <Link
+                      href="/candi0"
+                      className="inline-block bg-yellow-400 text-pink-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
+                    >
+                      💎 Grab your Candibar NFT today before it's gone!
+                    </Link>
+                  </motion.div>
+                </motion.div>
               </CarouselItem>
+
               <CarouselItem>
-                <h1 className="text-2xl font-bold text-green-600">
-                  🐍 Introducing the Snake Collection 2025! 🐍
-                </h1>
-                <h2 className="text-xl text-green-400 mt-2">
-                  A Limited Collection to Celebrate the Year of the Wood Snake!
-                </h2>
-                <p className="text-gray-700 mt-4">
-                  The <span className="text-green-600 font-bold">Snake Collection 2025</span> is here to symbolize transformation, intelligence, and prosperity!
-                  This exclusive collection of <span className="text-green-600 font-bold">uniquely crafted NFTs&nbsp;</span>
-                  captures the essence of the Snake, embodying intuition, adaptability, and resourcefulness.
-                </p>
-                <h3 className="text-2xl text-green-600 font-semibold mt-6">🐍 Why Snake Collection 2025?</h3>
-                <ul className="text-left list-disc list-inside mx-auto text-gray-700 mt-4 space-y-2">
-                  <li>
-                    <strong>Limited Edition:</strong> Only a select number of NFTs, making each piece rare and powerful.
-                  </li>
-                  <li>
-                    <strong>Inspired by the Year of the Wood Snake:</strong> Rooted in the symbolism of the 2025 zodiac, representing wisdom, transformation, and prosperity.
-                  </li>
-                  <li>
-                    <strong>Intuition & Adaptability:</strong> Embodying the Snake&apos;s ability to adapt and transform, these NFTs represent personal growth and renewal.
-                  </li>
-                </ul>
-                <p className="text-gray-700 mt-6">
-                  🚀 <span className="text-green-600 font-bold">The Snake&apos;s Transformation Begins Now!</span>
-                </p>
-                <p className="text-gray-700 mt-2">
-                  Join the Snake Collection 2025 and embody the spirit of wisdom, adaptability, and prosperity. This is your opportunity to own a piece of a truly transformative NFT experience.
-                </p>
-                <div className="mt-6">
-                  <Link
-                    href="/snake"
-                    className="inline-block bg-green-600 text-white py-2 px-6 rounded-lg font-bold transition-tra</p>nsform transform hover:scale-105"
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-green-500 to-green-700 text-white rounded-lg shadow-lg"
+                >
+                  <h1 className="text-2xl sm:text-4xl font-bold">🐍 Introducing the Snake Collection 2025! 🐍</h1>
+                  <h2 className="text-xl sm:text-2xl mt-2">A Limited Collection to Celebrate the Year of the Wood Snake!</h2>
+
+                  <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
                   >
-                    💎 Grab your Snake NFT today before it&apos;s gone!
-                  </Link>
-                </div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-600 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">✨ Limited Edition</h3>
+                      <p className="mt-2 text-sm sm:text-base">Exclusive NFTs representing transformation and prosperity.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-500 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">🌳 Wood Snake Symbolism</h3>
+                      <p className="mt-2 text-sm sm:text-base">Capturing the essence of wisdom, adaptability, and renewal.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-600 rounded-lg shadow-md">
+                      <h3 className="text-lg sm:text-xl font-semibold">🔮 Intuition & Growth</h3>
+                      <p className="mt-2 text-sm sm:text-base">NFTs that embody personal growth and transformative energy.</p>
+                    </motion.div>
+                  </motion.div>
+
+                  <p className="mt-6 text-base sm:text-lg">🚀 The Snake's Transformation Begins Now!</p>
+
+                  <motion.div
+                    className="mt-6"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                  >
+                    <Link
+                      href="/snake"
+                      className="inline-block bg-yellow-400 text-green-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
+                    >
+                      💎 Grab your Snake NFT today before it's gone!
+                    </Link>
+                  </motion.div>
+                </motion.div>
               </CarouselItem>
 
               <CarouselItem>
