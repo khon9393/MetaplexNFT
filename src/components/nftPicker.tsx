@@ -112,7 +112,7 @@ const NftPicker = ({
       <DialogContent className="w-full max-w-[1000px] max-h-[560px] h-full flex flex-col text-black">
         <DialogHeader>
           <DialogTitle>
-            Select an NFT from {wallet === "escrow" ? "escrow" : "your wallet"}
+            Select an NFT from {wallet === "escrow" ? `escrow (${assetList ? assetList.length : 0})` : `your wallet (${assetList ? assetList.length : 0})`}
           </DialogTitle>
         </DialogHeader>
 
