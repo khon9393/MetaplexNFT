@@ -60,8 +60,8 @@ export const AppBar: React.FC = () => {
               navigationStarts={() => setIsNavOpen(false)}
             />
             <CandiNavigationMenu />
-            <div className="flex flex-col items-center gap-2 pt-5">
-              <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" style={{ width: '155px' }} />
+            <div className="flex flex-col items-center gap-2 pt-5" style={{ width: '180px' }}>
+              <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
               <div className="flex items-center gap-2">
                 <Image src={solanaLogo} alt="Solana Logo" width={80} />
                 <span className="text-sm">SOL: {(wallet.connected ? balance : 0).toLocaleString()}</span>
