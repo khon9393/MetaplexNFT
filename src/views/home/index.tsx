@@ -121,7 +121,7 @@ export const HomeView: FC = ({ }) => {
                       href="/candi0"
                       className="inline-block bg-yellow-400 text-pink-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
                     >
-                      💎 Grab your Candibar NFT today before it's gone!
+                      💎 Grab your Candibar NFT today before it&apos;s gone!
                     </Link>
                   </motion.div>
                 </motion.div>
@@ -157,7 +157,7 @@ export const HomeView: FC = ({ }) => {
                     </motion.div>
                   </motion.div>
 
-                  <p className="mt-6 text-base sm:text-lg">🚀 The Snake's Transformation Begins Now!</p>
+                  <p className="mt-6 text-base sm:text-lg">🚀 The Snake&apos;s Transformation Begins Now!</p>
 
                   <motion.div
                     className="mt-6"
@@ -169,7 +169,7 @@ export const HomeView: FC = ({ }) => {
                       href="/snake"
                       className="inline-block bg-yellow-400 text-green-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
                     >
-                      💎 Grab your Snake NFT today before it's gone!
+                      💎 Grab your Snake NFT today before it&apos;s gone!
                     </Link>
                   </motion.div>
                 </motion.div>
