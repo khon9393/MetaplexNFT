@@ -75,7 +75,7 @@ export const HomeView: FC = ({ }) => {
           >
             <CarouselContent>
               <CarouselItem>
-                <h1 className="text-3xl font-bold text-pink-600">
+                <h1 className="text-2xl font-bold text-pink-600">
                   🍭 Introducing the Candibar NFT Collection! 🍭
                 </h1>
                 <h2 className="text-xl text-pink-400 mt-2">
@@ -118,7 +118,7 @@ export const HomeView: FC = ({ }) => {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <h1 className="text-3xl font-bold text-green-600">
+                <h1 className="text-2xl font-bold text-green-600">
                   🐍 Introducing the Snake Collection 2025! 🐍
                 </h1>
                 <h2 className="text-xl text-green-400 mt-2">
@@ -164,7 +164,7 @@ export const HomeView: FC = ({ }) => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-blue-600 to-green-800 text-white rounded-lg shadow-lg"
                 >
-                  <h1 className="text-3xl sm:text-4xl font-bold">🔄 Swap Candibar NFTs & Tokens Effortlessly! 🔄</h1>
+                  <h1 className="text-2xl sm:text-4xl font-bold">🔄 Swap Candibar NFTs & Tokens Effortlessly! 🔄</h1>
                   <h2 className="text-xl sm:text-2xl mt-2">A seamless exchange between Candibar NFTs and Candibar Tokens</h2>
 
                   <motion.div
