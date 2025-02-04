@@ -112,7 +112,7 @@ export const Card2025: FC = () => {
 <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap">
 
         {candyMachines.map((machine, index) => (
-
+          <div key={machine.id}>
             <Card className="flex">
               
                 <span className="text-1xl font-semibold">
@@ -199,7 +199,7 @@ export const Card2025: FC = () => {
                 </span>
         
             </Card>
-
+            </div>
         ))}
 
       </div>
