@@ -103,16 +103,16 @@ export const HomeView: FC = ({ }) => {
 <div className="">
   
 
-  <div className="w-[450px] mx-auto py-8 text-center">
+  <div className="w-[500px] mx-auto py-8 text-center">
 
-    <div className="w-[450px] mx-auto py-4 text-center">
+    <div className="w-[500px] mx-auto py-4 text-center">
     <h1 className="text-1xl sm:text-2xl font-bold">✨ Candibar NFT Collection! ✨</h1>
     <h2 className="text-xl sm:text-1xl mt-2">Own a Piece of Digital Art Built on Solana!</h2>
     </div>
 
     <div
       {...handlers}
-      className="w-full h-[400px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
+      className="w-full h-[500px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
