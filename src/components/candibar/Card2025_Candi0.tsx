@@ -84,6 +84,7 @@ export const Card2025_candi0: FC = () => {
         <div className="">
     <div className="p-6">
       {candyMachines.map((machine, index) => (
+        <div key={machine.id}>
         <Card>
           <span className="text-1xl font-semibold">
             <Collapsible
@@ -180,12 +181,12 @@ export const Card2025_candi0: FC = () => {
           </span>
 
         </Card>
-
+        </div>
       ))}
 
       <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap mt-4">
         {images.map((pic, index) => (
-
+          <div key={index}>
           <motion.div
             variants={imageVariants}
             initial="hidden"
@@ -214,6 +215,7 @@ export const Card2025_candi0: FC = () => {
                 </div>
             </div>
           </motion.div>
+          </div>
         ))}
 
       </div>
@@ -256,9 +258,9 @@ export const Card2025_candi0: FC = () => {
             <p className="mt-2 text-sm sm:text-base">
               {item.desc}
               {index === 3 && (
-              <a href="/nftswap" className="text-blue-500 underline ml-2">
+              <Link href="/nftswap" className="text-blue-500 underline ml-2">
                 Swap Here!
-              </a>
+              </Link>
               )}
             </p>
           </motion.div>
@@ -274,7 +276,7 @@ export const Card2025_candi0: FC = () => {
         transition={{ delay: 0.5, duration: 0.6 }}
       >
        
-          💎 Grab your Candibar NFT today before it's gone!
+          💎 Grab your Candibar NFT today before it&apos;s gone!
      
       </motion.div>
     </motion.div>
