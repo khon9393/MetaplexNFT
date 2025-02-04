@@ -40,7 +40,7 @@ export const AppBar: React.FC = () => {
       {/* NavBar / Header */}
 
       <div className="navbar flex h-30 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
-        <h1 className="text-center text-3xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
+        <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
           <Link href="https://www.candibarnft.com/"
             target="_blank" rel="noopener noreferrer"
           >
@@ -54,7 +54,7 @@ export const AppBar: React.FC = () => {
         {/* Nav Links */}
         {/* Wallet & Settings */}
         <div className="navbar-end">
-          <div className="hidden md:inline-flex items-center justify-center gap-6">
+          <div className="hidden md:inline-flex items-center justify-center gap-2">
             <NavElement
               label="Home"
               href="/"
@@ -89,11 +89,11 @@ export const AppBar: React.FC = () => {
               <div className="h-0.5 w-8 bg-purple-600" />
             </div>
           </label>
-          <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
+          {/* <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
 
             <li>
             </li>
-          </ul>
+          </ul> */}
 
         </div>
       </div>

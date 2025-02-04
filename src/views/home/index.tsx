@@ -3,6 +3,16 @@ import { FC, useEffect, useRef, useState } from 'react';
 
 // Wallet
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
+
+// Components
+
+import Autoplay from "embla-carousel-autoplay"
+import { motion, AnimatePresence } from 'framer-motion';
+import { useSwipeable } from 'react-swipeable';
+import { ArrowLeft, ArrowRight, ChevronLeftCircle, ChevronRightCircle } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+
 import candcollection from "../../../public/2025_Candi0/collection_01_500.jpg";
 import candi00 from "../../../public/2025_Candi0/candi_00_500.jpg";
 import candi01 from "../../../public/2025_Candi0/candi_01_500.jpg";
@@ -15,22 +25,41 @@ import snake01 from "../../../public/2025/snake1_2025_500.jpg";
 import snake02 from "../../../public/2025/snake2_2025_500.jpg";
 import snake03 from "../../../public/2025/snake3_2025_500.jpg";
 
-// Components
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay"
-import { motion } from "framer-motion";
-
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
-import Link from "next/link";
-import Image from "next/image";
+
+
+const items = [
+  { id: 1, 
+    name: 'candcollection',
+    collectionCover:1, 
+    color: 'bg-red-500', 
+    text: 'Candi Collection 2025 Cover', 
+    titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭',
+    subtitledesc: '1,000 Sweet Opportunities. Sugar rush starts now!',
+    image: candcollection, 
+    pageloc:"/candi0" },
+  { id: 2, name: 'candi00', color: 'bg-green-500', text: 'Candi Item #1', image: candi00, pageloc:"/candi0" }, 
+  { id: 3, name: 'candi01', color: 'bg-blue-500', text: 'Candi Item #2', image: candi01, pageloc:"/candi0" },
+  { id: 4, name: 'candi02', color: 'bg-yellow-500', text: 'Candi Item #3', image: candi02, pageloc:"/candi0" },
+  { id: 5, name: 'candi03', color: 'bg-purple-500', text: 'Candi Item #4', image: candi03, pageloc:"/candi0" },
+
+  { id: 6, 
+    name: 'snakecollection', 
+    collectionCover:1, 
+    color: 'bg-pink-500', 
+    text: 'Snake Collection 2025 Cover', 
+    titledesc: '🐍 Introducing the Snake Collection 2025! 🐍',
+    subtitledesc: 'A Limited Collection to Celebrate the Year of the Wood Snake!',
+    image: snakecollection, 
+    pageloc:"/snake" },
+  { id: 7, name: 'snake00', color: 'bg-indigo-500', text: 'Snake Item #1', image: snake00, pageloc:"/snake" },
+  { id: 8, name: 'snake01', color: 'bg-teal-500', text: 'Snake Item #2', image: snake01, pageloc:"/snake" },
+  { id: 9, name: 'snake02', color: 'bg-orange-500', text: 'Snake Item #3', image: snake02, pageloc:"/snake" },
+  { id: 10, name: 'snake03', color: 'bg-gray-500', text: 'Snake Item #4', image: snake03, pageloc:"/snake" },
+];
+
+
 
 export const HomeView: FC = ({ }) => {
   const wallet = useWallet();
@@ -39,26 +68,29 @@ export const HomeView: FC = ({ }) => {
   const balance = useUserSOLBalanceStore((s) => s.balance)
   const { getUserSOLBalance } = useUserSOLBalanceStore()
 
-  const [isOpenStates, setIsOpenStates] = useState([false]);
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleSwipe = (direction: 'left' | 'right') => {
+    if (direction === 'left' && currentIndex < items.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
+    } else if (direction === 'right' && currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleSwipe('left'),
+    onSwipedRight: () => handleSwipe('right'),
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
 
   const plugin = useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   )
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
 
   useEffect(() => {
     if (wallet.publicKey) {
@@ -68,179 +100,107 @@ export const HomeView: FC = ({ }) => {
   }, [wallet.publicKey, connection, getUserSOLBalance])
 
   return (
-    <>
-      <div className="flex flex-col justify-center items-center py-4">
-        <div className="text-3xl font-bold p-2">
-          Candibar NFT Collection!
+<div className="">
+  
+
+  <div className="w-[450px] mx-auto py-8 text-center">
+
+    <div className="w-[450px] mx-auto py-4 text-center">
+    <h1 className="text-1xl sm:text-2xl font-bold">✨ Candibar NFT Collection! ✨</h1>
+    <h2 className="text-xl sm:text-1xl mt-2">Own a Piece of Digital Art Built on Solana!</h2>
+    </div>
+
+    <div
+      {...handlers}
+      className="w-full h-[400px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={items[currentIndex].id}
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -300, opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className={`w-full h-full ${items[currentIndex].color} flex items-center justify-center text-white text-2xl font-bold rounded-2xl`}
+        >
+          <Image
+            src={items[currentIndex].image}
+            alt={items[currentIndex].text}
+            layout="fill"
+            objectFit="cover"
+          />
+
+           
+            
+            {items[currentIndex].collectionCover ? (
+               <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-xs p-1 text-center">
+              {items[currentIndex].titledesc}
+              <br/>
+              {items[currentIndex].subtitledesc}
+              <br/>
+              {items[currentIndex].text}
+              </div>
+            ) : (
+              <div className="absolute top-0 right-0 bg-black bg-opacity-50 text-white text-xs p-2 text-center">
+              {items[currentIndex].text}
+              </div>
+            )}
+
+
+          
+
+          <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-xs p-1 text-center">
+            <Link href={items[currentIndex].pageloc}>
+              <div className="text-white underline">Get it now!</div>
+            </Link>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Left Arrow */}
+      {currentIndex > 0 && (
+        <div
+          onClick={() => handleSwipe('right')}
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white/50 rounded-full hover:bg-white transition"
+        >
+          {isHovered ? (
+            <ChevronLeftCircle className="w-6 h-6 text-blue-500" />
+          ) : (
+            <ArrowLeft className="w-5 h-5 text-gray-700" />
+          )}
         </div>
-        <div className="text-2xl font-bold p-2">
-          Announcement {current} of {count}
+      )}
+
+      {/* Right Arrow */}
+      {currentIndex < items.length - 1 && (
+        <div
+          onClick={() => handleSwipe('left')}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white/50 rounded-full hover:bg-white transition"
+        >
+          {isHovered ? (
+            <ChevronRightCircle className="w-6 h-6 text-blue-500" />
+          ) : (
+            <ArrowRight className="w-5 h-5 text-gray-700" />
+          )}
         </div>
-      </div>
-      <div className="flex justify-center text-black items-center py-3">
+      )}
+    </div>
 
-        <div className="max-w-3xl mx-auto p-6 text-center bg-white rounded-lg shadow-lg">
-          <Carousel setApi={setApi}
-            plugins={[plugin.current]}
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-          >
-            <CarouselContent>
-
-            <CarouselItem className="flex justify-center">
-            <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-pink-500 to-pink-700 text-white rounded-lg shadow-lg">
-                  <h1 className="text-2xl sm:text-4xl font-bold">🍭 Introducing the Candibar NFT Collection! 🍭</h1>
-                  <h2 className="text-xl sm:text-2xl mt-2">1,000 Sweet Opportunities to Own a Piece of Digital Art on Solana!</h2>
-
-                  <div className="flex justify-center p-4">
-                    <Image
-                      src={candcollection}
-                      alt="Candi Collection"
-                      width={450}
-                      className='rounded-lg shadow-lg'
-                    />
-                  </div>
-
-                  <p className="mt-6 text-base sm:text-lg">🚀 The Candy Rush Starts Now!</p>
-
-                    <Link
-                      href="/candi0"
-                      className="inline-block bg-yellow-400 text-pink-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
-                    >
-                      💎 Grab your Candibar NFT today before it&apos;s gone!
-                    </Link>
-                    </div>
-              </CarouselItem >
-
-              {[candi00, candi01, candi02, candi03].map((image, index) => (
-                <CarouselItem key={index} className="flex justify-center">
-                  <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-pink-500 to-pink-700 text-white rounded-lg shadow-lg">
-                    <h1 className="text-2xl sm:text-1xl font-bold">🍬 Candibar NFT #{index + 1} 🍬</h1>
-                    <div className="flex justify-center p-4">
-                      <Image
-                        src={image}
-                        alt={`Candi ${index}`}
-                        width={450}
-                        className='flex rounded-lg shadow-lg'
-                      />
-                    </div>
-                    <p className="mt-6 text-base sm:text-lg  p-2">🚀 Own this unique piece of digital art!</p>
-                    <Link
-                      href={`/candi0`}
-                      className="inline-block bg-yellow-400 text-pink-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
-                    >
-                      💎 Grab your Candibar NFT today!
-                    </Link>
-                  </div>
-                </CarouselItem>
-              ))}
-             <CarouselItem  className="flex justify-center">
-                <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-green-500 to-green-700 text-white rounded-lg shadow-lg">
-                  <h1 className="text-2xl sm:text-1xl font-bold">🐍 Introducing the Snake Collection 2025! 🐍</h1>
-                  <h2 className="text-xl sm:text-1xl mt-2">A Limited Collection to Celebrate the Year of the Wood Snake!</h2>
-
-                  <div className="flex justify-center p-4">
-                    <Image
-                      src={snakecollection}
-                      alt="Candi Collection"
-                      width={450}
-                      className='flex rounded-lg shadow-lg'
-                    />
-                  </div>
-
-                  <p className="mt-6 text-base sm:text-lg  p-2">🚀 The Snake&apos;s Transformation Begins Now!</p>
-
-                  <Link
-                    href="/snake"
-                    className="inline-block bg-yellow-400 text-green-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
-                  >
-                    💎 Grab your Snake NFT today before it&apos;s gone!
-                  </Link>
-
-                </div>
-              </CarouselItem>
-
-              {[snake00, snake01, snake02, snake03].map((image, index) => (
-                <CarouselItem key={index} className="flex justify-center">
-                  <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-green-500 to-green-700 text-white rounded-lg shadow-lg">
-                    <h1 className="text-2xl sm:text-1xl font-bold">🐍 Snake NFT #{index + 1} 🐍</h1>
-                    <div className="flex justify-center p-4">
-                      <Image
-                        src={image}
-                        alt={`Snake ${index}`}
-                        width={450}
-                        className='flex rounded-lg shadow-lg'
-                      />
-                    </div>
-                    <p className="mt-6 text-base sm:text-lg  p-2">🚀 Own this unique piece of digital art!</p>
-                    <Link
-                      href={`/snake`}
-                      className="inline-block bg-yellow-400 text-green-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
-                    >
-                      💎 Grab your Snake NFT today!
-                    </Link>
-                  </div>
-                </CarouselItem>
-              ))}
-
-<CarouselItem>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-blue-600 to-green-800 text-white rounded-lg shadow-lg"
-                >
-                  <h1 className="text-2xl sm:text-4xl font-bold">🔄 Swap Candibar NFTs & Tokens Effortlessly! 🔄</h1>
-                  <h2 className="text-xl sm:text-2xl mt-2">A seamless exchange between Candibar NFTs and Candibar Tokens</h2>
-
-                  <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                  >
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-700 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">💎 Convert NFTs to Tokens</h3>
-                      <p className="mt-2 text-sm sm:text-base">Easily trade your Candibar NFTs for valuable Candibar Tokens.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-blue-700 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">🎨 Acquire Exclusive NFTs</h3>
-                      <p className="mt-2 text-sm sm:text-base">Limited-edition Candibar NFTs and expand your collection.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-700 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">⚡ Ultra-Fast & Low-Cost</h3>
-                      <p className="mt-2 text-sm sm:text-base">Enjoy high-speed transactions and minimal fees, powered by the Solana blockchain.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-blue-700 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">🌎 Join a Thriving Community</h3>
-                      <p className="mt-2 text-sm sm:text-base">Be part of a global network of NFT enthusiasts and traders shaping the future of digital assets.</p>
-                    </motion.div>
-                  </motion.div>
-
-                  <p className="mt-6 text-base sm:text-lg">Step into the next evolution of digital trading and maximize your NFT potential!</p>
-
-                  <motion.div
-                    className="mt-6"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                  >
-                    <Link
-                      href="/nftswap"
-                      className="inline-block bg-yellow-400 text-blue-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
-                    >
-                      🚀 Start Trading Candibar NFTs & Tokens Now!
-                    </Link>
-                  </motion.div>
-                </motion.div>
-              </CarouselItem>
-
-            </CarouselContent>
-            <CarouselPrevious>Previous</CarouselPrevious>
-            <CarouselNext>Next</CarouselNext>
-          </Carousel>
-        </div>
-      </div>
-    </>
+    {/* Dots Indicator */}
+    <div className="flex justify-center mt-4 space-x-2">
+      {items.map((_, index) => (
+        <div
+          key={index}
+          className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+            currentIndex === index ? 'bg-blue-500 scale-125' : 'bg-gray-400'
+          }`}
+          onClick={() => setCurrentIndex(index)}
+        />
+      ))}
+    </div>
+  </div>
+</div>
   );
 };
