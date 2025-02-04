@@ -11,6 +11,7 @@ import NavElement from './nav-element';
 import Image from 'next/image';
 import solanaLogo from "../../public/solanaLogo.png";
 import metaplexLogo from "../../public/metaplex-logo.png";
+import Link from 'next/link';
 
 export const Footer: FC = () => {
 
@@ -34,7 +35,7 @@ export const Footer: FC = () => {
                 <div className="disclaimer-container text-gray-400">
 
                 <h1 className="disclaimer-title">Legal Disclaimer</h1>
-                <Accordion type="single" defaultValue="no-investment-advice">
+                <Accordion type="single">
                   {/* Accordion Item: No Investment Advice */}
                   <AccordionItem value="no-investment-advice">
                     <AccordionTrigger>No Investment Advice</AccordionTrigger>
@@ -116,33 +117,29 @@ export const Footer: FC = () => {
                 </Accordion>
               </div>
 
+              <div className="p-3">
+              <Link href="/privacypolicy">
+                Privacy&nbsp;Policy
+              </Link>
+              </div>
+
+              <div className="p-3">
+              <Link href="/termofservice">
+                Term&nbsp;Service
+              </Link>
+              </div>
+            </div>
+
+            <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg space-y-4">
+
               <div className="font-normal mb-2.5 p-5 text-sm">
                 {["candibarnft.com", "candibarnft.io"].map((domain) => (
                   <div key={domain} className="mb-2">
                     <a href={`https://www.${domain}`} target="_blank" rel="noopener noreferrer">
                       ©&nbsp;{new Date().getFullYear()}&nbsp;{domain}
-                    </a>
+                    </a> . All Rights Reserved.
                   </div>
                 ))}
-              </div>
-            </div>
-
-            <div className="mb-6 items-center col-span-1 mx-auto max-w-screen-lg space-y-4">
-
-              <div className="">
-              <NavElement
-                label="Need&nbsp;Wallet?"
-                href="/getstarted"
-                navigationStarts={() => setIsNavOpen(false)}
-              />
-              </div>
-
-              <div className="">
-              <NavElement
-                label="FAQ"
-                href="/faq"
-                navigationStarts={() => setIsNavOpen(false)}
-              />
               </div>
 
             </div>

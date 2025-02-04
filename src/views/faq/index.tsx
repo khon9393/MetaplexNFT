@@ -6,6 +6,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Image from "next/image";
+import phatomblock1 from "../../../public/phantom/Screenshot 2025-02-02 052714.png";
+import phatomblock2 from "../../../public/phantom/Screenshot 2025-02-02 052809.png";
+
 export const FAQView: FC = ({ }) => {
 
   return (
@@ -22,7 +26,38 @@ export const FAQView: FC = ({ }) => {
         <main className="container mx-auto px-6 py-10 ">
           <article className="prose prose-invert prose-lg max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Fequently Asked Questions</h2>
-            <Accordion type="single" >
+            <Accordion type="single" collapsible defaultValue="Phaonm-Request-block" >
+
+            <AccordionItem value="Phaonm-Request-block">
+                <AccordionTrigger className="text-xl font-bold">Phatom Request block</AccordionTrigger>
+                <AccordionContent>
+                  <div className="text-xl">
+                  <p >
+                    If you're experiencing issues with Phantom Wallet blocking minting requests, 
+                    please note that this is likely a precautionary measure. The website is new, 
+                    and the team is just being cautious. You can reach out to them via their Discord or Twitter for assistance. 
+                    <strong>&#39;Confirm (Unsafe)&#39;</strong> anyway to mint. Rest assured, you can still proceed with the minting process.
+                  </p>
+                  <p>
+                  We are actively working to get our website added to Phantom's whitelist as quickly as possible to ensure a smoother experience for all users. Thank you for your patience as we work through this.
+                  </p>
+                  </div>
+
+                  <h2 className="text-xl font-bold">Messages may look like this:</h2>
+                  <div className="flex flex-wrap space-x-4">
+                    <div className="w-full sm:w-auto">
+                      <Image src={phatomblock1} alt="Phatomblock1" />
+                    </div>
+                    <div className="w-full sm:w-auto">
+                      <Image src={phatomblock2} alt="Phatomblock2" />
+                    </div>
+                  </div>
+
+                  <h1 className="text-2xl font-bold">You can choose &#39;Proceed&#39; or &#39;Confirm (Unsafe)&#39;</h1>
+                </AccordionContent>
+              </AccordionItem>
+
+
               <AccordionItem value="firewall-settings">
                 <AccordionTrigger className="text-xl font-bold">Firewall & Norton Configuration</AccordionTrigger>
                 <AccordionContent>
@@ -51,6 +86,9 @@ export const FAQView: FC = ({ }) => {
                   </ol>
                 </AccordionContent>
               </AccordionItem>
+
+
+
             </Accordion>
 
           </article>

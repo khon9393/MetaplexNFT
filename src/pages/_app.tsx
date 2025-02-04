@@ -8,6 +8,9 @@ import { Footer } from '../components/Footer';
 import Notifications from '../components/Notification'
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
+import FirstVisitModal from '@/components/candibar/FirstVisitModal'; // adjust path as necessary
+
+
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 
@@ -16,16 +19,19 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           <Head>
             <title>Candibarnft.io</title>
           </Head>
+          <FirstVisitModal />
           <ContextProvider>
             <div className="flex flex-col h-screen">
               <Notifications />
               <AppBar/>
               <ContentContainer>
+              
               <Component {...pageProps} /> 
               <Footer/>
               </ContentContainer>
             </div>
           </ContextProvider>
+
         </>
     );
 };
