@@ -19,7 +19,8 @@ import {
 import {
   Button
 } from "@/components/ui/button";
-import { ChevronsUpDown, Link } from 'lucide-react';
+import { ChevronsUpDown } from 'lucide-react';
+import Link from 'next/link';
 import { Card, CardContent } from "src/components/ui/card";
 
 import { getExplorerUrl } from "../../utils/explorer";
