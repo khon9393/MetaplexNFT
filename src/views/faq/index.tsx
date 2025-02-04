@@ -27,19 +27,19 @@ export const FAQView: FC = ({ }) => {
           <article className="prose prose-invert prose-lg max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Fequently Asked Questions</h2>
             <Accordion type="single" collapsible defaultValue="Phaonm-Request-block" >
-
+            <AccordionItem value="Phaonm-Request-block"></AccordionItem>
             <AccordionItem value="Phaonm-Request-block">
                 <AccordionTrigger className="text-xl font-bold">Phatom Request block</AccordionTrigger>
                 <AccordionContent>
                   <div className="text-xl">
                   <p >
-                    If you're experiencing issues with Phantom Wallet blocking minting requests, 
+                    If you&#39;re experiencing issues with Phantom Wallet blocking minting requests, 
                     please note that this is likely a precautionary measure. The website is new, 
                     and the team is just being cautious. You can reach out to them via their Discord or Twitter for assistance. 
                     <strong>&#39;Confirm (Unsafe)&#39;</strong> anyway to mint. Rest assured, you can still proceed with the minting process.
                   </p>
                   <p>
-                  We are actively working to get our website added to Phantom's whitelist as quickly as possible to ensure a smoother experience for all users. Thank you for your patience as we work through this.
+                  We are actively working to get our website added to Phantom&#39;s whitelist as quickly as possible to ensure a smoother experience for all users. Thank you for your patience as we work through this.
                   </p>
                   </div>
 
