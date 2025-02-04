@@ -766,6 +766,7 @@
     "react-dom": "^19.0.0",
     "react-is": "^18.3.1",
     "react-lifecycles-compat": "^3.0.4",
+    "react-modal": "^3.16.3",
     "react-native": "^0.77.0",
     "react-refresh": "^0.14.2",
     "react-remove-scroll": "^2.6.2",

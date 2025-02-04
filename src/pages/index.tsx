@@ -4,6 +4,7 @@ import { HomeView } from "../views";
 
 const Home: NextPage = (props) => {
 
+
   return (
     <div>
       <Head>
@@ -15,6 +16,7 @@ const Home: NextPage = (props) => {
       </Head>
       <HomeView />
     </div>
+   
   );
 };
 

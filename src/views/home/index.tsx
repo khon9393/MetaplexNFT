@@ -12,6 +12,7 @@ import { useSwipeable } from 'react-swipeable';
 import { ArrowLeft, ArrowRight, ChevronLeftCircle, ChevronRightCircle } from 'lucide-react';
 import Link from "next/link";
 import Image from "next/image";
+import Poppup1 from "@/components/candibar/FirstVisitModal"
 
 import candcollection from "../../../public/2025_Candi0/collection_01_500.jpg";
 import candi00 from "../../../public/2025_Candi0/candi_00_500.jpg";
@@ -101,18 +102,17 @@ export const HomeView: FC = ({ }) => {
 
   return (
 <div className="">
-  
 
   <div className="w-[500px] mx-auto py-8 text-center">
 
-    <div className="w-[500px] mx-auto py-4 text-center">
+    <div className="w-[480px] mx-auto py-4 text-center">
     <h1 className="text-1xl sm:text-2xl font-bold">✨ Candibar NFT Collection! ✨</h1>
     <h2 className="text-xl sm:text-1xl mt-2">Own a Piece of Digital Art Built on Solana!</h2>
     </div>
 
     <div
       {...handlers}
-      className="w-full h-[500px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
+      className="w-full h-[480px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -123,7 +123,7 @@ export const HomeView: FC = ({ }) => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -300, opacity: 0 }}
           transition={{ duration: 0.4 }}
-          className={`w-full h-full ${items[currentIndex].color} flex items-center justify-center text-white text-2xl font-bold rounded-2xl`}
+          //className={`w-full h-full ${items[currentIndex].color} flex items-center justify-center text-white text-2xl font-bold rounded-2xl`}
         >
           <Image
             src={items[currentIndex].image}
