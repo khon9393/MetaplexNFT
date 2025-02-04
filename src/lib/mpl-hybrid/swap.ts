@@ -1,5 +1,5 @@
 import { TradeState } from './../../components/swapWrapper/swapWrapper';
-import useEscrowStore from "../../store/useEscrowStore";
+import useEscrowStore from "../../stores/useEscrowStore";
 import { DasApiAsset } from "@metaplex-foundation/digital-asset-standard-api";
 import { captureV1, releaseV1 } from "@metaplex-foundation/mpl-hybrid";
 import fetchEscrowAssets from "../fetchEscrowAssets";

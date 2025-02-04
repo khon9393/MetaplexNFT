@@ -1,4 +1,4 @@
-import useUmiStore from "../store/useUmiStore";
+import useUmiStore from "../stores/useUmiStore";
 import fetchTokenBalance from "./fetchTokenBalance";
 
 const fetchUserTokenAccount = async () => {

@@ -5,8 +5,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import fetchEscrowAssets from "../lib/fetchEscrowAssets";
-import fetchUserAssets from "../lib/fetchUserAssets";
+import fetchEscrowAssets from "../../lib/fetchEscrowAssets";
+import fetchUserAssets from "../../lib/fetchUserAssets";
 import {
   DasApiAsset,
   DasApiAssetList,

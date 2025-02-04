@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { FAQView } from "views";
+import { FAQView } from "../views";
 
 const faq: NextPage = (props) => {
 

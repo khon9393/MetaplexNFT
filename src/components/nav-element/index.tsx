@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 
 type NavElementProps = {
     label: string;
-    href: string;
+    href?: string;
     as?: string;
     scroll?: boolean;
     chipLabel?: string;

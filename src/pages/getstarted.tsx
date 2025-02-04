@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { GetStartedView } from "views";
+import { GetStartedView } from "../views";
 
 const GetStarted: NextPage = (props) => {
   return (

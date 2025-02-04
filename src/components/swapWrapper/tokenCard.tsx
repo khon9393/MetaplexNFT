@@ -2,8 +2,8 @@
 import TokenImg from "../../assets/images/token.jpg";
 
 import fetchAsset from "../../lib/das/fetchAsset";
-import useEscrowStore from "../../store/useEscrowStore";
-import useTokenStore from "../../store/useTokenStore";
+import useEscrowStore from "../../stores/useEscrowStore";
+import useTokenStore from "../../stores/useTokenStore";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";

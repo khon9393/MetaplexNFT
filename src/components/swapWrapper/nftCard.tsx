@@ -1,8 +1,8 @@
 import { DasApiAsset } from "@metaplex-foundation/digital-asset-standard-api";
-import NftPicker from "../nftPicker";
+import NftPicker from "../candibar/nftPicker";
 import { Card } from "@/components/ui/card";
 import CollectionImg from "../../assets/images/collectionImage.jpg";
-import useEscrowStore from "../../store/useEscrowStore";
+import useEscrowStore from "../../stores/useEscrowStore";
 import { TradeState } from "./swapWrapper";
 import { NO_REROLL_PATH, REROLL_PATH } from "../../lib/constants";
 import { useWallet } from "@solana/wallet-adapter-react";

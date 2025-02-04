@@ -1,5 +1,5 @@
 import { shortenAddress } from "../../lib/utils";
-import useEscrowStore from "../../store/useEscrowStore";
+import useEscrowStore from "../../stores/useEscrowStore";
 import { EscrowV1 } from "@metaplex-foundation/mpl-hybrid";
 import UpdateEscrowForm from "../forms/updateEscrowForm";
 import { Card } from "@/components/ui/card";

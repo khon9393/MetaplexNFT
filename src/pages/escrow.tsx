@@ -1,4 +1,4 @@
-import { EscrowView } from "views";
+import { EscrowView } from "../views";
 export default function Escrow() {
   return (
     <main className="flex flex-col flex-1 items-center gap-4 w-full">

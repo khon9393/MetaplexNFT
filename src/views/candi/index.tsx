@@ -5,7 +5,7 @@ import { FC, useEffect, useState } from 'react';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 
 // Components
-import Card2025_candi0 from 'components/Card2025_Candi0';
+import Card2025_candi0 from '@/components/candibar/Card2025_Candi0';
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
