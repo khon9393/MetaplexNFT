@@ -771,6 +771,7 @@
     "react-remove-scroll": "^2.6.2",
     "react-remove-scroll-bar": "^2.3.8",
     "react-style-singleton": "^2.2.3",
+    "react-swipeable": "^7.0.2",
     "react-universal-interface": "^0.6.2",
     "react-use": "^17.6.0",
     "read-all-stream": "^3.1.0",
