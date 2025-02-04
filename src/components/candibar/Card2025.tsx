@@ -31,7 +31,7 @@ export const Card2025: FC = () => {
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
-    hover: { scale: 1.02 },
+    hover: { scale: 1.05 },
   };
 
   const [balances, setBalances] = useState<
@@ -109,78 +109,79 @@ export const Card2025: FC = () => {
         </p>
       </div>
 
-<div className="flex flex-wrap justify-center gap-4 md:flex-nowrap">
+      <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap justify-center items-center">
 
         {candyMachines.map((machine, index) => (
           <div key={machine.id}>
             <Card className="flex">
-              
-                <span className="text-1xl font-semibold">
-                  <Collapsible
-                    open={isOpenStates[index]}
-                    onOpenChange={(isOpen) => {
-                      const updatedStates = [...isOpenStates];
-                      updatedStates[index] = isOpen;
-                      setIsOpenStates(updatedStates);
-                    }}
-                    className="md:w-full space-y-2"
-                  >
-                    <div className="flex items-center justify-between space-x-4 px-4">
-                      <h4 className="text-sm font-semibold">
-                        {machine.collectionName}
-                      </h4>
-                      <CollapsibleTrigger asChild>
-                        <Button variant="ghost" size="sm">
-                          <ChevronsUpDown className="h-4 w-4" />
-                          <span className="sr-only">Toggle</span>
-                        </Button>
-                      </CollapsibleTrigger>
+
+              <span className="text-1xl font-semibold">
+                <Collapsible
+                  open={isOpenStates[index]}
+                  onOpenChange={(isOpen) => {
+                    const updatedStates = [...isOpenStates];
+                    updatedStates[index] = isOpen;
+                    setIsOpenStates(updatedStates);
+                  }}
+                  className="md:w-full space-y-2"
+                >
+                  <div className="flex items-center justify-between space-x-4 px-4">
+                    <h4 className="text-sm font-semibold">
+                      {machine.collectionName}
+                    </h4>
+                    <CollapsibleTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <ChevronsUpDown className="h-4 w-4" />
+                        <span className="sr-only">Toggle</span>
+                      </Button>
+                    </CollapsibleTrigger>
+                  </div>
+                  <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+                    SOL cost: {parseFloat(machine.cost).toFixed(1)} |
+                    mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                  </div>
+                  <CollapsibleContent className="space-y-2">
+                    <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+                      Wallet mint limit: {machine.candyGuardMinLimit}
                     </div>
                     <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                      SOL cost: {parseFloat(machine.cost).toFixed(1)} |
-                      mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                      Candibar value: {machine.candibarValue}
                     </div>
-                    <CollapsibleContent className="space-y-2">
-                      <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                        Wallet mint limit: {machine.candyGuardMinLimit}
-                      </div>
-                      <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                        Candibar value: {machine.candibarValue}
-                      </div>
-                      <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                        Collection address:
-                        <div className="rounded-md px-4 py-2 font-mono text-sm shadow-sm flex items-center">
-                          <span>{machine.collectionMint}</span>
-                          <a
-                            href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                         <svg xmlns="http://www.w3.org/2000/svg" 
-                         width="24" 
-                         height="24" 
-                         viewBox="0 0 24 24" 
-                         fill="none" 
-                         stroke="currentColor" 
-                         stroke-width="2" 
-                         stroke-linecap="round" 
-                         stroke-linejoin="round" 
-                         className="lucide lucide-link text-gray-600 hover:text-gray-400 p-1">
-                          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+                      Collection address:
+                      <div className="rounded-md px-4 py-2 font-mono text-sm shadow-sm flex items-center">
+                        <span>{machine.collectionMint}</span>
+                        <a
+                          href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            className="lucide lucide-link text-gray-600 hover:text-gray-400 p-1">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                           </svg>
-                          </a>
-                        </div>
+                        </a>
                       </div>
-                    </CollapsibleContent>
-                  </Collapsible>
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
 
-                  {/* 🖼️ Centered & Animated Image */}
-                   <motion.div
+                <div className="rounded-2xl overflow-hidden flex justify-center items-center w-full">
+                  <motion.div
                     variants={imageVariants}
                     initial="hidden"
                     animate="visible"
                     whileHover="hover"
+                    className="flex justify-center items-center w-full"
                   >
                     <Image
                       width={350}
@@ -190,16 +191,16 @@ export const Card2025: FC = () => {
                       className="object-contain rounded-2xl"
                     />
                   </motion.div>
-                  
-                      <MintSnakes
-                      candyMachineId={machine.candyMachinekeyId} 
-                      collectionId={machine.collectionMint} 
-                      />
-  
-                </span>
-        
+                </div>
+                <MintSnakes
+                  candyMachineId={machine.candyMachinekeyId}
+                  collectionId={machine.collectionMint}
+                />
+
+              </span>
+
             </Card>
-            </div>
+          </div>
         ))}
 
       </div>
