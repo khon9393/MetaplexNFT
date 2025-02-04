@@ -1,7 +1,7 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { FC, useCallback, useMemo, useState } from 'react';
-import { notify } from "../utils/notifications";
-import useUserSOLBalanceStore from '../stores/useUserSOLBalanceStore';
+import { notify } from "../../utils/notifications";
+import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { generateSigner, transactionBuilder, publicKey, some } from '@metaplex-foundation/umi';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
@@ -13,11 +13,13 @@ import { mintV1, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-mac
 import { Fireworks } from "@fireworks-js/react";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
-import { toast } from 'hooks/use-toast';
-import { getCandyMachinesBalance } from 'stores/useCandyMachine';
+import { toast } from '../../hooks/use-toast';
+import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
+import { Spinner } from '../ui/spinner';
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
+
 
   const candyMachineKeys = [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
@@ -32,6 +34,7 @@ interface MintSnakesProps {
 }
 
 export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }) => {
+
   const { connection } = useConnection();
   const wallet = useWallet();
   const { getUserSOLBalance } = useUserSOLBalanceStore();
@@ -42,6 +45,7 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
   
   const candyMachineAddress = publicKey(candyMachineId);
   const collectionMint = publicKey(collectionId);
+  const [isTransacting, setIsTransacting] = useState(false);
 
   // Create an Umi instance
   const umi = useMemo(() =>
@@ -53,9 +57,12 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
   );
 
   const onClick = useCallback(async () => {
+    setIsTransacting(true);
+
     if (!wallet.publicKey) {
       console.log('error', 'Wallet not connected!');
       notify({ type: 'error', message: 'error', description: 'Wallet not connected!' });
+      setIsTransacting(false);
       return;
     }
 
@@ -78,12 +85,15 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
             },
           })
         );
+
+
       const { signature } = await transaction.sendAndConfirm(umi, {
         confirm: { commitment: "confirmed" },
       });
-      // const txid = bs58.encode(signature);
-      // console.log('success', `Mint successful! ${txid}`)
-      // notify({ type: 'success', message: 'Mint successful!', txid });
+
+      const txid = bs58.encode(signature);
+      console.log('success', `Mint successful! ${txid}`)
+      //notify({ type: 'success', message: 'Mint successful!', txid });
 
       toast({
         title: "Successful",
@@ -112,13 +122,23 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
       }
 
 
+      setIsTransacting(false);
+
     } catch (error: any) {
       // console.log('error', `Mint failed! ${error?.message}`);
       toast({
         title: "Mint failed!",
         description: error.message,
         variant: "destructive",
-    });
+        style: {
+          backgroundColor: "white",
+          color: "white",
+          animation: "pulse 2s infinite",
+          backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
+        },
+      });
+
+    setIsTransacting(false);
     }
   }, [wallet, connection, getUserSOLBalance, umi, candyMachineAddress, collectionMint, candyMachineId]);
 
@@ -130,9 +150,20 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
         {wallet.connected && ( <button
           className="px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
           onClick={onClick}
+          disabled={isTransacting}
         >
           <span>Mint NFT</span>
         </button> )}
+
+        {isTransacting && (
+                <div className="fixed inset-0 z-60 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-10 rounded-lg shadow-lg">
+                        <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
+                        <p className="mt-4 text-center text-xl font-semibold text-black">Minting in progress...</p>
+                    </div>
+                </div>
+        )}
+
       </div>
       {showConfetti && (
         <Confetti

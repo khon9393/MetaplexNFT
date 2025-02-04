@@ -4,7 +4,7 @@ import { toast } from "../../hooks/use-toast";
 import Spinner from "../../icons/spinner";
 import fetchEscrow from "../../lib/mpl-hybrid/fetchEscrow";
 import swap from "../../lib/mpl-hybrid/swap";
-import useEscrowStore from "../../store/useEscrowStore";
+import useEscrowStore from "../../stores/useEscrowStore";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/outline";
 import { DasApiAsset } from '@metaplex-foundation/digital-asset-standard-api';
 import { useEffect, useState } from "react";
@@ -106,7 +106,7 @@ const SwapWrapper = () => {
     <div className="flex flex-col gap-8 items-center max-w-[600px] w-full">
       
       {/* {tradeState === "tokens" ? <SwapTokens setTradeState={tradeState => setTradeState(tradeState)} /> : <SwapNft setTradeState={tradeState => setTradeState(tradeState)} />} */}
-
+      
      <div className="text-center text-xl font-bold text-white">
       {tradeState === TradeState.nft
            ? <>Swapping NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"}<br />for candibar tokens</>
@@ -148,9 +148,20 @@ const SwapWrapper = () => {
         disabled={isTransacting}
         className="w-[200px] px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
       >
-        {isTransacting ? <Spinner className="h-4 w-4" /> : "Swap"}
+      Swap
       </Button>
       )}
+
+    {isTransacting && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="lds-spinner">
+                  <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <p className="mt-4 text-center text-lg font-semibold">Minting in progress...</p>
+              </div>
+            </div>
+            )}
     </div>
       {showConfetti && (
       <Confetti

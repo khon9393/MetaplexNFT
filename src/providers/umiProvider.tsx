@@ -1,6 +1,6 @@
 "use client";
 
-import useUmiStore from "../store/useUmiStore";
+import useUmiStore from "../stores/useUmiStore";
 import { WalletAdapter } from "@solana/wallet-adapter-base";
 import { useWallet } from "@solana/wallet-adapter-react";
 

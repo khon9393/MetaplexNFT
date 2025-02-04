@@ -1,8 +1,8 @@
 "use client";
 
 import fetchUserTokenAccount from "../lib/fetchUserTokenAccount";
-import useTokenStore from "../store/useTokenStore";
-import useUmiStore from "../store/useUmiStore";
+import useTokenStore from "../stores/useTokenStore";
+import useUmiStore from "../stores/useUmiStore";
 import { useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import TokenImage from "../assets/images/token.jpg";

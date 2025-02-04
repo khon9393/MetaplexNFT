@@ -1,13 +1,13 @@
 import React, { useState, useEffect, FC, useMemo } from "react";
 import Image from 'next/image'
-import snake00 from "../../public/2025/snake0_2025_500.jpg"
-import snake01 from "../../public/2025//snake1_2025_500.jpg";
-import snake02 from "../../public/2025//snake2_2025_500.jpg";
-import snake03 from "../../public/2025//snake3_2025_500.jpg";
+import snake00 from "../../../public/2025/snake0_2025_500.jpg";
+import snake01 from "../../../public/2025/snake1_2025_500.jpg";
+import snake02 from "../../../public/2025/snake2_2025_500.jpg";
+import snake03 from "../../../public/2025/snake3_2025_500.jpg";
 
-import { getCandyMachinesBalance } from '../stores/useCandyMachine';
+import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
 import { publicKey } from '@metaplex-foundation/umi';
-import { MintSnakes } from "../components/MintSnakes";
+import { MintSnakes } from "./MintSnakes";
 
 import {
   Collapsible,
@@ -21,31 +21,17 @@ import { motion } from "framer-motion";
 
 import { ChevronsUpDown } from 'lucide-react';
 import { Card, CardContent } from "src/components/ui/card"
-import { getExplorerUrl } from "utils/explorer";
+import { getExplorerUrl } from "../../utils/explorer";
 
 export const Card2025: FC = () => {
 
   const [isOpenStates, setIsOpenStates] = useState([false, false, false, false]);
   const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
-    hover: { scale: 1.05 },
+    hover: { scale: 1.02 },
   };
 
   const [balances, setBalances] = useState<
@@ -123,21 +109,12 @@ export const Card2025: FC = () => {
         </p>
       </div>
 
-      <motion.div
-        className="flex flex-wrap justify-center gap-4 md:flex-nowrap"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+<div className="flex flex-wrap justify-center gap-4 md:flex-nowrap">
+
         {candyMachines.map((machine, index) => (
-          <motion.div
-            key={machine.id}
-            variants={cardVariants}
-            whileHover={{ scale: 1.05 }}
-            className="transition-transform"
-          >
+
             <Card className="flex">
-              <CardContent className="flex flex-col items-center justify-center p-4">
+              
                 <span className="text-1xl font-semibold">
                   <Collapsible
                     open={isOpenStates[index]}
@@ -178,10 +155,20 @@ export const Card2025: FC = () => {
                             href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="ml-1 text-white rounded"
-                            style={{ display: 'inline-block', width: '20px', height: '20px', textAlign: 'center' }}
                           >
-                            🔗
+                         <svg xmlns="http://www.w3.org/2000/svg" 
+                         width="24" 
+                         height="24" 
+                         viewBox="0 0 24 24" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         stroke-width="2" 
+                         stroke-linecap="round" 
+                         stroke-linejoin="round" 
+                         className="lucide lucide-link text-gray-600 hover:text-gray-400 p-1">
+                          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                          </svg>
                           </a>
                         </div>
                       </div>
@@ -189,13 +176,11 @@ export const Card2025: FC = () => {
                   </Collapsible>
 
                   {/* 🖼️ Centered & Animated Image */}
-                  <motion.div
+                   <motion.div
                     variants={imageVariants}
                     initial="hidden"
                     animate="visible"
                     whileHover="hover"
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="flex justify-center items-center max-w-[400px] max-h-[400px] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
                   >
                     <Image
                       width={350}
@@ -205,14 +190,19 @@ export const Card2025: FC = () => {
                       className="object-contain rounded-2xl"
                     />
                   </motion.div>
-
-                  <MintSnakes candyMachineId={machine.candyMachinekeyId} collectionId={machine.collectionMint} />
+                  
+                      <MintSnakes
+                      candyMachineId={machine.candyMachinekeyId} 
+                      collectionId={machine.collectionMint} 
+                      />
+  
                 </span>
-              </CardContent>
+        
             </Card>
-          </motion.div>
+
         ))}
-      </motion.div>
+
+      </div>
       <div className="mb-6 p-4">
         Each wallet is limited to a maximum of two NFTs per collection set, with a total limit of 8 NFTs across all four collections.
       </div>

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import useEscrowStore from "../../store/useEscrowStore";
+import useEscrowStore from "../../stores/useEscrowStore";
 import { formatTokenAmount } from "../../lib/utils";
 const TokenEscrowSummary = () => {
   const escrow = useEscrowStore.getState().escrow;

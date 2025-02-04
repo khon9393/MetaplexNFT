@@ -1,4 +1,4 @@
-import useUmiStore from "../../store/useUmiStore";
+import useUmiStore from "../../stores/useUmiStore";
 import { fetchCollection as fetchCollectionV1 } from "@metaplex-foundation/mpl-core";
 
 const fetchCollection = async (collectionId: string) => {

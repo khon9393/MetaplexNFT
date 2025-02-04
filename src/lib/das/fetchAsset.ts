@@ -1,5 +1,5 @@
 import { DasApiAsset } from '@metaplex-foundation/digital-asset-standard-api';
-import useUmiStore from "../../store/useUmiStore";
+import useUmiStore from "../../stores/useUmiStore";
 import { publicKey } from "@metaplex-foundation/umi";
 
 const fetchAsset = async (assetId: string): Promise<DasApiAsset> => {

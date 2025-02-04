@@ -1,4 +1,4 @@
-import useUmiStore from "../../store/useUmiStore";
+import useUmiStore from "../../stores/useUmiStore";
 import { fetchEscrowV1 } from "@metaplex-foundation/mpl-hybrid";
 import { publicKey } from "@metaplex-foundation/umi";
 

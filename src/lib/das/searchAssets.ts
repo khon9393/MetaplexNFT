@@ -1,4 +1,4 @@
-import useUmiStore from "../../store/useUmiStore";
+import useUmiStore from "../../stores/useUmiStore";
 import {
   DasApiAssetList
 } from '@metaplex-foundation/digital-asset-standard-api';

@@ -1,4 +1,4 @@
-import useUmiStore from "../../store/useUmiStore";
+import useUmiStore from "../../stores/useUmiStore";
 import { signerIdentity } from "@metaplex-foundation/umi";
 
 const umiWithCurrentWalletAdapter = () => {

@@ -1,7 +1,7 @@
 import { toast } from "../../hooks/use-toast";
 import fetchEscrow from "../../lib/mpl-hybrid/fetchEscrow";
 import updateEscrow, { updateFormArgs } from "../../lib/mpl-hybrid/updateEscrow";
-import useEscrowStore from "../../store/useEscrowStore";
+import useEscrowStore from "../../stores/useEscrowStore";
 import { EscrowV1 } from "@metaplex-foundation/mpl-hybrid";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";

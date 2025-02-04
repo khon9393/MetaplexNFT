@@ -1,4 +1,4 @@
-import useUmiStore from "../../store/useUmiStore";
+import useUmiStore from "../../stores/useUmiStore";
 import { setComputeUnitPrice } from "@metaplex-foundation/mpl-toolbox";
 import { TransactionBuilder, signerIdentity } from "@metaplex-foundation/umi";
 import { base58 } from "@metaplex-foundation/umi/serializers";

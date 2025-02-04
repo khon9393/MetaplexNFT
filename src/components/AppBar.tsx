@@ -3,12 +3,13 @@ import dynamic from 'next/dynamic';
 import React, { useState, useEffect } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 import NavElement from './nav-element';
-import { CandiNavigationMenu } from './nav-element/navmenu';
+//import { CandiNavigationMenu } from './nav-element/navmenu';
+import {CandibarDropdownMenu1} from './nav-element/nftnavmenu';
 import NetworkSwitcher from './NetworkSwitcher';
 import Image from 'next/image';
 import solanaLogo from '../../public/solanaLogo.png';
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import useUserSOLBalanceStore from "stores/useUserSOLBalanceStore";
+import useUserSOLBalanceStore from "../stores/useUserSOLBalanceStore";
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
@@ -59,7 +60,12 @@ export const AppBar: React.FC = () => {
               href="/"
               navigationStarts={() => setIsNavOpen(false)}
             />
-            <CandiNavigationMenu />
+            <div>
+            < CandibarDropdownMenu1 />
+
+            </div>
+          
+
             <div className="flex flex-col items-center gap-2 pt-5" style={{ width: '180px' }}>
               <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
               <div className="flex items-center gap-2">
@@ -68,6 +74,8 @@ export const AppBar: React.FC = () => {
               </div>
             </div>
           </div>
+
+
           {/* Hamburger Icon - Always showing */}
           <label
             htmlFor="my-drawer"

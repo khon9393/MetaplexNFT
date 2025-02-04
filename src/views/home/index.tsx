@@ -15,6 +15,19 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay"
 import { motion } from "framer-motion";
+import candcollection from "../../../public/2025_Candi0/collection_01_500.jpg";
+import candi00 from "../../../public/2025_Candi0/candi_00_500.jpg";
+import candi01 from "../../../public/2025_Candi0/candi_01_500.jpg";
+import candi02 from "../../../public/2025_Candi0/candi_02_500.jpg";
+import candi03 from "../../../public/2025_Candi0/candi_03_500.jpg";
+
+import snakecollection from "../../../public/2025/collection_2025_500.jpg";
+import snake00 from "../../../public/2025/snake0_2025_500.jpg";
+import snake01 from "../../../public/2025/snake1_2025_500.jpg";
+import snake02 from "../../../public/2025/snake2_2025_500.jpg";
+import snake03 from "../../../public/2025/snake3_2025_500.jpg";
+
+import Image from 'next/image';
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
@@ -75,105 +88,104 @@ export const HomeView: FC = ({ }) => {
           >
             <CarouselContent>
 
-            <CarouselItem>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-pink-500 to-pink-700 text-white rounded-lg shadow-lg"
-                >
-                  <h1 className="text-2xl sm:text-4xl font-bold">🍭 Introducing the Candibar NFT Collection! 🍭</h1>
-                  <h2 className="text-xl sm:text-2xl mt-2">1,000 Sweet Opportunities to Own a Piece of Digital Art on Solana!</h2>
+              <CarouselItem>
+                <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-pink-500 to-pink-700 text-white rounded-lg shadow-lg">
+                  <h1 className="text-2xl sm:text-1xl font-bold">🍭 Introducing the Candibar NFT Collection! 🍭</h1>
+                  <h2 className="text-xl sm:text-1xl mt-2">1,000 Sweet Opportunities to Own a Piece of Digital Art on Solana!</h2>
 
-                  <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
+                  <div className="flex justify-center p-4">
+                    <Image
+                      src={candcollection}
+                      alt="Candi Collection"
+                      width={500}
+                      className='rounded-lg shadow-lg'
+                    />
+                  </div>
+
+                  <p className="mt-6 text-base sm:text-lg p-2">🚀 The Candy Rush Starts Now!</p>
+
+                  <Link
+                    href="/candi0"
+                    className="inline-block bg-yellow-400 text-pink-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
                   >
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-600 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">💎 Limited Mints</h3>
-                      <p className="mt-2 text-sm sm:text-base">Only 1,000 NFTs, making each Candi a rare collectible.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-500 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">⚡ Built on Solana</h3>
-                      <p className="mt-2 text-sm sm:text-base">Blazing-fast transactions with ultra-low fees.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-600 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">🎨 Artistic Excellence</h3>
-                      <p className="mt-2 text-sm sm:text-base">Vibrant digital art inspired by the sweet world of candies.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-pink-500 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">🌍 Community-Driven</h3>
-                      <p className="mt-2 text-sm sm:text-base">Join a passionate community of collectors and enthusiasts.</p>
-                    </motion.div>
-                  </motion.div>
+                    💎 Grab your Candibar NFT today before it&apos;s gone!
+                  </Link>
+                </div>
+              </CarouselItem>
 
-                  <p className="mt-6 text-base sm:text-lg">🚀 The Candy Rush Starts Now!</p>
 
-                  <motion.div
-                    className="mt-6"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                  >
+              {[candi00, candi01, candi02, candi03].map((image, index) => (
+                <CarouselItem key={index}>
+                  <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-pink-500 to-pink-700 text-white rounded-lg shadow-lg">
+                    <h1 className="text-2xl sm:text-1xl font-bold">🍬 Candibar NFT #{index + 1} 🍬</h1>
+                    <div className="flex justify-center p-4">
+                      <Image
+                        src={image}
+                        alt={`Candi ${index}`}
+                        width={500}
+                        className='flex rounded-lg shadow-lg'
+                      />
+                    </div>
+                    <p className="mt-6 text-base sm:text-lg  p-2">🚀 Own this unique piece of digital art!</p>
                     <Link
-                      href="/candi0"
+                      href={`/candi0`}
                       className="inline-block bg-yellow-400 text-pink-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
                     >
-                      💎 Grab your Candibar NFT today before it&apos;s gone!
+                      💎 Grab your Candibar NFT today!
                     </Link>
-                  </motion.div>
-                </motion.div>
-              </CarouselItem>
+                  </div>
+                </CarouselItem>
+              ))}
 
               <CarouselItem>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-green-500 to-green-700 text-white rounded-lg shadow-lg"
-                >
-                  <h1 className="text-2xl sm:text-4xl font-bold">🐍 Introducing the Snake Collection 2025! 🐍</h1>
-                  <h2 className="text-xl sm:text-2xl mt-2">A Limited Collection to Celebrate the Year of the Wood Snake!</h2>
+                <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-green-500 to-green-700 text-white rounded-lg shadow-lg">
+                  <h1 className="text-2xl sm:text-1xl font-bold">🐍 Introducing the Snake Collection 2025! 🐍</h1>
+                  <h2 className="text-xl sm:text-1xl mt-2">A Limited Collection to Celebrate the Year of the Wood Snake!</h2>
 
-                  <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
+                  <div className="flex justify-center p-4">
+                    <Image
+                      src={snakecollection}
+                      alt="Candi Collection"
+                      width={500}
+                      className='flex rounded-lg shadow-lg'
+                    />
+                  </div>
+
+                  <p className="mt-6 text-base sm:text-lg  p-2">🚀 The Snake&apos;s Transformation Begins Now!</p>
+
+                  <Link
+                    href="/snake"
+                    className="inline-block bg-yellow-400 text-green-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
                   >
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-600 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">✨ Limited Edition</h3>
-                      <p className="mt-2 text-sm sm:text-base">Exclusive NFTs representing transformation and prosperity.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-500 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">🌳 Wood Snake Symbolism</h3>
-                      <p className="mt-2 text-sm sm:text-base">Capturing the essence of wisdom, adaptability, and renewal.</p>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-green-600 rounded-lg shadow-md">
-                      <h3 className="text-lg sm:text-xl font-semibold">🔮 Intuition & Growth</h3>
-                      <p className="mt-2 text-sm sm:text-base">NFTs that embody personal growth and transformative energy.</p>
-                    </motion.div>
-                  </motion.div>
+                    💎 Grab your Snake NFT today before it&apos;s gone!
+                  </Link>
 
-                  <p className="mt-6 text-base sm:text-lg">🚀 The Snake&apos;s Transformation Begins Now!</p>
-
-                  <motion.div
-                    className="mt-6"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                  >
+                </div>
+              </CarouselItem>
+              {[snake00, snake01, snake02, snake03].map((image, index) => (
+                <CarouselItem key={index}>
+                  <div className="flex flex-col items-center justify-center max-w-full md:max-w-4xl mx-auto p-6 sm:p-8 text-center bg-gradient-to-br from-green-500 to-green-700 text-white rounded-lg shadow-lg">
+                    <h1 className="text-2xl sm:text-1xl font-bold">🐍 Snake NFT #{index + 1} 🐍</h1>
+                    <div className="flex justify-center p-4">
+                      <Image
+                        src={image}
+                        alt={`Snake ${index}`}
+                        width={500}
+                        className='flex rounded-lg shadow-lg'
+                      />
+                    </div>
+                    <p className="mt-6 text-base sm:text-lg  p-2">🚀 Own this unique piece of digital art!</p>
                     <Link
-                      href="/snake"
+                      href={`/snake`}
                       className="inline-block bg-yellow-400 text-green-900 py-2 px-6 rounded-lg font-bold transition-transform transform hover:scale-105"
                     >
-                      💎 Grab your Snake NFT today before it&apos;s gone!
+                      💎 Grab your Snake NFT today!
                     </Link>
-                  </motion.div>
-                </motion.div>
-              </CarouselItem>
+                  </div>
+                </CarouselItem>
+              ))}
+
+
 
               <CarouselItem>
                 <motion.div
@@ -209,7 +221,7 @@ export const HomeView: FC = ({ }) => {
                     </motion.div>
                   </motion.div>
 
-                  <p className="mt-6 text-base sm:text-lg">Step into the next evolution of digital trading and maximize your NFT potential!</p>
+                  <p className="mt-6 text-base sm:text-lg  p-2">Step into the next evolution of digital trading and maximize your NFT potential!</p>
 
                   <motion.div
                     className="mt-6"

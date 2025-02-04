@@ -2,7 +2,7 @@ import { updateEscrowV1 } from "@metaplex-foundation/mpl-hybrid";
 import { publicKey } from "@metaplex-foundation/umi";
 import sendAndConfirmWalletAdapter from "../umi/sendAndConfirmWithWalletAdapter";
 import umiWithCurrentWalletAdapter from "../umi/umiWithCurrentWalletAdapter";
-import useEscrowStore from "../../store/useEscrowStore";
+import useEscrowStore from "../../stores/useEscrowStore";
 
 export interface updateFormArgs {
   name: string;

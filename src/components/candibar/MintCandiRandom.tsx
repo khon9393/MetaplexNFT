@@ -1,7 +1,7 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { notify } from "../utils/notifications";
-import useUserSOLBalanceStore from '../stores/useUserSOLBalanceStore';
+import { notify } from "../../utils/notifications";
+import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { generateSigner, transactionBuilder, publicKey, some } from '@metaplex-foundation/umi';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
@@ -17,8 +17,9 @@ const collectionMint = publicKey(process.env.NEXT_PUBLIC_COLLECTION_ID05);
 import { Fireworks } from "@fireworks-js/react";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
-import { toast } from 'hooks/use-toast';
-import { getCandyMachinesBalance } from 'stores/useCandyMachine';
+import { toast } from '../../hooks/use-toast';
+import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
+import { Spinner } from '../ui/spinner';
 
 export const MintCandiRandom: FC = () => {
 
@@ -29,6 +30,7 @@ export const MintCandiRandom: FC = () => {
     const [showFireworks, setShowFireworks] = useState(false);
     const [showConfetti, setShowConfetti] = useState(false);
     const { width, height } = useWindowSize(); // Dynamically get window size
+    const [isTransacting, setIsTransacting] = useState(false);
 
     // TODO - Create an Umi instance
     const umi = useMemo(() =>
@@ -40,9 +42,12 @@ export const MintCandiRandom: FC = () => {
     );
 
     const onClick = useCallback(async () => {
+        setIsTransacting(true);
+
         if (!wallet.publicKey) {
             console.log('error', 'Wallet not connected!');
             notify({ type: 'error', message: 'error', description: 'Wallet not connected!' });
+            setIsTransacting(false);
             return;
         }
 
@@ -79,7 +84,7 @@ export const MintCandiRandom: FC = () => {
                 setShowConfetti(true);
                 setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 8 seconds
                 setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
-
+                setIsTransacting(false);
         
         } catch (error: any) {
             // notify({ type: 'error', message: `Error minting!`, description: error?.message });
@@ -89,6 +94,7 @@ export const MintCandiRandom: FC = () => {
                 description: error.message,
                 variant: "destructive",
             });
+            setIsTransacting(false);
         }
     }, [wallet, connection, getUserSOLBalance, umi]);
 
@@ -101,12 +107,20 @@ export const MintCandiRandom: FC = () => {
                     <button
                         className="px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
                         onClick={onClick}
+                        disabled={isTransacting}
                     >
                         Mint Random NFT
                     </button>
-                
                 )}
-                 
+
+            {isTransacting && (
+                <div className="fixed inset-0 z-60 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-10 rounded-lg shadow-lg">
+                        <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
+                        <p className="mt-4 text-center text-xl font-semibold text-black">Minting in progress...</p>
+                    </div>
+                </div>
+            )}
             
             </div>
             {showConfetti && (
