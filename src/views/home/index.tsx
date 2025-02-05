@@ -20,7 +20,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const items = [
-  { id: 1, name: 'collection', collectionCover: 1, color: 'bg-red-500', text: 'Candi Collection 2025 Cover', titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭', subtitledesc: '1,000 Sweet Opportunities. Sugar rush starts now!', image: candcollection, pageloc: "/candi0" },
+  { id: 1, name: 'collection', collectionCover: 1, color: 'bg-red-500', text: 'Candi Collection 2025 Cover', titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭', subtitledesc: 'Sugar Rush Starts Now With 1,000 Sweet Opportunities. ', image: candcollection, pageloc: "/candi0" },
   { id: 2, name: 'candi00', color: 'bg-green-500', text: 'Candi Item #1', image: candi00, pageloc: "/candi0" },
   { id: 3, name: 'candi01', color: 'bg-blue-500', text: 'Candi Item #2', image: candi01, pageloc: "/candi0" },
   { id: 4, name: 'candi02', color: 'bg-yellow-500', text: 'Candi Item #3', image: candi02, pageloc: "/candi0" },
@@ -90,22 +90,28 @@ export const HomeView: FC = ({ }) => {
                     </motion.div>
 
                     {item.name === "collection" ? (
-                      <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-lg p-1 text-center">
+                      <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
                         {item.titledesc}
                         <br />
                         {item.subtitledesc}
-                        <br />
-                        {item.text}
                       </div>
                     ) : (
-                      <div className="absolute top-0 right-0 bg-black bg-opacity-50 text-white text-lg p-1 text-center">
+                      <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
                         {item.text}
                       </div>
                     )}
-                    <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-lg p-1 text-center">
-                      <Link href={item.pageloc}>
-                        <div className="text-white underline">Get it now!</div>
-                      </Link>
+                    <div className="absolute bottom-1 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                      {item.name === "collection" ? (
+                        <>
+                          {item.text}
+                        </>
+                      ) : (
+                        <>
+                          <Link href={item.pageloc}>
+                            <div className="text-white underline">Get it now!</div>
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -113,17 +119,21 @@ export const HomeView: FC = ({ }) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious
-          size='lg'
-          className="bg-transparent text-blue-500 absolute left-3 top-1/2 transform -translate-y-1/2">
-        </CarouselPrevious>
-        <CarouselNext
-          size='lg'
-          className="bg-transparent text-blue-500 font-bold absolute right-3 top-1/2 transform -translate-y-1/2">
-        </CarouselNext>
+
+        {/* Navigation Arrows */}
+        <div className="absolute bottom-15 left-12 right-12 flex justify-between p-5 bg-transparent text-blue-500">
+          <CarouselPrevious
+            size='lg'
+            className="bg-transparent text-blue-500"
+          />
+          <CarouselNext
+            size='lg'
+            className="bg-transparent text-blue-500"
+          />
+        </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center mt-4 space-x-2">
+        <div className="flex justify-center mt-4 space-x-2 p-2">
           {items.map((_, index) => (
             <div
               key={index}
