@@ -189,7 +189,7 @@ export const Card2025_candi0: FC = () => {
                   key={index}
                   className={`rounded-lg ${selectedImage === pic.src ? 'border-4 border-white rounded-xl' : ''}`}
                 >
-                  <div className="w-full mb-4">
+                  <div className="w-full">
                     <div className="flex space-x-4">
                       <div className="relative overflow-hidden rounded-xl shadow-lg"> {/* ✅ Added overflow-hidden */}
                         <motion.img
