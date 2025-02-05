@@ -133,7 +133,7 @@ export const HomeView: FC = ({ }) => {
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center mt-4 space-x-2 p-2">
+        <div className="flex justify-center mt-4 space-x-2 p-10">
           {items.map((_, index) => (
             <div
               key={index}
