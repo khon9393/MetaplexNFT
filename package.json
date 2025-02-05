@@ -165,6 +165,7 @@
     "capture-stack-trace": "^1.0.2",
     "cashaddrjs": "^0.4.4",
     "cbor-sync": "^1.0.4",
+    "ccxt": "^4.4.57",
     "chalk": "^4.1.2",
     "chokidar": "^3.6.0",
     "chrome-launcher": "^0.15.2",
