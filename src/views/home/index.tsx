@@ -6,13 +6,11 @@ import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 
 // Components
 
-import Autoplay from "embla-carousel-autoplay"
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipeable } from 'react-swipeable';
 import { ArrowLeft, ArrowRight, ChevronLeftCircle, ChevronRightCircle } from 'lucide-react';
 import Link from "next/link";
 import Image from "next/image";
-import Poppup1 from "@/components/candibar/FirstVisitModal"
 
 import candcollection from "../../../public/2025_Candi0/collection_01_500.jpg";
 import candi00 from "../../../public/2025_Candi0/candi_00_500.jpg";
@@ -69,30 +67,6 @@ export const HomeView: FC = ({ }) => {
   const balance = useUserSOLBalanceStore((s) => s.balance)
   const { getUserSOLBalance } = useUserSOLBalanceStore()
 
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleSwipe = (direction: 'left' | 'right') => {
-    if (direction === 'left' && currentIndex < items.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-    } else if (direction === 'right' && currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
-    }
-  };
-
-  const handlers = useSwipeable({
-    onSwipedLeft: () => handleSwipe('left'),
-    onSwipedRight: () => handleSwipe('right'),
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-  });
-
-  const plugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
-  )
-
-
   useEffect(() => {
     if (wallet.publicKey) {
       console.log(wallet.publicKey.toBase58())
@@ -100,41 +74,61 @@ export const HomeView: FC = ({ }) => {
     }
   }, [wallet.publicKey, connection, getUserSOLBalance])
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [prevIndex, setPrevIndex] = useState(0);
+  const lastDirection = useRef(0);
+  
+  // Effect to track direction dynamically
+  useEffect(() => {
+    if (currentIndex > prevIndex) {
+      lastDirection.current = 1; // Swiping left
+    } else if (currentIndex < prevIndex) {
+      lastDirection.current = -1; // Swiping right
+    }
+    setPrevIndex(currentIndex);
+  }, [currentIndex]);
+  
+  const handleSwipe = (direction: 'left' | 'right') => {
+    setCurrentIndex((prev) => {
+      if (direction === 'left' && prev < items.length - 1) {
+        return prev + 1;
+      } else if (direction === 'right' && prev > 0) {
+        return prev - 1;
+      }
+      return prev;
+    });
+  };
+  
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleSwipe('left'),
+    onSwipedRight: () => handleSwipe('right'),
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
+  
   return (
-<div className="">
-
-  <div className="w-[450px] mx-auto py-8 text-center">
-
-    <div className="w-[450px] mx-auto py-4 text-center">
-    <h1 className="text-1xl sm:text-2xl font-bold">✨ Candibar NFT Collection! ✨</h1>
-    <h2 className="text-xl sm:text-1xl mt-2">Own a Piece of Digital Art Built on Solana!</h2>
-    </div>
-
-    <div
-      {...handlers}
-      className="w-full h-[450px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={items[currentIndex].id}
-          initial={{ x: 300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -300, opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          //className={`w-full h-full ${items[currentIndex].color} flex items-center justify-center text-white text-2xl font-bold rounded-2xl`}
-        >
-          <Image
-            src={items[currentIndex].image}
+    <div className="w-[450px] mx-auto">
+      <div
+        {...handlers}
+        className="min-w-[450px] flex-shrink-0 h-[500px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <AnimatePresence initial={false} custom={lastDirection.current}>
+          <motion.img
+            key={currentIndex}
+            src={items[currentIndex].image.src}
             alt={items[currentIndex].text}
-            layout="fill"
-            objectFit="cover"
+            initial={{ x: lastDirection.current * 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: lastDirection.current * -300, opacity: 0 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            className="w-full h-full object-cover"
           />
+          </AnimatePresence>
 
-           
-            
-            {items[currentIndex].collectionCover ? (
+        {items[currentIndex].collectionCover ? (
                <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-xs p-1 text-center">
               {items[currentIndex].titledesc}
               <br/>
@@ -156,51 +150,50 @@ export const HomeView: FC = ({ }) => {
               <div className="text-white underline">Get it now!</div>
             </Link>
           </div>
-        </motion.div>
-      </AnimatePresence>
 
-      {/* Left Arrow */}
-      {currentIndex > 0 && (
-        <div
-          onClick={() => handleSwipe('right')}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white/50 rounded-full hover:bg-white transition"
-        >
-          {isHovered ? (
-            <ChevronLeftCircle className="w-6 h-6 text-blue-500" />
-          ) : (
-            <ArrowLeft className="w-5 h-5 text-gray-700" />
-          )}
-        </div>
-      )}
-
-      {/* Right Arrow */}
-      {currentIndex < items.length - 1 && (
-        <div
-          onClick={() => handleSwipe('left')}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white/50 rounded-full hover:bg-white transition"
-        >
-          {isHovered ? (
-            <ChevronRightCircle className="w-6 h-6 text-blue-500" />
-          ) : (
-            <ArrowRight className="w-5 h-5 text-gray-700" />
-          )}
-        </div>
-      )}
+        {/* Left Arrow */}
+        {currentIndex > 0 && (
+          <div
+            onClick={() => handleSwipe('right')}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white/50 rounded-full hover:bg-white transition"
+          >
+            {isHovered ? (
+              <ChevronLeftCircle className="w-6 h-6 text-blue-500" />
+            ) : (
+              <ArrowLeft className="w-5 h-5 text-gray-700" />
+            )}
+          </div>
+        )}
+  
+        {/* Right Arrow */}
+        {currentIndex < items.length - 1 && (
+          <div
+            onClick={() => handleSwipe('left')}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white/50 rounded-full hover:bg-white transition"
+          >
+            {isHovered ? (
+              <ChevronRightCircle className="w-6 h-6 text-blue-500" />
+            ) : (
+              <ArrowRight className="w-5 h-5 text-gray-700" />
+            )}
+          </div>
+        )}
+      </div>
+  
+      {/* Dots Indicator */}
+      <div className="flex justify-center mt-4 space-x-2">
+        {items.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+              currentIndex === index ? 'bg-blue-500 scale-125' : 'bg-gray-400'
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
     </div>
-
-    {/* Dots Indicator */}
-    <div className="flex justify-center mt-4 space-x-2">
-      {items.map((_, index) => (
-        <div
-          key={index}
-          className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-            currentIndex === index ? 'bg-blue-500 scale-125' : 'bg-gray-400'
-          }`}
-          onClick={() => setCurrentIndex(index)}
-        />
-      ))}
-    </div>
-  </div>
-</div>
   );
+  
+  
 };
