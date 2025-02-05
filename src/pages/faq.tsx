@@ -14,6 +14,7 @@ const faq: NextPage = (props) => {
         />
       </Head>
       <FAQView />
+      
     </div>
   );
 };

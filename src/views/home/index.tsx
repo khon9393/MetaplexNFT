@@ -121,7 +121,7 @@ export const HomeView: FC = ({ }) => {
         </CarouselContent>
 
         {/* Navigation Arrows */}
-        <div className="absolute bottom-15 left-12 right-12 flex justify-between p-5 bg-transparent text-blue-500">
+        <div className="absolute bottom-15 left-20 right-20 flex justify-between p-5 bg-transparent text-blue-500">
           <CarouselPrevious
             size='lg'
             className="bg-transparent text-blue-500"
