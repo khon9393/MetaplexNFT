@@ -108,10 +108,10 @@ export const HomeView: FC = ({ }) => {
   });
   
   return (
-    <div className="w-[450px] mx-auto">
+    <div className="w-[400px] mx-auto">
       <div
         {...handlers}
-        className="min-w-[450px] flex-shrink-0 h-[500px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
+        className="min-w-[400px] flex-shrink-0 h-[400px] relative border-4 border-gray-300 rounded-2xl shadow-xl overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
