@@ -12,11 +12,9 @@ import dynamic from "next/dynamic";
 import {
     PhantomWalletAdapter,
     SolflareWalletAdapter,
-    CloverWalletAdapter,
-    AlphaWalletAdapter,
     TorusWalletAdapter,
   } from "@solana/wallet-adapter-wallets";
-  
+
 const ReactUIWalletModalProviderDynamic = dynamic(
   async () =>
     (await import("@solana/wallet-adapter-react-ui")).WalletModalProvider,
@@ -31,30 +29,32 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     console.log(network);
 
-    const wallets = useMemo(
-        () => [
-            //new UnsafeBurnerWalletAdapter(),
-                    new PhantomWalletAdapter(),
-                    new SolflareWalletAdapter(),
-                    new SolflareWalletAdapter(),
-                    new TorusWalletAdapter(),
-                    new TorusWalletAdapter(),
-        ],[]
-       [network]
-    );
+    const wallets = useMemo(() => {
+        try {
+            return [
+                // new UnsafeBurnerWalletAdapter(),
+                new PhantomWalletAdapter(),
+                new SolflareWalletAdapter(),
+                new TorusWalletAdapter(),
+            ];
+        } catch (error) {
+            console.error("Failed to initialize wallets:", error);
+            return [];
+        }
+    }, [network]);
 
-    const onError = useCallback(
-        (error: WalletError) => {
-            notify({ type: 'error', message: error.message ? `${error.name}: ${error.message}` : error.name });
-            console.error(error);
-        },
-        []
-    );
+    // const onError = useCallback(
+    //     (error: WalletError) => {
+    //         notify({ type: 'error', message: error.message ? `${error.name}: ${error.message}` : error.name });
+    //         console.error(error);
+    //     },
+    //     []
+    // );
 
     return (
         // TODO: updates needed for updating and referencing endpoint: wallet adapter rework
         <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} onError={onError} autoConnect={autoConnect}>
+            <WalletProvider wallets={wallets} autoConnect={autoConnect}>
                 <ReactUIWalletModalProviderDynamic>
                     {children}
                 </ReactUIWalletModalProviderDynamic>

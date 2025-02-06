@@ -92,7 +92,7 @@ export const MintCandiRandom: FC = () => {
             toast({
                 title: "Mint failed!",
                 description: error.message,
-                variant: "destructive",
+                variant: "default",
             });
             setIsTransacting(false);
         }

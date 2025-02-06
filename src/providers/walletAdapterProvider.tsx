@@ -8,8 +8,6 @@ import React, { FC, useMemo, useState, useEffect } from "react";
 import {
   PhantomWalletAdapter,
   SolflareWalletAdapter,
-  CloverWalletAdapter,
-  AlphaWalletAdapter,
   TorusWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
 
@@ -28,8 +26,6 @@ export const WalletAdapterProvider: FC<Props> = ({ children }) => {
       return [
         new PhantomWalletAdapter(),
         new SolflareWalletAdapter(),
-        new SolflareWalletAdapter(),
-        new TorusWalletAdapter(),
         new TorusWalletAdapter(),
       ];
     } catch (err) {

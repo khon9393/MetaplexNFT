@@ -65,7 +65,7 @@ export const HomeView: FC = ({ }) => {
 
   return (
     <>
-      <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-4">
+      <Carousel setApi={setApi} className="w-full max-w-lg bg-grey-800 p-10">
         <CarouselContent>
           {items.map((item, index) => (
             <CarouselItem key={item.id} className="relative">
