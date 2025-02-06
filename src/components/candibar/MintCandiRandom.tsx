@@ -105,7 +105,7 @@ export const MintCandiRandom: FC = () => {
                     rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                 {wallet.connected && (
                     <button
-                        className="px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+                        className="px-8 m-2 z-50 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
                         onClick={onClick}
                         disabled={isTransacting}
                     >
@@ -114,7 +114,7 @@ export const MintCandiRandom: FC = () => {
                 )}
 
             {isTransacting && (
-                <div className="fixed inset-0 z-60 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="bg-white p-10 rounded-lg shadow-lg">
                         <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
                         <p className="mt-4 text-center text-xl font-semibold text-black">Minting in progress...</p>
