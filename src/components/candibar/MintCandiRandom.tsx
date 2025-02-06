@@ -15,11 +15,11 @@ const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const candyMachineAddress = publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05);
 const collectionMint = publicKey(process.env.NEXT_PUBLIC_COLLECTION_ID05);
 import { Fireworks } from "@fireworks-js/react";
-import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
 import { toast } from '../../hooks/use-toast';
 import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
 import { Spinner } from '../ui/spinner';
+import useViewportSize from "./useViewportSize";
 
 export const MintCandiRandom: FC = () => {
 
@@ -29,7 +29,7 @@ export const MintCandiRandom: FC = () => {
 
     const [showFireworks, setShowFireworks] = useState(false);
     const [showConfetti, setShowConfetti] = useState(false);
-    const { width, height } = useWindowSize(); // Dynamically get window size
+    const { width, height } = useViewportSize(); // Dynamically get window size
     const [isTransacting, setIsTransacting] = useState(false);
 
     // TODO - Create an Umi instance
