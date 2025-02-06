@@ -11,7 +11,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 import * as bs58 from 'bs58';
 import { mintV1, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-machine";
 import { Fireworks } from "@fireworks-js/react";
-import useWindowSize from 'react-use/lib/useWindowSize';
+import useViewportSize from "./useViewportSize";
 import Confetti from "react-confetti";
 import { toast } from '../../hooks/use-toast';
 import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
@@ -41,7 +41,7 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
   const [showFireworks, setShowFireworks] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const { width, height } = useWindowSize(); // Dynamically get window size
+  const { width, height } = useViewportSize(); // Dynamically get window size
   
   const candyMachineAddress = publicKey(candyMachineId);
   const collectionMint = publicKey(collectionId);
