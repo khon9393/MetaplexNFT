@@ -73,7 +73,7 @@ export function CandibarDropdownMenu1() {
             <DropdownMenuGroup>
           <DropdownMenuItem>
 
-            <Button variant="link" onClick={() => { window.location.href = '/nftswap'; }} >
+            <Button variant="ghost" onClick={() => { window.location.href = '/nftswap'; }} >
               Swap
             </Button>
 
