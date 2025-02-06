@@ -41,6 +41,7 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
   const [showFireworks, setShowFireworks] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+
   const { width, height } = useViewportSize(); // Dynamically get window size
   
   const candyMachineAddress = publicKey(candyMachineId);
