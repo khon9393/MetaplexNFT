@@ -9,14 +9,7 @@ import { AutoConnectProvider, useAutoConnect } from './AutoConnectProvider';
 import { notify } from "../utils/notifications";
 import { NetworkConfigurationProvider, useNetworkConfiguration } from './NetworkConfigurationProvider';
 import dynamic from "next/dynamic";
-import {
-    PhantomWalletAdapter,
-    SolflareWalletAdapter,
-    CloverWalletAdapter,
-    AlphaWalletAdapter,
-    TorusWalletAdapter,
-  } from "@solana/wallet-adapter-wallets";
-  
+
 const ReactUIWalletModalProviderDynamic = dynamic(
   async () =>
     (await import("@solana/wallet-adapter-react-ui")).WalletModalProvider,
@@ -34,13 +27,9 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const wallets = useMemo(
         () => [
             //new UnsafeBurnerWalletAdapter(),
-                    new PhantomWalletAdapter(),
-                    new SolflareWalletAdapter(),
-                    new SolflareWalletAdapter(),
-                    new TorusWalletAdapter(),
-                    new TorusWalletAdapter(),
+            
         ],[]
-       [network]
+       // [network]
     );
 
     const onError = useCallback(
