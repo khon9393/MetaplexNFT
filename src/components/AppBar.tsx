@@ -41,8 +41,7 @@ export const AppBar: React.FC = () => {
 
       <div className="navbar flex h-30 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
         <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          <Link href="https://www.candibarnft.com/"
-            target="_blank" rel="noopener noreferrer"
+          <Link href="/"
           >
             Candibar&nbsp;NFT</Link>
         </h1>
@@ -58,7 +57,6 @@ export const AppBar: React.FC = () => {
             <NavElement
               label="Home"
               href="/"
-              navigationStarts={() => setIsNavOpen(false)}
             />
             <div>
             < CandibarDropdownMenu1 />
