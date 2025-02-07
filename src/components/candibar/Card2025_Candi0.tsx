@@ -81,7 +81,7 @@ export const Card2025_candi0: FC = () => {
     <>
       {/* <div className="flex flex-col md:flex-row items-start gap-4 mt-4">
         <div className="flex flex-col items-center md:w-2/3"> */}
-      <div className="flex flex-col md:flex-row items-start gap-4 mt-4">
+      <div className="flex flex-col md:flex-row items-start gap-4 mt-4 pl-1 pr-1">
         <div className="">
           <div className="p-6">
             {candyMachines.map((machine, index) => (
@@ -109,7 +109,7 @@ export const Card2025_candi0: FC = () => {
                         </CollapsibleTrigger>
                       </div>
                       <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                        SOL cost: {parseFloat(machine.cost).toFixed(1)} |
+                        SOL cost: {parseFloat(machine.cost).toFixed(2)} |
                         mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                       </div>
                       <CollapsibleContent className="space-y-2">
@@ -183,14 +183,14 @@ export const Card2025_candi0: FC = () => {
               </div>
             ))}
 
-            <div className="flex flex-wrap justify-center gap-4 md:flex-nowrap mt-4">
+            <div className="flex flex-wrap justify-center gap-3 md:flex-nowrap mt-6">
               {images.map((pic, index) => (
                 <div
                   key={index}
                   className={`rounded-lg ${selectedImage === pic.src ? 'border-4 border-white rounded-xl' : ''}`}
                 >
                   <div className="w-full">
-                    <div className="flex space-x-4">
+                    <div className="space-x-4">
                       <div className="relative overflow-hidden rounded-xl shadow-lg"> {/* ✅ Added overflow-hidden */}
                         <motion.img
                           src={pic.src}
@@ -214,8 +214,9 @@ export const Card2025_candi0: FC = () => {
                 </div>
               ))}
             </div>
-
+            <div className="p-4">
             <MintCandiRandom />
+            </div>
           </div>
 
 
