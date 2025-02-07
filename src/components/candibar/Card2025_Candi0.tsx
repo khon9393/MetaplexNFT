@@ -222,7 +222,7 @@ export const Card2025_candi0: FC = () => {
         </div>
 
 
-        <div className="p-6 w-full md:w-2/3">
+        <div className="p-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
