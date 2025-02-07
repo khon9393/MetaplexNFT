@@ -17,7 +17,7 @@ export const NFTSwapView: FC = ({ }) => {
           Comming Soon!
         </h1>
         <div className="text-center">
-          {/* <DrawerWindow /> */}
+          <DrawerWindow />
 
            {/* <UmiProvider>
             <SwapWrapper />
