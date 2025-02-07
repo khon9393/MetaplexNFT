@@ -81,7 +81,7 @@ export const Card2025_candi0: FC = () => {
     <>
       {/* <div className="flex flex-col md:flex-row items-start gap-4 mt-4">
         <div className="flex flex-col items-center md:w-2/3"> */}
-      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-1 pr-1">
+      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-1 pr-1 ">
         <div className="">
           <div className="p-6">
             {candyMachines.map((machine, index) => (
