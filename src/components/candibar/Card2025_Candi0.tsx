@@ -183,7 +183,7 @@ export const Card2025_candi0: FC = () => {
               </div>
             ))}
 
-            <div className="flex flex-wrap justify-center gap-3 md:flex-nowrap mt-6">
+            <div className="relative flex justify-center gap-3 mt-6">
               {images.map((pic, index) => (
                 <div
                   key={index}
