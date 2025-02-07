@@ -81,7 +81,7 @@ export const Card2025_candi0: FC = () => {
     <>
       {/* <div className="flex flex-col md:flex-row items-start gap-4 mt-4">
         <div className="flex flex-col items-center md:w-2/3"> */}
-      <div className="flex flex-col md:flex-row items-start gap-4 mt-4 pl-1 pr-1">
+      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-1 pr-1">
         <div className="">
           <div className="p-6">
             {candyMachines.map((machine, index) => (
@@ -203,11 +203,11 @@ export const Card2025_candi0: FC = () => {
                           whileHover={{ scale: 1.1 }} // ✅ Motion effect inside box
                           transition={{ type: "spring", stiffness: 300 }}
                         />
-                        {index === 0 && (
+                        {/* {index === 0 && (
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-tl-xl">
                             Candi Collection 2025 Cover
                           </div>
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </div>
