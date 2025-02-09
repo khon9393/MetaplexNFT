@@ -1,15 +1,14 @@
+
 import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
-import candcollection from "../../../public/2025_Candi0/collection_01_500.jpg";
-import candi00 from "../../../public/2025_Candi0/candi_00_500.jpg";
-import candi01 from "../../../public/2025_Candi0/candi_01_500.jpg";
-import candi02 from "../../../public/2025_Candi0/candi_02_500.jpg";
-import candi03 from "../../../public/2025_Candi0/candi_03_500.jpg";
+
 import TokenImg from "../../assets/images/token.jpg";
-import { MintCandiRandom } from "./MintCandiRandom";
+import { MintCandiRandom } from "../../components/candibar/MintCandiRandom";
+import { getCollection } from "../../stores/useCandibardataStore";
 
 import { publicKey } from '@metaplex-foundation/umi';
 import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
+
 
 import {
   Collapsible,
@@ -26,18 +25,12 @@ import { Card, CardContent } from "src/components/ui/card";
 import { getExplorerUrl } from "../../utils/explorer";
 import { motion } from "framer-motion";
 
-const images = [candcollection, candi00, candi01, candi02, candi03];
+
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 
-export const Card2025_candi0: FC = () => {
+export const CandiCardView: FC = () => {
   const [isOpenStates, setIsOpenStates] = useState([false]);
-
-  const imageVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-    hover: { scale: 1.04 },
-  };
-
+  const [selectedImage, setSelectedImage] = useState('');
 
   const [balances, setBalances] = useState<
     {
@@ -63,19 +56,27 @@ export const Card2025_candi0: FC = () => {
     fetchBalances();
   }, []);
 
-  const candyMachines = balances.map((balance, index) => ({
-    id: index + 1,
-    cost: `${balance.SolCost} SOL`,
-    candibarValue: 50,
-    image: [candi00.src, candi01.src, candi02.src, candi03.src][index],
-    itemsAvailable: balance.itemsAvailable,
-    itemsRedeemed: balance.itemsRedeemed,
-    collectionMint: balance.collectionMint,
-    collectionName: balance.collectionName,
-    candyGuardMinLimit: balance.candyGuardMinLimit,
-  }));
+  const candyMachines = balances.map((balance, index) => {
+    const collectionImages = getCollection(balance.collectionMint);
 
-  const [selectedImage, setSelectedImage] = useState(images[0]?.src);
+    //add cover into image array
+    collectionImages.images.splice(0, 0, {
+      name: collectionImages.collectionName
+      , url: collectionImages.collectionurl
+    });
+
+    return {
+      id: index + 1,
+      cost: `${balance.SolCost} SOL`,
+      candibarValue: 50,
+      images: collectionImages.images,
+      itemsAvailable: balance.itemsAvailable,
+      itemsRedeemed: balance.itemsRedeemed,
+      collectionMint: balance.collectionMint,
+      collectionName: balance.collectionName,
+      candyGuardMinLimit: balance.candyGuardMinLimit,
+    };
+  });
 
   return (
     <>
@@ -150,64 +151,64 @@ export const Card2025_candi0: FC = () => {
                     </Collapsible>
                     <div className="rounded-lg overflow-hidden"> {/* ✅ Added overflow-hidden */}
                       <Card className="flex justify-center items-center">
-                        {selectedImage && (
-                          <div className="w-full h-full flex justify-center items-center relative">
-                            <motion.div
-                              initial={{ scale: 1 }}
-                              whileHover={{ scale: 1.05 }} // ✅ Motion effect inside the box
-                              transition={{ type: "spring", stiffness: 300 }}
-                              className="w-full h-full"
-                            >
-                              <Image
-                                src={selectedImage}
-                                alt="Selected Candy"
-                                layout="responsive"
-                                width={400}
-                                height={400}
-                                className="rounded-xl shadow-lg"
-                              />
-                            </motion.div>
+                         <div className="w-full h-full flex justify-center items-center relative">
+                          <motion.div
+                            initial={{ scale: 1 }}
+                            whileHover={{ scale: 1.05 }} // ✅ Motion effect inside the box
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="w-full h-full"
+                          >
+                            <Image
+                              src={selectedImage || machine.images[0]?.url}
+                              alt="Selected Candy"
+                              layout="responsive"
+                              width={400}
+                              height={400}
+                              className="rounded-xl shadow-lg"
+                            />
+                          </motion.div>
 
-                            <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
-                              {selectedImage === images[0]?.src
+                          {/* <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
+                              {selectedImage === machine.images[0]?.url
                                 ? "Candi Collection 2025 Cover"
-                                : `Candi Item #${images.findIndex((img) => img.src === selectedImage)}`}
-                            </div>
-                          </div>
-                        )}
+                                : `Candi Item #${machine.images.findIndex((img) => img.url === selectedImage)}`}
+                            </div> */}
+                        </div>
+
                       </Card>
                     </div>
                   </span>
 
                 </Card>
+
               </div>
             ))}
 
             <div className="relative flex justify-center gap-3 mt-6">
-              {images.map((pic, index) => (
+              {candyMachines[0]?.images.map((pic, index) => (
                 <div
                   key={index}
-                  className={`rounded-lg ${selectedImage === pic.src ? 'border-4 border-white rounded-xl' : ''}`}
+                  className={`rounded-lg ${selectedImage === pic.url ? 'border-4 border-white rounded-xl' : ''}`}
                 >
                   <div className="w-full">
                     <div className="space-x-4">
                       <div className="relative overflow-hidden rounded-xl shadow-lg"> {/* ✅ Added overflow-hidden */}
                         <motion.img
-                          src={pic.src}
+                          src={pic.url}
                           alt={`Candy ${index}`}
                           width={100}
                           height={100}
-                          onClick={() => setSelectedImage(pic.src)}
+                          onClick={() => setSelectedImage(pic.url)}
                           className="cursor-pointer"
                           initial={{ scale: 1 }}
                           whileHover={{ scale: 1.1 }} // ✅ Motion effect inside box
                           transition={{ type: "spring", stiffness: 300 }}
                         />
-                        {/* {index === 0 && (
+                        {index === 0 && (
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-tl-xl">
                             Candi Collection 2025 Cover
                           </div>
-                        )} */}
+                        )}
                       </div>
                     </div>
                   </div>
@@ -215,7 +216,7 @@ export const Card2025_candi0: FC = () => {
               ))}
             </div>
             <div className="p-4">
-            <MintCandiRandom />
+              <MintCandiRandom />
             </div>
           </div>
 
@@ -285,5 +286,3 @@ export const Card2025_candi0: FC = () => {
     </>
   );
 };
-
-export default Card2025_candi0;

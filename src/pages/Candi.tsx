@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { CandiView0 } from "../views";
+import { CandiView } from "../views";
 
-const Candi0: NextPage = (props) => {
+const Candi: NextPage = (props) => {
 
   return (
     <div>
@@ -13,9 +13,9 @@ const Candi0: NextPage = (props) => {
           content="Candi NFT"
         />
       </Head>
-      <CandiView0 />
+      <CandiView />
     </div>
   );
 };
 
-export default Candi0;
+export default Candi;

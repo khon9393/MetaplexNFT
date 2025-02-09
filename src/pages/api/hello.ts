@@ -13,4 +13,11 @@ export default function handler(
 }
 
 
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const param = searchParams.get("param");
+
+  return Response.json({ message: `You sent: ${param}` });
+}
+
 export {}

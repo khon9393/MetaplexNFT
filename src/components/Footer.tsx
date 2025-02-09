@@ -14,9 +14,6 @@ import metaplexLogo from "../../public/metaplex-logo.png";
 import Link from 'next/link';
 
 export const Footer: FC = () => {
-
-  const [isOpenStates, setIsOpenStates] = useState([false]);
-  const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="flex">
 
@@ -137,9 +134,10 @@ export const Footer: FC = () => {
                   <div key={domain} className="mb-2">
                     <a href={`https://www.${domain}`} target="_blank" rel="noopener noreferrer">
                       ©&nbsp;{new Date().getFullYear()}&nbsp;{domain}
-                    </a> . All Rights Reserved.
+                    </a> 
                   </div>
                 ))}
+                All Rights Reserved.
               </div>
 
             </div>

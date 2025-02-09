@@ -2,9 +2,10 @@ export { GetStartedView } from "./getstarted";
 export { HomeView } from "./home";
 export { BasicsView } from "./basics";
 export { NFTSwapView } from "./nftswap";
-export { CandiView0 } from "./candi";
-export { SnakeView } from "./snake";
+export { CandiView } from "./candi";
 export { FAQView } from "./faq";
 export { EscrowView } from "./escrow";
 export {TermsOfServiceView} from "./tos";
-export {PrivacyPolicyView} from "./pp"
+export {PrivacyPolicyView} from "./pp";
+export {AstrologyZodiacView} from "./astrology/zodiac";
+export {AstrologySignView} from "./astrology/sign";

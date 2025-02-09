@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { SnakeView } from "../views";
+import {AstrologyZodiacView } from "../views";
 
-const Candi0: NextPage = (props) => {
+const AstrologyZodiac: NextPage = (props) => {
 
   return (
     <div>
@@ -13,9 +13,9 @@ const Candi0: NextPage = (props) => {
           content="Snake NFT"
         />
       </Head>
-      <SnakeView />
+      <AstrologyZodiacView />
     </div>
   );
 };
 
-export default Candi0;
+export default AstrologyZodiac;
