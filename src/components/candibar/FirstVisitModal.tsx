@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getWithExpiry, setWithExpiry } from '../../utils/localStorage'; // Adjust the path if needed
+import Link from 'next/link';
 
 const FirstVisitModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +55,7 @@ const FirstVisitModal = () => {
               We are actively working to get our website added to Phantom&apos;s whitelist as quickly as possible to ensure a smoother experience for all users. Thank you for your patience as we work through this.
             </p>
             <p className="mb-4 text-lg leading-relaxed">
-              Visit our <a href="/faq" className="text-blue-500 underline">FAQ</a> for more information.
+              Visit our <Link href="/faq" className="text-blue-500 underline">FAQ</Link> for more information.
             </p>
             </div>
             <div className="flex justify-end">
