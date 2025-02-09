@@ -43,7 +43,7 @@ export const AppBar: React.FC = () => {
         <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
           <Link href="/"
           >
-            Candibar</Link>
+            Candibar&nbsp;NFT</Link>
         </h1>
         <div className="navbar-start align-items-center gap-1">
           <div className="btn-ghost btn-sm relative flex md:hidden items-center" style={{ width: '180px' }}>
