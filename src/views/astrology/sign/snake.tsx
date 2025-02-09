@@ -86,7 +86,7 @@ export const SignSnakeView: FC = ({ }) => {
           Unlock the future of digital assets with Snake Coin 2025 NFT!
         </p>
   
-        <div className="flex flex-col text-2xl items-center justify-center p-5">
+        <div className="flex flex-col text-1xl items-center justify-center p-5">
           <p className="max-w-7xl leading-relaxed">
             Embodying the wisdom and mystique of the Year of the Snake, this NFT represents
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
