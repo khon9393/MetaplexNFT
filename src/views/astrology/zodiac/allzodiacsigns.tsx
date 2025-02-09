@@ -109,7 +109,7 @@ export const ZodiacSignAllView: FC = () => {
   Unlock the future of digital assets with Zodiac Coin 2025 NFT!
 </p>
 
-<div className="flex flex-col text-2xl items-center justify-center p-5">
+<div className="flex flex-col text-1xl items-center justify-center p-5">
   <p className="max-w-7xl leading-relaxed">
     Step into the cosmic realm of the Zodiac with this exclusive NFT collection, embodying the essence of 
     <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
