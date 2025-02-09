@@ -94,6 +94,7 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
       const txid = bs58.encode(signature);
       console.log('success', `Mint successful! ${txid}`)
+      
       //notify({ type: 'success', message: 'Mint successful!', txid });
 
       toast({
