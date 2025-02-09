@@ -22,11 +22,10 @@ import Link from 'next/link';
 import { Card, CardContent } from "src/components/ui/card";
 import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 
-export const carddetails: FC = () => {
-  const router = useRouter();
+const CardDetails: FC = () => {
+
   const searchParams = useSearchParams();
   const paramValue = searchParams.get("param"); // Read query parameter
   const [paramCollectionaddress, setParamCollectionaddress] = useState(paramValue);
@@ -89,8 +88,6 @@ export const carddetails: FC = () => {
 
   return (
     <>
-      {/* <div className="flex flex-col md:flex-row items-start gap-4 mt-4">
-        <div className="flex flex-col items-center md:w-2/3"> */}
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-1 pr-1 ">
         <div className="">
           <div className="p-6">
@@ -137,8 +134,6 @@ export const carddetails: FC = () => {
                               href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
                               target="_blank"
                               rel="noopener noreferrer"
-                            //className="ml-1 text-white rounded"
-                            //style={{ display: 'inline-block', width: '20px', height: '20px', textAlign: 'center' }}
                             >
                               <svg xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -158,12 +153,12 @@ export const carddetails: FC = () => {
                         </div>
                       </CollapsibleContent>
                     </Collapsible>
-                    <div className="rounded-lg overflow-hidden"> {/* ✅ Added overflow-hidden */}
+                    <div className="rounded-lg overflow-hidden">
                       <Card className="flex justify-center items-center">
                         <div className="w-full h-full flex justify-center items-center relative">
                           <motion.div
                             initial={{ scale: 1 }}
-                            whileHover={{ scale: 1.05 }} // ✅ Motion effect inside the box
+                            whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             className="w-full h-full"
                           >
@@ -178,10 +173,6 @@ export const carddetails: FC = () => {
                           </motion.div>
 
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
-                                {/* {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
-                                ? "Candi Collection 2025 Cover"
-                                : `Candi Item #${machine.images.findIndex((img) => img.url === selectedImage)}`} */}
-                                {/* {machine.images[0]?.name} */}
                                 {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
                                 ? machine.collectionName
                                 : machine.images.find((img) => img.url === selectedImage)?.name || `Candibar Item`}
@@ -205,7 +196,7 @@ export const carddetails: FC = () => {
                 >
                   <div className="w-full">
                     <div className="space-x-4">
-                      <div className="relative overflow-hidden rounded-xl shadow-lg"> {/* ✅ Added overflow-hidden */}
+                      <div className="relative overflow-hidden rounded-xl shadow-lg">
                         <motion.img
                           src={pic.url}
                           alt={`Candy ${index}`}
@@ -214,14 +205,9 @@ export const carddetails: FC = () => {
                           onClick={() => setSelectedImage(pic.url)}
                           className="cursor-pointer"
                           initial={{ scale: 1 }}
-                          whileHover={{ scale: 1.1 }} // ✅ Motion effect inside box
+                          whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 300 }}
                         />
-                        {/* {pic.iscollectioncover && (
-                          <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-tl-xl">
-                            Candi Collection 2025 Cover
-                          </div>
-                        )} */}
                       </div>
                     </div>
                   </div>
@@ -299,4 +285,4 @@ export const carddetails: FC = () => {
   );
 };
 
-export default carddetails;
+export default CardDetails;

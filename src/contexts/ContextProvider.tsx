@@ -41,7 +41,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
             console.error("Failed to initialize wallets:", error);
             return [];
         }
-    }, [network]);
+    }, []);
 
     // const onError = useCallback(
     //     (error: WalletError) => {

@@ -22,13 +22,14 @@ import { ChevronsUpDown } from 'lucide-react';
 import { Card, CardContent } from "src/components/ui/card"
 import { getExplorerUrl } from "../../../utils/explorer";
 import { getCollection } from "../../../stores/useCandibardataStore";
+import { useRouter } from "next/router";
 import Link from "next/link";
 
 export const ZodiacSignAllView: FC = () => {
 
   const [isOpenStates, setIsOpenStates] = useState([false, false, false, false]);
   const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
-
+  const router = useRouter();
 
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
