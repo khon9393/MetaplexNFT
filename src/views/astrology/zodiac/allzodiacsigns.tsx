@@ -137,7 +137,7 @@ export const ZodiacSignAllView: FC = () => {
   </p>
 </div>
 
-        <div className="flex flex-wrap justify-center gap-8 items-center">
+        <div className="absolute flex-wrap justify-center items-center">
             
         {candyMachines.map((machine, machineIndex) => (
           <div key={machine.id} className="flex lg:w-3/8 p-4">
