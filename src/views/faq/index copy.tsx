@@ -1,5 +1,4 @@
 
-
 import { FC } from "react";
 import {
   Accordion,
@@ -14,8 +13,9 @@ import phatomblock2 from "../../../public/phantom/Screenshot 2025-02-02 052809.p
 export const FAQView: FC = ({ }) => {
 
   return (
-    <div className="md:hero mx-auto p-4">
-      <div className="min-h-screen text-white">
+    <div className="">
+    {/* <div className="md:hero mx-auto p-4">
+       <div className="min-h-screen text-white"> */}
         {/* Header */}
         <div className="py-6">
           <div className="container mx-auto text-center">
@@ -24,7 +24,7 @@ export const FAQView: FC = ({ }) => {
         </div>
 
         {/* Main Content */}
-        <main className="container mx-auto px-6 py-10 ">
+        <main className="px-6 py-10 ">
           <article className="prose prose-invert prose-lg max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Fequently Asked Questions</h2>
             <Accordion type="single" collapsible defaultValue="Phaonm-Request-block" >
@@ -94,7 +94,9 @@ export const FAQView: FC = ({ }) => {
 
           </article>
         </main>
-      </div>
+       {/* </div>
+     </div> */}
+
     </div>
   );
 };

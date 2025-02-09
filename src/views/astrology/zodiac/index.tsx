@@ -1,14 +1,14 @@
 
 import { FC } from "react";
 
-import { CandiCardView } from './candi';
+import { ZodiacSignAllView } from './allzodiacsigns';
 import { Toaster } from "@/components/ui/toaster";
 
-export const CandiView: FC = ({ }) => {
+export const AstrologyZodiacView: FC = ({ }) => {
 
   return (
     <div>
-      <CandiCardView />
+      <ZodiacSignAllView />
       <Toaster />
     </div>
   );

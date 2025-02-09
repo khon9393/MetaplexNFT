@@ -8,7 +8,7 @@ interface Props {
 export const ContentContainer: React.FC<Props> = ({ children }) => {
 
   return (
-    <div className="flex-1 drawer h-52 flex-col justify-between pl-[100px]">
+    <div className="flex-1 drawer h-52 flex-col justify-between">
       <input id="my-drawer" type="checkbox" className="grow drawer-toggle" />
       <div className="items-center drawer-content flex flex-col justify-between">
         {children}
@@ -28,13 +28,19 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           <li>
             <NavElement
               label="Candi&nbsp;NFT"
-              href="/candi0"
+              href="/Candi"
             />
           </li>
           <li>
             <NavElement
               label="Snake&nbsp;NFT"
-              href="/snake"
+              href="/AstrologySign"
+            />
+          </li>
+          <li>
+            <NavElement
+              label="Zodiac&nbsp;NFT"
+              href="/AstrologyZodiac"
             />
           </li>
           <li>
