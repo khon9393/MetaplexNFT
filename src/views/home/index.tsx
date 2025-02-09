@@ -22,43 +22,43 @@ import Image from "next/image";
 const items = [
   { id: 1, name: 'collection', collectionCover: 1, color: 'bg-red-500', text: 'Candi Collection 2025 Cover', titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭', subtitledesc: 'Sugar Rush Starts Now With 1,000 Sweet Opportunities. ', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69"
-    , pageloc: "/candi0" },
+    , pageloc: "/Candi" },
 
   { id: 2, name: 'candi00', color: 'bg-green-500', text: 'Candi Item #1', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo"
-    , pageloc: "/candi0" },
+    , pageloc: "/Candi" },
 
   { id: 3, name: 'candi01', color: 'bg-blue-500', text: 'Candi Item #2', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdyA45Tw3nfZnUUjgawh9QdpscNgY8sg1nMpe8JME1UmQ"
-    , pageloc: "/candi0" },
+    , pageloc: "/Candi" },
 
   { id: 4, name: 'candi02', color: 'bg-yellow-500', text: 'Candi Item #3', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbjeEgD5aGMgFFpX3MWsvxDxzhGQDT9KCLroB5htgE7Gg"
-    , pageloc: "/candi0" },
+    , pageloc: "/Candi" },
 
   { id: 5, name: 'candi03', color: 'bg-purple-500', text: 'Candi Item #4', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmNknJSTgZTuxTkn9RP8HtPxQjeyzo69Eq476juYyym4Tu"
-    , pageloc: "/candi0" },
+    , pageloc: "/Candi" },
 
   { id: 6, name: 'collection', collectionCover: 1, color: 'bg-pink-500', text: 'Snake Collection 2025 Cover', titledesc: '🐍 Introducing the Snake Collection 2025! 🐍', subtitledesc: 'A Limited Collection to Celebrate the Year of the Wood Snake!', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmUuMz8Y8wcfvdcQsZFGJK5CTMNFQTC952VQvXXRcNA6C2"
-    , pageloc: "/snake" },
+    , pageloc: "/AstrologySign" },
 
   { id: 7, name: 'snake00', color: 'bg-indigo-500', text: 'Snake Item #1', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcapCnprSUZGZf37nzb6JGJUDDPcyS1znAoFruVKW4wt6"
-    , pageloc: "/snake" },
+    , pageloc: "/AstrologySign" },
 
   { id: 8, name: 'snake01', color: 'bg-teal-500', text: 'Snake Item #2', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTFLHTphBCnuhpjW6grPbdCYNtSVcoQXAXobexgwKnKP6" 
-    , pageloc: "/snake" },
+    , pageloc: "/AstrologySign" },
 
   { id: 9, name: 'snake02', color: 'bg-orange-500', text: 'Snake Item #3', 
     image:  "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVEvqAAJpy1db4C9dLdiTXVyvTXvHUJyZyF8SGw4cRr11"
-    , pageloc: "/snake" },
+    , pageloc: "/AstrologySign" },
 
   { id: 10, name: 'snake03', color: 'bg-gray-500', text: 'Snake Item #4', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSqT7h7Q2XwYXUXzCJruSt9aN4EVGEv2VJEoXWAjXbq1u"  
-    , pageloc: "/snake" },
+    , pageloc: "/AstrologySign" },
 ];
 
 export const HomeView: FC = ({ }) => {
