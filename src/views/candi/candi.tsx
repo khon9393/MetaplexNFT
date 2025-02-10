@@ -3,11 +3,11 @@ import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
 
 import TokenImg from "../../assets/images/token.jpg";
-import { MintCandiRandom } from "../../components/candibar/MintCandiRandom";
 import { getCollection } from "../../stores/useCandibardataStore";
 
 import { publicKey } from '@metaplex-foundation/umi';
 import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
+import { CandiMinter } from "../../components/candibar/CandiMinter";
 
 
 import {
@@ -168,11 +168,11 @@ export const CandiCardView: FC = () => {
                             />
                           </motion.div>
 
-                          {/* <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
+                          <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
                               {selectedImage === machine.images[0]?.url
                                 ? "Candi Collection 2025 Cover"
                                 : `Candi Item #${machine.images.findIndex((img) => img.url === selectedImage)}`}
-                            </div> */}
+                            </div>
                         </div>
 
                       </Card>
@@ -204,19 +204,29 @@ export const CandiCardView: FC = () => {
                           whileHover={{ scale: 1.1 }} // ✅ Motion effect inside box
                           transition={{ type: "spring", stiffness: 300 }}
                         />
-                        {index === 0 && (
+                        {/* {index === 0 && (
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-tl-xl">
                             Candi Collection 2025 Cover
                           </div>
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="p-4">
-              <MintCandiRandom />
+            {/* <div className="p-4">
+              <MintCandiRandom 
+                candyMachineId={process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05}
+                collectionId={balances[0]?.collectionMint}
+              />
+            </div> */}
+
+              <div className="p-4">
+              <CandiMinter 
+                candyMachineaddress={process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05}
+                collectionaddress={balances[0]?.collectionMint}
+              />
             </div>
           </div>
 
