@@ -20,7 +20,7 @@ const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 
 
-  const candyMachineKeys = [
+  const candyMachineKeysforConfetti = [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
@@ -68,7 +68,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
       
-      //Mint from the Candy Machine.
+     // Mint from the Candy Machine.
       const nftMint = generateSigner(umi);
       const transaction = await transactionBuilder()
         .add(setComputeUnitLimit(umi, { units: 800_000 }))
@@ -90,23 +90,26 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       });
 
       const txid = bs58.encode(signature);
-      //console.log('success', `Mint successful! ${txid}`)
-      //notify({ type: 'success', message: 'Mint successful!', txid });
 
       toast({
         title: "Successful",
             description: "Mint successful!",
         });
 
+      // toast({
+      //   title: "Successful",
+      //       description: candyMachineKeysforConfetti[0].toString() +'\n'+ candyMachineaddress,
+      //   });
+
 
       getUserSOLBalance(wallet.publicKey, connection);
 
-      if(candyMachineKeys[0].toString() == candyMachineaddress)
+      if(candyMachineKeysforConfetti[0].toString() == candyMachineaddress)
       {
         setShowFireworks(true);
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
       }
-      else if(candyMachineKeys[3].toString() == candyMachineaddress)
+      else if(candyMachineKeysforConfetti[3].toString() == candyMachineaddress)
       {
         setShowFireworks(true);
         setShowConfetti(true);
@@ -169,9 +172,12 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           numberOfPieces={650} // Dense confetti
           gravity={0.2} // Slow falling effect
           wind={0.02} // Slight drift
-            colors={candyMachineKeys[1].toString() == candyMachineaddress ? 
-              ["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd", "#ffbfd9"] : 
-              ["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"]}
+            colors={candyMachineKeysforConfetti[3].toString() == candyMachineaddress ? 
+              ["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"] 
+              : 
+              // ["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd", "#ffbfd9"]
+              ["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]
+            }
           />
           )}
           {showFireworks && (

@@ -5,7 +5,7 @@ import useTokenStore from "../stores/useTokenStore";
 import useUmiStore from "../stores/useUmiStore";
 import { useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-import TokenImage from "../assets/images/token.jpg";
+import TokenImg from '../../public/images/token.jpg';
 import { formatTokenAmount} from "../lib/utils";
 import Image from "next/image";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -41,7 +41,7 @@ const TokenBalance = () => {
     <Image
         width={200}
         height={200}
-        src={TokenImage.src}
+        src={TokenImg.src}
         className="aspect-square w-8 h-8 rounded-full"
         alt="token image"
       />

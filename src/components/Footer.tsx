@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/button';
 import { DrawerWindow } from './DrawerWindow';
 import NavElement from './nav-element';
 import Image from 'next/image';
-import solanaLogo from "../../public/solanaLogo.png";
-import metaplexLogo from "../../public/metaplex-logo.png";
+import solanaLogo from "../../public/logos/solanaLogo.png";
+import metaplexLogo from "../../public/logos/metaplex-logo.png";
 import Link from 'next/link';
 
 export const Footer: FC = () => {
@@ -144,7 +144,7 @@ export const Footer: FC = () => {
 
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg">
             <a
-                href="https://x.com/CandiBarnft" 
+                href={process.env.NEXT_PUBLIC_RPC_SOCIAL_X} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 hover:text-gray-400 transition"
@@ -160,7 +160,7 @@ export const Footer: FC = () => {
                 <span className="text-sm">Follow us on X</span>
               </a>
                   <a
-                    href="mailto:candibar.support@candibarnft.io"
+                    href={process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}
                     className="flex items-center space-x-2 hover:text-gray-400 transition"
                   >
                     <svg

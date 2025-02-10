@@ -7,7 +7,7 @@ import NavElement from './nav-element';
 import {CandibarDropdownMenu1} from './nav-element/nftnavmenu';
 import NetworkSwitcher from './NetworkSwitcher';
 import Image from 'next/image';
-import solanaLogo from '../../public/solanaLogo.png';
+import solanaLogo from '../../public/logos/solanaLogo.png';
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import useUserSOLBalanceStore from "../stores/useUserSOLBalanceStore";
 const WalletMultiButtonDynamic = dynamic(
