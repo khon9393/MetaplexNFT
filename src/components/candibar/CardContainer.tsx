@@ -4,34 +4,23 @@
 import React, { useState, useEffect, FC, useMemo } from "react";
 import Image from 'next/image'
 
-import { getCandyMachinesBalance } from '../../../stores/useCandyMachine';
-import { publicKey } from '@metaplex-foundation/umi';
-import { CandiMinter } from "../../../components/candibar/CandiMinter";
+import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
+import { PublicKey, publicKey } from '@metaplex-foundation/umi';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import solanaLogo from "../../../public/logos/solana-logo_1.svg";
+import tokenimg from "../../../public/images/token.jpg";
 
-import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import {
-  Button
-} from "@/components/ui/button"
 import { motion } from "framer-motion";
-
-import { ChevronsUpDown } from 'lucide-react';
 import { Card, CardContent } from "src/components/ui/card"
-import { getExplorerUrl } from "../../../utils/explorer";
-import { getCollection } from "../../../stores/useCandibardataStore";
-import { useRouter } from "next/router";
+import { getCollection } from "../../stores/useCandibardataStore";
 import Link from "next/link";
 
-export const ZodiacCapricornView: FC = () => {
 
-  const [isOpenStates, setIsOpenStates] = useState([false, false, false, false]);
-  const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
-  const router = useRouter();
+interface CandyMachineKeysProps {
+  candyMachineKeys: PublicKey[];
+}
+
+export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) => {
 
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -51,12 +40,12 @@ export const ZodiacCapricornView: FC = () => {
     }[]
   >([]);
 
-  const candyMachineKeys = useMemo(() => [
+  // const candyMachineKeys = useMemo(() => [
 
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
-   // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
+  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
+  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
 
-  ], []);
+  // ], []);
 
 
   useEffect(() => {
@@ -88,7 +77,7 @@ export const ZodiacCapricornView: FC = () => {
   useEffect(() => {
     const initialImageIndex = candyMachines.map(() => 0);
     setCurrentImageIndex(initialImageIndex);
-  }, [candyMachines.length]);
+  }, [candyMachines]);
 
   const [currentImageIndex, setCurrentImageIndex] = useState<number[]>(new Array(candyMachines.length).fill(0));
 
@@ -105,74 +94,42 @@ export const ZodiacCapricornView: FC = () => {
   };
 
   return (
-    <div className="p-9">
+    <div className="text-center justify-center flex flex-col">
+      <div className="flex flex-wrap justify-center items-center">
 
-      <p className="text-center text-3xl font-extrabold p-6">
-       Zodiac Capricorn Coin NFT!
-      </p>
-
-      <div className="flex flex-wrap justify-center gap-8 items-center">
         {candyMachines.map((machine, machineIndex) => (
-          <div key={machine.id} className="flex lg:w-7/16 p-4">
-            <Card className="w-96 h-full rounded-lg">
+          <div key={machine.id} className="flex lg:w-3/8 p-4">
+            <Card className="w-80 h-full rounded-lg">
               <span className="text-1xl font-semibold">
-                <Collapsible
-                  open={isOpenStates[machineIndex]}
-                  onOpenChange={(isOpen) => {
-                    const updatedStates = [...isOpenStates];
-                    updatedStates[machineIndex] = isOpen;
-                    setIsOpenStates(updatedStates);
-                  }}
-                  className="md:w-full space-y-2"
-                >
-                  <div className="flex items-center justify-between space-x-4 px-4">
-                    <h4 className="text-sm font-semibold">
-                      {machine.collectionName}
-                    </h4>
-                    <CollapsibleTrigger asChild>
-                      <Button variant="ghost" size="sm">
-                        <ChevronsUpDown className="h-4 w-4" />
-                        <span className="sr-only">Toggle</span>
-                      </Button>
-                    </CollapsibleTrigger>
-                  </div>
-                  <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                    SOL cost: {parseFloat(machine.cost).toFixed(2)} | mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                  </div>
-                  <CollapsibleContent className="space-y-2">
-                    <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                      Wallet mint limit: {machine.candyGuardMinLimit}
-                    </div>
-                    <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                      Candibar value: {machine.candibarValue}
-                    </div>
-                    <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                      Collection address:
-                      <div className="rounded-md px-4 py-2 font-mono text-sm shadow-sm flex items-center">
-                        <span>{machine.collectionMint}</span>
-                        <a
-                          href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            className="lucide lucide-link text-gray-600 hover:text-gray-400 p-1">
-                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
+
+                <div className="flex items-center justify-between space-x-4 px-4">
+                  <h4 className="text-sm font-semibold p-1">
+                    {machine.collectionName}
+                  </h4>
+
+                </div>
+
+                <div className="rounded-md border pl-2 px-1 py-1 font-mono text-sm flex items-center justify-center">
+                  <Image
+                    src={solanaLogo}
+                    alt="Solana Icon"
+                    width={16}
+                    height={16}
+                    className="mr-1"
+                  />
+                  SOL cost: {parseFloat(machine.cost).toFixed(2)}
+                </div>
+                {/* <div className="rounded-md border pl-2 px-1 py-1 font-mono text-sm flex items-center justify-center">
+                    <Image
+                        src={tokenimg.src}
+                        alt="Candibar Icon"
+                        width={16}
+                        height={16}
+                        className="mr-1"
+                      />
+                      
+                      Candibar costs: 0
+                    </div> */}
 
                 <Carousel setApi={(api) => {
 
@@ -221,7 +178,9 @@ export const ZodiacCapricornView: FC = () => {
                   </div>
                 </Carousel>
                 <Link
-                  href={`/CardDetails?param=${candyMachines[machineIndex].collectionMint}`}>
+                  href={`/CardDetails?param=${candyMachines[machineIndex].collectionMint}`}
+                  className="px-2 hover:underline flex justify-center animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
+                >
                   More Details ...
                 </Link>
               </span>
@@ -232,3 +191,5 @@ export const ZodiacCapricornView: FC = () => {
     </div>
   );
 };
+
+export default CardContainer;

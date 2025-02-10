@@ -1,7 +1,7 @@
 import { DasApiAsset } from "@metaplex-foundation/digital-asset-standard-api";
 import NftPicker from "../candibar/nftPicker";
 import { Card } from "@/components/ui/card";
-import CollectionImg from "../../assets/images/collectionImage.jpg";
+import CollectionImg from '../../../public/images/collectionImage.jpg';
 import useEscrowStore from "../../stores/useEscrowStore";
 import { TradeState } from "./swapWrapper";
 import { NO_REROLL_PATH, REROLL_PATH } from "../../lib/constants";

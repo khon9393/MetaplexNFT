@@ -68,7 +68,7 @@ export const TermsOfServiceView: FC = ({ }) => {
     
           <h2 className="text-2xl font-semibold mt-6 mb-2">10. Contact Information</h2>
           <p className="mb-4">
-            For any questions regarding these Terms of Service, please contact us at <Link href="mailto:support@candibarnft.com" className="text-blue-500 underline">support@candibarnft.com</Link>
+            For any questions regarding these Terms of Service, please contact us at <Link href={process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL} className="text-blue-500 underline">{process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}</Link>.
           </p>
         </div>
       );

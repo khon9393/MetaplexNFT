@@ -1,5 +1,6 @@
 "use client";
-import TokenImg from "../../assets/images/token.jpg";
+
+import TokenImg from '../../../public/images/token.jpg';
 
 import fetchAsset from "../../lib/das/fetchAsset";
 import useEscrowStore from "../../stores/useEscrowStore";
