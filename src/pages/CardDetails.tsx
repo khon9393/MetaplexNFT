@@ -4,11 +4,13 @@ import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
 
 import TokenImg from "../assets/images/token.jpg";
-// import { MintCandiRandom } from "../../MintCandiRandom";
+
 import { getCollection } from "../stores/useCandibardataStore";
 import { getCandyMachinesBalance } from '../stores/useCandyMachine';
 import { publicKey } from '@metaplex-foundation/umi';
-import { toast } from '../hooks/use-toast';
+import { CandiMinter } from "../components/candibar/CandiMinter";
+
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -67,8 +69,8 @@ const CardDetails: FC = () => {
 
   const candyMachines = balances.map((balance, index) => {
     if (collectionData) {
-      const images = collectionData.collectionurl 
-        ? [{ name: collectionData.collectionName, url: collectionData.collectionurl, iscollectioncover:true }, ...collectionData.images]
+      const images = collectionData.collectionurl
+        ? [{ name: collectionData.collectionName, url: collectionData.collectionurl, iscollectioncover: true }, ...collectionData.images]
         : [...collectionData.images];
 
       return {
@@ -81,6 +83,7 @@ const CardDetails: FC = () => {
         collectionMint: balance.collectionMint,
         collectionName: balance.collectionName,
         candyGuardMinLimit: balance.candyGuardMinLimit,
+        candymachineaddress: collectionData.candimachineeaddress,
       };
     }
     return null;
@@ -173,10 +176,10 @@ const CardDetails: FC = () => {
                           </motion.div>
 
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
-                                {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
-                                ? machine.collectionName
-                                : machine.images.find((img) => img.url === selectedImage)?.name || `Candibar Item`}
-                            </div>
+                            {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
+                              ? machine.collectionName
+                              : machine.images.find((img) => img.url === selectedImage)?.name || `Candibar Item`}
+                          </div>
                         </div>
 
                       </Card>
@@ -214,8 +217,13 @@ const CardDetails: FC = () => {
                 </div>
               ))}
             </div>
-            <div className="p-4">
-              {/* <MintCandiRandom /> */}
+  
+              <div className="p-4">
+                <CandiMinter
+                  candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
+                  collectionaddress={candyMachines[0]?.collectionMint || ''}
+                />
+      
             </div>
           </div>
 
@@ -245,7 +253,7 @@ const CardDetails: FC = () => {
                 { icon: '⚡', title: 'Built on Solana', desc: 'Blazing-fast transactions with ultra-low fees.' },
                 { icon: '🎨', title: 'Artistic Excellence', desc: 'Vibrant digital sweet world of candies.' },
                 { icon: <Image src={TokenImg} alt="Token" width={24} height={24} className="inline-block" />, title: 'Swap for Candibar Tokens', desc: 'Minted Candi NFTs can swap for Candibar tokens.' }
-                
+
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -275,11 +283,12 @@ const CardDetails: FC = () => {
             >
 
               💎 Grab your Candibar NFT today before it&apos;s gone!
-
+              {/* <br />
+              {candyMachines[0]?.candymachineaddress || ''} <br />
+              {candyMachines[0]?.collectionMint || ''} */}
             </motion.div>
           </motion.div>
         </div>
-
       </div>
     </>
   );

@@ -6,7 +6,8 @@ import Image from 'next/image'
 
 import { getCandyMachinesBalance } from '../../../stores/useCandyMachine';
 import { publicKey } from '@metaplex-foundation/umi';
-import { MintSnakes } from "../../../components/candibar/MintSnakes";
+import { CandiMinter } from "../../../components/candibar/CandiMinter";
+
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 import {

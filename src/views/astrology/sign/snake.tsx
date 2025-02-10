@@ -3,7 +3,7 @@ import React, { useState, useEffect, FC, useMemo } from "react";
 import Image from 'next/image'
 import { getCandyMachinesBalance } from '../../../stores/useCandyMachine';
 import { publicKey } from '@metaplex-foundation/umi';
-import { MintSnakes } from "../../../components/candibar/MintSnakes";
+import { CandiMinter } from "../../../components/candibar/CandiMinter";
 import { getCollection } from "../../../stores/useCandibardataStore";
 
 import {
@@ -195,9 +195,9 @@ export const SignSnakeView: FC = ({ }) => {
                         />
                       </motion.div>
                   </div>
-                  <MintSnakes
-                    candyMachineId={machine.candyMachinekeyId}
-                    collectionId={machine.collectionMint}
+                  <CandiMinter
+                    candyMachineaddress={machine.candyMachinekeyId}
+                    collectionaddress={machine.collectionMint}
                   />
   
                 </span>

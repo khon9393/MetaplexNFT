@@ -7,7 +7,6 @@ import { generateSigner, transactionBuilder, publicKey, some } from '@metaplex-f
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
-import { clusterApiUrl } from '@solana/web3.js';
 import * as bs58 from 'bs58';
 import { mintV1, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-machine";
 import { Fireworks } from "@fireworks-js/react";
@@ -28,12 +27,12 @@ const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
   ];
 
-interface MintSnakesProps {
-  candyMachineId: string;
-  collectionId: string;
+interface CandiMintersProps {
+  candyMachineaddress: string;
+  collectionaddress: string;
 }
 
-export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }) => {
+export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress }) => {
 
   const { connection } = useConnection();
   const wallet = useWallet();
@@ -43,9 +42,6 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
   const [showConfetti, setShowConfetti] = useState(false);
 
   const { width, height } = useViewportSize(); // Dynamically get window size
-  
-  const candyMachineAddress = publicKey(candyMachineId);
-  const collectionMint = publicKey(collectionId);
   const [isTransacting, setIsTransacting] = useState(false);
 
   // Create an Umi instance
@@ -69,7 +65,8 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
     try {
 
-      const results = await getCandyMachinesBalance([candyMachineAddress]);
+      const candyMachineKeys = [publicKey(candyMachineaddress)];
+      const results = await getCandyMachinesBalance(candyMachineKeys);
       
       //Mint from the Candy Machine.
       const nftMint = generateSigner(umi);
@@ -77,9 +74,9 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
         .add(setComputeUnitLimit(umi, { units: 800_000 }))
         .add(
           mintV1(umi, {
-            candyMachine: candyMachineAddress,
+            candyMachine: publicKey(candyMachineaddress),
             asset: nftMint,
-            collection: collectionMint,
+            collection: publicKey(collectionaddress),
             mintArgs: {
               solPayment: some({ destination: treasury }),
               mintLimit: some({ id: results[0].candyGuardId}),
@@ -93,8 +90,7 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
       });
 
       const txid = bs58.encode(signature);
-      console.log('success', `Mint successful! ${txid}`)
-      
+      //console.log('success', `Mint successful! ${txid}`)
       //notify({ type: 'success', message: 'Mint successful!', txid });
 
       toast({
@@ -105,24 +101,23 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
       getUserSOLBalance(wallet.publicKey, connection);
 
-      if(candyMachineKeys[0].toString() == candyMachineId)
+      if(candyMachineKeys[0].toString() == candyMachineaddress)
       {
         setShowFireworks(true);
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
       }
-      else if(candyMachineKeys[1].toString() == candyMachineId || candyMachineKeys[2].toString() == candyMachineId) 
-      {
-        setShowConfetti(true);
-        setTimeout(() => setShowConfetti(false), 9000); // Confetti for 9 seconds
-      }
-      else
+      else if(candyMachineKeys[3].toString() == candyMachineaddress)
       {
         setShowFireworks(true);
         setShowConfetti(true);
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
         setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 9 seconds
       }
-
+      else
+      {
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 9000); // Confetti for 9 seconds
+      }
 
       setIsTransacting(false);
 
@@ -142,7 +137,7 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
     setIsTransacting(false);
     }
-  }, [wallet, connection, getUserSOLBalance, umi, candyMachineAddress, collectionMint, candyMachineId]);
+  }, [wallet, connection, getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
 
   return (
     <div className="flex flex-row justify-center">
@@ -174,7 +169,9 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
           numberOfPieces={650} // Dense confetti
           gravity={0.2} // Slow falling effect
           wind={0.02} // Slight drift
-            colors={candyMachineKeys[1].toString() == candyMachineId ? ["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd", "#ffbfd9"] : ["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"]}
+            colors={candyMachineKeys[1].toString() == candyMachineaddress ? 
+              ["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd", "#ffbfd9"] : 
+              ["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"]}
           />
           )}
           {showFireworks && (
@@ -196,4 +193,4 @@ export const MintSnakes: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
     </div>
   );
 };
- export default MintSnakes;
+ export default CandiMinter;
