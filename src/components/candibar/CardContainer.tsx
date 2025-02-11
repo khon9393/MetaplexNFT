@@ -115,10 +115,10 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   <h4 className="text-sm font-semibold p-1">
                     {machine.collectionName}
                   </h4>
-
+                
                 </div>
                 <div className="rounded-md border">
-                <div className="px-1 py-1 items-left flex items-center font-mono text-sm ml-[2%]">
+                <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
                   <Image
                     src={solanaLogo}
                     alt="Solana Icon"
