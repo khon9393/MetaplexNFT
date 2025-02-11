@@ -19,17 +19,14 @@ import {
 } from "@/components/ui/button";
 import { ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
-import { Card, CardContent } from "src/components/ui/card";
+import { Card} from "src/components/ui/card";
 import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
-import { useSearchParams } from "next/navigation";
 import { Toaster } from "@/components/ui/toaster";
 
 const CardDetails: FC = () => {
 
   const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
-  const searchParams = useSearchParams();
-  const param = searchParams.get("param"); // Read query parameter
 
   const [isOpenStates, setIsOpenStates] = useState([true]);
   const [selectedImage, setSelectedImage] = useState('');
@@ -37,20 +34,15 @@ const CardDetails: FC = () => {
   const [balances, setBalances] = useState([]);
   const [collectionData, setCollectionData] = useState(null);
 
+  const [paramCollectionaddress, setParamCollectionaddress] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      if (param) {
-        const response = await fetch(`/api/data?param=${param}`);
-        const result = await response.json();
-        setParamCollectionaddress(result);
-      }
-    };
-
-    fetchData();
-  }, [param]); // Refetch when param changes (or on refresh)
-
-  const [paramCollectionaddress, setParamCollectionaddress] = useState(param || '');
+    const storedData = sessionStorage.getItem("userData");
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      setParamCollectionaddress(parsedData.collectionMint);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchBalances = async () => {
@@ -318,11 +310,9 @@ const CardDetails: FC = () => {
               <motion.div
                 className="mt-6">
                 ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡
-
-
+{/* 
                 <br />    {candyMachines[0]?.candymachineaddress || ''}
-                <br />    {param || ''}
-
+                <br />    {paramCollectionaddress || ''} */}
 
               </motion.div>
             </div>

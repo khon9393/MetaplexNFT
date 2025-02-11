@@ -13,7 +13,7 @@ export const AstrologyZodiacView: FC = ({ }) => {
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
 
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
