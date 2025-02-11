@@ -283,7 +283,7 @@ const CardDetails: FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-6">
                 {[
-                  { icon: '💎', title: 'Traits', desc: `${'N/A'}` },
+                  // { icon: '💎', title: 'Traits', desc: `${'N/A'}` },
                   { icon: '🔄', title: 'Swap for Candibar Tokens 🔄', desc: 'Minted NFTs can swap for Candibar tokens.' }
                 ].map((item, index) => (
                   <motion.div
