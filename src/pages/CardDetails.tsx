@@ -27,13 +27,13 @@ import { Toaster } from "@/components/ui/toaster";
 
 const CardDetails: FC = () => {
 
+  const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
   const searchParams = useSearchParams();
   const param = searchParams.get("param"); // Read query parameter
-  const [paramCollectionaddress, setParamCollectionaddress] = useState(param ||'');
 
   const [isOpenStates, setIsOpenStates] = useState([true]);
   const [selectedImage, setSelectedImage] = useState('');
-  const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
+  
   const [balances, setBalances] = useState([]);
   const [collectionData, setCollectionData] = useState(null);
 
@@ -50,11 +50,12 @@ const CardDetails: FC = () => {
     fetchData();
   }, [param]); // Refetch when param changes (or on refresh)
 
+  const [paramCollectionaddress, setParamCollectionaddress] = useState(param || '');
 
   useEffect(() => {
     const fetchBalances = async () => {
       if (paramCollectionaddress) {
-        const collection = getCollection(paramCollectionaddress);
+        const collection = await getCollection(paramCollectionaddress);
         setCollectionData(collection);
 
         if (collection) {
