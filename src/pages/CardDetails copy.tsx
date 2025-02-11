@@ -96,8 +96,8 @@ const CardDetails: FC = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center">
-        <div className="w-full md:w-1/2 max-w-[600px] min-w-[400px]" >
+      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0">
+        <div className="" >
           <div className="p-6" >
             {candyMachines.map((machine, index) => (
               <div key={machine.id}
@@ -178,9 +178,8 @@ const CardDetails: FC = () => {
         {candyMachines[0]?.images.length > 0 && (
           <div className="p-1 ">
             <div
-              className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
-              
-              >
+              className="flex flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl"
+              style={{ minWidth: '320px', maxWidth: '500px' }}>
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
               <motion.div
@@ -188,8 +187,7 @@ const CardDetails: FC = () => {
               >
                 {candyMachines.map((machine, machineIndex) => (
                   <div key={machine.id} >
-                    <Card 
-                    >
+                    <Card style={{ minWidth: '320px', maxWidth: '500px' }}>
                       <span className="text-1xl font-semibold">
                         <Collapsible
                           open={isOpenStates[machineIndex]}
