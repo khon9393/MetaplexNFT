@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/button";
 import { ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
-import { Card} from "src/components/ui/card";
+import { Card } from "src/components/ui/card";
 import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
@@ -116,6 +116,13 @@ const CardDetails: FC = () => {
                               height={400}
                               className="rounded-xl shadow-lg"
                             />
+                            {machine.itemsRedeemed === machine.itemsAvailable && (
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-8xl font-bold text-red-500 opacity-75 transform rotate-45">
+                                  SOLD OUT
+                                </span>
+                              </div>
+                            )}
                           </motion.div>
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
                             {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
@@ -159,14 +166,19 @@ const CardDetails: FC = () => {
 
             {candyMachines[0]?.images.length > 0 ? (
               <div className="p-4">
-                <CandiMinter
-                  candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
-                  collectionaddress={candyMachines[0]?.collectionMint || ''}
-                />
+                {candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.itemsAvailable && (
+                  <div>
+                    <CandiMinter
+                      candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
+                      collectionaddress={candyMachines[0]?.collectionMint || ''}
+                    />
+                  </div>
+                )}
               </div>
             ) : (
               <h1>Item not Found.</h1>
             )}
+
           </div>
         </div>
 
@@ -205,21 +217,6 @@ const CardDetails: FC = () => {
                               </Button>
                             </CollapsibleTrigger>
                           </div>
-                          {/* <div className="rounded-md border px-4 py-1 font-mono text-md">
-                            Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                            </div>
-                          <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center ">
-                            <Image
-                              src={solanaLogo}
-                              alt="Solana Icon"
-                              width={16}
-                              height={16}
-                              className="mr-1"
-                            />
-                            SOL cost: {parseFloat(machine.cost).toFixed(2)}
-                            
-                          </div> */}
-
 
                           <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                             <Image
@@ -310,7 +307,7 @@ const CardDetails: FC = () => {
               <motion.div
                 className="mt-6">
                 ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡
-{/* 
+                {/* 
                 <br />    {candyMachines[0]?.candymachineaddress || ''}
                 <br />    {paramCollectionaddress || ''} */}
 
