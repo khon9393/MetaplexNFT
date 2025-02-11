@@ -128,7 +128,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                       className="mr-1"
                     />
                     <span> SOL cost: {parseFloat(machine.cost).toFixed(2)} |
-                      Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}</span>
+                      mints: {machine.itemsRedeemed} of {machine.itemsAvailable}</span>
                   </div>
                 </div>
 
@@ -158,42 +158,61 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   }
                 }}>
                   <CarouselContent>
-                    {Array.isArray(machine.images) ? machine.images.map((imageSrc, imgIndex) => (
-                      <CarouselItem key={imgIndex} className="relative">
-                        <Card className="overflow-hidden rounded-lg w-full relative">
-                          <CardContent className="p-0">
-                            <motion.div
-                              variants={imageVariants}
-                              initial="hidden"
-                              animate="visible"
-                              whileHover="hover"
-                              className="flex justify-center items-center w-full p-2"
-                            >
-                              <Image
-                                width={350}
-                                height={350}
-                                src={Array.isArray(imageSrc) ? imageSrc[0].url : imageSrc.url}
-                                alt={`Image ${imgIndex + 1}`}
-                                className="object-contain rounded-2xl"
-                              />
-                            </motion.div>
-                          </CardContent>
-                        </Card>
-                      </CarouselItem>
-                    )) : null}
+
+                  {Array.isArray(machine.images) ? machine.images.map((imageSrc, imgIndex) => (
+                    <CarouselItem key={imgIndex} className="relative">
+                    <Card className="overflow-hidden rounded-lg w-full relative">
+                      <CardContent className="p-0">
+                      <motion.div
+                        variants={imageVariants}
+                        initial="hidden"
+                        animate="visible"
+                        whileHover="hover"
+                        className="flex justify-center items-center w-full p-2"
+                      >
+                        <Image
+                        width={350}
+                        height={350}
+                        src={Array.isArray(imageSrc) ? imageSrc[0].url : imageSrc.url}
+                        alt={`Image ${imgIndex + 1}`}
+                        className="object-contain rounded-2xl"
+                        />
+                        {machine.itemsRedeemed === machine.itemsAvailable && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
+                          SOLD OUT
+                          </span>
+                        </div>
+                        )}
+                      </motion.div>
+                      </CardContent>
+                    </Card>
+                    </CarouselItem>
+                  )) : null}
+
+                    
                   </CarouselContent>
-                  <CarouselPrevious size='sm' className="bg-transparent top-3/4 left-3" />
-                  <CarouselNext size='sm' className="bg-transparent top-3/4 right-3" />
-                  <div className="flex justify-center mt-4 space-x-2 p-5">
-                    {Array.isArray(machine.images) && machine.images.map((_, dotIndex) => (
-                      <div
-                        key={dotIndex}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 
-                    ${dotIndex === currentImageIndex[machineIndex] ? 'bg-blue-500 scale-125' : 'bg-gray-400'}`}
-                      />
-                    ))}
-                  </div>
+
+                  {machine.images.length > 1 && (
+                    <>
+                      <CarouselPrevious size='sm' className="bg-transparent top-3/4 left-3" />
+                      <CarouselNext size='sm' className="bg-transparent top-3/4 right-3" />
+                      
+                      <div className="flex justify-center space-x-2 my-3">
+                        {machine.images.map((_, dotIndex) => (
+                          <div
+                            key={dotIndex}
+                            className={`w-3 h-3 rounded-full transition-all duration-300 
+                            ${dotIndex === currentImageIndex[machineIndex] ? 'bg-blue-500 scale-125' : 'bg-gray-400'}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  
                 </Carousel>
+                
                 <Link
                   href="/CardDetails"
                   onClick={() => {
