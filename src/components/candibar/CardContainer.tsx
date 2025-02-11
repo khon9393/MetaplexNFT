@@ -14,13 +14,14 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "src/components/ui/card"
 import { getCollection } from "../../stores/useCandibardataStore";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 
 interface CandyMachineKeysProps {
   candyMachineKeys: PublicKey[];
 }
 
 export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) => {
+  const router = useRouter();
 
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -115,22 +116,23 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   <h4 className="text-sm font-semibold p-1">
                     {machine.collectionName}
                   </h4>
-                
+
                 </div>
                 <div className="rounded-md border">
-                <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                  <Image
-                    src={solanaLogo}
-                    alt="Solana Icon"
-                    width={16}
-                    height={16}
-                    className="mr-1"
-                  />
-                  <span>SOL&nbsp;cost:&nbsp;{parseFloat(machine.cost).toFixed(2)}&nbsp;|&nbsp;Mints:&nbsp;{machine.itemsRedeemed}&nbsp;of&nbsp;{machine.itemsAvailable}</span>
-                </div>
+                  <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                    <Image
+                      src={solanaLogo}
+                      alt="Solana Icon"
+                      width={16}
+                      height={16}
+                      className="mr-1"
+                    />
+                    <span> SOL cost: {parseFloat(machine.cost).toFixed(2)} |
+                      Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}</span>
+                  </div>
                 </div>
 
-                 {/* <div className="rounded-md border px-1 py-1 items-left ml-[10%] flex items-center font-mono text-sm">
+                {/* <div className="rounded-md border px-1 py-1 items-left ml-[10%] flex items-center font-mono text-sm">
                  Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                     </div> */}
 
@@ -193,11 +195,15 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   </div>
                 </Carousel>
                 <Link
-                  href={`/CardDetails?param=${candyMachines[machineIndex].collectionMint}`}
+                  href="/CardDetails"
+                  onClick={() => {
+                    sessionStorage.setItem("userData", JSON.stringify({ collectionMint: candyMachines[machineIndex].collectionMint }));
+                  }}
                   className="px-2 hover:underline flex justify-center animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
                 >
                   More Details ...
                 </Link>
+
               </span>
             </Card>
           </div>
