@@ -28,8 +28,8 @@ import { Toaster } from "@/components/ui/toaster";
 const CardDetails: FC = () => {
 
   const searchParams = useSearchParams();
-  const paramValue = searchParams.get("param"); // Read query parameter
-  const [paramCollectionaddress, setParamCollectionaddress] = useState(paramValue || '');
+  const param = searchParams.get("param"); // Read query parameter
+  const [paramCollectionaddress, setParamCollectionaddress] = useState(param || '');
 
   const [isOpenStates, setIsOpenStates] = useState([true]);
   const [selectedImage, setSelectedImage] = useState('');
@@ -37,17 +37,19 @@ const CardDetails: FC = () => {
   const [balances, setBalances] = useState([]);
   const [collectionData, setCollectionData] = useState(null);
 
-  useEffect(() => {
-    if (paramValue) {
-      fetchData(paramValue);
-    }
-  }, [paramValue]); // React to query parameter changes
 
-  const fetchData = async (param: string) => {
-    const response = await fetch(`/api/data?param=${param}`);
-    const result = await response.json();
-    setParamCollectionaddress(result);
-  };
+ useEffect(() => {
+    const fetchData = async () => {
+      if (param) {
+        const response = await fetch(`/api/data?param=${param}`);
+        const result = await response.json();
+        setParamCollectionaddress(result);
+      }
+    };
+
+    fetchData();
+  }, [param]); // Refetch when param changes (or on refresh)
+
 
   useEffect(() => {
     const fetchBalances = async () => {

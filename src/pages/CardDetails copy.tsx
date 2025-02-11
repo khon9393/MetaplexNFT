@@ -28,8 +28,8 @@ import { Toaster } from "@/components/ui/toaster";
 const CardDetails: FC = () => {
 
   const searchParams = useSearchParams();
-  const paramValue = searchParams.get("param"); // Read query parameter
-  const [paramCollectionaddress, setParamCollectionaddress] = useState(paramValue || '');
+  const param = searchParams.get("param"); // Read query parameter
+  const [paramCollectionaddress, setParamCollectionaddress] = useState(param || '');
 
   const [isOpenStates, setIsOpenStates] = useState([true]);
   const [selectedImage, setSelectedImage] = useState('');
@@ -37,17 +37,19 @@ const CardDetails: FC = () => {
   const [balances, setBalances] = useState([]);
   const [collectionData, setCollectionData] = useState(null);
 
-  useEffect(() => {
-    if (paramValue) {
-      fetchData(paramValue);
-    }
-  }, [paramValue]); // React to query parameter changes
 
-  const fetchData = async (param: string) => {
-    const response = await fetch(`/api/data?param=${param}`);
-    const result = await response.json();
-    setParamCollectionaddress(result);
-  };
+ useEffect(() => {
+    const fetchData = async () => {
+      if (param) {
+        const response = await fetch(`/api/data?param=${param}`);
+        const result = await response.json();
+        setParamCollectionaddress(result);
+      }
+    };
+
+    fetchData();
+  }, [param]); // Refetch when param changes (or on refresh)
+
 
   useEffect(() => {
     const fetchBalances = async () => {
@@ -96,8 +98,8 @@ const CardDetails: FC = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0">
-        <div className="" >
+      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center">
+        <div className="w-full md:w-1/2 max-w-[600px] min-w-[400px]" >
           <div className="p-6" >
             {candyMachines.map((machine, index) => (
               <div key={machine.id}
@@ -178,8 +180,9 @@ const CardDetails: FC = () => {
         {candyMachines[0]?.images.length > 0 && (
           <div className="p-1 ">
             <div
-              className="flex flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl"
-              style={{ minWidth: '320px', maxWidth: '500px' }}>
+              className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
+              
+              >
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
               <motion.div
@@ -187,7 +190,8 @@ const CardDetails: FC = () => {
               >
                 {candyMachines.map((machine, machineIndex) => (
                   <div key={machine.id} >
-                    <Card style={{ minWidth: '320px', maxWidth: '500px' }}>
+                    <Card 
+                    >
                       <span className="text-1xl font-semibold">
                         <Collapsible
                           open={isOpenStates[machineIndex]}
