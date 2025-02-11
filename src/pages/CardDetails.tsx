@@ -239,10 +239,9 @@ const CardDetails: FC = () => {
                               Traits: N/A
                             </div>
                             <div className="rounded-md border px-4 py-1 font-mono text-md">
-                              Collection address:
-                              <div className="rounded-md py-1 font-mono text-sm shadow-md flex items-center">
-                                <span>{machine.collectionMint}</span>
-                                <a
+
+                            <div className="flex items-center justify-center">
+                            <a
                                   href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
                                   target="_blank"
                                   rel="noopener noreferrer"
@@ -256,11 +255,15 @@ const CardDetails: FC = () => {
                                     stroke-width="2"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    className="lucide lucide-link text-gray-600 hover:text-gray-400 p-1">
+                                    className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
                                     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                                   </svg>
                                 </a>
+                              Collection address:
+                              </div>
+                              <div className="rounded-md py-1 font-mono text-sm shadow-md flex items-center justify-center">
+                                {machine.collectionMint}
                               </div>
                             </div>
                           </CollapsibleContent>
