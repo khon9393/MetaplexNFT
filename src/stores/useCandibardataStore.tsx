@@ -6,7 +6,6 @@ interface CollectionItem {
     collectionadress: string;
     collectionurl: string;
     images: { name: string; url: string; iscollectioncover?: boolean }[];
-    
 }
 
 function getCollectionItems(): CollectionItem[] {
@@ -64,12 +63,8 @@ function getCollectionItems(): CollectionItem[] {
     ];
 };
 
-
-export function getCollection(collectionadress: string): CollectionItem {
- 
+export async function getCollection(collectionadress: string): Promise<CollectionItem> {
     const items = getCollectionItems();
     const collection = items.find(item => item.collectionadress === collectionadress);
     return collection || items[0];
-           
-
-};
+}

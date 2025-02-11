@@ -56,22 +56,31 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
     fetchBalances();
   }, [candyMachineKeys])
 
-  const candyMachines = useMemo(() => balances.map((balance, index) => {
-    const collectionImages = getCollection(balance.collectionMint);
+  const [candyMachines, setCandyMachines] = useState<any[]>([]);
 
-    return {
-      id: index + 1,
-      cost: `${balance.SolCost} SOL`,
-      candibarValue: [500, 950, 1500, 2025][index],
-      images: collectionImages.images ? collectionImages.images : [{ url: '' }],
-      itemsAvailable: balance.itemsAvailable,
-      itemsRedeemed: balance.itemsRedeemed,
-      collectionMint: balance.collectionMint,
-      candyMachinekeyId: candyMachineKeys[index],
-      collectionName: balance.collectionName,
-      candyGuardMinLimit: balance.candyGuardMinLimit,
+  useEffect(() => {
+    const fetchCandyMachines = async () => {
+      const machines = await Promise.all(balances.map(async (balance, index) => {
+        const collectionImages = await getCollection(balance.collectionMint);
+
+        return {
+          id: index + 1,
+          cost: `${balance.SolCost} SOL`,
+          candibarValue: [500, 950, 1500, 2025][index],
+          images: collectionImages.images ? collectionImages.images : [{ url: '' }],
+          itemsAvailable: balance.itemsAvailable,
+          itemsRedeemed: balance.itemsRedeemed,
+          collectionMint: balance.collectionMint,
+          candyMachinekeyId: candyMachineKeys[index],
+          collectionName: balance.collectionName,
+          candyGuardMinLimit: balance.candyGuardMinLimit,
+        };
+      }));
+      setCandyMachines(machines);
     };
-  }), [balances, candyMachineKeys]);
+
+    fetchCandyMachines();
+  }, [balances, candyMachineKeys]);
 
 
   useEffect(() => {
