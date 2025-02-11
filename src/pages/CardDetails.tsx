@@ -29,7 +29,7 @@ const CardDetails: FC = () => {
 
   const searchParams = useSearchParams();
   const param = searchParams.get("param"); // Read query parameter
-  const [paramCollectionaddress, setParamCollectionaddress] = useState(param || '');
+  const [paramCollectionaddress, setParamCollectionaddress] = useState(param ||'');
 
   const [isOpenStates, setIsOpenStates] = useState([true]);
   const [selectedImage, setSelectedImage] = useState('');
@@ -300,7 +300,10 @@ const CardDetails: FC = () => {
               <motion.div
                 className="mt-6">
                 ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡
-                {/* <br/>    {candyMachines[0]?.candymachineaddress || ''} */}
+                <br/>    {candyMachines[0]?.candymachineaddress || ''}
+                <br/>    {  param || ''}
+                
+                
               </motion.div>
             </div>
           </div>
