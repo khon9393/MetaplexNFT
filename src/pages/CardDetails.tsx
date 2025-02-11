@@ -301,8 +301,10 @@ const CardDetails: FC = () => {
               <motion.div
                 className="mt-6">
                 ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡
-                <br/>    {candyMachines[0]?.candymachineaddress || ''}
-                <br/>    {  param || ''}
+
+                
+                {/* <br/>    {candyMachines[0]?.candymachineaddress || ''}
+                <br/>    {  param || ''} */}
                 
                 
               </motion.div>
