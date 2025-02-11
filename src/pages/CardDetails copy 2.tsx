@@ -228,19 +228,18 @@ const CardDetails: FC = () => {
                             
                           </div> */}
 
-
-                          <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
-                            <Image
-                              src={solanaLogo}
-                              alt="Solana Icon"
-                              width={16}
-                              height={16}
-                              className="mr-1"
-                            />
-                            SOL cost: {parseFloat(machine.cost).toFixed(2)} |
-                            Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                          </div>
-
+                   
+                            <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
+                              <Image
+                                src={solanaLogo}
+                                alt="Solana Icon"
+                                width={16}
+                                height={16}
+                                className="mr-1"
+                              />
+                              <span>SOL&nbsp;cost:&nbsp;{parseFloat(machine.cost).toFixed(2)}&nbsp;|&nbsp;Mints:&nbsp;{machine.itemsRedeemed}&nbsp;of&nbsp;{machine.itemsAvailable}</span>
+                            </div>
+                       
 
                           <CollapsibleContent className="space-y-2">
                             <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
