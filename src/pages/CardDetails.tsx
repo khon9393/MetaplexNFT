@@ -33,12 +33,12 @@ const CardDetails: FC = () => {
 
   const [isOpenStates, setIsOpenStates] = useState([true]);
   const [selectedImage, setSelectedImage] = useState('');
-  
+
   const [balances, setBalances] = useState([]);
   const [collectionData, setCollectionData] = useState(null);
 
 
- useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       if (param) {
         const response = await fetch(`/api/data?param=${param}`);
@@ -183,7 +183,7 @@ const CardDetails: FC = () => {
             <div
               // className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
               className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
-              >
+            >
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
               <motion.div
@@ -213,6 +213,9 @@ const CardDetails: FC = () => {
                               </Button>
                             </CollapsibleTrigger>
                           </div>
+                          {/* <div className="rounded-md border px-4 py-1 font-mono text-md">
+                            Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                            </div>
                           <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center ">
                             <Image
                               src={solanaLogo}
@@ -221,9 +224,23 @@ const CardDetails: FC = () => {
                               height={16}
                               className="mr-1"
                             />
-                            SOL cost: {parseFloat(machine.cost).toFixed(2)} |
-                            mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                          </div>
+                            SOL cost: {parseFloat(machine.cost).toFixed(2)}
+                            
+                          </div> */}
+
+                   
+                            <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
+                              <Image
+                                src={solanaLogo}
+                                alt="Solana Icon"
+                                width={16}
+                                height={16}
+                                className="mr-1"
+                              />
+                              <span>SOL&nbsp;cost:&nbsp;{parseFloat(machine.cost).toFixed(2)}&nbsp;|&nbsp;Mints:&nbsp;{machine.itemsRedeemed}&nbsp;of&nbsp;{machine.itemsAvailable}</span>
+                            </div>
+                       
+
                           <CollapsibleContent className="space-y-2">
                             <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
                               <Image
@@ -240,8 +257,8 @@ const CardDetails: FC = () => {
                             </div>
                             <div className="rounded-md border px-4 py-1 font-mono text-md">
 
-                            <div className="flex items-center justify-center">
-                            <a
+                              <div className="flex items-center justify-center">
+                                <a
                                   href={getExplorerUrl(quicknodeEndpoint, machine.collectionMint)}
                                   target="_blank"
                                   rel="noopener noreferrer"
@@ -260,9 +277,9 @@ const CardDetails: FC = () => {
                                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                                   </svg>
                                 </a>
-                              Collection address:
+                                Collection address:
                               </div>
-                              <div className="rounded-md py-1 font-mono text-sm shadow-md flex items-center justify-center">
+                              <div className="rounded-md py-1 font-mono text-sm shadow-md flex items-center justify-center w-full break-all">
                                 {machine.collectionMint}
                               </div>
                             </div>
@@ -301,17 +318,17 @@ const CardDetails: FC = () => {
                 className="mt-6">
                 ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡
 
-                
-                <br/>    {candyMachines[0]?.candymachineaddress || ''}
-                <br/>    {  param || ''}
-                
-                
+
+                <br />    {candyMachines[0]?.candymachineaddress || ''}
+                <br />    {param || ''}
+
+
               </motion.div>
             </div>
           </div>
         )}
       </div>
-    <Toaster />
+      <Toaster />
     </>
   );
 };

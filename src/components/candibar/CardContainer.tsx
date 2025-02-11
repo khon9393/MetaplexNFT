@@ -117,8 +117,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   </h4>
 
                 </div>
-
-                <div className="rounded-md border pl-2 px-1 py-1 font-mono text-sm flex items-center justify-center">
+                <div className="rounded-md border">
+                <div className="px-1 py-1 items-left flex items-center font-mono text-sm ml-[2%]">
                   <Image
                     src={solanaLogo}
                     alt="Solana Icon"
@@ -126,8 +126,14 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                     height={16}
                     className="mr-1"
                   />
-                  SOL cost: {parseFloat(machine.cost).toFixed(2)}
+                  <span>SOL&nbsp;cost:&nbsp;{parseFloat(machine.cost).toFixed(2)}&nbsp;|&nbsp;Mints:&nbsp;{machine.itemsRedeemed}&nbsp;of&nbsp;{machine.itemsAvailable}</span>
                 </div>
+                </div>
+
+                 {/* <div className="rounded-md border px-1 py-1 items-left ml-[10%] flex items-center font-mono text-sm">
+                 Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                    </div> */}
+
                 {/* <div className="rounded-md border pl-2 px-1 py-1 font-mono text-sm flex items-center justify-center">
                     <Image
                         src={tokenimg.src}
