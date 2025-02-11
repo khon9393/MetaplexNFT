@@ -181,8 +181,8 @@ const CardDetails: FC = () => {
         {candyMachines[0]?.images.length > 0 && (
           <div className="p-1 ">
             <div
-              // className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
-              className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
+              className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
+              
               >
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
@@ -191,7 +191,8 @@ const CardDetails: FC = () => {
               >
                 {candyMachines.map((machine, machineIndex) => (
                   <div key={machine.id} >
-                    <Card >
+                    <Card 
+                    >
                       <span className="text-1xl font-semibold">
                         <Collapsible
                           open={isOpenStates[machineIndex]}
@@ -213,7 +214,7 @@ const CardDetails: FC = () => {
                               </Button>
                             </CollapsibleTrigger>
                           </div>
-                          <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center ">
+                          <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
                             <Image
                               src={solanaLogo}
                               alt="Solana Icon"
