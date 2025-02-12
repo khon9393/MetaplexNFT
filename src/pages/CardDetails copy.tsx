@@ -233,7 +233,7 @@ const CardDetails: FC = () => {
                               height={16}
                               className="mr-1"
                             />
-                            SOL cost: {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} |
+                            SOL cost: {parseFloat(machine.cost).toFixed(3)} |
                             Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                           </div>
 
@@ -250,7 +250,7 @@ const CardDetails: FC = () => {
                                 height={16}
                                 className="mr-1"
                               />
-                              Candibar value: {machine.images[0]?.candibarValue || 0}
+                              Candibar value: {machine[machineIndex]?.images[0]?.candibarValue || 0}
                             </div>
     
                             {/* <div className="rounded-md border px-4 py-1 font-mono text-md">
