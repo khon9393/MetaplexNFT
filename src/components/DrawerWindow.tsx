@@ -2,7 +2,6 @@
 import { FC} from 'react';
 import * as React from "react";
 import Candibar from "../../public/2025/CandiBarNoBG.png";
-import snake00 from "../../public/2025/snake0_2025_500.jpg";
 import Image from 'next/image'
 import {
   Drawer,
@@ -44,7 +43,7 @@ export const DrawerWindow: FC = () => {
                   height={0}
                   sizes="25vw"
                   style={{ width: '50%', height: 'auto' }} 
-                  src={snake00.src}
+                  src={"https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcapCnprSUZGZf37nzb6JGJUDDPcyS1znAoFruVKW4wt6"}
                   alt="Snake NFT"
                 />
                 1 NFT
@@ -57,7 +56,7 @@ export const DrawerWindow: FC = () => {
                   height={0}
                   sizes="10vw"
                   style={{ width: '50%', height: 'auto' }} 
-                  src={Candibar.src}
+                  src={Candibar}
                   alt="Candibar tokens"
                 />
                 500 Candibars
