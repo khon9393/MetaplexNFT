@@ -195,8 +195,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
 
                   {machine.images.length > 1 && (
                     <>
-                      <CarouselPrevious size='sm' className="bg-transparent top-3/4 left-3" />
-                      <CarouselNext size='sm' className="bg-transparent top-3/4 right-3" />
+                      <CarouselPrevious size='sm' className="bg-transparent top-27/32 left-3" />
+                      <CarouselNext size='sm' className="bg-transparent top-27/32 right-3" />
                       
                       <div className="flex justify-center space-x-2 my-3">
                         {machine.images.map((_, dotIndex) => (
