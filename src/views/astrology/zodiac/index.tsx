@@ -11,10 +11,21 @@ export const AstrologyZodiacView: FC = ({ }) => {
   const candyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
 
-
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+ publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
+    
     //publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
 
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
@@ -61,7 +72,9 @@ export const AstrologyZodiacView: FC = ({ }) => {
           Seize this rare opportunity to connect with the power of the Zodiac—collect yours today!
         </p>
       </div>
+
         <CardContainer candyMachineKeys={candyMachineKeys} />
+
         <Toaster />
   </div>
   );
