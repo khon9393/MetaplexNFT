@@ -78,6 +78,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
           collectionName: balance.collectionName,
           candyGuardMinLimit: balance.candyGuardMinLimit,
           collectionSubtitles: collection.collectionSubtitles,
+          collectionDetails: collection.collectionDetails,
+          collectionCandibarValue: collection.collectionCandibarValue,
         };
       }));
       setCandyMachines(machines);
@@ -138,7 +140,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                       mints: {machine.itemsRedeemed} of {machine.itemsAvailable}</span>
                   </div>
                 </div>
-                <div className="rounded-md border">
+                {/* <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
                     <Image
                       src={tokenimg}
@@ -147,9 +149,10 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                       height={16}
                       className="mr-1"
                     />
-                    Candibar value: {machine.images[0]?.candibarValue || 0}
+                    Candibar value: {machine.collectionCandibarValue || 0}
                   </div>
-                </div>
+                </div> */}
+
                 {/* <div className="rounded-md border px-1 py-1 items-left ml-[10%] flex items-center font-mono text-sm">
                  Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                     </div> */}
