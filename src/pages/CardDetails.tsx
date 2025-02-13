@@ -23,7 +23,6 @@ import { Card } from "src/components/ui/card";
 import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
-import { collectionDetails } from "@metaplex-foundation/mpl-token-metadata";
 
 const CardDetails: FC = () => {
 
@@ -71,6 +70,7 @@ const CardDetails: FC = () => {
           ? [{ name: collectionData.collectionName, url: collectionData.collectionurl, iscollectioncover: true }, ...collectionData.images]
           : [...collectionData.images];
 
+
         setSelectedImage(images[0]?.url);
 
         return {
@@ -85,6 +85,7 @@ const CardDetails: FC = () => {
           candymachineaddress: collectionData.candimachineeaddress,
           collectionCoverName: collectionData.collectionName,
           collectionDetails: collectionData.collectionDetails,
+          collectionCandibarValue: collectionData.collectionCandibarValue,
         };
       }
       return null;
@@ -129,9 +130,6 @@ const CardDetails: FC = () => {
                             )}
                           </motion.div>
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
-                            {/* {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
-                              ? machine.collectionName
-                              : machine.images.find((img) => img.url === selectedImage)?.name || `Candibar Item`} */}
                             {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
                               ? machine.collectionCoverName
                               : machine.images.find((img) => img.url === selectedImage)?.name || `Candibar Item`}
@@ -250,7 +248,7 @@ const CardDetails: FC = () => {
                                 height={16}
                                 className="mr-1"
                               />
-                              Candibar value: {machine.images[0]?.candibarValue || 0}
+                              Swap: {machine.collectionCandibarValue || 0} Candibar Tokens
                             </div>
     
                             {/* <div className="rounded-md border px-4 py-1 font-mono text-md">

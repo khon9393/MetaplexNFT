@@ -78,6 +78,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
           collectionName: balance.collectionName,
           candyGuardMinLimit: balance.candyGuardMinLimit,
           collectionSubtitles: collection.collectionSubtitles,
+          collectionCandibarValue: collection.collectionCandibarValue,
         };
       }));
       setCandyMachines(machines);

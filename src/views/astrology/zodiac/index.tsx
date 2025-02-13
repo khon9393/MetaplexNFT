@@ -10,18 +10,13 @@ export const AstrologyZodiacView: FC = ({ }) => {
 
   const candyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
-
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
- publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIES1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCER1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINI1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_LEO1),
+    
+    
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
