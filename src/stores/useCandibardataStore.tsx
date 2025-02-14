@@ -1,5 +1,7 @@
 
 
+import { NFTStatusTypes } from "../models/types";
+
 interface CollectionItem {
     candimachineeaddress: string;
     collectionName: string;
@@ -8,6 +10,9 @@ interface CollectionItem {
     collectionSubtitles?: string;
     collectionDetails?: string;
     collectionCandibarValue?: number;
+    collectionStatus: NFTStatusTypes,
+    candibarcost?: number;
+    isSwappable: boolean;
     images: {
         name: string;
         url: string;
@@ -24,7 +29,9 @@ function getCollectionItems(): CollectionItem[] {
             collectionSubtitles: "Snake NFT Collection 2025",
             collectionDetails: "The Snake NFT Collection 2025 is a unique digital art collection that celebrates the spirit of the Snake zodiac sign. Each NFT in this collection represents the values and culture of the Snake community. The collection features a variety of styles and themes, all centered around the concept of the Snake. By owning a Snake NFT, you become part of a vibrant community of collectors and enthusiasts who share a passion for digital art and the Snake lifestyle.",
             collectionurl: "",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 { name: "Snake NFT Collection 2025 #1", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcapCnprSUZGZf37nzb6JGJUDDPcyS1znAoFruVKW4wt6" },
             ],
@@ -37,6 +44,8 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "The Snake NFT Collection 2025 is a unique digital art collection that celebrates the spirit of the Snake zodiac sign. Each NFT in this collection represents the values and culture of the Snake community. The collection features a variety of styles and themes, all centered around the concept of the Snake. By owning a Snake NFT, you become part of a vibrant community of collectors and enthusiasts who share a passion for digital art and the Snake lifestyle.",
             collectionurl: "",
             collectionCandibarValue: 950,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 { name: "Snake NFT Collection 2025 #2", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTFLHTphBCnuhpjW6grPbdCYNtSVcoQXAXobexgwKnKP6" },
             ],
@@ -49,6 +58,8 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "The Snake NFT Collection 2025 is a unique digital art collection that celebrates the spirit of the Snake zodiac sign. Each NFT in this collection represents the values and culture of the Snake community. The collection features a variety of styles and themes, all centered around the concept of the Snake. By owning a Snake NFT, you become part of a vibrant community of collectors and enthusiasts who share a passion for digital art and the Snake lifestyle.",
             collectionurl: "",
             collectionCandibarValue: 1500,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 { name: "Snake NFT Collection 2025 #3", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVEvqAAJpy1db4C9dLdiTXVyvTXvHUJyZyF8SGw4cRr11" },
             ],
@@ -61,6 +72,8 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "The Snake NFT Collection 2025 is a unique digital art collection that celebrates the spirit of the Snake zodiac sign. Each NFT in this collection represents the values and culture of the Snake community. The collection features a variety of styles and themes, all centered around the concept of the Snake. By owning a Snake NFT, you become part of a vibrant community of collectors and enthusiasts who share a passion for digital art and the Snake lifestyle.",
             collectionurl: "",
             collectionCandibarValue: 2500,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 { name: "Snake NFT Collection 2025 #4", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSqT7h7Q2XwYXUXzCJruSt9aN4EVGEv2VJEoXWAjXbq1u" },
             ],
@@ -73,7 +86,9 @@ function getCollectionItems(): CollectionItem[] {
             collectionSubtitles: "Candi NFT Collection 2025",
             collectionDetails: "The Candi NFT Collection 2025 is a unique digital art collection that celebrates the spirit of the Candi community. Each NFT in this collection represents the values and culture of the Candi community. The collection features a variety of styles and themes, all centered around the concept of Candi. By owning a Candi NFT, you become part of a vibrant community of collectors and enthusiasts who share a passion for digital art and the Candi lifestyle.",
             collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 200,
+            isSwappable: true,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
 
                 { name: "Candi NFT 2025 #1", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo" },
@@ -84,195 +99,7 @@ function getCollectionItems(): CollectionItem[] {
             candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05,
         },
 
-        //Capricorn Collection #1
-        {
-            collectionName: "Capricorn NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_CAPRI1,
-            collectionSubtitles: "Dates: December 21-January 20",
-            collectionDetails: "Capricorn Dates: December 21-January 20. Capricorn is an earth sign, ruled by Saturn, and is known for its practicality, discipline, and ambition.",
-            collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQEU928aauvCT8TUxz9Wor7hKqMmDxXbnxWYQmKyNGqRV",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Capricorn NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmaZqFZMhkrSfj3it929MFGD9N9PKJqasYou3MP9LErDDv"
-                },
-                {
-                    name: "Capricorn NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmP4vh2UPKtCvNa29kBm57saaCvzNiGuS7HfEHiQpKkN94"
-                },
-                {
-                    name: "Capricorn NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQtq3pQgdL59rPxFRswWMRwX3vMmM4P3CkpP97thiCojZ"
-
-                },
-                {
-                    name: "Capricorn NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qmf3Q5bGr6U8rPFee8LZbmoqFCQLSWpNPgtieTLyQiC98H"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1,
-        },
-
-        //Aquarius Collection #1
-        {
-            collectionName: "Aquarius NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_AQUI1,
-            collectionSubtitles: "Dates: January 21-February 18",
-            collectionDetails: "Aquarius Dates: January 21-February 18. Aquarius is an air sign, ruled by Uranus, and is known for its innovation, independence, and humanitarianism.",
-            collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdaHbBDqaWrxgqawF7gqBdBJJPSzro9XJEr532b5guxND",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Aquarius NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbwnpVFAgbjiEijb8eYtWgmvgeh5VHiydGsjmjLf9ysbC"
-                },
-                {
-                    name: "Aquarius NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQza1qF9U92bt6gHfF62WpPhdR56toN1CHRfxtzHrsH6n"
-                },
-                {
-                    name: "Aquarius NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZGYR1CDop5ymZ4XLPC3qpqUFJ9esGWLPuHoM2SqC3V9m"
-
-                },
-                {
-                    name: "Aquarius NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qme4SsnfLQ5iYJgLaCJRtRhcCe7pwhd75zrVNrVTBAkAfB"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1,
-        },
-
-        //Aries Collection #1
-        {
-            collectionName: "Aries NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_ARIES1,
-            collectionSubtitles: "Dates: March 21-April 19",
-            collectionDetails: "Aries Dates: March 21-April 19. Aries is a fire sign, ruled by Mars, and is known for its courage, determination, and enthusiasm.",
-            collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSpAH1JCzK1pxepjvjkKmgiSHee4j236Ddp5XpuArzxXw",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Aries NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQUCbGt8QEzPNzqHgr9Z5BCB2eqMdNVjuCuKMQiZsn3N3"
-                },
-                {
-                    name: "Aries NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmekX4DMp4tayTifdWUkQYQoq2dSPekToFgEhG2Wsc9VUH"
-                },
-                {
-                    name: "Aries NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbLo5nSd8QoLLmYMqBkpUJaoK3zQX4K7i6QqfYYF7eBdm"
-
-                },
-                {
-                    name: "Aries NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYLsKdsKZu2B2WPZrrfbZJ9pzD89ch6wTm7zmbAW7z8mi"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIES1,
-        },
-
-        //Cancer Collection #1
-        {
-            collectionName: "Cancer NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_CANCER1,
-            collectionSubtitles: "Dates: June 21-July 22",
-            collectionDetails: "Cancer Dates: June 21-July 22. Cancer is a water sign, ruled by the Moon, and is known for its emotional depth, intuition, and nurturing nature.",
-            collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSqZXXMatJKLuUuD4uFtE3XLCCco2U94GHL4rMnggXpjt",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Cancer NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdDqkJPQgFmUkHbLnLQ9ZfCccK3ehhShcnSwQ2352374H"
-                },
-                {
-                    name: "Cancer NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcMQq2hzVyjB34Jskfzhh94vaVocoT7CpTuPdUx7JrCvk"
-                },
-                {
-                    name: "Cancer NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmavkDWf1FpgGzGhNRmdG42qsEy8zNspi2F235Wg5djvmg"
-
-                },
-                {
-                    name: "Cancer NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRboixRRapyr6j48SLiD11oxVVqBGFEeZJVFex4nHUVe1"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCER1,
-        },
-
-        //Gemini Collection #1
-        {
-            collectionName: "Gemini NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_GEMINI1,
-            collectionSubtitles: "Dates: May 21-June 20",
-            collectionDetails: "Gemini Dates: May 21-June 20. Gemini is an air sign, ruled by Mercury, and is known for its adaptability, curiosity, and sociability.",
-            collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQy5rcR842aGwet9RHKGfEsxS9RXHVKS1N83tw1kKypom",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Gemini NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVtr4z1XPGPWVHRYyGuzjddXqXzWTSh3Xixh78AyAPcac"
-                },
-                {
-                    name: "Gemini NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qmd6X8eL2iWG7m1nSdyzGS8w4usVaBRpxZwLWf5QLzo7Ax"
-                },
-                {
-                    name: "Gemini NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPHRMD8oVfz1TGkdgZM7XpNxLZ12uKnntwHnFKRAKRPYS"
-
-                },
-                {
-                    name: "Gemini NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPp2zXT7bk81ZMdZSSppefZ31v4NZDpdRvgkBfCK3X92w"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINI1,
-        },
-
-        //Leo Collection #1
-        {
-            collectionName: "Leo NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_LEO1,
-            collectionSubtitles: "Dates: July 23-August 22",
-            collectionDetails: "Leo Dates: July 23-August 22. Leo is a fire sign, ruled by the Sun, and is known for its confidence, creativity, and generosity.",
-            collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZHRvAWu1jM12cFLgqf97x3B33ahEZ7cwewhHkJQeQiWL",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Leo NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qmd6wYoKgAPwhRFFppZVPS9FGJGyQFfFCbhAf5y7tohh8H"
-                },
-                {
-                    name: "Leo NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbsB55mZfgnfWQ3N8jv2dumCgW6B5gc65Dfu6Suavxg2E"
-                },
-                {
-                    name: "Leo NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYqiH6Crr7SavHmgaXYH8LsVZ6hZbvRunLZgxDQY1jik2"
-
-                },
-                {
-                    name: "Leo NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qme3qXCxLd1wcUAdN68rMhJ63R3ifxGJVYcpV5Q5Gq8knS"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEO1,
-        },
-
-
-        // Zodiac Candi Collection 2025 
-
+        // **** Zodiac Candi Collection 2025 ******//
 
         //Capricorn Collection #1
         {
@@ -282,24 +109,27 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "Capricorn Dates: December 21-January 20. Capricorn is an earth sign, ruled by Saturn, and is known for its practicality, discipline, and ambition.",
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Capricorn NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmXWAnttiw8cJ9gEyatLoKS41DMijyrAH4d5YhAaR1cxNF"
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmesuHrnNifjgJGtH86i2VNW1v5xMF9uYYvu42aSsMopXy"
                 },
                 {
                     name: "Capricorn NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQYgcHRfH3zhA8mNUc4ZGUJ5yC4gMyJMSLLwSr48KavJB"
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmUfdUcvBfirWtor1quFu2RbNeyczFTmCLeUBECjjzLhKf"
                 },
                 {
                     name: "Capricorn NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmaiLTv6ukGTPoDSoixvVJcK9X23Kcz7kHQZeZgAJF2CDo"
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVgKPVAsMUhvD4NS5d1BeyubsGpU4CGbNP7LHzfyNpEva"
 
                 },
                 {
                     name: "Capricorn NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRJ2UrPDVNHPGxRbB9oXRQAUfgZdT7cacqHDM8qiM15Ef"
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVRW63taSAxfqX4wwLTTS7JzSgXBDa7VM1zBFNiogRCRf"
                 },
             ],
 
@@ -314,7 +144,10 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "Aquarius Dates: January 21-February 18. Aquarius is an air sign, ruled by Uranus, and is known for its innovation, independence, and humanitarianism.",
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Aquarius NFT #1",
@@ -338,199 +171,6 @@ function getCollectionItems(): CollectionItem[] {
             candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1,
         },
 
-        //Aries Collection #1
-        {
-            collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_ARIESC1,
-            collectionSubtitles: "Dates: March 21-April 19",
-            collectionDetails: "Aries Dates: March 21-April 19. Aries is a fire sign, ruled by Mars, and is known for its courage, determination, and enthusiasm.",
-            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionurl: "",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Aries NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZricikATkbAQFH1g4MiVM1PiKRx5SbSAjvQy3Yq63gFe"
-                },
-                {
-                    name: "Aries NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmT8kNUoUjjCfc5h42LHg9ae1dSSTKjQcwtwkJADfDhFfr"
-                },
-                {
-                    name: "Aries NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmXFk2UkFz14orqbdA4fFgobCy2GaYVBeGiEGH5FZQkJQv"
-
-                },
-                {
-                    name: "Aries NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmP9YBuoRRTPCRLhaEcqkQMmyAr7sJxxcNwDAJWERusMVw"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1,
-        },
-
-        //Cancer Collection #1
-        {
-            collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_CANCERC1,
-            collectionSubtitles: "Dates: June 21-July 22",
-            collectionDetails: "Cancer Dates: June 21-July 22. Cancer is a water sign, ruled by the Moon, and is known for its emotional depth, intuition, and nurturing nature.",
-            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionurl: "",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Cancer NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmXxwAN5jamYdriVmN9EwmmZhfUxPHTU3t2RqGRKRsK66S"
-                },
-                {
-                    name: "Cancer NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVYy5S8uPec9gNZe5LRG4LfawAf3QaCVKG5agS4i3B3CM"
-                },
-                {
-                    name: "Cancer NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdYUShV8RViJxix5EW96KyVpWVrYDyBkHWaBDwndtr9Sk"
-
-                },
-                {
-                    name: "Cancer NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmWM7Vj7mcvRAMj9vDRvttd8Q8jX9GhQatE8WPh5xeP9Zi"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCERC1,
-        },
-
-
-        //Gemini Collection #1
-        {
-            collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_GEMINIC1,
-            collectionSubtitles: "Dates: May 21-June 20",
-            collectionDetails: "Gemini Dates: May 21-June 20. Gemini is an air sign, ruled by Mercury, and is known for its adaptability, curiosity, and sociability.",
-            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionurl: "",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Gemini NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTyp3BMZ4WwD2ddvjhp3QLRKeLxf9U21qUTSZ4pGaBJhL"
-                },
-                {
-                    name: "Gemini NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmXvqZ4VV1tnGEh22gaVxw95hsvQQMtjeb2rsj9jYfb4eB"
-                },
-                {
-                    name: "Gemini NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcNFNvTMWkdeV34NESvhRDa5ifapo17QcE6JdVf9UZbVC"
-
-                },
-                {
-                    name: "Gemini NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbwVw8VzWraGvWttWR9JKwPZji6Mz1ww97LSjj7KYdmUy"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINIC1,
-        },
-
-        //Leo Collection #1
-        {
-            collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_LEOC1,
-            collectionSubtitles: "Dates: July 23-August 22",
-            collectionDetails: "Leo Dates: July 23-August 22. Leo is a fire sign, ruled by the Sun, and is known for its confidence, creativity, and generosity.",
-            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionurl: "",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Leo NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRWDaHZgcmqQRJ3VY5RS1aWYuPKiWADYuv37o8kybD1nM"
-                },
-                {
-                    name: "Leo NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPzh2epidcjk25SLQmUwfw8gPi8KvsusGpGk8h3MiKz8j"
-                },
-                {
-                    name: "Leo NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRmGN57npaJyRF93AMwMFPSurszm5PnnWHUcxn3thdSFg"
-
-                },
-                {
-                    name: "Leo NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYfsEaqKubwK8ZXsdsqkvpAV6PTbRpNP1auHxWDUnVc14"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEOC1,
-        },
-
-        //## Collection #1
-        {
-            collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_LEOC1,
-            collectionSubtitles: "Dates: July 23-August 22",
-            collectionDetails: "Leo Dates: July 23-August 22. Leo is a fire sign, ruled by the Sun, and is known for its confidence, creativity, and generosity.",
-            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionurl: "",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Leo NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRWDaHZgcmqQRJ3VY5RS1aWYuPKiWADYuv37o8kybD1nM"
-                },
-                {
-                    name: "Leo NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPzh2epidcjk25SLQmUwfw8gPi8KvsusGpGk8h3MiKz8j"
-                },
-                {
-                    name: "Leo NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRmGN57npaJyRF93AMwMFPSurszm5PnnWHUcxn3thdSFg"
-
-                },
-                {
-                    name: "Leo NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYfsEaqKubwK8ZXsdsqkvpAV6PTbRpNP1auHxWDUnVc14"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEOC1,
-        },
-
-        //Libra Collection #1
-        {
-            collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_LEBRAC1,
-            collectionSubtitles: "Dates: September 23-October 22",
-            collectionDetails: "Libra Dates: September 23-October 22. Libra is an air sign, ruled by Venus, and is known for its diplomacy, charm, and sense of justice.",
-            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionurl: "",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Libra NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmW2siCSqXWUYTmjcMkERoeiNCkAQzHtt52EfeEnmx74KU"
-                },
-                {
-                    name: "Libra NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbVGZHDV4q51H9UErCberYYuF46XTGuEyBa2tLUdcUDnx"
-                },
-                {
-                    name: "Libra NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmUX2Rh2ZCFXAfLi95ZQK2r112ZSdijqboHAu5VTDTedgZ"
-
-                },
-                {
-                    name: "Libra NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSRK4Zm7Qmqytjb7y986RpfRtfobNDuXCxv2BcWhBedat"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEBRAC1,
-        },
-
         //Pisces Collection #1
         {
             collectionName: "Candibar NFT Collection Cover #1",
@@ -539,7 +179,10 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "Pisces Dates : February 19-March 20. Pisces is a water sign, ruled by Neptune, and is known for its empathy, intuition, and artistic nature.",
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Pisces NFT #1",
@@ -563,68 +206,39 @@ function getCollectionItems(): CollectionItem[] {
             candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1,
         },
 
-        //Sagittarius Collection #1
+        //Aries Collection #1
         {
             collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_SAGC1,
-            collectionSubtitles: "Dates: November 22-December 21",
-            collectionDetails: "Sagittarius Dates: November 22-December 21. Sagittarius is a fire sign, ruled by Jupiter, and is known for its adventurous spirit, optimism, and love of freedom.",
+            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_ARIESC1,
+            collectionSubtitles: "Dates: March 21-April 19",
+            collectionDetails: "Aries Dates: March 21-April 19. Aries is a fire sign, ruled by Mars, and is known for its courage, determination, and enthusiasm.",
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
-                    name: "Sagittarius NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYvCrR14CN5bpgAAcFP3YJG3gUCtqWiCrHTib534HtmfB"
+                    name: "Aries NFT #1",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZricikATkbAQFH1g4MiVM1PiKRx5SbSAjvQy3Yq63gFe"
                 },
                 {
-                    name: "Sagittarius NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qmd3xoi8e7MnS9Po32P3A5ofA9XBnhkNYjUsxWLMdUMNyP"
+                    name: "Aries NFT #2",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmT8kNUoUjjCfc5h42LHg9ae1dSSTKjQcwtwkJADfDhFfr"
                 },
                 {
-                    name: "Sagittarius NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRRgQcKn8kCy8Ny7DRfvZNcQ2N894QQNsRzQENHGGkmLa"
+                    name: "Aries NFT #3",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmXFk2UkFz14orqbdA4fFgobCy2GaYVBeGiEGH5FZQkJQv"
 
                 },
                 {
-                    name: "Sagittarius NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmasDabndw8vw4wVafQPmgE3W7gu9eighsxrB35kz8NAHF"
+                    name: "Aries NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmP9YBuoRRTPCRLhaEcqkQMmyAr7sJxxcNwDAJWERusMVw"
                 },
             ],
 
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1,
-        },
-
-        //Scorpio Collection #1
-        {
-            collectionName: "Candibar NFT Collection Cover #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_SCOC1,
-            collectionSubtitles: "Dates: October 23-November 21",
-            collectionDetails: "Scorpio Dates: October 23-November 21. Scorpio is a water sign, ruled by Pluto, and is known for its intensity, passion, and resourcefulness.",
-            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
-            collectionurl: "",
-            collectionCandibarValue: 500,
-            images: [
-                {
-                    name: "Scorpio NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdX3sV3JbxyojDnyh2VcazzsMAC7CcmZhXm25q6WKjRQj"
-                },
-                {
-                    name: "Scorpio NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmaAuM1DUjQGoX5Z4ASpyrXXw9tkZMBaVckW657H6QzV1v"
-                },
-                {
-                    name: "Scorpio NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPydBUuFk1zcJ9urW2rSUeWnjLd9S7K1DvRMQRntgRC11"
-
-                },
-                {
-                    name: "Scorpio NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZ7MSrf5nduaMXdPd26K1VSHyuYsefLwhMN3sZCSkrsEK"
-                },
-            ],
-
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1,
+            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1,
         },
 
         //Taurus Collection #1
@@ -635,7 +249,10 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "Taurus Dates: April 20-May 20. Taurus is an earth sign, ruled by Venus, and is known for its practicality, reliability, and sensuality.",
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Taurus NFT #1",
@@ -659,6 +276,112 @@ function getCollectionItems(): CollectionItem[] {
             candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_TAURC1,
         },
 
+
+        //Gemini Collection #1
+        {
+            collectionName: "Candibar NFT Collection Cover #1",
+            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_GEMINIC1,
+            collectionSubtitles: "Dates: May 21-June 20",
+            collectionDetails: "Gemini Dates: May 21-June 20. Gemini is an air sign, ruled by Mercury, and is known for its adaptability, curiosity, and sociability.",
+            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
+            collectionurl: "",
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
+            images: [
+                {
+                    name: "Gemini NFT #1",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTyp3BMZ4WwD2ddvjhp3QLRKeLxf9U21qUTSZ4pGaBJhL"
+                },
+                {
+                    name: "Gemini NFT #2",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmXvqZ4VV1tnGEh22gaVxw95hsvQQMtjeb2rsj9jYfb4eB"
+                },
+                {
+                    name: "Gemini NFT #3",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcNFNvTMWkdeV34NESvhRDa5ifapo17QcE6JdVf9UZbVC"
+
+                },
+                {
+                    name: "Gemini NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbwVw8VzWraGvWttWR9JKwPZji6Mz1ww97LSjj7KYdmUy"
+                },
+            ],
+
+            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINIC1,
+        },
+
+        //Cancer Collection #1
+        {
+            collectionName: "Candibar NFT Collection Cover #1",
+            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_CANCERC1,
+            collectionSubtitles: "Dates: June 21-July 22",
+            collectionDetails: "Cancer Dates: June 21-July 22. Cancer is a water sign, ruled by the Moon, and is known for its emotional depth, intuition, and nurturing nature.",
+            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
+            collectionurl: "",
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
+            images: [
+                {
+                    name: "Cancer NFT #1",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmXxwAN5jamYdriVmN9EwmmZhfUxPHTU3t2RqGRKRsK66S"
+                },
+                {
+                    name: "Cancer NFT #2",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVYy5S8uPec9gNZe5LRG4LfawAf3QaCVKG5agS4i3B3CM"
+                },
+                {
+                    name: "Cancer NFT #3",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdYUShV8RViJxix5EW96KyVpWVrYDyBkHWaBDwndtr9Sk"
+
+                },
+                {
+                    name: "Cancer NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmWM7Vj7mcvRAMj9vDRvttd8Q8jX9GhQatE8WPh5xeP9Zi"
+                },
+            ],
+
+            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCERC1,
+        },
+
+        //Leo Collection #1
+        {
+            collectionName: "Candibar NFT Collection Cover #1",
+            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_LEOC1,
+            collectionSubtitles: "Dates: July 23-August 22",
+            collectionDetails: "Leo Dates: July 23-August 22. Leo is a fire sign, ruled by the Sun, and is known for its confidence, creativity, and generosity.",
+            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
+            collectionurl: "",
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
+            images: [
+                {
+                    name: "Leo NFT #1",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRWDaHZgcmqQRJ3VY5RS1aWYuPKiWADYuv37o8kybD1nM"
+                },
+                {
+                    name: "Leo NFT #2",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPzh2epidcjk25SLQmUwfw8gPi8KvsusGpGk8h3MiKz8j"
+                },
+                {
+                    name: "Leo NFT #3",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRmGN57npaJyRF93AMwMFPSurszm5PnnWHUcxn3thdSFg"
+
+                },
+                {
+                    name: "Leo NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYfsEaqKubwK8ZXsdsqkvpAV6PTbRpNP1auHxWDUnVc14"
+                },
+            ],
+
+            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEOC1,
+        },
+
         //Virgo Collection #1
         {
             collectionName: "Candibar NFT Collection Cover #1",
@@ -667,29 +390,145 @@ function getCollectionItems(): CollectionItem[] {
             collectionDetails: "Virgo Dates: August 23-September 22. Virgo is an earth sign, ruled by Mercury, and is known for its attention to detail, practicality, and analytical nature.",
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
-            collectionCandibarValue: 500,
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Virgo NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmesuHrnNifjgJGtH86i2VNW1v5xMF9uYYvu42aSsMopXy"
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYZ92J6uLAK8u5XsYFknhRQpgLefBw7qQn5u8qu5VPy7s"
                 },
                 {
                     name: "Virgo NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmUfdUcvBfirWtor1quFu2RbNeyczFTmCLeUBECjjzLhKf"
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPTZJXdPVjYauP7S1zxfDfbnsd4NRWfXtTqbLAZycqZ86"
                 },
                 {
                     name: "Virgo NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVgKPVAsMUhvD4NS5d1BeyubsGpU4CGbNP7LHzfyNpEva"
-
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbdFZYzNdWfqEbfonovT7CSmro8LYtoAMd7cGCo1vLCwc"
                 },
                 {
                     name: "Virgo NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVRW63taSAxfqX4wwLTTS7JzSgXBDa7VM1zBFNiogRCRf"
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQGnMaPLL3eZ6GvJn3QCAodJVftHRWonxz9ALupn2LrfF"
+                },
+                {
+                    name: "Virgo NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmeTyPwKhodn4y61R88ZuQgCnMEfEpK3A1AiamrDgsAVCW"
+                },
+                {
+                    name: "Virgo NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTRR6dfrNSCt7Ab4avy2jFQ46mRkxFdYxdtg5AY2niMz6"
                 },
             ],
 
             candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_VIRGOC1,
         },
+
+        //Libra Collection #1
+        {
+            collectionName: "Candibar NFT Collection Cover #1",
+            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_LEBRAC1,
+            collectionSubtitles: "Dates: September 23-October 22",
+            collectionDetails: "Libra Dates: September 23-October 22. Libra is an air sign, ruled by Venus, and is known for its diplomacy, charm, and sense of justice.",
+            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
+            collectionurl: "",
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
+            images: [
+                {
+                    name: "Libra NFT #1",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmW2siCSqXWUYTmjcMkERoeiNCkAQzHtt52EfeEnmx74KU"
+                },
+                {
+                    name: "Libra NFT #2",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbVGZHDV4q51H9UErCberYYuF46XTGuEyBa2tLUdcUDnx"
+                },
+                {
+                    name: "Libra NFT #3",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmUX2Rh2ZCFXAfLi95ZQK2r112ZSdijqboHAu5VTDTedgZ"
+
+                },
+                {
+                    name: "Libra NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSRK4Zm7Qmqytjb7y986RpfRtfobNDuXCxv2BcWhBedat"
+                },
+            ],
+
+            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEBRAC1,
+        },
+
+        //Scorpio Collection #1
+        {
+            collectionName: "Candibar NFT Collection Cover #1",
+            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_SCOC1,
+            collectionSubtitles: "Dates: October 23-November 21",
+            collectionDetails: "Scorpio Dates: October 23-November 21. Scorpio is a water sign, ruled by Pluto, and is known for its intensity, passion, and resourcefulness.",
+            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
+            collectionurl: "",
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
+            images: [
+                {
+                    name: "Scorpio NFT #1",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdX3sV3JbxyojDnyh2VcazzsMAC7CcmZhXm25q6WKjRQj"
+                },
+                {
+                    name: "Scorpio NFT #2",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmaAuM1DUjQGoX5Z4ASpyrXXw9tkZMBaVckW657H6QzV1v"
+                },
+                {
+                    name: "Scorpio NFT #3",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPydBUuFk1zcJ9urW2rSUeWnjLd9S7K1DvRMQRntgRC11"
+
+                },
+                {
+                    name: "Scorpio NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZ7MSrf5nduaMXdPd26K1VSHyuYsefLwhMN3sZCSkrsEK"
+                },
+            ],
+
+            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1,
+        },
+
+        //Sagittarius Collection #1
+        {
+            collectionName: "Candibar NFT Collection Cover #1",
+            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_SAGC1,
+            collectionSubtitles: "Dates: November 22-December 21",
+            collectionDetails: "Sagittarius Dates: November 22-December 21. Sagittarius is a fire sign, ruled by Jupiter, and is known for its adventurous spirit, optimism, and love of freedom.",
+            //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
+            collectionurl: "",
+            collectionCandibarValue: 600,
+            candibarcost: 600,
+            isSwappable: false,
+            collectionStatus: NFTStatusTypes.Available,
+            images: [
+                {
+                    name: "Sagittarius NFT #1",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYvCrR14CN5bpgAAcFP3YJG3gUCtqWiCrHTib534HtmfB"
+                },
+                {
+                    name: "Sagittarius NFT #2",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qmd3xoi8e7MnS9Po32P3A5ofA9XBnhkNYjUsxWLMdUMNyP"
+                },
+                {
+                    name: "Sagittarius NFT #3",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmRRgQcKn8kCy8Ny7DRfvZNcQ2N894QQNsRzQENHGGkmLa"
+
+                },
+                {
+                    name: "Sagittarius NFT #4",
+                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmasDabndw8vw4wVafQPmgE3W7gu9eighsxrB35kz8NAHF"
+                },
+            ],
+
+            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1,
+        },
+
     ];
 };
 

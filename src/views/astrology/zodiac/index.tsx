@@ -42,7 +42,7 @@ export const AstrologyZodiacView: FC = ({ }) => {
   <div>
 
 <p className="text-center text-3xl font-extrabold p-3">
-        Unlock the future of digital assets with Zodiac Coin 2025 NFT!
+        Unlock the future of digital assets with candi confection art NFT!
       </p>
 
       <div className="flex flex-col text-1xl items-center justify-center p-5">
