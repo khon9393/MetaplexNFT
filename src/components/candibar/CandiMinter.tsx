@@ -30,9 +30,10 @@ const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 interface CandiMintersProps {
   candyMachineaddress: string;
   collectionaddress: string;
+  buttonText?: string;
 }
 
-export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress }) => {
+export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress,buttonText}) => {
 
   const { connection } = useConnection();
   const wallet = useWallet();
@@ -43,6 +44,8 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
   const { width, height } = useViewportSize(); // Dynamically get window size
   const [isTransacting, setIsTransacting] = useState(false);
+
+  const [MintBtnText, setMintBtnText] = useState(buttonText ? buttonText : "Mint NFT");
 
   // Create an Umi instance
   const umi = useMemo(() =>
@@ -152,7 +155,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           onClick={onClick}
           disabled={isTransacting}
         >
-          <span>Mint NFT</span>
+          <span>{MintBtnText}</span>
         </button> )}
 
         {isTransacting && (
