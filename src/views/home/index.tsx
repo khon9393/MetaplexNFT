@@ -13,36 +13,55 @@ import Image from "next/image";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../components/candibar/CardContainer";
 
+/*
+1. Cotton Candy (Pink & Blue Swirl)
+className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4"
+
+2. Caramel & Chocolate Swirl (Warm & Rich)
+className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-brown-600 mb-4"
+
+3. Sour Candy Pop (Bright & Tangy)
+className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
+
+4. Lollipop Swirl (Rainbow & Fun)
+className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
+
+5. Grape & Berry Burst (Rich Purples & Blues)
+className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-500 to-blue-500 mb-4"
+
+*/
+
+
 const items = [
-  {
-    id: 1, name: 'collection', collectionCover: 1, color: 'bg-red-500', text: 'Candi Collection 2025 Cover', titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭', subtitledesc: 'Sugar Rush Starts Now With 1,000 Sweet Opportunities. ',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69"
-    , pageloc: "/Candi"
-  },
+  // {
+  //   id: 1, name: 'collection', collectionCover: 1, color: 'bg-red-500', text: 'Candi Collection 2025 Cover', titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭', subtitledesc: 'Sugar Rush Starts Now With 1,000 Sweet Opportunities. ',
+  //   image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69"
+  //   , pageloc: "/Candi"
+  // },
 
-  {
-    id: 2, name: 'candi00', color: 'bg-green-500', text: 'Candi Item #1',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo"
-    , pageloc: "/Candi"
-  },
+  // {
+  //   id: 2, name: 'candi00', color: 'bg-green-500', text: 'Candi Item #1',
+  //   image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo"
+  //   , pageloc: "/Candi"
+  // },
 
-  {
-    id: 3, name: 'candi01', color: 'bg-blue-500', text: 'Candi Item #2',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdyA45Tw3nfZnUUjgawh9QdpscNgY8sg1nMpe8JME1UmQ"
-    , pageloc: "/Candi"
-  },
+  // {
+  //   id: 3, name: 'candi01', color: 'bg-blue-500', text: 'Candi Item #2',
+  //   image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdyA45Tw3nfZnUUjgawh9QdpscNgY8sg1nMpe8JME1UmQ"
+  //   , pageloc: "/Candi"
+  // },
 
-  {
-    id: 4, name: 'candi02', color: 'bg-yellow-500', text: 'Candi Item #3',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbjeEgD5aGMgFFpX3MWsvxDxzhGQDT9KCLroB5htgE7Gg"
-    , pageloc: "/Candi"
-  },
+  // {
+  //   id: 4, name: 'candi02', color: 'bg-yellow-500', text: 'Candi Item #3',
+  //   image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbjeEgD5aGMgFFpX3MWsvxDxzhGQDT9KCLroB5htgE7Gg"
+  //   , pageloc: "/Candi"
+  // },
 
-  {
-    id: 5, name: 'candi03', color: 'bg-purple-500', text: 'Candi Item #4',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmNknJSTgZTuxTkn9RP8HtPxQjeyzo69Eq476juYyym4Tu"
-    , pageloc: "/Candi"
-  },
+  // {
+  //   id: 5, name: 'candi03', color: 'bg-purple-500', text: 'Candi Item #4',
+  //   image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmNknJSTgZTuxTkn9RP8HtPxQjeyzo69Eq476juYyym4Tu"
+  //   , pageloc: "/Candi"
+  // },
 
   {
     id: 6, name: 'collection', collectionCover: 1, color: 'bg-pink-500', text: 'Snake Collection 2025 Cover', titledesc: '🐍 Introducing the Snake Collection 2025! 🐍', subtitledesc: 'A Limited Collection to Celebrate the Year of the Wood Snake!',
@@ -86,6 +105,10 @@ export const HomeView: FC = ({ }) => {
   const [count, setCount] = useState(0);
 
 
+  const PromotioncandyMachineKeys = useMemo(() => [
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
+  ], []);
+
   const candyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_VIRGOC1),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1),
@@ -117,11 +140,19 @@ export const HomeView: FC = ({ }) => {
 
   return (
     <>
-      <div className="text-center mt-8">
-        <h1 className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Exclusive Items
+      <div className="text-center mt-8 p-3">
+        <h1 
+       className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
+        >
+        Join the Ranks of Our Early Sponsors and Donors
         </h1>
-        <p className="text-lg mt-2">Discover the unique and exclusive items curated just for you.</p>
+        <p 
+        className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
+        
+        >
+        Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way. 
+        Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
+          </p>
       </div>
 
       <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-4">
@@ -203,12 +234,39 @@ export const HomeView: FC = ({ }) => {
         </div>
       </Carousel>
 
-
-      <div className="text-center mt-8">
-        <h1 className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Featured Items
+      <div className="text-center mt-8 p-8">
+        <h1 
+        className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
+        >
+          Candibar Promotional NFT Collection
         </h1>
-        <p className="text-lg mt-2">Explore our exclusive collections and unique items.</p>
+        {/* <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens, plus a small SOL transaction fee.</p> */}
+        <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">
+        Candi NFTs can be exchanged for Candibar Tokens, which can then be used to acquire exclusive collections in the Candibar NFT marketplace.
+        </p>
+      </div>
+
+      <div >
+        <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
+      </div>
+
+
+      <div className="text-center mt-8 p-10">
+        <h1 
+        className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4"
+        >
+          Featured Zodiac Candi Confection NFT Collection
+        </h1>
+        {/* <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens, plus a small SOL transaction fee.</p> */}
+        <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">
+          Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
+          </p>
+          <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">
+         <Link
+          href={"/AstrologyZodiac"}
+          className="text-blue-500 underline">Browse the entire collection
+          </Link>
+          </p>
       </div>
 
       <div >

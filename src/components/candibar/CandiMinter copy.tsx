@@ -8,7 +8,7 @@ import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-ad
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
 import * as bs58 from 'bs58';
-import { fetchCandyMachine, mintV1, mplCandyMachine, safeFetchCandyGuard } from "@metaplex-foundation/mpl-core-candy-machine";
+import { mintV1, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-machine";
 import { Fireworks } from "@fireworks-js/react";
 import useViewportSize from "./useViewportSize";
 import Confetti from "react-confetti";
@@ -66,8 +66,6 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       return;
     }
 
-
-
     try {
 
       const candyMachineKeys = [publicKey(candyMachineaddress)];
@@ -78,16 +76,19 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       const transaction = await transactionBuilder()
         .add(setComputeUnitLimit(umi, { units: 800_000 }))
         .add(
-
           mintV1(umi, {
             candyMachine: publicKey(candyMachineaddress),
             asset: nftMint,
             collection: publicKey(collectionaddress),
             mintArgs: {
               solPayment: some({ destination: treasury }),
-              mintLimit: some({ id: results[0].candyGuardId}),
-            },
 
+              mintLimit: some({ id: results[0].candyGuardId}),
+
+
+              
+             // tokenPayment: some({mint: tokenMint, destinationAta:treasury,}),
+            },
           })
         );
 

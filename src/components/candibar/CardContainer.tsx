@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "src/components/ui/card"
 import { getCollection } from "../../stores/useCandibardataStore";
 import Link from "next/link";
-
+import { NFTStatusTypes } from "@/models/types";
 
 interface CandyMachineKeysProps {
   candyMachineKeys: PublicKey[];
@@ -80,6 +80,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
           collectionSubtitles: collection.collectionSubtitles,
           collectionDetails: collection.collectionDetails,
           collectionCandibarValue: collection.collectionCandibarValue,
+          collectionStatus: collection.collectionStatus,
+          candibarcost: collection.candibarcost,
         };
       }));
       setCandyMachines(machines);
@@ -129,7 +131,13 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                 </div>
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                    <Image
+                  mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                  </div>
+                </div>
+                <div className="rounded-md border">
+                  <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                    
+                  <Image
                       src={solanaLogo}
                       alt="Solana Icon"
                       width={16}
@@ -137,7 +145,17 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                       className="mr-1"
                     />
                     <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} |
-                      mints: {machine.itemsRedeemed} of {machine.itemsAvailable}</span>
+                      </span>
+                  <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                    <Image
+                      src={tokenimg}
+                      alt="Solana Icon"
+                      width={16}
+                      height={16}
+                      className="mr-1"
+                    />
+                   {machine.candibarcost || 0}
+                  </div>
                   </div>
                 </div>
                 {/* <div className="rounded-md border">
@@ -179,36 +197,46 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   }
                 }}>
                   <CarouselContent>
-                  {Array.isArray(machine.images) ? machine.images.map((imageSrc, imgIndex) => (
-                    <CarouselItem key={imgIndex} className="relative">
-                    <Card className="overflow-hidden rounded-lg w-full h-full relative">
-                      <CardContent className="p-0 h-full">
-                      <motion.div
-                        variants={imageVariants}
-                        initial="hidden"
-                        animate="visible"
-                        whileHover="hover"
-                        className="flex justify-center items-center w-full h-full"
-                      >
-                        <Image
-                        width={350}
-                        height={350}
-                        src={Array.isArray(imageSrc) ? imageSrc[0].url : imageSrc.url}
-                        alt={`Image ${imgIndex + 1}`}
-                        className="object-cover w-full h-full rounded-2xl"
-                        />
-                        {machine.itemsRedeemed === machine.itemsAvailable && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
-                          SOLD OUT
-                          </span>
-                        </div>
-                        )}
-                      </motion.div>
-                      </CardContent>
-                    </Card>
-                    </CarouselItem>
-                  )) : null}
+                    {Array.isArray(machine.images) ? machine.images.map((imageSrc, imgIndex) => (
+                      <CarouselItem key={imgIndex} className="relative">
+                        <Card className="overflow-hidden rounded-lg w-full h-full relative">
+                          <CardContent className="p-0 h-full">
+                            <motion.div
+                              variants={imageVariants}
+                              initial="hidden"
+                              animate="visible"
+                              whileHover="hover"
+                              className="flex justify-center items-center w-full h-full"
+                            >
+                              <Image
+                                width={350}
+                                height={350}
+                                src={Array.isArray(imageSrc) ? imageSrc[0].url : imageSrc.url}
+                                alt={`Image ${imgIndex + 1}`}
+                                className="object-cover w-full h-full rounded-2xl"
+                              />
+
+                              {machine.itemsRedeemed === machine.itemsAvailable && (
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
+                                    {NFTStatusTypes.SoldOut}
+                                  </span>
+                                </div>
+                              )};
+
+                              {machine.collectionStatus !== NFTStatusTypes.Available && (
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
+                                    {NFTStatusTypes.ComingSoon}
+                                  </span>
+                                </div>
+                              )};
+
+                            </motion.div>
+                          </CardContent>
+                        </Card>
+                      </CarouselItem>
+                    )) : null}
 
 
                   </CarouselContent>
@@ -240,9 +268,19 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   }}
                   className="px-2 hover:underline flex justify-center animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
                 >
-                  Get it Now!
+                  {
+                    machine.collectionStatus === NFTStatusTypes.Available &&
+                      machine.itemsRedeemed !== machine.itemsAvailable ? (
+                      <div>
+                        {NFTStatusTypes.GetitNow}
+                      </div>
+                    ) : (
+                      <div>
+                        {NFTStatusTypes.MoreDetails}
+                      </div>
+                    )
+                  }
                 </Link>
-
               </span>
             </Card>
           </div>
