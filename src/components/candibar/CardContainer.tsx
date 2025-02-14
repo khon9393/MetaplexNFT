@@ -222,7 +222,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                                     {NFTStatusTypes.SoldOut}
                                   </span>
                                 </div>
-                              )};
+                              )}
 
                               {machine.collectionStatus !== NFTStatusTypes.Available && (
                                 <div className="absolute inset-0 flex items-center justify-center">
@@ -230,7 +230,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                                     {NFTStatusTypes.ComingSoon}
                                   </span>
                                 </div>
-                              )};
+                              )}
 
                             </motion.div>
                           </CardContent>
