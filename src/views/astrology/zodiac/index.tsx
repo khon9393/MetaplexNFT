@@ -6,17 +6,29 @@ import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
 
 export const AstrologyZodiacView: FC = ({ }) => {
-
+``
 
   const candyMachineKeys = useMemo(() => [
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIES1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCER1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINI1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_LEO1),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIES1),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCER1),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINI1),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_LEO1),
     
-    
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCERC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINIC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_LEOC1),
+
+
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_LEBRAC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1),
+
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID02),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID03),
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID04),
@@ -52,7 +64,7 @@ export const AstrologyZodiacView: FC = ({ }) => {
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-orange-600 animate-pulse">
             &nbsp;prosperity
           </span>.
-          Whether you channel the strength of the Dragon, the resilience of the Ox, or the agility of the Monkey, each NFT captures the distinct energy of its zodiac sign.
+          Whether you channel the strength of the Lion, the resilience of the Ox, or the agility of the Ram, each NFT captures the distinct energy of its zodiac sign.
           By owning one or more of these celestial collectibles, you harness the power of
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 animate-pulse">
             &nbsp;fortune
