@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 
 import { ArrowLeft, ArrowRight, ChevronLeftCircle, ChevronRightCircle } from 'lucide-react';
@@ -10,69 +10,46 @@ import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import Link from "next/link";
 import Image from "next/image";
 
-import { publicKey } from "@metaplex-foundation/umi";
-import { CardContainer } from "../../components/candibar/CardContainer";
-
 const items = [
-  {
-    id: 1, name: 'collection', collectionCover: 1, color: 'bg-red-500', text: 'Candi Collection 2025 Cover', titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭', subtitledesc: 'Sugar Rush Starts Now With 1,000 Sweet Opportunities. ',
+  { id: 1, name: 'collection', collectionCover: 1, color: 'bg-red-500', text: 'Candi Collection 2025 Cover', titledesc: '🍭 Introducing the Candibar NFT Collection! 🍭', subtitledesc: 'Sugar Rush Starts Now With 1,000 Sweet Opportunities. ', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69"
-    , pageloc: "/Candi"
-  },
+    , pageloc: "/Candi" },
 
-  {
-    id: 2, name: 'candi00', color: 'bg-green-500', text: 'Candi Item #1',
+  { id: 2, name: 'candi00', color: 'bg-green-500', text: 'Candi Item #1', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo"
-    , pageloc: "/Candi"
-  },
+    , pageloc: "/Candi" },
 
-  {
-    id: 3, name: 'candi01', color: 'bg-blue-500', text: 'Candi Item #2',
+  { id: 3, name: 'candi01', color: 'bg-blue-500', text: 'Candi Item #2', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdyA45Tw3nfZnUUjgawh9QdpscNgY8sg1nMpe8JME1UmQ"
-    , pageloc: "/Candi"
-  },
+    , pageloc: "/Candi" },
 
-  {
-    id: 4, name: 'candi02', color: 'bg-yellow-500', text: 'Candi Item #3',
+  { id: 4, name: 'candi02', color: 'bg-yellow-500', text: 'Candi Item #3', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbjeEgD5aGMgFFpX3MWsvxDxzhGQDT9KCLroB5htgE7Gg"
-    , pageloc: "/Candi"
-  },
+    , pageloc: "/Candi" },
 
-  {
-    id: 5, name: 'candi03', color: 'bg-purple-500', text: 'Candi Item #4',
+  { id: 5, name: 'candi03', color: 'bg-purple-500', text: 'Candi Item #4', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmNknJSTgZTuxTkn9RP8HtPxQjeyzo69Eq476juYyym4Tu"
-    , pageloc: "/Candi"
-  },
+    , pageloc: "/Candi" },
 
-  {
-    id: 6, name: 'collection', collectionCover: 1, color: 'bg-pink-500', text: 'Snake Collection 2025 Cover', titledesc: '🐍 Introducing the Snake Collection 2025! 🐍', subtitledesc: 'A Limited Collection to Celebrate the Year of the Wood Snake!',
+  { id: 6, name: 'collection', collectionCover: 1, color: 'bg-pink-500', text: 'Snake Collection 2025 Cover', titledesc: '🐍 Introducing the Snake Collection 2025! 🐍', subtitledesc: 'A Limited Collection to Celebrate the Year of the Wood Snake!', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmUuMz8Y8wcfvdcQsZFGJK5CTMNFQTC952VQvXXRcNA6C2"
-    , pageloc: "/AstrologySign"
-  },
+    , pageloc: "/AstrologySign" },
 
-  {
-    id: 7, name: 'snake00', color: 'bg-indigo-500', text: 'Snake Item #1',
+  { id: 7, name: 'snake00', color: 'bg-indigo-500', text: 'Snake Item #1', 
     image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcapCnprSUZGZf37nzb6JGJUDDPcyS1znAoFruVKW4wt6"
-    , pageloc: "/AstrologySign"
-  },
+    , pageloc: "/AstrologySign" },
 
-  {
-    id: 8, name: 'snake01', color: 'bg-teal-500', text: 'Snake Item #2',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTFLHTphBCnuhpjW6grPbdCYNtSVcoQXAXobexgwKnKP6"
-    , pageloc: "/AstrologySign"
-  },
+  { id: 8, name: 'snake01', color: 'bg-teal-500', text: 'Snake Item #2', 
+    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTFLHTphBCnuhpjW6grPbdCYNtSVcoQXAXobexgwKnKP6" 
+    , pageloc: "/AstrologySign" },
 
-  {
-    id: 9, name: 'snake02', color: 'bg-orange-500', text: 'Snake Item #3',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVEvqAAJpy1db4C9dLdiTXVyvTXvHUJyZyF8SGw4cRr11"
-    , pageloc: "/AstrologySign"
-  },
+  { id: 9, name: 'snake02', color: 'bg-orange-500', text: 'Snake Item #3', 
+    image:  "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVEvqAAJpy1db4C9dLdiTXVyvTXvHUJyZyF8SGw4cRr11"
+    , pageloc: "/AstrologySign" },
 
-  {
-    id: 10, name: 'snake03', color: 'bg-gray-500', text: 'Snake Item #4',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSqT7h7Q2XwYXUXzCJruSt9aN4EVGEv2VJEoXWAjXbq1u"
-    , pageloc: "/AstrologySign"
-  },
+  { id: 10, name: 'snake03', color: 'bg-gray-500', text: 'Snake Item #4', 
+    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSqT7h7Q2XwYXUXzCJruSt9aN4EVGEv2VJEoXWAjXbq1u"  
+    , pageloc: "/AstrologySign" },
 ];
 
 export const HomeView: FC = ({ }) => {
@@ -84,16 +61,7 @@ export const HomeView: FC = ({ }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
-
-
-  const candyMachineKeys = useMemo(() => [
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_VIRGOC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_TAURC1),
-    
-  ], []);
-
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (wallet.publicKey) {
@@ -117,13 +85,6 @@ export const HomeView: FC = ({ }) => {
 
   return (
     <>
-      <div className="text-center mt-8">
-        <h1 className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Exclusive Items
-        </h1>
-        <p className="text-lg mt-2">Discover the unique and exclusive items curated just for you.</p>
-      </div>
-
       <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-4">
         <CarouselContent>
           {items.map((item, index) => (
@@ -204,18 +165,10 @@ export const HomeView: FC = ({ }) => {
       </Carousel>
 
 
-      <div className="text-center mt-8">
-        <h1 className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Featured Items
-        </h1>
-        <p className="text-lg mt-2">Explore our exclusive collections and unique items.</p>
-      </div>
-
-      <div >
-        <CardContainer candyMachineKeys={candyMachineKeys} />
-      </div>
 
 
+
+      
     </>
   );
 };

@@ -177,10 +177,7 @@ const CardDetails: FC = () => {
                     <CandiMinter
                       candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
                       collectionaddress={candyMachines[0]?.collectionMint || ''}
-
                       
-                      buttonText={candyMachines[0]?.images.length > 1 ? "Mint Random NFT" : ""}
-
                     />
                   </div>
                 )}
