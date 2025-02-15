@@ -38,16 +38,9 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
       collectionName: string,
       SolCost: number,
       candyGuardMinLimit: number,
+      tokenPaymentAmount: number,
     }[]
   >([]);
-
-  // const candyMachineKeys = useMemo(() => [
-
-  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
-  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
-
-  // ], []);
-
 
   useEffect(() => {
     const fetchBalances = async () => {
@@ -82,6 +75,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
           collectionCandibarValue: collection.collectionCandibarValue,
           collectionStatus: collection.collectionStatus,
           candibarcost: collection.candibarcost,
+          tokenPaymentAmount: balance.tokenPaymentAmount,
         };
       }));
       setCandyMachines(machines);
@@ -131,61 +125,36 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                 </div>
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                  mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                    mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                   </div>
                 </div>
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                    
-                  <Image
+
+                    <Image
                       src={solanaLogo}
                       alt="Solana Icon"
                       width={16}
                       height={16}
                       className="mr-1"
                     />
-                    <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} |
-                      </span>
-                  <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                    <Image
-                      src={tokenimg}
-                      alt="Solana Icon"
-                      width={16}
-                      height={16}
-                      className="mr-1"
-                    />
-                   {machine.candibarcost || 0}
-                  </div>
+                    <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} 
+                    </span>
+
+                    {machine.tokenPaymentAmount > 0 && (
+                      <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                       &nbsp;|&nbsp;<Image
+                          src={tokenimg}
+                          alt="Candibar Icon"
+                          width={16}
+                          height={16}
+                          className="mr-1"
+                        />
+                        {machine.tokenPaymentAmount || 0}
+                      </div>
+                    )}
                   </div>
                 </div>
-                {/* <div className="rounded-md border">
-                  <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                    <Image
-                      src={tokenimg}
-                      alt="Solana Icon"
-                      width={16}
-                      height={16}
-                      className="mr-1"
-                    />
-                    Candibar value: {machine.collectionCandibarValue || 0}
-                  </div>
-                </div> */}
-
-                {/* <div className="rounded-md border px-1 py-1 items-left ml-[10%] flex items-center font-mono text-sm">
-                 Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                    </div> */}
-
-                {/* <div className="rounded-md border pl-2 px-1 py-1 font-mono text-sm flex items-center justify-center">
-                    <Image
-                        src={tokenimg.src}
-                        alt="Candibar Icon"
-                        width={16}
-                        height={16}
-                        className="mr-1"
-                      />
-                      
-                      Candibar costs: 0
-                    </div> */}
 
                 <Carousel setApi={(api) => {
 

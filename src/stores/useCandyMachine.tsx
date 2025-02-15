@@ -7,6 +7,7 @@ import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 
 import { PublicKey, publicKey} from '@metaplex-foundation/umi';
 import { fetchCollection } from "@metaplex-foundation/mpl-core";
+import { formatTokenAmount } from "@/lib/utils";
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC || clusterApiUrl('devnet');
 
 /**
@@ -31,10 +32,21 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
         const candyGuardBasisPoints = candyGuard?.guards.solPayment.__option === 'Some' 
           ? Number(candyGuard.guards.solPayment.value.lamports.basisPoints) / LAMPORTS_PER_SOL
           : 0;
+          const { id: candyGuardId, limit: candyGuardMinLimit } = candyGuard?.guards.mintLimit.__option === 'Some'
+            ? candyGuard.guards.mintLimit.value
+            : { id: 0, limit: 0 };
 
-        const { id: candyGuardId, limit: candyGuardMinLimit } = candyGuard?.guards.mintLimit.__option === 'Some'
-          ? candyGuard.guards.mintLimit.value
-          : { id: 0, limit: 0 };
+          const tokenPaymentAmount = candyGuard?.guards.tokenPayment.__option === 'Some'
+            ? Number(formatTokenAmount(candyGuard.guards.tokenPayment.value.amount,8))
+            : 0;
+
+
+                // if (candyGuard.guards.tokenPayment.__option === 'Some') {
+      //   console.log(`Amount: ${candyGuard.guards.tokenPayment.value.amount}`);
+      // }
+
+
+   
 
         return {
           publicKey: key.toString(),
@@ -45,6 +57,7 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
           SolCost: candyGuardBasisPoints,
           candyGuardId,
           candyGuardMinLimit,
+          tokenPaymentAmount,
         };
       } catch (error) {
         console.error(`Error fetching candy machine balance for key ${key}:`, error);
@@ -57,6 +70,7 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
           SolCost: 0,
           candyGuardId: 0,
           candyGuardMinLimit: 0,
+          tokenPaymentAmount: 0,
         };
       }
     })

@@ -6,7 +6,7 @@ import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { generateSigner, transactionBuilder, publicKey, some } from '@metaplex-foundation/umi';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
-import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
+import { findAssociatedTokenPda, setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
 import * as bs58 from 'bs58';
 import { fetchCandyMachine, mintV1, mplCandyMachine, safeFetchCandyGuard } from "@metaplex-foundation/mpl-core-candy-machine";
 import { Fireworks } from "@fireworks-js/react";
@@ -45,8 +45,6 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   const { width, height } = useViewportSize(); // Dynamically get window size
   const [isTransacting, setIsTransacting] = useState(false);
 
-  const [MintBtnText, setMintBtnText] = useState(buttonText ? buttonText : "Mint NFT");
-
   // Create an Umi instance
   const umi = useMemo(() =>
     createUmi(quicknodeEndpoint)
@@ -73,21 +71,30 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
       
-     // Mint from the Candy Machine.
+      let boolflag = true;
+
+      // Mint from the Candy Machine.
       const nftMint = generateSigner(umi);
-      const transaction = await transactionBuilder()
+      const transaction = transactionBuilder()
         .add(setComputeUnitLimit(umi, { units: 800_000 }))
         .add(
-
           mintV1(umi, {
             candyMachine: publicKey(candyMachineaddress),
             asset: nftMint,
             collection: publicKey(collectionaddress),
             mintArgs: {
               solPayment: some({ destination: treasury }),
-              mintLimit: some({ id: results[0].candyGuardId}),
+              mintLimit: some({ id: results[0].candyGuardId }),
+              ...(results[0].tokenPaymentAmount>0 ? {
+                tokenPayment: some({
+                  mint: tokenMint,
+                  destinationAta: (await findAssociatedTokenPda(umi, {
+                    mint: tokenMint,
+                    owner: treasury,
+                  }))[0],
+                }),
+              } : {}),
             },
-
           })
         );
 
@@ -159,7 +166,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           onClick={onClick}
           disabled={isTransacting}
         >
-          <span>{MintBtnText}</span>
+          <span>{buttonText || "Mint NFT"}</span>
         </button> )}
 
         {isTransacting && (

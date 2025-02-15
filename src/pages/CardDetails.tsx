@@ -90,6 +90,7 @@ const CardDetails: FC = () => {
           collectionStatus: collectionData.collectionStatus,
           candibarcost: collectionData.candibarcost,
           isSwappable: collectionData.isSwappable,
+          tokenPaymentAmount: balance.tokenPaymentAmount,
         };
       }
       return null;
@@ -139,7 +140,7 @@ const CardDetails: FC = () => {
                                   {NFTStatusTypes.ComingSoon}
                                 </span>
                               </div>
-                            )};
+                            )}
 
                           </motion.div>
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
@@ -274,6 +275,8 @@ const CardDetails: FC = () => {
                               SOL {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}  (Excluding gas fees)<br />
 
                             </div>
+
+                            {machine.tokenPaymentAmount>0 && (
                             <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
                               <Image
                                 src={tokenimg}
@@ -282,9 +285,10 @@ const CardDetails: FC = () => {
                                 height={16}
                                 className="mr-1"
                               />
-                              {machine.candibarcost || 0} Candibar Tokens
+                              {machine.tokenPaymentAmount || 0} Candibar Tokens
                             </div>
-                            
+                            )}
+
                             {machine.isSwappable && (
                               <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
                                 Swap: {machine.collectionCandibarValue || 0} Candibar Tokens
