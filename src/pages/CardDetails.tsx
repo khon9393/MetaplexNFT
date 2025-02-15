@@ -29,7 +29,7 @@ const CardDetails: FC = () => {
 
   const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 
-  const [isOpenStates, setIsOpenStates] = useState([true]);
+  const [isOpenStates, setIsOpenStates] = useState([true, true]);
   const [selectedImage, setSelectedImage] = useState('');
 
   const [balances, setBalances] = useState([]);
@@ -216,11 +216,13 @@ const CardDetails: FC = () => {
             >
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-              >
+
                 {candyMachines.map((machine, machineIndex) => (
                   <div key={machine.id} >
+
+<motion.div
+                whileHover={{ scale: 1.05 }}
+              >
                     <Card >
                       <span className="text-1xl font-semibold">
                         <Collapsible
@@ -244,18 +246,6 @@ const CardDetails: FC = () => {
                             </CollapsibleTrigger>
                           </div>
 
-                          {/* <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
-                            <Image
-                              src={solanaLogo}
-                              alt="Solana Icon"
-                              width={16}
-                              height={16}
-                              className="mr-1"
-                            />
-                            SOL cost: {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} |
-                            Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                          </div> */}
-
                           <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                             Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                           </div>
@@ -264,37 +254,7 @@ const CardDetails: FC = () => {
                             <div className="rounded-md border px-4 py-1 font-mono text-md">
                               Wallet mint limit: {machine.candyGuardMinLimit}
                             </div>
-                            <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
-                              <Image
-                                src={solanaLogo}
-                                alt="Solana Icon"
-                                width={16}
-                                height={16}
-                                className="mr-1"
-                              />
-                              SOL {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}  (Excluding gas fees)<br />
-
-                            </div>
-
-                            {machine.tokenPaymentAmount>0 && (
-                            <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
-                              <Image
-                                src={tokenimg}
-                                alt="Solana Icon"
-                                width={16}
-                                height={16}
-                                className="mr-1"
-                              />
-                              {machine.tokenPaymentAmount || 0} Candibar Tokens
-                            </div>
-                            )}
-
-                            {machine.isSwappable && (
-                              <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
-                                Swap: {machine.collectionCandibarValue || 0} Candibar Tokens
-                              </div>
-                            )}
-
+  
                             {/* <div className="rounded-md border px-4 py-1 font-mono text-md">
                               Traits: N/A
                             </div> */}
@@ -322,7 +282,7 @@ const CardDetails: FC = () => {
                                 </a>
                                 Collection address:
                               </div>
-                              <div className="rounded-md py-1 font-mono text-sm shadow-md flex items-center justify-center w-full break-all">
+                              <div className="py-1 font-mono text-sm flex items-center justify-center w-full break-all">
                                 {machine.collectionMint}
                               </div>
                             </div>
@@ -330,9 +290,72 @@ const CardDetails: FC = () => {
                         </Collapsible>
                       </span>
                     </Card>
+                    </motion.div>
+
+                    <br/>
+                    
+                    <motion.div
+                whileHover={{ scale: 1.05 }}
+              >
+                    <Card >
+                      <span className="text-1xl font-semibold">
+                        <Collapsible
+                          open={isOpenStates[machineIndex + candyMachines.length]}
+                          onOpenChange={(isOpen) => {
+                          const updatedStates = [...isOpenStates];
+                          updatedStates[machineIndex + candyMachines.length] = isOpen;
+                          setIsOpenStates(updatedStates);
+                          }}
+                          className="space-y-2"
+                        >
+                          <div className="flex items-center justify-between space-x-4 px-4">
+                          <h4 className="text-lg font-semibold">
+                            Associated Costs
+                          </h4>
+                          <CollapsibleTrigger asChild>
+                            <Button variant="ghost" size="sm">
+                            <ChevronsUpDown className="h-4 w-4" />
+                            <span className="sr-only">Toggle</span>
+                            </Button>
+                          </CollapsibleTrigger>
+                          </div>
+
+                          <CollapsibleContent className="space-y-2">
+
+                          <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
+                            <Image
+                            src={solanaLogo}
+                            alt="Solana Icon"
+                            width={16}
+                            height={16}
+                            className="mr-1"
+                            />
+                            SOL {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}  (Excluding gas fees)<br />
+
+                          </div>
+
+                          {machine.tokenPaymentAmount>0 && (
+                          <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
+                            <Image
+                            src={tokenimg}
+                            alt="Solana Icon"
+                            width={16}
+                            height={16}
+                            className="mr-1"
+                            />
+                            {machine.tokenPaymentAmount || 0} Candibar Tokens
+                          </div>
+                          )}
+
+                          </CollapsibleContent>
+                        </Collapsible>
+                      </span>
+                    </Card>
+                    </motion.div>
                   </div>
+                  
                 ))}
-              </motion.div>
+        
 
               <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-6">
                 {[

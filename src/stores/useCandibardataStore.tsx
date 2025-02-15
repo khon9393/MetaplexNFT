@@ -23,40 +23,40 @@ interface CollectionItem {
 function getCollectionItems(): CollectionItem[] {
     return [
 
-        //Aquarius Collection #1
-        {
-            collectionName: "Candibar NFT Collection #1",
-            collectionadress: process.env.NEXT_PUBLIC_COLLECTION_AQUI1,
-            collectionSubtitles: "Dates: January 21-February 18",
-            collectionDetails: "Aquarius Dates: January 21-February 18. Aquarius is an air sign, ruled by Uranus, and is known for its innovation, independence, and humanitarianism.",
-            collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdaHbBDqaWrxgqawF7gqBdBJJPSzro9XJEr532b5guxND",
-           // collectionurl: "",
-            collectionCandibarValue: 600,
-            candibarcost: 600,
-            isSwappable: false,
-            collectionStatus: NFTStatusTypes.Available,
-            images: [
-                {
-                    name: "Aquarius NFT #1",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbwnpVFAgbjiEijb8eYtWgmvgeh5VHiydGsjmjLf9ysbC"
-                },
-                {
-                    name: "Aquarius NFT #2",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQza1qF9U92bt6gHfF62WpPhdR56toN1CHRfxtzHrsH6n"
-                },
-                {
-                    name: "Aquarius NFT #3",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZGYR1CDop5ymZ4XLPC3qpqUFJ9esGWLPuHoM2SqC3V9m"
+        // //Aquarius Collection #1
+        // {
+        //     collectionName: "Candibar NFT Collection #1",
+        //     collectionadress: process.env.NEXT_PUBLIC_COLLECTION_AQUI1,
+        //     collectionSubtitles: "Dates: January 21-February 18",
+        //     collectionDetails: "Aquarius Dates: January 21-February 18. Aquarius is an air sign, ruled by Uranus, and is known for its innovation, independence, and humanitarianism.",
+        //     collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdaHbBDqaWrxgqawF7gqBdBJJPSzro9XJEr532b5guxND",
+        //    // collectionurl: "",
+        //     collectionCandibarValue: 600,
+        //     candibarcost: 600,
+        //     isSwappable: false,
+        //     collectionStatus: NFTStatusTypes.Available,
+        //     images: [
+        //         {
+        //             name: "Aquarius NFT #1",
+        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbwnpVFAgbjiEijb8eYtWgmvgeh5VHiydGsjmjLf9ysbC"
+        //         },
+        //         {
+        //             name: "Aquarius NFT #2",
+        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQza1qF9U92bt6gHfF62WpPhdR56toN1CHRfxtzHrsH6n"
+        //         },
+        //         {
+        //             name: "Aquarius NFT #3",
+        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZGYR1CDop5ymZ4XLPC3qpqUFJ9esGWLPuHoM2SqC3V9m"
 
-                },
-                {
-                    name: "Aquarius NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qme4SsnfLQ5iYJgLaCJRtRhcCe7pwhd75zrVNrVTBAkAfB"
-                },
-            ],
+        //         },
+        //         {
+        //             name: "Aquarius NFT #4",
+        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qme4SsnfLQ5iYJgLaCJRtRhcCe7pwhd75zrVNrVTBAkAfB"
+        //         },
+        //     ],
 
-            candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1,
-        },
+        //     candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1,
+        // },
 
 
 
@@ -120,10 +120,10 @@ function getCollectionItems(): CollectionItem[] {
         },
         {
             //Candi Collection 2025
-            collectionName: "Candi NFT Collection Cover 2025 #1",
+            collectionName: "Candi NFT Collection Cover #1",
             collectionadress: process.env.NEXT_PUBLIC_COLLECTION_ID05,
-            collectionSubtitles: "Candi NFT Collection 2025",
-            collectionDetails: "The Candi NFT Collection 2025 is a unique digital art collection that celebrates the spirit of the Candi community. Each NFT in this collection represents the values and culture of the Candi community. The collection features a variety of styles and themes, all centered around the concept of Candi. By owning a Candi NFT, you become part of a vibrant community of collectors and enthusiasts who share a passion for digital art and the Candi lifestyle.",
+            collectionSubtitles: "Candi NFT Collection",
+            collectionDetails: "The Candi NFT Collection is a unique digital art collection that celebrates the spirit of the Candi community. Each NFT in this collection represents the values and culture of the Candi community. The collection features a variety of styles and themes, all centered around the concept of Candi. By owning a Candi NFT, you become part of a vibrant community of collectors and enthusiasts who share a passion for digital art and the Candi lifestyle.",
             collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionCandibarValue: 200,
             isSwappable: true,
@@ -149,7 +149,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -184,7 +183,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -219,7 +217,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -254,7 +251,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -289,7 +285,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -309,6 +304,7 @@ function getCollectionItems(): CollectionItem[] {
                 {
                     name: "Taurus NFT #4",
                     url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYvS4tK99RoAiVqvWgs1kTs2fUBZ1VA8rGyHWyy2L5h3k"
+
                 },
             ],
 
@@ -325,7 +321,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -360,7 +355,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -395,7 +389,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -430,7 +423,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -451,11 +443,7 @@ function getCollectionItems(): CollectionItem[] {
                     url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQGnMaPLL3eZ6GvJn3QCAodJVftHRWonxz9ALupn2LrfF"
                 },
                 {
-                    name: "Virgo NFT #4",
-                    url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmeTyPwKhodn4y61R88ZuQgCnMEfEpK3A1AiamrDgsAVCW"
-                },
-                {
-                    name: "Virgo NFT #4",
+                    name: "Virgo NFT #5",
                     url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTRR6dfrNSCt7Ab4avy2jFQ46mRkxFdYxdtg5AY2niMz6"
                 },
             ],
@@ -472,7 +460,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -507,7 +494,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
@@ -542,7 +528,6 @@ function getCollectionItems(): CollectionItem[] {
             //collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionurl: "",
             collectionCandibarValue: 600,
-            candibarcost: 600,
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             images: [
