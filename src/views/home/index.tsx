@@ -107,14 +107,14 @@ export const HomeView: FC = ({ }) => {
 
   const PromotioncandyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
   ], []);
 
   const candyMachineKeys = useMemo(() => [
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_VIRGOC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_TAURC1),
     
   ], []);
 
@@ -256,7 +256,7 @@ export const HomeView: FC = ({ }) => {
         <h1 
         className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4"
         >
-          Featured Exclusive Zodiac Candi Confection Art NFT Collection
+          Exclusive Featured Zodiac Candi Confection Art NFT Collection
         </h1>
         {/* <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens, plus a small SOL transaction fee.</p> */}
         <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">
