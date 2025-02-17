@@ -31,7 +31,7 @@ a {
 @layer base {
   :root {
     --radius: 0.5rem;
-    --background: 0 0% 100%;
+    /* --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -56,9 +56,9 @@ a {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --invert-value: 0;
+    --invert-value: 0; */
   }
-  .dark {
+  /* .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -84,7 +84,7 @@ a {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --invert-value: 1;
-  }
+  } */
 }
 
 

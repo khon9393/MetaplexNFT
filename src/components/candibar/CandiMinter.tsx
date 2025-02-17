@@ -176,7 +176,8 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
                         <p className="mt-4 text-center text-xl font-semibold text-black">Minting in progress...</p>
                     </div>
                 </div>
-        )}
+            )}
+
 
       </div>
       {showConfetti && (
