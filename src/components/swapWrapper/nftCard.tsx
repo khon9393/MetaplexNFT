@@ -1,4 +1,3 @@
-import { DasApiAsset } from "@metaplex-foundation/digital-asset-standard-api";
 import NftPicker from "../candibar/nftPicker";
 import { Card } from "@/components/ui/card";
 import CollectionImg from '../../../public/images/collectionImage.jpg';
@@ -7,22 +6,24 @@ import { TradeState } from "./swapWrapper";
 import { NO_REROLL_PATH, REROLL_PATH } from "../../lib/constants";
 import { useWallet } from "@solana/wallet-adapter-react";
 
+import { Asset } from "../../utils/index";
+
 interface NftCardProps {
   tradeState: TradeState;
-  setSelectedAsset: (selectedNft: DasApiAsset) => void;
-  selectedAsset: DasApiAsset | undefined;
+  setSelectedAsset: (selectedNft: Asset) => void;
+  selectedAsset: Asset | undefined;
 }
 
 const NftCard = (props: NftCardProps) => {
   const { escrow } = useEscrowStore();
- const wallet1 = useWallet();
- 
+  const wallet1 = useWallet();
+
   const card = (
     <Card className="flex flex-col items-start w-full border border-foreground-muted rounded-xl shadow-lg p-4 gap-4">
       <div className="flex flex-row gap-4 items-center">
         <img
           src={
-        wallet1.connected && props.selectedAsset && props.selectedAsset.content.links
+        wallet1.connected && props.selectedAsset && props.selectedAsset.content.files.length>0
           ? (
           props.selectedAsset.content.links as unknown as {
             image: string;
@@ -33,6 +34,7 @@ const NftCard = (props: NftCardProps) => {
           className="rounded-xl w-12 h-12"
           alt="nft collection image"
         />
+        
         <div>
           <div className="text-lg">
         {wallet1.connected ? (

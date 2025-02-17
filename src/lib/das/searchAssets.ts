@@ -1,9 +1,6 @@
 import useUmiStore from "../../stores/useUmiStore";
-import {
-  DasApiAssetList
-} from '@metaplex-foundation/digital-asset-standard-api';
-
 import { publicKey } from '@metaplex-foundation/umi';
+
 interface SearchAssetArgs {
   owner: string;
   collection: string;
@@ -22,31 +19,50 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
   let page = 1;
   let continueFetch = true;
   let ownerpk = publicKey(searchAssetArgs.owner);
-  let assets: DasApiAssetList | undefined;
+  let assets: any | undefined;
 
   while (continueFetch) {
-    //@ts-ignore
-    const response: DasApiAssetList = await umi.rpc.searchAssets({
-      owner: ownerpk,
-      grouping: ["collection", searchAssetArgs.collection],
-      burnt: searchAssetArgs.burnt,
-      page,
+    const response = await fetch('https://solemn-skilled-bird.solana-devnet.quiknode.pro/9b1c696d40e39deec224a3d6f9cd956d58eda1dd/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 1,
+        method: 'searchAssets',
+        params: {
+          grouping: ['collection', collectionId],
+          limit: 1000,
+          burnt: searchAssetArgs.burnt,
+          ownerAddress: searchAssetArgs.owner
+        }
+      })
     });
 
-    console.log(`Page: ${page}, Total assets: `, response.total);
-    if (response.total < 1000) {
+    const data = await response.json();
+    const result = data.result;
+
+    console.log(`Page: ${page}, Total assets: `, result.total);
+    if (result.total < 1000) {
       console.log("Total assets less than 1000 on current page, stopping loop");
       continueFetch = false;
     }
+    else 
+    {
+      await new Promise(resolve => setTimeout(resolve, 2500)); // Pause for 2.5 seconds
+    }
 
     if (!assets) {
-      assets = response;
+      assets = result;
       continueFetch = false;
     } else {
-      response.total = response.total + assets.total;
-      response.items = assets.items.concat(response.items);
+      result.total = result.total + assets.total;
+      result.items = assets.items.concat(result.items);
     }
+
     page++;
+
   }
   return assets;
 };

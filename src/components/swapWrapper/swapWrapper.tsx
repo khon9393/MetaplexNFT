@@ -13,11 +13,11 @@ import { Button } from "@/components/ui/button";
 import NftCard from "./nftCard";
 import TokenCard from "./tokenCard";
 import { REROLL_PATH } from "../../lib/constants";
+import { Asset } from "../../utils/index";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
 
 import {useWallet } from "@solana/wallet-adapter-react";
-
 export enum TradeState {
   "nft",
   "tokens",
@@ -25,7 +25,7 @@ export enum TradeState {
 
 const SwapWrapper = () => {
   const [tradeState, setTradeState] = useState<TradeState>(TradeState.nft);
-  const [selectedAsset, setSelectedAsset] = useState<DasApiAsset>();
+  const [selectedAsset, setSelectedAsset] = useState<Asset>();
   const [isTransacting, setIsTransacting] = useState(false);
   const { escrow } = useEscrowStore();
 
@@ -38,12 +38,13 @@ const SwapWrapper = () => {
   const handleSwap = async () => {
     setIsTransacting(true);
     console.log("Swapping", tradeState, selectedAsset);
+
     if (tradeState === TradeState.nft) {
       if (!selectedAsset) {
         toast({
           title: "No NFT selected",
           description: "Please select an NFT to swap",
-          variant: "destructive",
+          variant: "Warning",
         });
         setIsTransacting(false);
         return;
@@ -54,7 +55,7 @@ const SwapWrapper = () => {
         toast({
           title: "No NFT selected",
           description: "Please select an NFT to receive",
-          variant: "destructive",
+          variant: "Warning",
         });
         setIsTransacting(false);
         return;
