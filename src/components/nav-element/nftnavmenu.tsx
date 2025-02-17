@@ -53,7 +53,7 @@ export function CandibarDropdownMenu1() {
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="bg-[#ccccff]">
 
-                <DropdownMenuSub>
+                {/* <DropdownMenuSub>
                   <DropdownMenuSubTrigger>Astrology</DropdownMenuSubTrigger>
                   <DropdownMenuPortal>
                     <DropdownMenuSubContent className="bg-[#c8a2c8]">
@@ -71,7 +71,7 @@ export function CandibarDropdownMenu1() {
 
                     </DropdownMenuSubContent>
                   </DropdownMenuPortal>
-                </DropdownMenuSub>
+                </DropdownMenuSub> */}
 
                 <DropdownMenuItem>
                   <Button variant="link" onClick={() => { window.location.href = '/Candi'; }} >

@@ -110,13 +110,13 @@ export const HomeView: FC = ({ }) => {
     // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
   ], []);
 
-  const candyMachineKeys = useMemo(() => [
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1),
-    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1),
+  // const candyMachineKeys = useMemo(() => [
+  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1),
+  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1),
+  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1),
+  //   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1),
     
-  ], []);
+  // ], []);
 
 
   useEffect(() => {
@@ -270,9 +270,9 @@ export const HomeView: FC = ({ }) => {
           </p>
       </div>
 
-      <div >
+      {/* <div >
         <CardContainer candyMachineKeys={candyMachineKeys} />
-      </div>
+      </div> */}
 
 
     </>
