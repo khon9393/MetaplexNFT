@@ -8,9 +8,15 @@ import { publicKey } from "@metaplex-foundation/umi";
 
 const fetchMetadataByMint = async (mint: string) => {
   const umi = useUmiStore.getState().umi;
-
+``
   const metadata = await fetchMetadataFromSeeds(umi, { mint: publicKey(mint) });
-  const JsonMetadata = await fetchJsonMetadata(umi, metadata.uri);
+  let JsonMetadata;
+  try {
+    JsonMetadata = await fetchJsonMetadata(umi, metadata.uri);
+  } catch (error) {
+    console.error('Failed to fetch JSON metadata:', error);
+    JsonMetadata = {};
+  }
 
   return {
     ...metadata,
