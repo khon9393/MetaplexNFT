@@ -12,6 +12,7 @@ import Image from 'next/image';
 import solanaLogo from "../../public/logos/solanaLogo.png";
 import metaplexLogo from "../../public/logos/metaplex-logo.png";
 import Link from 'next/link';
+import ThemeSwitcher from "./themeSwitcher";
 
 export const Footer: FC = () => {
   return (
@@ -199,7 +200,7 @@ export const Footer: FC = () => {
             </div>
 
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
-    
+  
             </div>  
           </div>
         </div>

@@ -1,7 +1,5 @@
 
 import { FC, useMemo } from "react";
-
-import { Toaster } from "@/components/ui/toaster";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
 
@@ -74,8 +72,6 @@ export const AstrologyZodiacView: FC = ({ }) => {
       </div>
 
         <CardContainer candyMachineKeys={candyMachineKeys} />
-
-        <Toaster />
   </div>
   );
 };
