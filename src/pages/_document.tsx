@@ -1,4 +1,10 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Candibarnft.com",
+  description: "Candibar NFT Marketplace",
+};
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

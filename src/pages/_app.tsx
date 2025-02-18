@@ -9,8 +9,8 @@ import Notifications from '../components/Notification'
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 import FirstVisitModal from '@/components/candibar/FirstVisitModal'; // adjust path as necessary
-
-
+import { Toaster } from '@/components/ui/toaster';
+import { UmiProvider } from "../providers/umiProvider";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 
@@ -22,6 +22,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             <title>Candibarnft.io</title>
           </Head>
           <FirstVisitModal />
+
+          <UmiProvider>
+
           <ContextProvider>
             <div className="flex flex-col h-screen">
               <Notifications />
@@ -34,6 +37,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             </div>
           </ContextProvider>
 
+          </UmiProvider>
+          <Toaster />
         </>
     );
 };

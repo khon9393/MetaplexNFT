@@ -10,6 +10,7 @@ import Image from 'next/image';
 import solanaLogo from '../../public/logos/solanaLogo.png';
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import useUserSOLBalanceStore from "../stores/useUserSOLBalanceStore";
+import ThemeSwitcher from "./themeSwitcher";
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
@@ -59,10 +60,10 @@ export const AppBar: React.FC = () => {
               href="/"
             />
             <div>
+
             < CandibarDropdownMenu1 />
 
             </div>
-          
 
             <div className="flex flex-col items-center gap-2 pt-5" style={{ width: '180px' }}>
               <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />

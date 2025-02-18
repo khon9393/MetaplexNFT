@@ -87,11 +87,7 @@ export const FAQView: FC = ({ }) => {
                   </ol>
                 </AccordionContent>
               </AccordionItem>
-
-
-
             </Accordion>
-
           </article>
         </main>
       </div>

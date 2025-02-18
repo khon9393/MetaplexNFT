@@ -2,9 +2,9 @@
 import { FC } from "react";
 import { DrawerWindow } from '@/components/DrawerWindow';
 import SwapWrapper from "@/components/swapWrapper/swapWrapper";
-import { UmiProvider } from "../../providers/umiProvider";
-import { Toaster } from "@/components/ui/toaster";
+
 import { Inter } from "next/font/google";
+import { UmiProvider } from "@/providers/umiProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,12 +19,11 @@ export const NFTSwapView: FC = ({ }) => {
         <div className="text-center">
           <DrawerWindow />
 
-           {/* <UmiProvider>
+          {/* <UmiProvider>
             <SwapWrapper />
-            <Toaster />
-          </UmiProvider>  */}
+          </UmiProvider> */}
         </div>
+      </div>
     </div>
-  </div>
   );
 };

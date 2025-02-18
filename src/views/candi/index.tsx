@@ -1,5 +1,4 @@
 import { FC, useMemo } from "react";
-import { Toaster } from "@/components/ui/toaster";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../components/candibar/CardContainer";
 
@@ -69,7 +68,6 @@ export const CandiView: FC = ({ }) => {
 
 
       <CardContainer candyMachineKeys={candyMachineKeys} />
-      <Toaster />
     </div>
   );
 };
