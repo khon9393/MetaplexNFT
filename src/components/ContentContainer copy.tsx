@@ -1,8 +1,6 @@
 
 import Text from './Text';
 import NavElement from './nav-element';
-import { XCircleIcon } from "@heroicons/react/24/outline";
-
 interface Props {
   children: React.ReactNode;
 }
@@ -20,11 +18,6 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
         <label htmlFor="my-drawer" className="drawer-overlay gap-6"></label>
 
         <ul className="p-4 overflow-y-auto menu w-80 bg-base-100 gap-10 sm:flex items-center">
-          <XCircleIcon
-            className="absolute w-10 h-10 text-foreground mx-auto block top-5 right-8 cursor-pointer hover:text-red-500"
-            style={{ width: '2rem', height: '2rem' }}
-            onClick={() => document.getElementById('my-drawer')?.click()}
-          />
           <li>
             <Text variant="heading" className='font-extrabold tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10'>Menu</Text>
           </li>
@@ -56,17 +49,19 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
               href="/nftswap"
             />
           </li>
-          <li className="mt-auto">
-            <NavElement
-              label="Need&nbsp;Wallet?"
-              href="/getstarted"
-            />
-          </li>
+          <li></li>
           <li>
-            <NavElement
-              label="FAQ"
-              href="faq"
-            />
+          <NavElement
+            label="Need&nbsp;Wallet?"
+            href="/getstarted"
+          />
+          </li>
+
+          <li>
+          <NavElement
+            label="FAQ"
+            href="faq"
+          />
           </li>
         </ul>
       </div>
