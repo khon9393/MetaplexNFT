@@ -42,18 +42,6 @@ export const AppBar: React.FC = () => {
 
       <div className="navbar flex h-30 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
         <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-        <label
-            htmlFor="my-drawer"
-            className="btn-gh items-center justify-between md:hidden mr-6"
-            onClick={() => setIsNavOpen(!isNavOpen)} // Optional, but you can still toggle the drawer visibility if needed
-          >
-            <div className="HAMBURGER-ICON space-y-2.5 ml-5">
-              {/* The 3 horizontal lines */}
-              <div className="h-0.5 w-8 bg-purple-600" />
-              <div className="h-0.5 w-8 bg-purple-600" />
-              <div className="h-0.5 w-8 bg-purple-600" />
-            </div>
-          </label>
           <Link href="/"
           >
             Candibar</Link>
@@ -87,8 +75,24 @@ export const AppBar: React.FC = () => {
           </div>
 
 
+          {/* Hamburger Icon - Always showing */}
+          <label
+            htmlFor="my-drawer"
+            className="btn-gh items-center justify-between md:hidden mr-6"
+            onClick={() => setIsNavOpen(!isNavOpen)} // Optional, but you can still toggle the drawer visibility if needed
+          >
+            <div className="HAMBURGER-ICON space-y-2.5 ml-5">
+              {/* The 3 horizontal lines */}
+              <div className="h-0.5 w-8 bg-purple-600" />
+              <div className="h-0.5 w-8 bg-purple-600" />
+              <div className="h-0.5 w-8 bg-purple-600" />
+            </div>
+          </label>
+          {/* <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-30">
 
-
+            <li>
+            </li>
+          </ul> */}
 
         </div>
       </div>
