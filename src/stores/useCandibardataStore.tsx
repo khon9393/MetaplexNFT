@@ -127,7 +127,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionCandibarValue: 200,
             isSwappable: true,
-            collectionStatus: NFTStatusTypes.Available,
+            collectionStatus: NFTStatusTypes.ComingSoon,
             images: [
 
                 { name: "Candi NFT 2025 #1", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo" },
