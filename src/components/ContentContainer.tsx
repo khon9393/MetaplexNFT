@@ -21,7 +21,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
 
         <ul className="p-4 overflow-y-auto menu w-80 bg-base-100 gap-10 sm:flex items-center">
           <XCircleIcon
-            className="absolute w-10 h-10 text-foreground mx-auto block top-5 right-8 cursor-pointer hover:text-red-500"
+            className="absolute w-10 h-10 text-foreground mx-auto block top-5 left-12 cursor-pointer hover:text-red-500"
             style={{ width: '2rem', height: '2rem' }}
             onClick={() => document.getElementById('my-drawer')?.click()}
           />

@@ -391,7 +391,7 @@ const CardDetails: FC = () => {
                     className="p-4 text-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
                     >
                     <h3 className="text-xl font-semibold">{item.icon} {item.title}</h3>
-                    <p className="mt-2 text-sm sm:text-base break-words max-w-[400px]">
+                    <p className="mt-2 text-1xl sm:text-1xl break-words max-w-[400px]">
                       {item.desc}
                     </p>
                     </motion.div>
