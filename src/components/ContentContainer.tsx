@@ -37,12 +37,12 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
               href="/AstrologySign"
             />
           </li>
-          {/* <li>
+          <li>
             <NavElement
               label="Zodiac&nbsp;NFT"
               href="/AstrologyZodiac"
             />
-          </li> */}
+          </li>
           <li>
             <NavElement
               label="NFT&nbsp;Swap"

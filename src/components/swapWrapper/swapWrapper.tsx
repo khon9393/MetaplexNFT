@@ -5,7 +5,7 @@ import { Spinner } from '../ui/spinner';
 import fetchEscrow from "../../lib/mpl-hybrid/fetchEscrow";
 import swap from "../../lib/mpl-hybrid/swap";
 import useEscrowStore from "../../stores/useEscrowStore";
-import { ArrowsUpDownIcon } from "@heroicons/react/24/outline";
+import { ArrowsUpDownIcon,ArrowDownCircleIcon,ArrowDownIcon } from "@heroicons/react/24/outline";
 import { DasApiAsset } from '@metaplex-foundation/digital-asset-standard-api';
 import { useEffect, useState } from "react";
 import TokenBalance from "../tokenBalance";
@@ -124,14 +124,19 @@ const SwapWrapper = () => {
           <TokenCard tradeState={tradeState} />
         )}
 
-        <ArrowsUpDownIcon
+        {/* <ArrowsUpDownIcon
           className="cursor-pointer w-12 h-12 text-foreground mx-auto block"
           onClick={() => {
             if (tradeState === TradeState.nft) setTradeState(TradeState.tokens);
             else setTradeState(TradeState.nft);
             setSelectedAsset(undefined);
           }}
+        /> */}
+
+        <ArrowDownIcon
+          className="w-10 h-10 text-foreground mx-auto block"
         />
+
 
         {tradeState === TradeState.nft ? (
           <TokenCard tradeState={tradeState} />
@@ -143,7 +148,7 @@ const SwapWrapper = () => {
           />
         )}
 
-        {wallet.connected && (
+        {/* {wallet.connected && (
           <Button
             onClick={handleSwap}
             disabled={isTransacting}
@@ -151,7 +156,7 @@ const SwapWrapper = () => {
           >
             Swap
           </Button>
-        )}
+        )} */}
 
         {isTransacting && (
           <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-50">

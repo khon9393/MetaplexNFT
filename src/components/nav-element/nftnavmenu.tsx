@@ -63,11 +63,11 @@ export function CandibarDropdownMenu1() {
                           2025 Snake NFTs
                         </Button>
                       </DropdownMenuItem>
-                      {/* <DropdownMenuItem>
+                      <DropdownMenuItem>
                         <Button variant="link" onClick={() => { window.location.href = '/AstrologyZodiac'; }} >
                           Zodiac Sign NFTs
                         </Button>
-                      </DropdownMenuItem> */}
+                      </DropdownMenuItem>
 
                     </DropdownMenuSubContent>
                   </DropdownMenuPortal>
@@ -90,7 +90,9 @@ export function CandibarDropdownMenu1() {
         <DropdownMenuGroup>
           <DropdownMenuItem>
 
-            <Button variant="ghost" onClick={() => { window.location.href = '/nftswap'; }} >
+            <Button variant="ghost" onClick={() => { window.location.href = '/nftswap'; }} 
+              className="w-full justify-start"
+              >
               Swap
             </Button>
 
