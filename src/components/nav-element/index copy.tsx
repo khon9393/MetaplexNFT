@@ -38,11 +38,6 @@ const NavElement = ({
         }
     }, [isActive]);
 
-    const handleClick = () => {
-        navigationStarts();
-        document.getElementById('my-drawer')?.click();
-    };
-
     return (
         <Link
             href={href}
@@ -54,7 +49,7 @@ const NavElement = ({
                 disabled &&
                     'pointer-events-none cursor-not-allowed opacity-50',
             )}
-            onClick={handleClick}
+            onClick={() => navigationStarts()}
         >
             <div className="flex flex-row items-center gap-3">
                 <Text variant="nav-heading"> {label} </Text>
@@ -65,3 +60,4 @@ const NavElement = ({
 };
 
 export default NavElement;
+
