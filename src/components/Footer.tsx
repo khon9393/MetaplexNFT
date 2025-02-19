@@ -12,7 +12,7 @@ import Image from 'next/image';
 import solanaLogo from "../../public/logos/solanaLogo.png";
 import metaplexLogo from "../../public/logos/metaplex-logo.png";
 import Link from 'next/link';
-import ThemeSwitcher from "./themeSwitcher";
+import candibarQRcode from "../../public/logos/candibarQRcode.png";
 
 export const Footer: FC = () => {
   return (
@@ -141,6 +141,15 @@ export const Footer: FC = () => {
                 All Rights Reserved.
               </div>
 
+              <div className="flex justify-start">
+                <Image
+                  src={candibarQRcode}
+                  alt="Candibar QR Code"
+                  width={150}
+                  height={150}
+                  className="inline-block p-2"
+                />
+                </div>
             </div>
 
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg">
