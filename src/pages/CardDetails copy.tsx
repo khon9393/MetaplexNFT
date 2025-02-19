@@ -22,6 +22,7 @@ import Link from 'next/link';
 import { Card } from "src/components/ui/card";
 import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
+import { Toaster } from "@/components/ui/toaster";
 import { NFTStatusTypes } from "@/models/types";
 
 const CardDetails: FC = () => {
@@ -100,9 +101,7 @@ const CardDetails: FC = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
-        
-      >
+      <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center">
         <div className="w-full md:w-1/2 max-w-[600px] min-w-[400px]" >
           <div className="p-1" >
             {candyMachines.map((machine, index) => (
@@ -210,13 +209,10 @@ const CardDetails: FC = () => {
         </div>
 
         {candyMachines[0]?.images.length > 0 && (
-          <div className="p-1 
-          
-          ">
+          <div className="p-1 ">
             <div
               // className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
               className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
-              // style={{ backgroundImage: 'url(https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
             >
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
