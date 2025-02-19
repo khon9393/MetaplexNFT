@@ -19,7 +19,7 @@ interface UmiState {
 }
 
 const useUmiStore = create<UmiState>()((set) => ({
-  umi: createUmi(process.env.NEXT_PUBLIC_RPC_URL || "https://api.devnet.solana.com")
+  umi: createUmi(process.env.NEXT_PUBLIC_RPC || `"https://api.${process.env.NEXT_PUBLIC_RPC_ENV}.solana.com"`)
     .use(
       signerIdentity(
         //createNoopSigner(publicKey("11111111111111111111111111111111"))

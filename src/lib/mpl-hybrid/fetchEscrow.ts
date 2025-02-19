@@ -11,7 +11,8 @@ const fetchEscrow = () => {
     throw new Error("Escrow address not set in env");
   }
 
-  return fetchEscrowV1(umi, publicKey(escrowAddress));
+  const data = fetchEscrowV1(umi, publicKey(escrowAddress));
+  return data;
 };
 
 export default fetchEscrow;
