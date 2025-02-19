@@ -56,19 +56,21 @@ const NftCard = (props: NftCardProps) => {
 
   return (
     <>
-      {props.tradeState === TradeState.nft ||
+      {!wallet1.connected ? (
+      card
+      ) : props.tradeState === TradeState.nft ||
       (props.tradeState === TradeState.tokens && escrow?.path === NO_REROLL_PATH) ? (
-        <NftPicker
-          wallet={props.tradeState === TradeState.nft ? "user" : "escrow"}
-          setSelectedAsset={(selectedNft) => {
-            props.setSelectedAsset(selectedNft);
-            console.log(selectedNft);
-          }}
-        >
-          {card}
-        </NftPicker>
+      <NftPicker
+        wallet={props.tradeState === TradeState.nft ? "user" : "escrow"}
+        setSelectedAsset={(selectedNft) => {
+        props.setSelectedAsset(selectedNft);
+        console.log(selectedNft);
+        }}
+      >
+        {card}
+      </NftPicker>
       ) : (
-        card
+      card
       )}
     </>
   );

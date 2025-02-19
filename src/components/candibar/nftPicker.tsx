@@ -50,7 +50,7 @@ const NftPicker = ({
           setAssets([assets]);
         }
       });
-    } else if (wallet === "escrow") {
+    } else if (wallet === "escrow" && wallet1.connected) {
       // fetch escrow assets
       fetchEscrowAssets().then((assets) => {
         console.log({ assets });
@@ -100,10 +100,12 @@ const NftPicker = ({
         <DialogTrigger disabled={true} asChild className="cursor-pointer">
           {children}
         </DialogTrigger>
-        <DialogContent className="w-full max-w-[1000px] max-h-[560px] h-full flex flex-col text-black">
+        <DialogContent className="w-full max-w-[1000px] max-h-[560px] h-full flex flex-col text-black bg-white dark:bg-gray-800 dark:text-white">
           <DialogHeader>
             <DialogTitle>
-              Select an NFT from {wallet === "escrow" ? `escrow (${assetList ? assetList.length : 0})` : `your wallet (${assetList ? assetList.length : 0})`}
+              Select an NFT from {
+                  wallet === "escrow" ? `escrow (${assetList ? assetList.length : 0})` 
+                  : `your wallet (${assetList ? assetList.length : 0})`}
             </DialogTitle>
           </DialogHeader>
   
