@@ -21,7 +21,7 @@ const NftCard = (props: NftCardProps) => {
   const card = (
     <Card 
     // className="flex flex-col items-start w-full border border-foreground-muted rounded-xl shadow-lg p-4 gap-4"
-    className="flex items-center px-3 bg-red-300 font-mono"
+    className="flex items-center px-3 bg-red-400 font-mono text-white dark:bg-red-600 dark:text-gray-200"
     >
       <div className="flex flex-row gap-2 items-center ">
         <img
