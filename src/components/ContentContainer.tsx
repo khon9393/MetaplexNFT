@@ -23,7 +23,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           <XCircleIcon
             className="absolute w-10 h-10 text-foreground mx-auto block top-[9%] left-[13%] cursor-pointer hover:text-red-500"
             style={{ width: '2rem', height: '2rem' }}
-            onClick={() => document.getElementById('my-drawer')?.click()}
+            // onClick={() => document.getElementById('my-drawer')?.click()}
           />
           <li>
             <Text variant="heading" className='font-extrabold tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10'>Menu</Text>
@@ -31,41 +31,48 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           <NavElement
             label="Home"
             href="/"
+            source='mobile'
           />
           <li>
             <NavElement
               label="Candi&nbsp;NFT"
               href="/Candi"
+              source='mobile'
             />
           </li>
           <li>
             <NavElement
               label="Snake&nbsp;NFT"
               href="/AstrologySign"
+              source='mobile'
             />
           </li>
           <li>
             <NavElement
               label="Zodiac&nbsp;NFT"
               href="/AstrologyZodiac"
+              source='mobile'
             />
           </li>
           <li>
             <NavElement
               label="NFT&nbsp;Swap"
               href="/nftswap"
+              source='mobile'
             />
           </li>
           <li className="mt-auto">
             <NavElement
               label="Need&nbsp;Wallet?"
               href="/getstarted"
+              source='mobile'
             />
           </li>
           <li>
             <NavElement
               label="FAQ"
               href="faq"
+              source='mobile'
             />
           </li>
         </ul>
