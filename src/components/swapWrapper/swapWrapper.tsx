@@ -62,14 +62,29 @@ const SwapWrapper = () => {
         return;
       }
     }
-    toast({
-      title: "Swap Successful",
-      description: "Your swap was successful",
-    });
-    setIsTransacting(false);
-    setSelectedAsset(undefined);
-    setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
+
+    swap({ swapOption: tradeState, selectedNft: selectedAsset })
+      .then(() => {
+        toast({
+          title: "Swap Successful",
+          description: "Your swap was successful",
+        });
+        setIsTransacting(false);
+        setSelectedAsset(undefined);
+
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
+      })
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Swap Error",
+          description: error.message,
+          variant: "destructive",
+        });
+      })
+      .finally(() => setIsTransacting(false))
+
   };
 
   useEffect(() => {
