@@ -102,20 +102,20 @@ const SwapWrapper = () => {
     <div
     
     >
-      <div className="absolute top-0 right-20 p-0">
+      <div className="absolute top-2 right-20 p-0">
       <TokenBalance />
       </div>
-      <div className="absolute text-center text-xl font-bold text-white top-7 left-2">
-        {tradeState === TradeState.nft
-        ? <>Swapping NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"} for candibar tokens</>
-        : <>Swapping candibar tokens to receive NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"}</>}
-      </div>
+
 
       <div className="flex flex-col gap-8 items-center max-w-[600px] w-full">
 
       {/* {tradeState === "tokens" ? <SwapTokens setTradeState={tradeState => setTradeState(tradeState)} /> : <SwapNft setTradeState={tradeState => setTradeState(tradeState)} />} */}
 
-
+      <div className="text-center text-xl font-bold text-white">
+        {tradeState === TradeState.nft
+        ? <>Swapping NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"}<br />for candibar tokens</>
+        : <>Swapping candibar tokens<br />to receive NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"}</>}
+      </div>
 
       {tradeState === TradeState.nft ? (
         <NftCard

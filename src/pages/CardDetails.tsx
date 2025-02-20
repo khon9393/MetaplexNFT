@@ -4,7 +4,7 @@ import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
 
 import { getCollection } from "../stores/useCandibardataStore";
-import { getCandyMachinesBalance } from '../stores/useCandyMachine';
+import { getCandyMachinesBalance } from '../lib/candymachine/fetchCandyMachines';
 import { publicKey } from '@metaplex-foundation/umi';
 import { CandiMinter } from "../components/candibar/CandiMinter";
 import solanaLogo from "../../public/logos/solana-logo_1.svg";

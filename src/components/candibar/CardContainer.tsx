@@ -4,7 +4,7 @@
 import React, { useState, useEffect, FC, useMemo } from "react";
 import Image from 'next/image'
 
-import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
+import { getCandyMachinesBalance } from '../../lib/candymachine/fetchCandyMachines';
 import { PublicKey, publicKey } from '@metaplex-foundation/umi';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import solanaLogo from "../../../public/logos/solana-logo_1.svg";
