@@ -19,11 +19,8 @@ const NftCard = (props: NftCardProps) => {
   const wallet1 = useWallet();
 
   const card = (
-    <Card 
-    // className="flex flex-col items-start w-full border border-foreground-muted rounded-xl shadow-lg p-4 gap-4"
-    className="flex items-center px-3 bg-red-300 font-mono"
-    >
-      <div className="flex flex-row gap-2 items-center ">
+    <Card className="flex flex-col items-start w-full border border-foreground-muted rounded-xl shadow-lg p-4 gap-4">
+      <div className="flex flex-row gap-4 items-center">
         <img
           src={
         wallet1.connected && props.selectedAsset && props.selectedAsset.content.files.length>0

@@ -12,9 +12,10 @@ import { fetchCandyMachine, mintV1, mplCandyMachine, safeFetchCandyGuard } from 
 import { Fireworks } from "@fireworks-js/react";
 import useViewportSize from "./useViewportSize";
 import Confetti from "react-confetti";
-import { toast } from '../../hooks/use-toast';
-import { getCandyMachinesBalance } from '../../stores/useCandyMachine';
+import { getCandyMachinesBalance } from '../../lib/candymachine/fetchCandyMachines';
 import { Spinner } from '../ui/spinner';
+import fetchCandyGuardUserMintlimit from "../../lib/candymachine/fetchCandyGuard"
+import { toast } from "../../hooks/use-toast";
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -70,8 +71,21 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
-      
-      let boolflag = true;
+      const usermitlimit = fetchCandyGuardUserMintlimit( umi.identity.publicKey.toString()
+                                                          ,candyMachineaddress
+                                                          ,results[0].candyGuardpk
+                                                          ,results[0].candyGuardId)
+                      
+      if(Number(usermitlimit) ===-1 || (Number(usermitlimit) === results[0].candyGuardMinLimit))
+      {
+        toast({
+          title: "Wallet Mint Limit Reached",
+          description: `Wallet max mint limit of ${results[0].candyGuardMinLimit} reached. Unable to mint!`,
+          variant: "destructive",
+        });
+        setIsTransacting(false);
+        return; 
+      }
 
       // Mint from the Candy Machine.
       const nftMint = generateSigner(umi);

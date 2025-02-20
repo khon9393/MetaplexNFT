@@ -100,7 +100,7 @@ const NftPicker = ({
         <DialogTrigger disabled={true} asChild className="cursor-pointer">
           {children}
         </DialogTrigger>
-        <DialogContent className="w-full max-w-[1000px] max-h-[560px] h-full flex flex-col text-black bg-white dark:bg-gray-800 dark:text-white">
+        <DialogContent className="w-full max-w-[1000px] max-h-[560px] h-full flex flex-col text-black bg-red-300 dark:bg-gray-800 dark:text-white">
           <DialogHeader>
             <DialogTitle>
               Select an NFT from {

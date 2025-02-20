@@ -34,7 +34,10 @@ const TokenCard = (props: TokenCardProps) => {
   }, [escrow, tokenAsset, updateTokenAsset]);
 
   return (
-    <Card className="flex items-center w-full border border-foreground-muted rounded-xl shadow-lg p-4 gap-4">
+    <Card 
+    //className="flex items-center w-full border border-foreground-muted rounded-xl shadow-lg p-4 gap-4"
+    className="flex items-center px-3 bg-red-300 font-mono"
+    >
       {tokenAsset ? (
         <Image
           src={TokenImg.src}
