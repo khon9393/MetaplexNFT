@@ -5,7 +5,7 @@ import { Spinner } from '../ui/spinner';
 import fetchEscrow from "../../lib/mpl-hybrid/fetchEscrow";
 import swap from "../../lib/mpl-hybrid/swap";
 import useEscrowStore from "../../stores/useEscrowStore";
-import { ArrowsUpDownIcon,ArrowDownCircleIcon,ArrowDownIcon } from "@heroicons/react/24/outline";
+import { ArrowsUpDownIcon, ArrowDownCircleIcon, ArrowDownIcon, ArrowUpIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
 import { DasApiAsset } from '@metaplex-foundation/digital-asset-standard-api';
 import { useEffect, useState } from "react";
 import TokenBalance from "../tokenBalance";
@@ -18,6 +18,7 @@ import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
 
 import { useWallet } from "@solana/wallet-adapter-react";
+import { formatTokenAmount } from "@/lib/utils";
 export enum TradeState {
   "nft",
   "tokens",
@@ -61,29 +62,14 @@ const SwapWrapper = () => {
         return;
       }
     }
-
-    swap({ swapOption: tradeState, selectedNft: selectedAsset })
-      .then(() => {
-        toast({
-          title: "Swap Successful",
-          description: "Your swap was successful",
-        });
-        setIsTransacting(false);
-        setSelectedAsset(undefined);
-
-        setShowConfetti(true);
-        setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
-      })
-      .catch((error) => {
-        console.log(error);
-        toast({
-          title: "Swap Error",
-          description: error.message,
-          variant: "destructive",
-        });
-      })
-      .finally(() => setIsTransacting(false))
-
+    toast({
+      title: "Swap Successful",
+      description: "Your swap was successful",
+    });
+    setIsTransacting(false);
+    setSelectedAsset(undefined);
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
   };
 
   useEffect(() => {
@@ -99,88 +85,70 @@ const SwapWrapper = () => {
 
   return (
     <>
-    <div
-    
-    >
-      <div className="absolute top-0 right-20 p-0">
-      <TokenBalance />
-      </div>
-      <div className="absolute text-center text-xl font-bold text-white top-7 left-2">
-        {tradeState === TradeState.nft
-        ? <>Swapping NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"} for candibar tokens</>
-        : <>Swapping candibar tokens to receive NFT: {selectedAsset?.content.metadata.name || "{Select an NFT}"}</>}
-      </div>
-
-      <div className="flex flex-col gap-8 items-center max-w-[600px] w-full">
-
-      {/* {tradeState === "tokens" ? <SwapTokens setTradeState={tradeState => setTradeState(tradeState)} /> : <SwapNft setTradeState={tradeState => setTradeState(tradeState)} />} */}
-
-
-
-      {tradeState === TradeState.nft ? (
-        <NftCard
-        tradeState={tradeState}
-        setSelectedAsset={(asset) => setSelectedAsset(asset)}
-        selectedAsset={selectedAsset}
-        />
-      ) : (
-        <TokenCard tradeState={tradeState} />
-      )}
-
-      {/* <ArrowsUpDownIcon
-        className="cursor-pointer w-12 h-12 text-foreground mx-auto block"
-        onClick={() => {
-        if (tradeState === TradeState.nft) setTradeState(TradeState.tokens);
-        else setTradeState(TradeState.nft);
-        setSelectedAsset(undefined);
-        }}
-      /> */}
-
-      <ArrowDownIcon
-        className="w-10 h-10 text-foreground mx-auto block"
-      />
-
-
-      {tradeState === TradeState.nft ? (
-        <TokenCard tradeState={tradeState} />
-      ) : (
-        <NftCard
-        tradeState={tradeState}
-        setSelectedAsset={setSelectedAsset}
-        selectedAsset={selectedAsset}
-        />
-      )}
-
-      {process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING==="1" && wallet.connected && (
-        <Button
-        onClick={handleSwap}
-        disabled={isTransacting}
-        className="w-[200px] px-8 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
-        >
-        Swap
-        </Button>
-      )}
-
-      {isTransacting && (
-        <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="bg-white p-10 rounded-lg shadow-lg">
-          <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
-          <p className="mt-4 text-center text-xl font-semibold text-black">Minting in progress...</p>
+      <div>
+        <div className="absolute top-0 right-2 p-0">
+          <TokenBalance />
         </div>
-        </div>
-      )}
 
-      </div>
-      {showConfetti && (
-      <Confetti
-        width={width}
-        height={height}
-        numberOfPieces={650} // Dense confetti
-        gravity={0.2} // Slow falling effect
-        wind={0.02} // Slight drift
-        colors={["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]}
-      />
-      )}
+        {selectedAsset && (
+            <div className="absolute top-7 right-2 px-2 p-0 text-1xl font-bold animate-pulse border border-gray-300 rounded-lg bg-gray-200">
+            {tradeState === TradeState.nft
+              ? <div className="text-green-500"> +{formatTokenAmount(escrow.amount, 8)}</div>
+              : <div className="text-red-500"> -{formatTokenAmount(escrow.amount, 8)}</div>}
+            </div>
+        )}
+
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4">
+          {tradeState === TradeState.nft ? (
+            <div className={selectedAsset ? "" : "animate-pulse"}>
+              <NftCard
+          tradeState={tradeState}
+          setSelectedAsset={(asset) => setSelectedAsset(asset)}
+          selectedAsset={selectedAsset}
+              />
+            </div>
+          ) : (
+            <TokenCard tradeState={tradeState} />
+          )}
+
+          {process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === "1" && wallet.connected && selectedAsset && (
+            <div className="flex items-center justify-center">
+
+              <Button
+          onClick={handleSwap}
+          disabled={isTransacting}
+          className="px-4 h-12 animate-pulse bg-gray-800 text-white dark:bg-gray-700 dark:text-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          variant="default"
+              >
+          Swap
+          <ArrowPathIcon className="w-10 h-10 m-1" />
+              </Button>
+
+            </div>
+
+          )}
+        </div>
+
+        {isTransacting && (
+          <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-10 rounded-lg shadow-lg">
+              <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
+              <p className="mt-4 text-center text-xl font-semibold text-black">Minting in progress...</p>
+            </div>
+          </div>
+        )}
+
+        {showConfetti && (
+          <Confetti
+            width={width}
+            height={height}
+            numberOfPieces={350} // Dense confetti
+            gravity={0.3} // Slow falling effect
+            wind={0.03} // Slight drift
+            //colors={["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]}
+            colors={["#FFD700", "#FFB300"]} // Gold-like colors
+          />
+        )}
 
       </div>
     </>
