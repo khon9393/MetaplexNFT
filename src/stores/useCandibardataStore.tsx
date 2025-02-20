@@ -70,7 +70,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.Available,
+            collectionStatus: NFTStatusTypes.ComingSoon,
             images: [
                 { name: "Snake NFT Collection 2025 #1", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcapCnprSUZGZf37nzb6JGJUDDPcyS1znAoFruVKW4wt6" },
             ],
