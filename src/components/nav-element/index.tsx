@@ -12,6 +12,7 @@ type NavElementProps = {
     scroll?: boolean;
     chipLabel?: string;
     disabled?: boolean;
+    source?: 'mobile' | 'main';
     navigationStarts?: () => void;
 };
 
@@ -21,6 +22,7 @@ const NavElement = ({
     as,
     scroll,
     disabled,
+    source,
     navigationStarts = () => {},
 }: NavElementProps) => {
     const router = useRouter();
@@ -40,7 +42,9 @@ const NavElement = ({
 
     const handleClick = () => {
         navigationStarts();
-        document.getElementById('my-drawer')?.click();
+        if (source === 'mobile') {
+            document.getElementById('my-drawer')?.click();
+        }
     };
 
     return (
