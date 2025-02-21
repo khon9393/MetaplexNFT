@@ -23,44 +23,6 @@ interface CollectionItem {
 function getCollectionItems(): CollectionItem[] {
     return [
 
-        // //Aquarius Collection #1
-        // {
-        //     collectionName: "Candibar NFT Collection #1",
-        //     collectionadress: process.env.NEXT_PUBLIC_COLLECTION_AQUI1,
-        //     collectionSubtitles: "Dates: January 21-February 18",
-        //     collectionDetails: "Aquarius Dates: January 21-February 18. Aquarius is an air sign, ruled by Uranus, and is known for its innovation, independence, and humanitarianism.",
-        //     collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdaHbBDqaWrxgqawF7gqBdBJJPSzro9XJEr532b5guxND",
-        //    // collectionurl: "",
-        //     collectionCandibarValue: 600,
-        //     candibarcost: 600,
-        //     isSwappable: false,
-        //     collectionStatus: NFTStatusTypes.ComingSoon,
-        //     images: [
-        //         {
-        //             name: "Aquarius NFT #1",
-        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbwnpVFAgbjiEijb8eYtWgmvgeh5VHiydGsjmjLf9ysbC"
-        //         },
-        //         {
-        //             name: "Aquarius NFT #2",
-        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmQza1qF9U92bt6gHfF62WpPhdR56toN1CHRfxtzHrsH6n"
-        //         },
-        //         {
-        //             name: "Aquarius NFT #3",
-        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmZGYR1CDop5ymZ4XLPC3qpqUFJ9esGWLPuHoM2SqC3V9m"
-
-        //         },
-        //         {
-        //             name: "Aquarius NFT #4",
-        //             url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/Qme4SsnfLQ5iYJgLaCJRtRhcCe7pwhd75zrVNrVTBAkAfB"
-        //         },
-        //     ],
-
-        //     candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1,
-        // },
-
-
-
-
         //Snake Collection 2025
         {
             collectionName: "Snake NFT Collection Cover 2025 #1",
