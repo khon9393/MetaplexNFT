@@ -13,6 +13,7 @@ import Image from "next/image";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../components/candibar/CardContainer";
 
+
 /*
 1. Cotton Candy (Pink & Blue Swirl)
 className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4"
@@ -142,6 +143,7 @@ export const HomeView: FC = ({ }) => {
   return (
     <>
       <div className="text-center mt-8 p-3">
+     
         <h1 
        className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
         >
