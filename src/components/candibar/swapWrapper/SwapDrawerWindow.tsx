@@ -81,7 +81,7 @@ export const SwapDrawerWindow: FC = () => {
         {/* <div className='absolute bottom-[25%] w-22 text-center border-gray-300 bg-gray-800'></div> */}
 
         <div className='absolute bottom-[25%] w-22 text-center'>
-          <div className="text-white px-2 font-mono text-1xl font-bold animate-pulse hover:animate-none">
+          <div className="text-white px-2 font-mono text-2xl font-bold animate-pulse hover:animate-none">
             <Link href="/Candi" className="text-white hover:underline ">
               Get NFTs tradable for Candibar Tokens!
             </Link>
