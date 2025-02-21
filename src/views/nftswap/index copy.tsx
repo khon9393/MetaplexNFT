@@ -13,9 +13,8 @@ export const NFTSwapView: FC = ({ }) => {
 
   return (
     <div 
-    className="w-full h-[100%] flex items-center justify-center"
-      //  className="w-full h-[100%] flex items-center justify-center"
-    style={{ backgroundImage: `url(${jadeEmperor.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 15%', opacity: 1 }}
+    //className="w-full h-[100%] flex items-center justify-center"
+    style={{ backgroundImage: `url(${jadeEmperor.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
     >
       <div className="md:hero-content flex flex-col">
           <UmiProvider>
