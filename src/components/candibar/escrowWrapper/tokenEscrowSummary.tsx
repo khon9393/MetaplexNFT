@@ -1,5 +1,5 @@
-import fetchTokenBalance from "../../lib/fetchTokenBalance";
-import fetchMetadataByMint from "../../lib/mpl-token-metadata/fetchMetadataByMint";
+import fetchTokenBalance from "../../../lib/fetchTokenBalance";
+import fetchMetadataByMint from "../../../lib/mpl-token-metadata/fetchMetadataByMint";
 import { JsonMetadata } from "@metaplex-foundation/mpl-token-metadata";
 import { Token } from "@metaplex-foundation/mpl-toolbox";
 import { Metadata } from "next";
@@ -7,8 +7,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import useEscrowStore from "../../stores/useEscrowStore";
-import { formatTokenAmount } from "../../lib/utils";
+import useEscrowStore from "../../../stores/useEscrowStore";
+import { formatTokenAmount } from "../../../lib/utils";
 const TokenEscrowSummary = () => {
   const escrow = useEscrowStore.getState().escrow;
 

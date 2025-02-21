@@ -1,12 +1,12 @@
-import NftPicker from "../candibar/nftPicker";
+import NftPicker from "../../candibar/nftPicker";
 import { Card } from "@/components/ui/card";
-import CollectionImg from '../../../public/images/collectionImage.jpg';
-import useEscrowStore from "../../stores/useEscrowStore";
+import CollectionImg from '../../../../public/images/collectionImage.jpg';
+import useEscrowStore from "../../../stores/useEscrowStore";
 import { TradeState } from "./swapWrapper";
-import { NO_REROLL_PATH, REROLL_PATH } from "../../lib/constants";
+import { NO_REROLL_PATH, REROLL_PATH } from "../../../lib/constants";
 import { useWallet } from "@solana/wallet-adapter-react";
 
-import { Asset } from "../../utils/index";
+import { Asset } from "../../../utils/index";
 
 interface NftCardProps {
   tradeState: TradeState;

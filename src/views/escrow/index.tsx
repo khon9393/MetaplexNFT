@@ -1,6 +1,6 @@
 
 import { FC } from "react";
-import EscrowWrapper from "@/components/escrowWrapper/escrowWrapper";
+import EscrowWrapper from "@/components/candibar/escrowWrapper/escrowWrapper";
 import { UmiProvider } from "../../providers/umiProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { Inter } from "next/font/google";

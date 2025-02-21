@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { DasApiAssetList } from '@metaplex-foundation/digital-asset-standard-api';
-import fetchEscrowAssets from "../../lib/fetchEscrowAssets";
+import fetchEscrowAssets from "../../../lib/fetchEscrowAssets";
 import NftGrid from "./nftGrid";
 
 const NftEscrow = () => {

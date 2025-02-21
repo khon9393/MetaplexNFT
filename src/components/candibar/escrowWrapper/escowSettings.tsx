@@ -1,9 +1,9 @@
-import { shortenAddress } from "../../lib/utils";
-import useEscrowStore from "../../stores/useEscrowStore";
+import { shortenAddress } from "../../../lib/utils";
+import useEscrowStore from "../../../stores/useEscrowStore";
 import { EscrowV1 } from "@metaplex-foundation/mpl-hybrid";
-import UpdateEscrowForm from "../forms/updateEscrowForm";
+import UpdateEscrowForm from "../../forms/updateEscrowForm";
 import { Card } from "@/components/ui/card";
-import { NO_REROLL_PATH } from "../../lib/constants";
+import { NO_REROLL_PATH } from "../../../lib/constants";
 
 interface EscrowSettingsProps {
   escrowData: EscrowV1 | undefined;
