@@ -23,7 +23,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           <XCircleIcon
             className="absolute w-10 h-10 text-foreground mx-auto block top-[9%] left-[13%] cursor-pointer hover:text-red-500"
             style={{ width: '2rem', height: '2rem' }}
-            // onClick={() => document.getElementById('my-drawer')?.click()}
+            onClick={() => document.getElementById('my-drawer')?.click()}
           />
           <li>
             <Text variant="heading" className='font-extrabold tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10'>Menu</Text>
