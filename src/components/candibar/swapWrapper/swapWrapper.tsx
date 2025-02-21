@@ -1,19 +1,19 @@
 "use client";
 
-import { toast } from "../../hooks/use-toast";
-import { Spinner } from '../ui/spinner';
-import fetchEscrow from "../../lib/mpl-hybrid/fetchEscrow";
-import swap from "../../lib/mpl-hybrid/swap";
-import useEscrowStore from "../../stores/useEscrowStore";
+import { toast } from "../../../hooks/use-toast";
+import { Spinner } from '../../ui/spinner';
+import fetchEscrow from "../../../lib/mpl-hybrid/fetchEscrow";
+import swap from "../../../lib/mpl-hybrid/swap";
+import useEscrowStore from "../../../stores/useEscrowStore";
 import { ArrowsUpDownIcon, ArrowDownCircleIcon, ArrowDownIcon, ArrowUpIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
 import { DasApiAsset } from '@metaplex-foundation/digital-asset-standard-api';
 import { useEffect, useState } from "react";
-import TokenBalance from "../tokenBalance";
+import TokenBalance from "../../tokenBalance";
 import { Button } from "@/components/ui/button";
 import NftCard from "./nftCard";
 import TokenCard from "./tokenCard";
-import { REROLL_PATH } from "../../lib/constants";
-import { Asset } from "../../utils/index";
+import { REROLL_PATH } from "../../../lib/constants";
+import { Asset } from "../../../utils/index";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
 
@@ -106,12 +106,15 @@ const SwapWrapper = () => {
         </div>
 
         {selectedAsset && (
-            <div className="absolute top-7 right-2 px-2 p-0 text-1xl font-bold animate-pulse border border-gray-300 rounded-lg bg-gray-200">
-            {tradeState === TradeState.nft
-              ? <div className="text-green-500"> +{formatTokenAmount(escrow.amount, 8)}</div>
-              : <div className="text-red-500"> -{formatTokenAmount(escrow.amount, 8)}</div>}
+          <div className="absolute top-9 right-2 px-2 p-0 border border-gray-300 rounded-lg bg-gray-200">
+            <div className="text-1xl font-bold animate-pulse ">
+              {tradeState === TradeState.nft
+                ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount, 8)}</div>
+                : <div className="text-red-700"> -{formatTokenAmount(escrow.amount, 8)}</div>}
             </div>
+          </div>
         )}
+
 
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4">
           {tradeState === TradeState.nft ? (

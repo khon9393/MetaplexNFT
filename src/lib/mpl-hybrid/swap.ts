@@ -1,4 +1,4 @@
-import { TradeState } from './../../components/swapWrapper/swapWrapper';
+import { TradeState } from './../../components/candibar/swapWrapper/swapWrapper';
 import useEscrowStore from "../../stores/useEscrowStore";
 import { DasApiAsset } from "@metaplex-foundation/digital-asset-standard-api";
 import { captureV1, releaseV1 } from "@metaplex-foundation/mpl-hybrid";

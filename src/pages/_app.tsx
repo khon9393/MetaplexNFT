@@ -11,13 +11,11 @@ require('../styles/globals.css');
 import FirstVisitModal from '@/components/candibar/FirstVisitModal'; // adjust path as necessary
 import { Toaster } from '@/components/ui/toaster';
 import { UmiProvider } from "../providers/umiProvider";
-import Starfield from '@/components/candibar/Starfield';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 
     return (
         <>
-         <Starfield />
           <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> */}

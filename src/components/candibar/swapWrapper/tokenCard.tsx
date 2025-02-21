@@ -1,16 +1,16 @@
 "use client";
 
-import TokenImg from '../../../public/images/token.jpg';
+import TokenImg from '../../../../public/images/token.jpg';
 
-import fetchAsset from "../../lib/das/fetchAsset";
-import useEscrowStore from "../../stores/useEscrowStore";
-import useTokenStore from "../../stores/useTokenStore";
+import fetchAsset from "../../../lib/das/fetchAsset";
+import useEscrowStore from "../../../stores/useEscrowStore";
+import useTokenStore from "../../../stores/useTokenStore";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TradeState } from "./swapWrapper";
 import { set } from "@metaplex-foundation/umi/serializers";
-import { formatTokenAmount } from "../../lib/utils";
+import { formatTokenAmount } from "../../../lib/utils";
 import Image from "next/image";
 
 interface TokenCardProps {

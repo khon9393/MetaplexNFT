@@ -6,7 +6,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from '@/components/ui/button';
-import { DrawerWindow } from './DrawerWindow';
 import NavElement from './nav-element';
 import Image from 'next/image';
 import solanaLogo from "../../public/logos/solanaLogo.png";

@@ -1,6 +1,6 @@
 
 import { FC } from "react";
-import { SwapDrawerWindow } from '@/components/swapWrapper/SwapDrawerWindow';
+import { SwapDrawerWindow } from '@/components//candibar/swapWrapper/SwapDrawerWindow';
 
 
 import { Inter } from "next/font/google";
@@ -20,6 +20,15 @@ export const NFTSwapView: FC = ({ }) => {
           <UmiProvider>
             <SwapDrawerWindow />
           </UmiProvider>
+
+
+          {/* <div className='absolute bottom-[20%] text-center border-gray-300 bg-gray-800 '>
+            <div className="text-white px-2 font-mono text-1xl animate-pulse">
+            Qualified Candi Collection 2025 NFT 
+for 
+trading Candibar Tokens
+            </div>
+          </div> */}
         </div>
       </div>
   );

@@ -1,8 +1,8 @@
 "use client";
 
-import { toast } from "../../hooks/use-toast";
-import fetchEscrow from "../../lib/mpl-hybrid/fetchEscrow";
-import useEscrowStore from "../../stores/useEscrowStore";
+import { toast } from "../../../hooks/use-toast";
+import fetchEscrow from "../../../lib/mpl-hybrid/fetchEscrow";
+import useEscrowStore from "../../../stores/useEscrowStore";
 import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import EscrowSettings from "./escowSettings";
