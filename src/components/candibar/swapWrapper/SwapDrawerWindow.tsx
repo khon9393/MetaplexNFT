@@ -43,7 +43,7 @@ export const SwapDrawerWindow: FC = () => {
           <div className='absolute top-3 left-1/2 transform -translate-x-1/2'>
             {wallet.connected && (
               <Button
-                className="text-white hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-300"
+                className="text-white hover:text-blue-600"
                 variant="default"
               >
                 Swap
