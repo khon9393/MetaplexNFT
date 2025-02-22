@@ -22,7 +22,7 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
   let assets: any | undefined;
 
   while (continueFetch) {
-    const response = await fetch('https://solemn-skilled-bird.solana-devnet.quiknode.pro/9b1c696d40e39deec224a3d6f9cd956d58eda1dd/', {
+    const response = await fetch(process.env.NEXT_PUBLIC_RPC, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

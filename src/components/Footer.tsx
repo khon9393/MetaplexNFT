@@ -140,7 +140,12 @@ export const Footer: FC = () => {
                 All Rights Reserved.
               </div>
 
-              <div className="flex justify-start">
+                <div className="flex flex-col justify-center items-center">
+                Start by scanning the QR code below using your mobile device to access the Candibar app.
+                </div>
+
+              <div className="flex justify-center items-center">
+
                 <Image
                   src={candibarQRcode}
                   alt="Candibar QR Code"

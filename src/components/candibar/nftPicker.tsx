@@ -72,7 +72,7 @@ const NftPicker = ({
     : asset.content.links && asset.content.links["image"]
     ? (asset.content.links["image"] as unknown as string)
     : CollectionImg.src;
-        
+
       return (
         <Card
           key={asset.id}

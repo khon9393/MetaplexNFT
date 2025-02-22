@@ -30,25 +30,25 @@ export const SwapDrawerWindow: FC = () => {
     <div className="flex flex-row justify-center">
       <Drawer>
 
-        {!wallet.connected && (
+        {!wallet.connected && process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING ==='1' && (
           <div className='absolute top-3 left-1/2 transform -translate-x-1/2 p-0 border-gray-300 bg-gray-800 text-center'>
-            <div className="text-white px-2 font-mono text-1xl animate-pulse">
-              Connect your wallet to swap
+            <div className="text-white px-2 font-mono text-2xl animate-pulse">
+              Please connect your wallet to swap
             </div>
           </div>
         )}
 
         <DrawerTrigger>
 
-          <div className='absolute top-3 left-1/2 transform -translate-x-1/2'>
-            {wallet.connected && (
+          <div className='absolute top-3 left-1/2 transform -translate-x-1/2 '>
+            {wallet.connected && process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING ==='1' && (
               <Button
-                className="text-white hover:text-blue-600"
+                className="text-white hover:text-blue-600 text-2xl"
                 variant="default"
               >
                 Swap
                 <ArrowUpTrayIcon
-                  className='w-10 h-10 m-1'
+                  className='w-15 h-15 m-1'
                 />
               </Button>
             )}
@@ -67,7 +67,7 @@ export const SwapDrawerWindow: FC = () => {
             <DrawerClose asChild>
 
               <ArrowDownTrayIcon
-                className='w-8 h-8 m-1 bg-gray-800 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
+                className='w-12 h-12 m-1 bg-gray-800 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
               />
             </DrawerClose>
           </DrawerHeader>
