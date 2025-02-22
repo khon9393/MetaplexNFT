@@ -16,10 +16,6 @@ import { getCandyMachinesBalance } from '../../lib/candymachine/fetchCandyMachin
 import { Spinner } from '../ui/spinner';
 import fetchCandyGuardUserMintlimit from "../../lib/candymachine/fetchCandyGuard"
 import { toast } from "../../hooks/use-toast";
-import sendAndConfirmWalletAdapter from "../../lib/umi/sendAndConfirmWithWalletAdapter";
-import umiWithCurrentWalletAdapter from "../../lib/umi/umiWithCurrentWalletAdapter";
-
-
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
@@ -38,7 +34,7 @@ interface CandiMintersProps {
 }
 
 export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress,buttonText}) => {
- // const umi1 = umiWithCurrentWalletAdapter();
+
   const { connection } = useConnection();
   const wallet = useWallet();
   const { getUserSOLBalance } = useUserSOLBalanceStore();
@@ -116,12 +112,11 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         );
 
 
-      const signature = await sendAndConfirmWalletAdapter(transaction);
-
-      toast({
-        title: "Successful",
-        description: "Mint successful!",
+      const { signature } = await transaction.sendAndConfirm(umi, {
+        confirm: { commitment: "confirmed" },
       });
+
+      const txid = bs58.encode(signature);
 
       toast({
         title: "Successful",
