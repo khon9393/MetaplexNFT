@@ -119,13 +119,13 @@ const SwapWrapper = () => {
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4">
    
         <div className="px-2 p-0 border border-gray-300 rounded-lg bg-gray-200 text-right">
-        <div className="text-1xl font-bold text-black dark:text-white ">
+        <div className="text-1xl md:text-2xl font-bold text-black ">
               <TokenBalance />
             </div>
         {selectedAsset && (
           
 
-            <div className="text-1xl font-bold animate-pulse ">
+            <div className="text-1xl md:text-2xl font-bold animate-pulse ">
               {tradeState === TradeState.nft
                 ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount, 8)}</div>
                 : <div className="text-red-700"> -{formatTokenAmount(escrow.amount, 8)}</div>}
@@ -152,7 +152,7 @@ const SwapWrapper = () => {
               <Button
           onClick={handleSwap}
           disabled={isTransacting}
-          className="px-4 h-12 animate-pulse bg-gray-800 text-white dark:bg-gray-700 dark:text-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          className="text-1xl md:text-2xl px-4 h-12 animate-pulse bg-gray-800 text-white dark:bg-gray-700 dark:text-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           variant="default"
               >
           Swap
