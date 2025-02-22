@@ -101,11 +101,11 @@ const SwapWrapper = () => {
   return (
     <>
       <div>
-        {/* <div className="absolute top-0 right-2 p-0">
-        <TokenBalance />
-        </div> */}
+        <div className="absolute top-0 right-2 p-0">
+          <TokenBalance />
+        </div>
 
-        {/* {selectedAsset && (
+        {selectedAsset && (
           <div className="absolute top-9 right-2 px-2 p-0 border border-gray-300 rounded-lg bg-gray-200">
             <div className="text-1xl font-bold animate-pulse ">
               {tradeState === TradeState.nft
@@ -113,27 +113,10 @@ const SwapWrapper = () => {
                 : <div className="text-red-700"> -{formatTokenAmount(escrow.amount, 8)}</div>}
             </div>
           </div>
-        )} */}
+        )}
 
 
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4">
-   
-        <div className="px-2 p-0 border border-gray-300 rounded-lg bg-gray-200 text-right">
-        <div className="text-1xl font-bold text-black dark:text-white ">
-              <TokenBalance />
-            </div>
-        {selectedAsset && (
-          
-
-            <div className="text-1xl font-bold animate-pulse ">
-              {tradeState === TradeState.nft
-                ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount, 8)}</div>
-                : <div className="text-red-700"> -{formatTokenAmount(escrow.amount, 8)}</div>}
-            </div>
-         
-        )}
- </div>
-          
           {tradeState === TradeState.nft ? (
             <div className={selectedAsset ? "" : "animate-pulse"}>
               <NftCard
