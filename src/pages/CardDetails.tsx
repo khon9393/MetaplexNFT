@@ -23,10 +23,6 @@ import { Card } from "src/components/ui/card";
 import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
 import { NFTStatusTypes } from "@/models/types";
-import { UmiProvider } from "@/providers/umiProvider";
-import { Toaster } from "@/components/ui/toaster";
-// import { UmiProvider } from "@/providers/umiProvider";
-// import { Toaster } from "@/components/ui/toaster";
 
 const CardDetails: FC = () => {
 
@@ -194,7 +190,7 @@ const CardDetails: FC = () => {
                   candyMachines[0]?.collectionStatus === NFTStatusTypes.Available &&
                   (
                     <div>
-           <UmiProvider>
+           {/* <UmiProvider> */}
  
          
          
@@ -206,8 +202,8 @@ const CardDetails: FC = () => {
                         buttonText={candyMachines[0]?.images.length > 1 ? "Mint Random NFT" : ""}
 
                       />
-   <Toaster />
-</UmiProvider> 
+   {/* <Toaster />
+</UmiProvider>  */}
                     </div>
                   )}
               </div>
