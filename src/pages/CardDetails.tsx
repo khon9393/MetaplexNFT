@@ -190,20 +190,12 @@ const CardDetails: FC = () => {
                   candyMachines[0]?.collectionStatus === NFTStatusTypes.Available &&
                   (
                     <div>
-           {/* <UmiProvider> */}
- 
-         
-         
                       <CandiMinter
                         candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
                         collectionaddress={candyMachines[0]?.collectionMint || ''}
-
-
                         buttonText={candyMachines[0]?.images.length > 1 ? "Mint Random NFT" : ""}
-
                       />
-   {/* <Toaster />
-</UmiProvider>  */}
+
                     </div>
                   )}
               </div>

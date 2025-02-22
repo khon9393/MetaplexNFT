@@ -1,16 +1,15 @@
 
 import { FC } from "react";
 import { SwapDrawerWindow } from '@/components//candibar/swapWrapper/SwapDrawerWindow';
-
+import {Testminter} from '@/components/candibar/swapWrapper/Testminter';
 
 import { Inter } from "next/font/google";
 import { UmiProvider } from "@/providers/umiProvider";
 import jadeEmperor from '../../../public/images/jadeEmp2.jpeg';
-import {CandiMinter} from "@/components/candibar/CandiMinter";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const NFTSwapView: FC = ({ }) => {
+export const TestMintView: FC = ({ }) => {
 
   return (
     <div 
@@ -20,8 +19,7 @@ export const NFTSwapView: FC = ({ }) => {
     >
       <div className="md:hero-content flex flex-col">
           <UmiProvider>
-            <SwapDrawerWindow />
-            <CandiMinter candyMachineaddress={""} collectionaddress={""} />
+          <Testminter />
           </UmiProvider>
         </div>
       </div>
