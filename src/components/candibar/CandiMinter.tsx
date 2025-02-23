@@ -3,7 +3,7 @@ import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { notify } from "../../utils/notifications";
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { generateSigner, transactionBuilder, publicKey, some } from '@metaplex-foundation/umi';
+import { generateSigner, transactionBuilder, publicKey, some, TransactionBuilderSendAndConfirmOptions } from '@metaplex-foundation/umi';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { findAssociatedTokenPda, setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
@@ -16,10 +16,13 @@ import { getCandyMachinesBalance } from '../../lib/candymachine/fetchCandyMachin
 import { Spinner } from '../ui/spinner';
 import fetchCandyGuardUserMintlimit from "../../lib/candymachine/fetchCandyGuard"
 import { toast } from "../../hooks/use-toast";
-import fetchEscrow from "../../lib/mpl-hybrid/fetchEscrow";
-import useEscrowStore from '@/stores/useEscrowStore';
 import { formatTokenAmount } from '@/lib/utils';
 import fetchTokenBalance from "../../lib/fetchTokenBalance";
+
+const options: TransactionBuilderSendAndConfirmOptions = {
+  send: { skipPreflight: true },
+  confirm: { commitment: "confirmed" }
+};
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -79,16 +82,29 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
                                                           ,results[0].candyGuardpk
                                                           ,results[0].candyGuardId)
 
-      let userTokenAccount;
+      let userTokenbalance;
       try {
-        userTokenAccount = await fetchTokenBalance(tokenMint, wallet.publicKey.toString());
-        userTokenAccount =  Number(formatTokenAmount(userTokenAccount.amount, 8))
+        userTokenbalance = await fetchTokenBalance(tokenMint, wallet.publicKey.toString());
+        userTokenbalance =  Number(formatTokenAmount(userTokenbalance.amount, 8))
       } catch (error) {
-        userTokenAccount = 0;
+        userTokenbalance = 0;
       }
 
+      const usersolbalance = await getUserSOLBalance(wallet.publicKey, connection);
 
-      if (results[0].tokenPaymentAmount > 0 && (userTokenAccount < results[0].tokenPaymentAmount)) {
+      //must be greater than and not equal to.
+      //must be greater than to cover transaction fees.
+      if (Number(usersolbalance) <= results[0].SolCost) {
+        toast({
+          title: "Not enough solana SOL amount.",
+          description: `SOL balance: ${usersolbalance} Sol Tokens not enough to mint!`,
+          variant: "Warning",
+        });
+        setIsTransacting(false);
+        return;
+      }
+
+      if (results[0].tokenPaymentAmount > 0 && (userTokenbalance < results[0].tokenPaymentAmount)) {
           toast({
             title: "Not Enough Candibar Tokens.",
             description: `NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`,
@@ -96,9 +112,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           });
           setIsTransacting(false);
           return;
-       
       }
-
 
       if(results[0].candyGuardMinLimit>0 && (Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit))
       {
@@ -137,9 +151,11 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         );
 
 
-      const { signature } = await transaction.sendAndConfirm(umi, {
-        confirm: { commitment: "confirmed" },
-      });
+      // const { signature } = await transaction.sendAndConfirm(umi, {
+      //   confirm: { commitment: "confirmed" },
+      // });
+
+      const { signature } = await transaction.sendAndConfirm(umi, options);
 
       const txid = bs58.encode(signature);
 
@@ -147,9 +163,6 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         title: "Successful",
             description: "Mint successful!",
         });
-
-
-      getUserSOLBalance(wallet.publicKey, connection);
 
       if(candyMachineKeysforConfetti[0].toString() == candyMachineaddress)
       {
