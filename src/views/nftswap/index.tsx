@@ -21,7 +21,6 @@ export const NFTSwapView: FC = ({ }) => {
       <div className="md:hero-content flex flex-col">
           <UmiProvider>
             <SwapDrawerWindow />
-            <CandiMinter candyMachineaddress={""} collectionaddress={""} />
           </UmiProvider>
         </div>
       </div>
