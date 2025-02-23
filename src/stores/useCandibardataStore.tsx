@@ -35,7 +35,7 @@ function getCollectionItems(): CollectionItem[] {
         //     collectionCandibarValue: 600,
         //     candibarcost: 600,
         //     isSwappable: false,
-        //     collectionStatus: NFTStatusTypes.ComingSoon,
+        //     collectionStatus: NFTStatusTypes.Available,
         //     images: [
         //         {
         //             name: "Aquarius NFT #1",
@@ -125,7 +125,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69",
             collectionCandibarValue: 200,
             isSwappable: true,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
 
                 { name: "Candi NFT 2025 #1", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo" },
@@ -148,7 +148,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Capricorn NFT #1",
@@ -182,7 +182,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Aquarius NFT #1",
@@ -216,7 +216,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Pisces NFT #1",
@@ -250,7 +250,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Aries NFT #1",
@@ -284,7 +284,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Taurus NFT #1",
@@ -320,7 +320,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Gemini NFT #1",
@@ -354,7 +354,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Cancer NFT #1",
@@ -388,7 +388,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Leo NFT #1",
@@ -422,7 +422,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Virgo NFT #1",
@@ -459,7 +459,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Libra NFT #1",
@@ -493,7 +493,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Scorpio NFT #1",
@@ -527,7 +527,7 @@ function getCollectionItems(): CollectionItem[] {
             collectionurl: "",
             collectionCandibarValue: 600,
             isSwappable: false,
-            collectionStatus: NFTStatusTypes.ComingSoon,
+            collectionStatus: NFTStatusTypes.Available,
             images: [
                 {
                     name: "Sagittarius NFT #1",
