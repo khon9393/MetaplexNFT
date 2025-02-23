@@ -142,7 +142,7 @@ export const Footer: FC = () => {
 
               <div className="flex flex-col justify-center items-center">
                     <Link href="/getstarted" className="text-center w-[150px] hover:underline">
-                      Geting Started Quick Guide.
+                      Getting Started - Quick Guide.
                     </Link>
                   </div>
 
