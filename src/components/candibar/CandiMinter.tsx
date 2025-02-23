@@ -88,18 +88,19 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       }
 
 
-      if(results[0].tokenPaymentAmount>0 && results[0].tokenPaymentAmount < userTokenAccount) {
-        toast({
-          title: "Not Enough Candibar Tokens.",
-          description: `NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`,
-          variant: "Warning",
-        });
-        setIsTransacting(false);
-        return;
+      if (results[0].tokenPaymentAmount > 0 && (userTokenAccount < results[0].tokenPaymentAmount)) {
+          toast({
+            title: "Not Enough Candibar Tokens.",
+            description: `NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`,
+            variant: "Warning",
+          });
+          setIsTransacting(false);
+          return;
+       
       }
 
 
-      if(results[0].candyGuardMinLimit>0 && Number(AmountAlreadyMinted) > results[0].candyGuardMinLimit)
+      if(results[0].candyGuardMinLimit>0 && (Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit))
       {
         toast({
           title: "Wallet Mint Limit Reached",

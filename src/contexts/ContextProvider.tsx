@@ -33,7 +33,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
         try {
             return [
                 // new UnsafeBurnerWalletAdapter(),
-                new PhantomWalletAdapter(),
+                //new PhantomWalletAdapter(),
                 new SolflareWalletAdapter(),
                 new TorusWalletAdapter(),
             ];
