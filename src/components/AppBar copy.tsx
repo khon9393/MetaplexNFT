@@ -21,20 +21,15 @@ export const AppBar: React.FC = () => {
   const { connection } = useConnection();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const wallet = useWallet();
-  const [balance, setBalance] = useState(useUserSOLBalanceStore((s) => s.balance));
+  const balance = useUserSOLBalanceStore((s) => s.balance)
   const { getUserSOLBalance } = useUserSOLBalanceStore()
 
 
   useEffect(() => {
-    const fetchBalance = async () => {
-      if (wallet.publicKey) {
-        console.log(wallet.publicKey.toBase58());
-        const thebalance = await getUserSOLBalance(wallet.publicKey, connection) as unknown as number;
-        setBalance(thebalance || 0);
-      }
-    };
-    fetchBalance();
-  }, [wallet.publicKey, connection, getUserSOLBalance, wallet, setBalance]);
+    if (wallet.publicKey) {
+      console.log(wallet.publicKey.toBase58())
+    }
+  }, [wallet.publicKey, connection, getUserSOLBalance]);
 
   useEffect(() => {
     setAutoConnect(true);
