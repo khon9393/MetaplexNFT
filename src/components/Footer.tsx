@@ -140,6 +140,12 @@ export const Footer: FC = () => {
                 All Rights Reserved.
               </div>
 
+              <div className="flex flex-col justify-center items-center">
+                    <Link href="/getstarted" className="text-center w-[150px] hover:underline">
+                      Geting Started Quick Guide.
+                    </Link>
+                  </div>
+
                   <div className="flex flex-col justify-center items-center">
                   <div className="text-center w-[150px]">
                     Start by scanning the QR code below using your mobile device to access the Candibar app.

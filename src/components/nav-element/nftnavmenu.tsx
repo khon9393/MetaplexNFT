@@ -114,7 +114,8 @@ export function CandibarDropdownMenu1() {
                   </Button>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Button variant="link" onClick={() => { window.location.href = '/faq'; }} >
+                  <Button variant="link" onClick={() => { window.location.href = '/faq'; }} 
+                     className="w-full justify-start">
                     FAQ
                   </Button>
                 </DropdownMenuItem>

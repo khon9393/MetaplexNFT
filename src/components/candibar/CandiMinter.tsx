@@ -74,7 +74,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
-      const usermitlimit = fetchCandyGuardUserMintlimit( umi.identity.publicKey.toString()
+      const AmountAlreadyMinted = fetchCandyGuardUserMintlimit( umi.identity.publicKey.toString()
                                                           ,candyMachineaddress
                                                           ,results[0].candyGuardpk
                                                           ,results[0].candyGuardId)
@@ -83,19 +83,12 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       try {
         userTokenAccount = await fetchTokenBalance(tokenMint, wallet.publicKey.toString());
         userTokenAccount =  Number(formatTokenAmount(userTokenAccount.amount, 8))
-
-
       } catch (error) {
-        toast({
-          title: "Candibar Token Account Not Found",
-          description: "The Candibar token account was not found at the provided address or no tokens were found.",
-          variant: "destructive",
-        });
-        setIsTransacting(false);
-        return;
+        userTokenAccount = 0;
       }
 
-      if (userTokenAccount < results[0].tokenPaymentAmount) {
+
+      if(results[0].tokenPaymentAmount>0 && results[0].tokenPaymentAmount < userTokenAccount) {
         toast({
           title: "Not Enough Candibar Tokens.",
           description: `NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`,
@@ -104,8 +97,9 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         setIsTransacting(false);
         return;
       }
-                      
-      if(Number(usermitlimit) ===-1 || (Number(usermitlimit) === results[0].candyGuardMinLimit))
+
+
+      if(results[0].candyGuardMinLimit>0 && Number(AmountAlreadyMinted) > results[0].candyGuardMinLimit)
       {
         toast({
           title: "Wallet Mint Limit Reached",

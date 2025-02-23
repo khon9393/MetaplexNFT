@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import phatomblock1 from "../../../public/phantom/Screenshot 2025-02-02 052714.png";
 import phatomblock2 from "../../../public/phantom/Screenshot 2025-02-02 052809.png";
+import Link from "next/link";
 
 export const FAQView: FC = ({ }) => {
 
@@ -28,20 +29,17 @@ export const FAQView: FC = ({ }) => {
           <article className="prose prose-invert prose-lg max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Fequently Asked Questions</h2>
             <Accordion type="single" collapsible defaultValue="Phaonm-Request-block" >
-            <AccordionItem value="Phaonm-Request-block"></AccordionItem>
-            <AccordionItem value="Phaonm-Request-block">
-                <AccordionTrigger className="text-xl font-bold">Phatom Request block</AccordionTrigger>
+              <AccordionItem value="Phaonm-Request-block"></AccordionItem>
+              <AccordionItem value="Phaonm-Request-block">
+                <AccordionTrigger className="text-xl font-bold">Phantom Wallet Request block</AccordionTrigger>
                 <AccordionContent>
                   <div className="text-xl">
-                  <p >
-                    If you&#39;re experiencing issues with Phantom Wallet blocking minting requests, 
-                    please note that this is likely a precautionary measure. The website is new, 
-                    and the team is just being cautious. You can reach out to them via their Discord or Twitter for assistance. 
-                    <strong>&#39;Confirm (Unsafe)&#39;</strong> anyway to mint. Rest assured, you can still proceed with the minting process.
-                  </p>
-                  <p>
-                  We are actively working to get our website added to Phantom&#39;s whitelist as quickly as possible to ensure a smoother experience for all users. Thank you for your patience as we work through this.
-                  </p>
+                    <p>
+                      If you're experiencing issues with Phantom Wallet blocking minting requests, we recommend using <strong>Solflare Wallet</strong> for a seamless and hassle-free minting experience. Solflare ensures smooth transactions without unnecessary restrictions, making it the best choice for minting.
+                    </p>
+                    <p>
+                      Using Solflare will allow you to proceed without issues, ensuring a better user experience. Thank you for your support!
+                    </p>
                   </div>
 
                   <h2 className="text-xl font-bold">Messages may look like this:</h2>
@@ -53,8 +51,6 @@ export const FAQView: FC = ({ }) => {
                       <Image src={phatomblock2} alt="Phatomblock2" />
                     </div>
                   </div>
-
-                  <h1 className="text-2xl font-bold">You can choose &#39;Proceed&#39; or &#39;Confirm (Unsafe)&#39;</h1>
                 </AccordionContent>
               </AccordionItem>
 
@@ -71,6 +67,7 @@ export const FAQView: FC = ({ }) => {
                     <li>https://arweave.net/*</li>
                     <li>https://solscan.io/*</li>
                     <li>https://explorer.solana.com/*</li>
+                    <li>https://core.metaplex.com/*</li>
                   </ul>
                   <p className="text-xl font-bold mt-5">Norton Firewall Configuration</p>
                   <p className="text-xl">Follow these steps to allow the necessary URLs through Norton Firewall:</p>
@@ -87,6 +84,34 @@ export const FAQView: FC = ({ }) => {
                   </ol>
                 </AccordionContent>
               </AccordionItem>
+
+              {/* <AccordionItem value="view-nft-phantom">
+                <AccordionTrigger className="text-xl font-bold">If Not Able To View Your NFT In Phantom Wallet</AccordionTrigger>  <AccordionContent>
+                  <p className="text-xl">
+                    If you can't see your NFTs in the Phantom wallet, visit&nbsp;
+                    <Link href="https://core.metaplex.com" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+                      Metaplex Core
+                    </Link>
+                    &nbsp;and click on the "Connect Wallet" button. This will allow you to connect your Phantom wallet and view your NFTs.
+                  </p>
+                  <p className="text-xl">
+                    If you are still having issues, you can also try using the <strong>Solana Explorer</strong> to check your wallet balance and transactions.&nbsp;
+                    <Link href="https://explorer.solana.com" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+                      Solana Explorer
+                    </Link>
+                    &nbsp;is a blockchain explorer for the Solana network that allows you to view your wallet balance, transaction history, and other information.
+                  </p>
+                  <p className="text-xl">
+                    If you are still having issues, you can also try using the <strong>Solscan</strong> to check your wallet balance and transactions.&nbsp;
+                    <Link href="https://solscan.io" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+                      Solscan
+                    </Link>
+                    &nbsp;is a blockchain explorer for the Solana network that allows you to view your wallet balance, transaction history, and other information.
+                  </p>
+                </AccordionContent>
+              </AccordionItem> */}
+
+
             </Accordion>
           </article>
         </main>

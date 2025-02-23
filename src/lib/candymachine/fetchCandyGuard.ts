@@ -14,7 +14,7 @@ const fetchCandyGuardUserMintlimit = async (userpk: string, candyMachinekey: str
     candyGuard: publicKey(candyGuardkey),
   });
   
-  return mintCounter ? mintCounter.count : -1;
+  return mintCounter ? mintCounter.count : -1;// Amount already minted
 };
 
 export default fetchCandyGuardUserMintlimit;
