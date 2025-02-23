@@ -45,7 +45,7 @@ const FirstVisitModal = () => {
           </h3>
           <div>
             <p className="mb-4 text-lg leading-relaxed">
-              If you're experiencing issues with Phantom Wallet blocking minting requests, we recommend using 
+              If you&apos;re experiencing issues with Phantom Wallet blocking minting requests, we recommend using 
               <strong> Solflare Wallet</strong> for a seamless and hassle-free minting experience.
             </p>
             <p className="mb-4 text-lg leading-relaxed">

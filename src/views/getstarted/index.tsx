@@ -7,7 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 export const GetStartedView: FC = ({ }) => {
-
   return (
     <div className="md:hero mx-auto p-4">
       <div className="min-h-screen text-white">
@@ -64,7 +63,7 @@ export const GetStartedView: FC = ({ }) => {
                 <AccordionTrigger className="text-xl font-bold">Step 2: Fund Your Wallet</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-xl">
-                    Once you have your wallet set up, you&rsquo;ll need to fund it with SOL tokens,
+                    Once you have your wallet set up, you&apos;ll need to fund it with SOL tokens,
                     which are used for transactions on the Solana blockchain. You can purchase
                     SOL from trusted cryptocurrency exchanges like:
                   </p>
@@ -115,8 +114,8 @@ export const GetStartedView: FC = ({ }) => {
                   </p>
                   <ul className="list-decimal pl-5 mt-3 text-xl">
                   <li>Open the Solflare Wallet app.</li>
-                    <li>Click on the "Buy" button.</li>
-                    <li>Select "Solana SOL" option.</li>
+                    <li>Click on the &quot;Buy&quot; button.</li>
+                    <li>Select &quot;Solana SOL&quot; option.</li>
                     <li>Choose the Onramper Widget as your payment method.</li>
                     <li>Enter the amount of USD to SOL you want to purchase.</li>
                     <li>Follow the prompts to complete the purchase through Onramper.</li>
