@@ -35,28 +35,28 @@ export const GetStartedView: FC = ({ }) => {
                     (decentralized applications) and NFTs. We recommend starting with one of these
                     wallets:
                   </p>
-                  <ul className="list-disc pl-5 mt-3 text-xl">
+                    <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>
                       <a
-                        href="https://phantom.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-300 hover:underline"
+                      href="https://solflare.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-300 hover:underline"
                       >
-                        Phantom Wallet (Recommended)
+                      Solflare Wallet (Recommended)
                       </a>
                     </li>
                     <li>
                       <a
-                        href="https://solflare.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-300 hover:underline"
+                      href="https://tor.us/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-300 hover:underline"
                       >
-                        Solflare Wallet
+                      Torus Wallet
                       </a>
                     </li>
-                  </ul>
+                    </ul>
                 </AccordionContent>
               </AccordionItem>
 
@@ -64,7 +64,7 @@ export const GetStartedView: FC = ({ }) => {
                 <AccordionTrigger className="text-xl font-bold">Step 2: Fund Your Wallet</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-xl">
-                    Once you have your wallet set up, you’ll need to fund it with SOL tokens,
+                    Once you have your wallet set up, you&rsquo;ll need to fund it with SOL tokens,
                     which are used for transactions on the Solana blockchain. You can purchase
                     SOL from trusted cryptocurrency exchanges like:
                   </p>
@@ -111,17 +111,18 @@ export const GetStartedView: FC = ({ }) => {
                     </li>
                   </ul>
                   <p className="mt-4 text-xl">
-                    You can also visit the{" "}
-                    <a
-                      href="https://solana.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-300 hover:underline"
-                    >
-                      official Solana website
-                    </a>{" "}
-                    to learn more about its ecosystem.
+                  lternatively, you can purchase SOL directly within the Solflare Wallet using the Onramper Widget by following these steps:
                   </p>
+                  <ul className="list-decimal pl-5 mt-3 text-xl">
+                  <li>Open the Solflare Wallet app.</li>
+                    <li>Click on the "Buy" button.</li>
+                    <li>Select "Solana SOL" option.</li>
+                    <li>Choose the Onramper Widget as your payment method.</li>
+                    <li>Enter the amount of USD to SOL you want to purchase.</li>
+                    <li>Follow the prompts to complete the purchase through Onramper.</li>
+                    <li>Once the transaction is confirmed, the SOL will be credited to your wallet.</li>
+                    <li>Check your wallet balance to ensure the SOL has been added.</li>
+                  </ul>
                 </AccordionContent>
               </AccordionItem>
 
@@ -129,7 +130,7 @@ export const GetStartedView: FC = ({ }) => {
                 <AccordionTrigger className="text-xl font-bold">Step 3: Start Exploring</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-xl">
-                    Now that your wallet is set up and funded, you&apos;re ready to return to the home page and connect your wallet to access the 2025 Snake Collection NFTs. Start your journey and claim your piece of this exclusive collection today!
+                    Now that your wallet is set up and funded, you&apos;re ready to return to the home page and connect your wallet to claim your Candibar Collection NFTs. Start your journey and secure your piece of this exclusive collection today!
                   </p>
                 </AccordionContent>
               </AccordionItem>

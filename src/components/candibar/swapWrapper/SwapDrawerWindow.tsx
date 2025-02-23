@@ -30,15 +30,13 @@ export const SwapDrawerWindow: FC = () => {
     <div className="flex flex-row justify-center">
       <Drawer>
 
-        
-        {!wallet.connected && process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === '1' && (
-          <div className='absolute top-1 left-1/2 transform -translate-x-1/2 p-0 border-gray-300 bg-gray-800 text-center'>
-            <div className="text-white px-2 font-mono text-1xl md:text-2xl animate-pulse">
-              Please connect your wallet to swap
-            </div>
+      {!wallet.connected && process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === '1' && (
+          <div className='absolute top-0 left-1/2 transform -translate-x-1/2 p-0 border-gray-300 bg-gray-800 text-center w-full min-w-[400px]'>
+          <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
+            Please connect your wallet to swap
           </div>
-        )}
-
+          </div>
+       )}
 
 
         <DrawerTrigger>
@@ -81,16 +79,13 @@ export const SwapDrawerWindow: FC = () => {
 
         </DrawerContent>
 
-        {/* <div className='absolute bottom-[25%] w-22 text-center border-gray-300 bg-gray-800'></div> */}
-
-        <div className='absolute bottom-[25%] w-22 text-center p-0 border-gray-300 bg-gray-800 text-center'>
+          <div className='absolute bottom-[20%] left-1/2 transform -translate-x-1/2 p-0 border-gray-300 bg-gray-800 text-center min-w-[400px]'>
           <div className="text-white px-2 font-mono text-1xl md:text-2xl font-bold animate-pulse hover:animate-none">
-            <Link href="/Candi" className="text-white hover:underline ">
-              Get NFTs tradable for Candibar Tokens!
-            </Link>
+          <Link href="/Candi" className="hover:underline hover:text-blue-600">
+            Get NFTs tradable for Candibar Tokens!
+          </Link>
           </div>
-        </div>
-
+          </div>
 
       </Drawer>
     </div>

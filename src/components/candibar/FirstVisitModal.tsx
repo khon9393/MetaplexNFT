@@ -40,25 +40,26 @@ const FirstVisitModal = () => {
           className="bg-yellow-200 p-6 rounded-lg max-w-lg w-full"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
         >
-            <h3 className="text-xl font-semibold mb-4 text-red-500"><strong>Important Information</strong></h3>
-            <div>
+          <h3 className="text-xl font-semibold mb-4 text-red-500">
+            <strong>Important Information</strong>
+          </h3>
+          <div>
             <p className="mb-4 text-lg leading-relaxed">
-              If you&apos;re experiencing issues with Phantom Wallet blocking minting requests, 
-              please note that this is likely a precautionary measure. 
-              The website is new, and the team is just being cautious. 
+              If you're experiencing issues with Phantom Wallet blocking minting requests, we recommend using 
+              <strong> Solflare Wallet</strong> for a seamless and hassle-free minting experience.
             </p>
             <p className="mb-4 text-lg leading-relaxed">
-              If you trust the source and want to continue, you can choose &apos;Proceed&apos; or &apos;Confirm (Unsafe)&apos; anyway to mint. 
-              Rest assured, you can still proceed with the minting process.
+              Solflare ensures smooth transactions without unnecessary restrictions, making it the best choice for minting.
             </p>
             <p className="mb-4 text-lg leading-relaxed">
-              We are actively working to get our website added to Phantom&apos;s whitelist as quickly as possible to ensure a smoother experience for all users. Thank you for your patience as we work through this.
+              Using Solflare will allow you to proceed without issues, ensuring a better user experience. 
+              Thank you for your support!
             </p>
             <p className="mb-4 text-lg leading-relaxed">
               Visit our <Link href="/faq" className="text-blue-500 underline">FAQ</Link> for more information.
             </p>
-            </div>
-            <div className="flex justify-end">
+          </div>
+          <div className="flex justify-end">
             <button
               onClick={handleCloseModal}
               className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700"

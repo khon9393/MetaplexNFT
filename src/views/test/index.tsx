@@ -1,7 +1,7 @@
 
 import { FC } from "react";
 import { SwapDrawerWindow } from '@/components//candibar/swapWrapper/SwapDrawerWindow';
-import {Testminter} from '@/components/candibar/swapWrapper/Testminter';
+
 
 import { Inter } from "next/font/google";
 import { UmiProvider } from "@/providers/umiProvider";
@@ -18,9 +18,7 @@ export const TestMintView: FC = ({ }) => {
     style={{ backgroundImage: `url(${jadeEmperor.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 15%', opacity: 1 }}
     >
       <div className="md:hero-content flex flex-col">
-          <UmiProvider>
-          <Testminter />
-          </UmiProvider>
+ 
         </div>
       </div>
   );

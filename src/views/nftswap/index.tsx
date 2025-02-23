@@ -24,5 +24,7 @@ export const NFTSwapView: FC = ({ }) => {
           </UmiProvider>
         </div>
       </div>
+
+      
   );
 };
