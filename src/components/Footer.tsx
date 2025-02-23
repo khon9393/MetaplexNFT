@@ -168,7 +168,7 @@ export const Footer: FC = () => {
                 href={process.env.NEXT_PUBLIC_RPC_SOCIAL_X} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 hover:text-gray-400 transition"
+                className="flex items-center space-x-2 hover:text-gray-400 transition "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
