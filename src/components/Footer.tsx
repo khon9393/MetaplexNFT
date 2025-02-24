@@ -122,7 +122,7 @@ export const Footer: FC = () => {
 
               <div className="p-3">
               <Link href="/termofservice">
-                Term&nbsp;Service
+                Term&nbsp;of&nbsp;Service
               </Link>
               </div>
             </div>
