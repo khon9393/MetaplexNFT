@@ -38,13 +38,13 @@ const TokenBalance = () => {
 
   return (
     <div className="flex gap-2 items-center">
-    {/* <Image
+    <Image
         width={200}
         height={200}
         src={TokenImg.src}
         className="aspect-square w-8 h-8 rounded-full"
         alt="token image"
-      /> */}
+      />
       {tokenAccount || tokenAccount === null ? (
         <div className="w-full text-center">
           {tokenAccount === null || !wallet.connected

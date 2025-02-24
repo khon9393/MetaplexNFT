@@ -11,6 +11,7 @@ import solanaLogo from '../../public/logos/solanaLogo.png';
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import useUserSOLBalanceStore from "../stores/useUserSOLBalanceStore";
 import ThemeSwitcher from "./themeSwitcher";
+import TokenBalance from "./tokenBalance";
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
@@ -81,13 +82,28 @@ export const AppBar: React.FC = () => {
 
             </div>
 
-            <div className="flex flex-col items-center gap-2 pt-5" style={{ width: '180px' }}>
+             <div className="flex flex-col items-center gap-2 pt-5" style={{ width: '180px' }}>
+              <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
+                  <div className="flex items-center gap-2 ml-0">
+                  <Image src={solanaLogo} alt="Solana Logo" width={80} />
+                  <span className="text-sm">SOL: {(wallet.connected ? balance : 0).toLocaleString()}</span>
+                  </div>
+                  <div className="flex items-center gap-2 ml-0">
+                  <TokenBalance />
+                  </div>
+            </div> 
+
+            {/* <div className="flex flex-col items-center gap-2 pt-5" style={{ width: '180px' }}>
               <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
               <div className="flex items-center gap-2">
                 <Image src={solanaLogo} alt="Solana Logo" width={80} />
                 <span className="text-sm">SOL: {(wallet.connected ? balance : 0).toLocaleString()}</span>
               </div>
-            </div>
+            </div> */}
+
+
+
+
           </div>
         </div>
       </div>
