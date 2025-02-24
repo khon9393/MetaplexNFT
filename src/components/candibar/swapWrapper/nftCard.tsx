@@ -26,13 +26,10 @@ const NftCard = (props: NftCardProps) => {
       <div className="flex flex-row gap-2 items-center ">
         <img
           src={
-        wallet1.connected && props.selectedAsset && props.selectedAsset.content.files.length>0
+        wallet1.connected && props.selectedAsset && props.selectedAsset.content.files.length > 0
           ? (
-          props.selectedAsset.content.links as unknown as {
-            image: string;
-          }
-            ).image
-          : CollectionImg.src
+          props.selectedAsset.content.files[0].uri 
+          ): CollectionImg.src
           }
           className="rounded-xl w-12 h-12"
           alt="nft collection image"
