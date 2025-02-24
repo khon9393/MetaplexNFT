@@ -45,8 +45,8 @@ const FirstVisitModal = () => {
           </h3>
           <div>
             <p className="mb-4 text-lg leading-relaxed">
-              If you&apos;re experiencing issues with Phantom Wallet blocking minting requests, we recommend using 
-              <strong> Solflare Wallet</strong> for a seamless and hassle-free minting experience.
+              Please note that Phantom Wallet is not supported at this time. For a smooth and hassle-free minting experience, we highly recommend using 
+              <strong> Solflare Wallet</strong>.
             </p>
             <p className="mb-4 text-lg leading-relaxed">
               Solflare ensures smooth transactions without unnecessary restrictions, making it the best choice for minting.

@@ -1,5 +1,15 @@
 import useUmiStore from "../../stores/useUmiStore";
 import { publicKey } from '@metaplex-foundation/umi';
+import axios from 'axios';
+import { forEach } from "lodash";
+
+/*
+Shortcut Keys
+
+Visual Studio Code (VS Code) to prettify JSON files
+On Windows:    Shift + Alt + F  
+
+*/
 
 interface SearchAssetArgs {
   owner: string;
@@ -8,7 +18,7 @@ interface SearchAssetArgs {
 }
 
 const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
-  const umi = useUmiStore.getState().umi;
+  //const umi = useUmiStore.getState().umi;
 
   const collectionId = process.env.NEXT_PUBLIC_COLLECTION;
 
@@ -18,7 +28,7 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
 
   let page = 1;
   let continueFetch = true;
-  let ownerpk = publicKey(searchAssetArgs.owner);
+ // let ownerpk = publicKey(searchAssetArgs.owner);
   let assets: any | undefined;
 
   while (continueFetch) {
@@ -43,13 +53,27 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
     const data = await response.json();
     const result = data.result;
 
+    // Extract the json_uri from the response
+    await Promise.all(result.items.map(async (item) => {
+      if (item.content.files.length <= 0) {
+      const jsonUri = item.content.json_uri;
+      // Make a GET request to the json_uri
+      const jsonResponse = await axios.get(jsonUri);
+      // Extract the files array from the properties object in the response
+      const filesData = jsonResponse.data.properties?.files;
+      if (Array.isArray(filesData)) {
+        // Insert the new data into the files array
+        item.content.files = [...(item.content.files || []), ...filesData];
+      }
+      }
+    }));
+
     console.log(`Page: ${page}, Total assets: `, result.total);
     if (result.total < 1000) {
       console.log("Total assets less than 1000 on current page, stopping loop");
       continueFetch = false;
     }
-    else 
-    {
+    else {
       await new Promise(resolve => setTimeout(resolve, 2500)); // Pause for 2.5 seconds
     }
 

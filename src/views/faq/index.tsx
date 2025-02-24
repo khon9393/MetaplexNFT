@@ -35,10 +35,10 @@ export const FAQView: FC = ({ }) => {
                 <AccordionContent>
                   <div className="text-xl">
                     <p>
-                      If you&apos;re experiencing issues with Phantom Wallet blocking minting requests, we recommend using <strong>Solflare Wallet</strong> for a seamless and hassle-free minting experience. Solflare ensures smooth transactions without unnecessary restrictions, making it the best choice for minting.
+                      Due to ongoing issues with Phantom Wallet blocking minting requests, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Solflare provides a hassle-free transaction process, making it the preferred choice for minting.
                     </p>
                     <p>
-                      Using Solflare will allow you to proceed without issues, ensuring a better user experience. Thank you for your support!
+                      We appreciate your understanding and support as we strive to offer the best possible user experience.
                     </p>  </div>
 
                   <h2 className="text-xl font-bold">Messages may look like this:</h2>
