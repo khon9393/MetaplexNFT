@@ -18,6 +18,7 @@ import fetchCandyGuardUserMintlimit from "../../lib/candymachine/fetchCandyGuard
 import { toast } from "../../hooks/use-toast";
 import { formatTokenAmount } from '@/lib/utils';
 import fetchTokenBalance from "../../lib/fetchTokenBalance";
+import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
 
 const options: TransactionBuilderSendAndConfirmOptions = {
   send: { skipPreflight: true },
@@ -85,12 +86,12 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       let userTokenbalance;
       try {
         userTokenbalance = await fetchTokenBalance(tokenMint, wallet.publicKey.toString());
-        userTokenbalance =  Number(formatTokenAmount(userTokenbalance.amount, 8))
+        userTokenbalance =  formatTokenAmount(userTokenbalance.amount, 8)
       } catch (error) {
         userTokenbalance = 0;
       }
 
-      const usersolbalance = await getUserSOLBalance(wallet.publicKey, connection);
+       const usersolbalance = await getUserSOLBalance(wallet.publicKey);
 
       //must be greater than and not equal to.
       //must be greater than to cover transaction fees.
@@ -103,7 +104,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         setIsTransacting(false);
         return;
       }
-
+      
       if (results[0].tokenPaymentAmount > 0 && (userTokenbalance < results[0].tokenPaymentAmount)) {
           toast({
             title: "Not Enough Candibar Tokens.",

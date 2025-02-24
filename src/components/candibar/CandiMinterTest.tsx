@@ -135,7 +135,7 @@ export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, co
       //   });
 
 
-      getUserSOLBalance(wallet.publicKey, connection);
+      getUserSOLBalance(wallet.publicKey);
 
       if(candyMachineKeysforConfetti[0].toString() == candyMachineaddress)
       {

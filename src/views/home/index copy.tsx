@@ -66,7 +66,7 @@ export const HomeView: FC = ({ }) => {
   useEffect(() => {
     if (wallet.publicKey) {
       console.log(wallet.publicKey.toBase58());
-      getUserSOLBalance(wallet.publicKey, connection);
+      getUserSOLBalance(wallet.publicKey);
     }
   }, [wallet.publicKey, connection, getUserSOLBalance]);
 

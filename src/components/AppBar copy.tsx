@@ -18,7 +18,7 @@ const WalletMultiButtonDynamic = dynamic(
 
 export const AppBar: React.FC = () => {
   const { autoConnect, setAutoConnect } = useAutoConnect();
-  const { connection } = useConnection();
+  //const { connection } = useConnection();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const wallet = useWallet();
   const balance = useUserSOLBalanceStore((s) => s.balance)
@@ -28,8 +28,9 @@ export const AppBar: React.FC = () => {
   useEffect(() => {
     if (wallet.publicKey) {
       console.log(wallet.publicKey.toBase58())
+      getUserSOLBalance(wallet.publicKey);
     }
-  }, [wallet.publicKey, connection, getUserSOLBalance]);
+  }, [wallet.publicKey, getUserSOLBalance]);
 
   useEffect(() => {
     setAutoConnect(true);
