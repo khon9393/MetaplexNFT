@@ -17,7 +17,7 @@ const SolCalc = () => {
   return (
     <div>
       <Head>
-        <title>Candibarnft - Sol Calculator</title>
+        <title>Candibarnft.com - Sol Calculator</title>
         <meta name="description" content="Calculate the exchange rate of Sol to USD with Candibarnft's Sol Calculator." />
         <meta name="keywords" content="Candibarnft, Sol Calculator, Sol to USD, cryptocurrency, exchange rate" />
         <meta name="author" content="Candibarnft" />

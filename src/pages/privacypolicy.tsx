@@ -6,7 +6,7 @@ const PrivacyPolicy: NextPage = (props) => {
   return (
       <>
       <Head>
-        <title>Candibarnft - Privacy Policy</title>
+        <title>Candibarnft.com - Privacy Policy</title>
         <meta name="description" content="Privacy Policy for Candibar, detailing how we handle user data and privacy." />
         <meta name="keywords" content="Candibarnft, Privacy Policy, User Data, Privacy, Data Protection" />
         <meta name="robots" content="index, follow" />

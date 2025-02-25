@@ -6,7 +6,7 @@ const Basics: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibarnft.io</title>
+        <title>Candibarnft.com</title>
         <meta
           name="description"
           content="Basic Functionality"
