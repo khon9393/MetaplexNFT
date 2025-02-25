@@ -45,11 +45,36 @@ export function CandibarDropdownMenu1() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-53 bg-[#8878c3]">
 
+
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <Button variant="link" onClick={() => { window.location.href = '/Candi'; }}
+              className="w-full justify-start"
+            >
+              Candi NFTs
+            </Button>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+
+          <DropdownMenuItem>
+
+            <Button variant="link" onClick={() => { window.location.href = '/nftswap'; }}
+              className="w-full justify-start"
+            >
+              Swap
+            </Button>
+          </DropdownMenuItem>
+
+        </DropdownMenuGroup>
+
+        <DropdownMenuSeparator />
+
         <DropdownMenuGroup>
 
           {/* <DropdownMenuLabel></DropdownMenuLabel> */}
           <DropdownMenuSub>
-            <DropdownMenuSubTrigger>NFTs</DropdownMenuSubTrigger>
+            <DropdownMenuSubTrigger>NFT Market</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="bg-[#ccccff]">
 
@@ -73,11 +98,11 @@ export function CandibarDropdownMenu1() {
                   </DropdownMenuPortal>
                 </DropdownMenuSub>
 
-                <DropdownMenuItem>
+                {/* <DropdownMenuItem>
                   <Button variant="link" onClick={() => { window.location.href = '/Candi'; }} >
                     Candi NFTs
                   </Button>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
 
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
@@ -87,35 +112,28 @@ export function CandibarDropdownMenu1() {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
+        <DropdownMenuItem>
+                  <Button variant="link" onClick={() => { window.location.href = '/faq'; }}
+                    className="w-full justify-start">
+                    FAQ
+                  </Button>
+                </DropdownMenuItem>
 
-            <Button variant="ghost" onClick={() => { window.location.href = '/nftswap'; }} 
-              className="w-full justify-start"
-              >
-              Swap
-            </Button>
+        {/* <DropdownMenuGroup>
 
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-
-        <DropdownMenuSeparator />
-
-        <DropdownMenuGroup>
-
-          {/* <DropdownMenuLabel></DropdownMenuLabel> */}
+           <DropdownMenuLabel></DropdownMenuLabel> 
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>Help</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="bg-[#ccccff]">
-                <DropdownMenuItem>
+                 <DropdownMenuItem>
                   <Button variant="link" onClick={() => { window.location.href = '/getstarted'; }} >
                     Need Wallet?
                   </Button>
-                </DropdownMenuItem>
+                </DropdownMenuItem> 
                 <DropdownMenuItem>
-                  <Button variant="link" onClick={() => { window.location.href = '/faq'; }} 
-                     className="w-full justify-start">
+                  <Button variant="link" onClick={() => { window.location.href = '/faq'; }}
+                    className="w-full justify-start">
                     FAQ
                   </Button>
                 </DropdownMenuItem>
@@ -123,7 +141,10 @@ export function CandibarDropdownMenu1() {
             </DropdownMenuPortal>
           </DropdownMenuSub>
 
-        </DropdownMenuGroup>
+        </DropdownMenuGroup> */}
+
+
+
       </DropdownMenuContent>
     </DropdownMenu>
   )

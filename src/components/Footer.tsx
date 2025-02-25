@@ -141,7 +141,8 @@ export const Footer: FC = () => {
               </div>
 
               <div className="flex flex-col justify-center items-center">
-                    <Link href="/getstarted" className="text-center w-[150px] hover:underline">
+                    <Link href="/getstarted" 
+                    className="text-center w-[150px] hover:underline text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500">
                       Getting Started - Quick Guide.
                     </Link>
                   </div>
