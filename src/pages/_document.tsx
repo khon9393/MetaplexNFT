@@ -15,9 +15,10 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
-        <link rel="shortcut icon" href="/favicon.ico"/>
+          <meta charSet="UTF-8" />
+          <link rel="shortcut icon" href="/favicon.ico"/>
         </Head>
         <body>
           <Main />
