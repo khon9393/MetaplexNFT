@@ -197,7 +197,7 @@ export const Footer: FC = () => {
                   </a>
 
                   <div className="flex flex-col mb-0 p-5">
-                <span className="italic">powered by</span>
+                <span className="italic">Built on Solana Blockchain and Metaplex</span>
                 <a href="https://solana.com" target="_blank" rel="noopener noreferrer" className="mr-4">
                   <Image
                     src={solanaLogo}
