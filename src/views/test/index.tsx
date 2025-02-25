@@ -19,10 +19,10 @@ export const TestMintView: FC = ({ }) => {
     //style={{ backgroundImage: `url(${jadeEmperor.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 15%', opacity: 1 }}
     >
       <div className="md:hero-content flex flex-col">
-      <UmiProvider>
+      {/* <UmiProvider>
       <Testminter candyMachineId={process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05} collectionId={process.env.NEXT_PUBLIC_COLLECTION_ID05} />
   
-          </UmiProvider>
+          </UmiProvider> */}
         </div>
       </div>
   );
