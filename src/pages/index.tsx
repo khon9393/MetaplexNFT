@@ -8,7 +8,7 @@ const Home: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibarnft.com - Discover and Collect Unique NFTs on Candibar - Explore Digital Art and Collectibles on the Blockchain. Dive into the World of Crypto Art. Buy, Sell, and Trade Exclusive NFTs with Ease. Experience the Future of Digital Ownership and Creativity with Candibar NFT Marketplace.</title>
+        <title>Candibarnft.com – Discover and collect unique NFTs on Candibar. Explore digital art and blockchain collectibles. Buy, sell, and trade exclusive NFTs with ease. Experience the future of digital ownership and creativity with Candibar NFT Marketplace.</title>
         <meta name="description" content="Discover and collect unique NFTs on Candibar. Join our community and explore the world of digital art and collectibles." />
         <meta name="keywords" content="NFT, Candibar, digital art, collectibles, blockchain, crypto" />
         <meta name="author" content="Candibar Team" />
