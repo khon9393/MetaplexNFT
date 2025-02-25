@@ -163,7 +163,7 @@ export const GetStartedView: FC = ({ }) => {
                   </p>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>Go to the <Link href="/nftswap" className="text-blue-300 hover:underline">Candibar Swap Page</Link>.</li>
-                    <li>Connect your wallet by clicking on the "Select Wallet" button.</li>
+                    <li>Connect your wallet by clicking on the &quot;Select Wallet&quot; button.</li>
                     <li>Choose the Candi NFTs you want to swap from your wallet.</li>
                     <li>Confirm the swap transaction to receive your Candibar tokens.</li>
                   </ul>
@@ -180,8 +180,7 @@ export const GetStartedView: FC = ({ }) => {
                     To redeem or swap your NFTs, follow these steps:
                   </p>
                   <ul className="list-disc pl-5 mt-3 text-xl">
-                    <li>Go to the <Link href="/AstrologyZodiac" className="text-blue-300 hover:underline">AstrologyZodiac Page</Link>.</li>
-                    <li>Connect your wallet by clicking on the "Select Wallet" button.</li>
+                    <li>Connect your wallet by clicking on the &quot;Select Wallet&quot; button.</li>
                     <li>Choose the Zodiac NFTs you want to redeem from your wallet.</li>
                     <li>Confirm the redemption transaction to receive your exclusive Zodiac NFTs.</li>
                   </ul>
