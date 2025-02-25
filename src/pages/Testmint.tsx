@@ -7,16 +7,13 @@ const Testmint: NextPage = (props) => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
       <Head>
-      <title>Candibarnft - NFT Swap</title>
-      <meta
-        name="Candibar NFT - Swap NFT"
-        content="Swap NFT for Candibar tokens"
-      />
+        <title>Candibarnft - NFT Swap</title>
+        <meta
+          name="Candibar NFT - Swap NFT"
+          content="Swap NFT for Candibar tokens"
+        />
       </Head>
-                <UmiProvider>
-                <TestMintView />   
-                </UmiProvider>
-        
+      <TestMintView />
     </div>
   );
 };
