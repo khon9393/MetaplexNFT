@@ -16,6 +16,8 @@ import Confetti from "react-confetti";
 import { toast } from '../../../hooks/use-toast';
 import { getCandyMachinesBalance } from '../../../lib/candymachine/fetchCandyMachines';
 import { Spinner } from '../../ui/spinner';
+import umiWithCurrentWalletAdapter from '@/lib/umi/umiWithCurrentWalletAdapter';
+import sendAndConfirmWalletAdapter from '@/lib/umi/sendAndConfirmWithWalletAdapter';
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -43,13 +45,16 @@ export const Testminter: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
   const [isTransacting, setIsTransacting] = useState(false);
 
   // Create an Umi instance
-  const umi = useMemo(() =>
-    createUmi(quicknodeEndpoint)
-      .use(walletAdapterIdentity(wallet))
-      .use(mplCandyMachine())
-      .use(mplTokenMetadata()),
-    [wallet]
-  );
+  // const umi = useMemo(() =>
+  //   createUmi(quicknodeEndpoint)
+  //     .use(walletAdapterIdentity(wallet))
+  //     .use(mplCandyMachine())
+  //     .use(mplTokenMetadata()),
+  //   [wallet]
+  // ); 
+  
+  const umi = umiWithCurrentWalletAdapter();
+
 
   const onClick = useCallback(async () => {
     setIsTransacting(true);
@@ -90,13 +95,13 @@ export const Testminter: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
           })
         );
 
+       await sendAndConfirmWalletAdapter(transaction);
+      // const { signature } = await transaction.sendAndConfirm(umi, {
+      //   confirm: { commitment: "confirmed" },
+      // });
 
-      const { signature } = await transaction.sendAndConfirm(umi, {
-        confirm: { commitment: "confirmed" },
-      });
-
-      const txid = bs58.encode(signature);
-      console.log('success', `Mint successful! ${txid}`)
+     // const txid = bs58.encode(signature);
+     // console.log('success', `Mint successful! ${txid}`)
       //notify({ type: 'success', message: 'Mint successful!', txid });
 
       toast({
