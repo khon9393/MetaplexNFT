@@ -1,5 +1,5 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { notify } from "../../../utils/notifications";
 import useUserSOLBalanceStore from '../../../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
@@ -18,6 +18,10 @@ import { getCandyMachinesBalance } from '../../../lib/candymachine/fetchCandyMac
 import { Spinner } from '../../ui/spinner';
 import umiWithCurrentWalletAdapter from '@/lib/umi/umiWithCurrentWalletAdapter';
 import sendAndConfirmWalletAdapter from '@/lib/umi/sendAndConfirmWithWalletAdapter';
+import fetchEscrow from '@/lib/mpl-hybrid/fetchEscrow';
+import useEscrowStore from '@/stores/useEscrowStore';
+import useUmiStore from '@/stores/useUmiStore';
+import { Wallet } from 'lucide-react';
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -52,11 +56,19 @@ export const Testminter: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
   //     .use(mplTokenMetadata()),
   //   [wallet]
   // ); 
-  
-  const umi = umiWithCurrentWalletAdapter();
+  //const { escrow } = useEscrowStore();
+
+ 
+
 
 
   const onClick = useCallback(async () => {
+
+    const umi = umiWithCurrentWalletAdapter()
+        .use(mplCandyMachine())
+        .use(mplTokenMetadata());
+
+
     setIsTransacting(true);
 
     if (!wallet.publicKey) {
@@ -136,7 +148,7 @@ export const Testminter: FC<MintSnakesProps> = ({ candyMachineId, collectionId }
 
     setIsTransacting(false);
     }
-  }, [wallet, connection, getUserSOLBalance, umi, candyMachineAddress, collectionMint, candyMachineId]);
+  }, [wallet, connection, getUserSOLBalance,candyMachineAddress, collectionMint, candyMachineId]);
 
   return (
     <div className="flex flex-row justify-center">
