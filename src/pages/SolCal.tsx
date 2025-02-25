@@ -18,10 +18,18 @@ const SolCalc = () => {
     <div>
       <Head>
         <title>Candibarnft - Sol Calculator</title>
-        <meta
-          name="Candibar NFT - Sol Calculator"
-          content="Sol Calculator"
-        />
+        <meta name="description" content="Calculate the exchange rate of Sol to USD with Candibarnft's Sol Calculator." />
+        <meta name="keywords" content="Candibarnft, Sol Calculator, Sol to USD, cryptocurrency, exchange rate" />
+        <meta name="author" content="Candibarnft" />
+        <meta property="og:title" content="Candibarnft - Sol Calculator" />
+        <meta property="og:description" content="Calculate the exchange rate of Sol to USD with Candibarnft's Sol Calculator." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.candibarnft.com/sol-calculator" />
+        <meta property="og:image" content="https://www.candibarnft.com/images/sol-calculator.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Candibarnft - Sol Calculator" />
+        <meta name="twitter:description" content="Calculate the exchange rate of Sol to USD with Candibarnft's Sol Calculator." />
+        <meta name="twitter:image" content="https://www.candibarnft.com/images/sol-calculator.png" />
       </Head>
 
       <div>Exchange Rate: {exchangeRate !== null ? exchangeRate : "Loading..."}</div>

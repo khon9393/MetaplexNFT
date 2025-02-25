@@ -9,10 +9,17 @@ const Home: NextPage = (props) => {
     <div>
       <Head>
         <title>Candibar NFT</title>
-        <meta
-          name="Candibar NFT Home"
-          content="Candibar NFT"
-        />
+        <meta name="description" content="Discover and collect unique NFTs on Candibar. Join our community and explore the world of digital art and collectibles." />
+        <meta name="keywords" content="NFT, Candibar, digital art, collectibles, blockchain, crypto" />
+        <meta name="author" content="Candibar Team" />
+        <meta property="og:title" content="Candibar NFT" />
+        <meta property="og:description" content="Discover and collect unique NFTs on Candibar. Join our community and explore the world of digital art and collectibles." />
+        <meta property="og:image" content="/path/to/your/image.jpg" />
+        <meta property="og:url" content="https://www.candibar.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Candibar NFT" />
+        <meta name="twitter:description" content="Discover and collect unique NFTs on Candibar. Join our community and explore the world of digital art and collectibles." />
+        <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
       <HomeView />
     </div>
