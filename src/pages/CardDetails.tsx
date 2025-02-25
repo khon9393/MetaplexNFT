@@ -23,6 +23,7 @@ import { Card } from "src/components/ui/card";
 import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
 import { NFTStatusTypes } from "@/models/types";
+import Head from "next/head";
 
 const CardDetails: FC = () => {
 
@@ -100,6 +101,23 @@ const CardDetails: FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Candibarnft.io - Discover and Mint Exclusive NFTs</title>
+        <meta
+          name="description"
+          content="Explore Candibarnft.io to discover, mint, and trade exclusive NFTs. Join our community and be part of the next big thing in the NFT world."
+        />
+        <meta name="keywords" content="NFT, Candibar, Mint, Trade, Exclusive NFTs, Blockchain, Crypto" />
+        <meta name="author" content="Candibarnft.io" />
+        <meta property="og:title" content="Candibarnft.io - Discover and Mint Exclusive NFTs" />
+        <meta property="og:description" content="Explore Candibarnft.io to discover, mint, and trade exclusive NFTs. Join our community and be part of the next big thing in the NFT world." />
+        <meta property="og:image" content="/path/to/your/image.jpg" />
+        <meta property="og:url" content="https://candibarnft.io" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Candibarnft.io - Discover and Mint Exclusive NFTs" />
+        <meta name="twitter:description" content="Explore Candibarnft.io to discover, mint, and trade exclusive NFTs. Join our community and be part of the next big thing in the NFT world." />
+        <meta name="twitter:image" content="/path/to/your/image.jpg" />
+      </Head>
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
         
       >
