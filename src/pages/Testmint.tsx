@@ -13,7 +13,10 @@ const Testmint: NextPage = (props) => {
         content="Swap NFT for Candibar tokens"
       />
       </Head>
-      <TestMintView />      
+                <UmiProvider>
+                <TestMintView />   
+                </UmiProvider>
+        
     </div>
   );
 };

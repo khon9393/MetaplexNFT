@@ -21,6 +21,7 @@ export const TestMintView: FC = ({ }) => {
       <div className="md:hero-content flex flex-col">
       <UmiProvider>
       <Testminter candyMachineId={process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05} collectionId={process.env.NEXT_PUBLIC_COLLECTION_ID05} />
+  
           </UmiProvider>
         </div>
       </div>
