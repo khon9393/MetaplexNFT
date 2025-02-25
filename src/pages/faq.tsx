@@ -7,7 +7,7 @@ const faq: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibarnft.io - Frequently Asked Questions</title>
+        <title>Candibarnft.com - Frequently Asked Questions</title>
         <meta name="description" content="Find answers to the most frequently asked questions about Candibar NFT. Learn more about our platform, features, and how to get started." />
         <meta name="keywords" content="Candibar, NFT, FAQ, blockchain, crypto, questions, answers" />
         <meta property="og:title" content="Candibarnft.io - Frequently Asked Questions" />

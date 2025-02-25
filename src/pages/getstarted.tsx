@@ -6,7 +6,7 @@ const GetStarted: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibar NFT - Get Started</title>
+        <title>Candibarnft.com - Get Started</title>
         <meta name="description" content="Get started with Candibar NFT by setting up your Solana Wallet. Follow our step-by-step guide to begin your journey in the world of NFTs." />
         <meta name="keywords" content="Candibar, NFT, Get Started, Solana Wallet, Blockchain, Cryptocurrency" />
         <meta name="author" content="Candibar Team" />

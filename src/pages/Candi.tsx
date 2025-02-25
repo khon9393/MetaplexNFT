@@ -7,7 +7,7 @@ const Candi: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Candibarnft.io - Get Your Candi NFT</title>
+        <title>Candibarnft.com - Get Your Candi NFT</title>
         <meta name="description" content="Candibar NFT - Get your unique Candi NFT. Join the Candibar community and explore the world of digital collectibles." />
         <meta name="keywords" content="Candibar, NFT, Candi NFT, digital collectibles, blockchain, crypto" />
         <meta name="author" content="Candibar Team" />

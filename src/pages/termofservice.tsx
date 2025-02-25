@@ -6,7 +6,7 @@ const TermOfService: NextPage = (props) => {
   return (
       <>
       <Head>
-      <title>Candibarnft - Term of Service</title>
+      <title>Candibarnft.com - Term of Service</title>
       <meta
         name="description"
         content="Read the terms of service for Candibar, the leading platform for NFT enthusiasts. Understand our policies and guidelines."

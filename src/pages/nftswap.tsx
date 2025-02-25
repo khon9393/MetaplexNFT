@@ -6,7 +6,7 @@ const NFTSwap: NextPage = (props) => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
       <Head>
-        <title>Candibarnft - NFT Swap</title>
+        <title>Candibarnft.com - NFT Swap</title>
         <meta
           name="description"
           content="Swap your NFTs for Candibar tokens on Candibarnft. Experience seamless and secure NFT trading."

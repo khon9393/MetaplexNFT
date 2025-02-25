@@ -102,7 +102,7 @@ const CardDetails: FC = () => {
   return (
     <>
       <Head>
-        <title>Candibarnft.io - Discover and Mint Exclusive NFTs</title>
+        <title>Candibarnft.com - Discover and Mint Exclusive NFTs</title>
         <meta
           name="description"
           content="Explore Candibarnft.io to discover, mint, and trade exclusive NFTs. Join our community and be part of the next big thing in the NFT world."
