@@ -12,9 +12,9 @@ export const CandiView: FC = ({ }) => {
   return (
     <div>
 
-      <p className="text-center text-3xl font-extrabold p-3">
+      <h1 className="text-center text-3xl font-extrabold p-3">
         Own & Trade with the Exclusive Candi NFT Collection!
-      </p>
+      </h1>
 
       <div className="flex flex-col text-xl text-left max-w-5xl mx-auto p-5">
         <p className="p-2">

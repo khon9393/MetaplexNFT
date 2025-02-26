@@ -21,7 +21,7 @@ interface CandyMachineKeysProps {
 }
 
 export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) => {
-  // const [collectionData, setCollectionData] = useState(null);
+
 
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
