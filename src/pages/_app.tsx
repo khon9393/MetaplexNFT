@@ -9,18 +9,35 @@ import Notifications from '../components/Notification'
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 import FirstVisitModal from '@/components/candibar/FirstVisitModal'; // adjust path as necessary
+import appletouch from '../../public/apple-touch-icon.png';
 import { Toaster } from '@/components/ui/toaster';
 import { UmiProvider } from "../providers/umiProvider";
+
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 
     return (
         <>
-          <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> */}
+            <Head>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>Candibar NFTs - Buy, Trade, Sell, NFT, Candibar Tokens</title>
-          </Head>
+            <meta
+              name="description"
+              content="Candibar NFTs - Buy, Trade, and Sell Unique Digital Assets | Candibar Tokens Marketplace | Discover Rare NFTs, Collectibles, and Digital Art | Secure and Fast Transactions | Join the Candibar Community Today"
+            />
+            <meta name="keywords" content="Candibar, NFTs, Buy NFTs, Trade NFTs, Sell NFTs, Candibar Tokens, Digital Assets, Collectibles, Digital Art, NFT Marketplace" />
+            <meta name="author" content="Candibar" />
+            <meta property="og:title" content="Candibar NFTs - Buy, Trade, Sell, NFT, Candibar Tokens" />
+            <meta property="og:description" content="Candibar NFTs - Buy, Trade, and Sell Unique Digital Assets | Candibar Tokens Marketplace | Discover Rare NFTs, Collectibles, and Digital Art | Secure and Fast Transactions | Join the Candibar Community Today" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://www.candibar.com" />
+            <meta property="og:image" content="https://www.candibar.com/images/og-image.jpg" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Candibar NFTs - Buy, Trade, Sell, NFT, Candibar Tokens" />
+            <meta name="twitter:description" content="Candibar NFTs - Buy, Trade, and Sell Unique Digital Assets | Candibar Tokens Marketplace | Discover Rare NFTs, Collectibles, and Digital Art | Secure and Fast Transactions | Join the Candibar Community Today" />
+            <meta name="twitter:image" content="https://www.candibar.com/images/twitter-image.jpg" />
+            <link rel="apple-touch-icon" sizes="180x180" href={appletouch.src} />
+            </Head>
           {/* <FirstVisitModal /> */}
 
           <UmiProvider>
