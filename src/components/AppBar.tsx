@@ -13,6 +13,7 @@ import useUserSOLBalanceStore from "../stores/useUserSOLBalanceStore";
 import ThemeSwitcher from "./themeSwitcher";
 import TokenBalance from "./tokenBalance";
 import { UmiProvider } from "@/providers/umiProvider";
+import Breadcrumbs from "./Breadcrumbs";
 
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
@@ -90,7 +91,7 @@ export const AppBar: React.FC = () => {
           </div>
         </div>
       </div>
-
+      <Breadcrumbs />
       {typeof window !== 'undefined' 
       && window.location.pathname === '/AstrologyZodiac'
       && (
