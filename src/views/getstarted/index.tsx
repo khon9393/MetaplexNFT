@@ -159,7 +159,7 @@ export const GetStartedView: FC = ({ }) => {
                   <p className="text-xl">
                     Once you have your Candi NFTs, you can swap them for Candibar tokens. 
                     These tokens are used for transactions within the Candibar ecosystem and can be traded on various exchanges in the near future. 
-                    To swap your Candi NFTs for Candibar tokens, follow these steps (and imagine you're visiting the Jade Emperor to make the swap!):
+                    To swap your Candi NFTs for Candibar tokens, follow these steps (and imagine you&apos;re visiting the Jade Emperor to make the swap!):
                   </p>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>Go to the <Link href="/nftswap" className="text-blue-300 hover:underline">Candibar Swap Page</Link>.</li>
