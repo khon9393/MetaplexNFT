@@ -38,7 +38,7 @@ const Home: NextPage = (props) => {
           </th>
         </tr>
         <tr>
-          <td className="font-medium text-xs pt-2">Why Choose Candibar NFTs?</td>
+          <td className="font-medium text-xs pt-1">Why Choose Candibar NFTs?</td>
         </tr>
         <tr>
           <td className="pt-1">Secure transactions, rare collectibles, and an engaged community.</td>
@@ -63,7 +63,7 @@ const Home: NextPage = (props) => {
   </div>
 </div>
 
-<div className="border-t border-gray-500 pt-4"></div>
+<div className="border-t border-gray-500 pt-4 p-0"></div>
       </div>
 
 
