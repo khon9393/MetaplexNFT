@@ -45,7 +45,9 @@ export const AppBar: React.FC = () => {
   return (
     <div>
       {/* NavBar / Header */}
-
+      <div className="md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
+      <Breadcrumbs />
+      </div>
       <div className="navbar flex h-30 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
         <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
           <label
@@ -85,13 +87,12 @@ export const AppBar: React.FC = () => {
 
               < CandibarDropdownMenu1 />
             </div>
-            <div className="flex flex-col items-center gap-2 pt-5" style={{ width: '180px' }}>
+            <div className="flex flex-col items-center gap-2 pt-0" style={{ width: '180px' }}>
               <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
             </div>
           </div>
         </div>
       </div>
-      <Breadcrumbs />
       {typeof window !== 'undefined' 
       && window.location.pathname === '/AstrologyZodiac'
       && (

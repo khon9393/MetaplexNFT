@@ -18,9 +18,9 @@ export const GetStartedView: FC = ({ }) => {
              className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
             // className="text-4xl font-bold"
             
-            >Getting Started with Solana Wallet</h1>
+            >Getting Started with Candibar Platform and Solana</h1>
             <p className="mt-2 text-lg font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4">
-              Follow these simple steps to embark on your journey with Solana and NFTs.
+              Follow these simple steps to embark on your journey with Solana blockchain and Candibar NFTs.
             </p>
           </div>
         </div>
@@ -29,7 +29,7 @@ export const GetStartedView: FC = ({ }) => {
         <main className="container mx-auto px-6 py-10 ">
           <article className="prose prose-invert prose-lg max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4">Getting Setup with a Wallet</h2>
-            <Accordion type="single" collapsible={true} defaultValue="step1">
+            <Accordion type="single" collapsible={true}>
               <AccordionItem value="step1">
                 <AccordionTrigger className="text-xl font-bold">Step 1: Get a Wallet</AccordionTrigger>
                 <AccordionContent>
@@ -70,8 +70,21 @@ export const GetStartedView: FC = ({ }) => {
                   <p className="text-xl">
                     Once you have your wallet set up, you&apos;ll need to fund it with SOL tokens,
                     which are used for transactions on the Solana blockchain. You can purchase
-                    SOL from trusted cryptocurrency exchanges like:
+                    SOL directly within the Solflare Wallet using the Onramper Widget by following these steps:
                   </p>
+                  <ul className="list-decimal pl-5 mt-3 text-xl">
+                    <li>Open the Solflare Wallet app.</li>
+                    <li>Click on the &quot;Buy&quot; button.</li>
+                    <li>Select &quot;Solana SOL&quot; option.</li>
+                    <li>Choose the Onramper Widget as your payment method.</li>
+                    <li>Enter the amount of USD to SOL you want to purchase.</li>
+                    <li>Follow the prompts to complete the purchase through Onramper.</li>
+                    <li>Once the transaction is confirmed, the SOL will be credited to your wallet.</li>
+                    <li>Check your wallet balance to ensure the SOL has been added.</li>
+                  </ul>
+                  <p className="mt-4 text-xl">
+                    Alternatively, you can purchase SOL from trusted cryptocurrency exchanges like:
+                    </p>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>
                       <a
@@ -104,19 +117,6 @@ export const GetStartedView: FC = ({ }) => {
                       </a>
                     </li>
                   </ul>
-                  <p className="mt-4 text-xl">
-                  lternatively, you can purchase SOL directly within the Solflare Wallet using the Onramper Widget by following these steps:
-                  </p>
-                  <ul className="list-decimal pl-5 mt-3 text-xl">
-                  <li>Open the Solflare Wallet app.</li>
-                    <li>Click on the &quot;Buy&quot; button.</li>
-                    <li>Select &quot;Solana SOL&quot; option.</li>
-                    <li>Choose the Onramper Widget as your payment method.</li>
-                    <li>Enter the amount of USD to SOL you want to purchase.</li>
-                    <li>Follow the prompts to complete the purchase through Onramper.</li>
-                    <li>Once the transaction is confirmed, the SOL will be credited to your wallet.</li>
-                    <li>Check your wallet balance to ensure the SOL has been added.</li>
-                  </ul>
                 </AccordionContent>
               </AccordionItem>
 
@@ -133,6 +133,9 @@ export const GetStartedView: FC = ({ }) => {
 
             <article className="prose prose-invert prose-lg max-w-3xl mx-auto py-10 mt-10">
             <h2 className="text-3xl font-bold mb-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4">Platform Guide Launch Pad</h2>
+            <p className="text-1xl mb-4">
+              Note: All transactions will require a small amount of Solana (SOL) tokens to cover network fees.
+            </p>
             <Accordion type="single" collapsible={true} defaultValue="step1">
               <AccordionItem value="step1">
                 <AccordionTrigger className="text-xl font-bold">Step 1: Get Candi NFTs</AccordionTrigger>
@@ -174,18 +177,20 @@ export const GetStartedView: FC = ({ }) => {
                 <AccordionTrigger className="text-xl font-bold">Step 3: Redeem or Swap NFTs in the Marketplace</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-xl mt-4">
-                    After swapping your Candi NFTs for Candibar tokens, you can redeem them for exclusive items in the Candibar marketplace or swap them for other NFTs. 
-                    The marketplace features a variety of items, including limited-edition NFTs, collectibles, and more. 
-                    Additionally, you can redeem your Candibar tokens for exclusive Candibar collection NFTs, including the Candi-inspired Zodiac collection. 
-                    To redeem or swap your NFTs, follow these steps:
+                  After swapping your Candi NFTs for Candibar tokens, you can use them to acquire exclusive items in the Candibar marketplace or swap them for other NFTs. 
+                  The marketplace offers a variety of items, including limited-edition NFTs, collectibles, and more. 
+                  Additionally, you can use your Candibar tokens to obtain exclusive Candibar collection NFTs, such as the Candi-inspired Zodiac collection. 
+                  To redeem or swap your NFTs, follow these steps:
                   </p>
                   <ul className="list-disc pl-5 mt-3 text-xl">
-                    <li>Connect your wallet by clicking on the &quot;Select Wallet&quot; button.</li>
-                    <li>Choose the Zodiac NFTs you want to redeem from your wallet.</li>
-                    <li>Confirm the redemption transaction to receive your exclusive Zodiac NFTs.</li>
+                  <li>Connect your wallet by clicking on the &quot;Select Wallet&quot; button.</li>
+                  <li>Go to the <Link href="/AstrologyZodiac" className="text-blue-300 hover:underline">Zodiac collection Page</Link>.</li>
+                  <li>Select the Zodiac NFTs you want to acquire using your Candibar tokens.</li>
+                  <li>Confirm the transaction to receive your exclusive Zodiac NFTs.</li>
                   </ul>
                 </AccordionContent>
-              </AccordionItem>
+                </AccordionItem>
+
             </Accordion>
           </article>
         </main>

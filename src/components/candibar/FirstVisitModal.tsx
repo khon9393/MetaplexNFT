@@ -40,9 +40,9 @@ const FirstVisitModal = () => {
           className="bg-yellow-200 p-6 rounded-lg max-w-lg w-full"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
         >
-          <h3 className="text-xl font-semibold mb-4 text-red-500">
+          <h1 className="text-xl font-semibold mb-4 text-red-500">
             <strong>Important Information</strong>
-          </h3>
+          </h1>
           <div>
             <p className="mb-4 text-lg leading-relaxed">
               Please note that Phantom Wallet is not supported at this time. For a smooth and hassle-free minting experience, we highly recommend using 
