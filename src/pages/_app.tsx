@@ -21,7 +21,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> */}
             <title>Candibar NFTs - Buy, Trade, Sell, NFT, Candibar Tokens</title>
           </Head>
-          <FirstVisitModal />
+          {/* <FirstVisitModal /> */}
 
           <UmiProvider>
 
