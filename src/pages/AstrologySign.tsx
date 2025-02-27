@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { AstrologySignView } from "../views";
-import ZodiacCardReading from "@/components/candibar/ZodiacCardReading";
+import ZodiacCardReading from "@/components/candibar/old/ZodiacCardReading";
 
 const AstrologySign: NextPage = (props) => {
 
@@ -21,7 +21,6 @@ const AstrologySign: NextPage = (props) => {
         <meta name="twitter:image" content="/path-to-your-image.jpg" />
       </Head>
       <AstrologySignView />
-      <ZodiacCardReading />
     </div>
   );
 };

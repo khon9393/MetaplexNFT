@@ -15,13 +15,14 @@ import { Card, CardContent } from "src/components/ui/card"
 import { getCollection } from "../../stores/useCandibardataStore";
 import Link from "next/link";
 import { NFTStatusTypes } from "@/models/types";
+import HoroscopeModal from "./HoroscopeModal";
 
 interface CandyMachineKeysProps {
   candyMachineKeys: PublicKey[];
 }
 
 export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) => {
-
+  const [selectedSign, setSelectedSign] = useState<string | null>(null);
 
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -78,6 +79,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
           tokenPaymentAmount: balance.tokenPaymentAmount,
           zodiacSign: collection.zodiacSign,
           zodiacYear: collection.zodiacYear,
+          zodiacIcon: collection.zodiacIcon,
         };
       }));
       setCandyMachines(machines);
@@ -130,6 +132,33 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                     mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                   </div>
                 </div>
+
+                {machine.zodiacSign && (
+                  <div className="rounded-md border">
+                    <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                     
+                        {machine.zodiacSign && (
+                          <Image
+                            src={machine.zodiacIcon}
+                            alt="Zodiac Icon"
+                            width={16}
+                            height={16}
+                            className="ml-1"
+                          />
+                        )}
+                         <button 
+                      // className="flex items-center space-x-1"
+                       className="px-2 rounded-md border hover:underline flex justify-center animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
+                       onClick={() => setSelectedSign(machine.zodiacSign || machine.zodiacYear)}
+                      >
+                        <span>{machine.zodiacSign} Zodiac Reading</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+                  {/* ✅ Show Horoscope Modal When a Sign is Selected */}
+                  {selectedSign && <HoroscopeModal sign={selectedSign} isOpen={true} onClose={() => setSelectedSign(null)} />}
+
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
 
@@ -140,12 +169,12 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                       height={16}
                       className="mr-1"
                     />
-                    <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} 
+                    <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}
                     </span>
 
                     {machine.tokenPaymentAmount > 0 && (
                       <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                       &nbsp;|&nbsp;<Image
+                        &nbsp;|&nbsp;<Image
                           src={tokenimg}
                           alt="Candibar Icon"
                           width={16}
@@ -154,8 +183,10 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                         />
                         {machine.tokenPaymentAmount || 0}
                       </div>
+
                     )}
                   </div>
+
                 </div>
 
                 <Carousel setApi={(api) => {
@@ -228,7 +259,6 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                       </div>
                     </>
                   )}
-
 
                 </Carousel>
 

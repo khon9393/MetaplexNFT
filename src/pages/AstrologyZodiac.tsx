@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import {AstrologyZodiacView } from "../views";
-import ZodiacCardReading from "@/components/candibar/ZodiacCardReading";
+import ZodiacCardReading from "@/components/candibar/old/ZodiacCardReading";
 
 const AstrologyZodiac: NextPage = (props) => {
 
@@ -23,7 +23,6 @@ const AstrologyZodiac: NextPage = (props) => {
       </Head>
     
       <AstrologyZodiacView />
-      <ZodiacCardReading />
     </div>
   );
 };

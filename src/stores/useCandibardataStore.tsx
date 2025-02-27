@@ -1,5 +1,5 @@
 
-
+// import Aquarious from "../../public/zodiacSignsImg/Aquarius.png"
 import { NFTStatusTypes } from "../models/types";
 
 interface CollectionItem {
@@ -15,6 +15,7 @@ interface CollectionItem {
     isSwappable: boolean;
     zodiacSign?: string;
     zodiacYear?: string;
+    zodiacIcon?: string;
     images: {
         name: string;
         url: string;
@@ -156,6 +157,8 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Capricorn",
+            zodiacIcon: "/zodiacSignsImg/Capricorn.png",
+
             images: [
                 {
                     name: "Capricorn NFT #1",
@@ -191,6 +194,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Aquarius",
+            zodiacIcon: "/zodiacSignsImg/Aquarius.png",
             images: [
                 {
                     name: "Aquarius NFT #1",
@@ -226,6 +230,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Pisces",
+            zodiacIcon: "/zodiacSignsImg/Pisces.png",
             images: [
                 {
                     name: "Pisces NFT #1",
@@ -261,6 +266,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Aries",
+            zodiacIcon: "/zodiacSignsImg/Aries.png",
             images: [
                 {
                     name: "Aries NFT #1",
@@ -296,6 +302,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Taurus",
+            zodiacIcon: "/zodiacSignsImg/Taurus.png",
             images: [
                 {
                     name: "Taurus NFT #1",
@@ -333,6 +340,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Gemini",
+            zodiacIcon: "/zodiacSignsImg/Gemini.png",
             images: [
                 {
                     name: "Gemini NFT #1",
@@ -368,6 +376,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Cancer",
+            zodiacIcon: "/zodiacSignsImg/Cancer.png",
             images: [
                 {
                     name: "Cancer NFT #1",
@@ -403,6 +412,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Leo",
+            zodiacIcon: "/zodiacSignsImg/Leo.png",
             images: [
                 {
                     name: "Leo NFT #1",
@@ -438,6 +448,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Virgo",
+            zodiacIcon: "/zodiacSignsImg/Virgo.png",
             images: [
                 {
                     name: "Virgo NFT #1",
@@ -476,6 +487,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Libra",
+            zodiacIcon: "/zodiacSignsImg/Libra.png",
             images: [
                 {
                     name: "Libra NFT #1",
@@ -511,6 +523,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Scorpio",
+            zodiacIcon: "/zodiacSignsImg/Scorpio.png",
             images: [
                 {
                     name: "Scorpio NFT #1",
@@ -546,6 +559,7 @@ function getCollectionItems(): CollectionItem[] {
             isSwappable: false,
             collectionStatus: NFTStatusTypes.Available,
             zodiacSign: "Sagittarius",
+            zodiacIcon: "/zodiacSignsImg/Sagittarius.png",
             images: [
                 {
                     name: "Sagittarius NFT #1",

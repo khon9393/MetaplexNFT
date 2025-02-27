@@ -34,7 +34,7 @@ export default function HoroscopeModal({ sign, month, year, isOpen, onClose }: H
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[80vh] overflow-hidden">
             <Dialog.Title className="text-3xl font-bold text-gray-900 dark:text-white">
               {sign} Horoscope {month && ` - ${month}`} {year && `(${year})`}

@@ -6,6 +6,7 @@ import parse from "html-react-parser";
 import Link from "next/link";
 import Head from "next/head";
 
+
 export default function HoroscopePage() {
   const router = useRouter();
   const { sign } = router.query;
@@ -70,6 +71,14 @@ export default function HoroscopePage() {
           </div>
         )}
       </div>
+
+      {/* ✅ Close Button to Return to Previous Page */}
+      <button
+        onClick={() => router.back()}
+        className="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
+      >
+        Close and Return
+      </button>
 
       {/* ✅ Zodiac Sign Navigation */}
       <div className="mt-8 p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg w-full max-w-xl">
