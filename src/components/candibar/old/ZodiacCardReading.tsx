@@ -2,7 +2,8 @@
 
 import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
-
+// import appletouchIcon from "../../../public/zodiacSignsImg/apple-touch-icon.png";
+ import Aquarius from "../../../public/zodiacSignsImg/Aquarius.png";
 
 import {
   Button
@@ -13,7 +14,7 @@ import { Card } from "src/components/ui/card";
 import { motion } from "framer-motion";
 import { NFTStatusTypes } from "@/models/types";
 import Head from "next/head";
-import HoroscopeModal from "./HoroscopeModal";
+import HoroscopeModal from "../HoroscopeModal";
 
 const ZodiacCardReading: FC = () => {
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
@@ -58,6 +59,23 @@ const ZodiacCardReading: FC = () => {
                     </span>
                   </Link>
                   ))}
+{/* 
+
+                  <Link href="/">
+          
+                    <Image
+                    src={Aquarius}
+                    alt="Candibar Logo"
+                    className="w-4 h-4 rounded-full mx-auto mt-4"
+                    priority
+                    width={100}
+                    height={100}
+                    />
+          
+                  </Link> */}
+
+
+
                 </div>
 
 
