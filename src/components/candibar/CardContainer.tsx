@@ -136,28 +136,27 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                 {machine.zodiacSign && (
                   <div className="rounded-md border">
                     <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                     
-                        {machine.zodiacSign && (
-                          <Image
-                            src={machine.zodiacIcon}
-                            alt="Zodiac Icon"
-                            width={16}
-                            height={16}
-                            className="ml-1"
-                          />
-                        )}
-                         <button 
-                      // className="flex items-center space-x-1"
-                       className="px-2 rounded-md border hover:underline flex justify-center animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
-                       onClick={() => setSelectedSign(machine.zodiacSign || machine.zodiacYear)}
+
+                      {machine.zodiacSign && (
+                        <Image
+                          src={machine.zodiacIcon}
+                          alt="Zodiac Icon"
+                          width={16}
+                          height={16}
+                          className="ml-1"
+                        />
+                      )}
+                      <button
+                        // className="flex items-center space-x-1"
+                        className="px-2 rounded-md border hover:underline flex justify-center animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
+                        onClick={() => setSelectedSign(machine.zodiacSign || machine.zodiacYear)}
                       >
                         <span>{machine.zodiacSign} Zodiac Reading</span>
                       </button>
                     </div>
                   </div>
                 )}
-                  {/* ✅ Show Horoscope Modal When a Sign is Selected */}
-                  {selectedSign && <HoroscopeModal sign={selectedSign} isOpen={true} onClose={() => setSelectedSign(null)} />}
+
 
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
@@ -289,6 +288,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
           </div>
         ))}
       </div>
+      {/* ✅ Show Horoscope Modal When a Sign is Selected */}
+      {selectedSign && <HoroscopeModal sign={selectedSign} isOpen={true} onClose={() => setSelectedSign(null)} />}
     </div>
   );
 };
