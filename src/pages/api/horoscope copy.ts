@@ -48,13 +48,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //   max_tokens: 800,
     // });
     // console.log("OpenAI Response:", response);
-
+    
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo", // 🔄 Switch from "gpt-4" to "gpt-3.5-turbo"
       messages: [{ role: "user", content: `Write a detailed monthly horoscope for ${sign}.
-        - Immediately follow with an <h2> showing the date range for ${sign}
-        - Theme and tone should be all about all candy sugary sweet confections outlook
-	      - Tone should be whimsical, comical, entertaining
+       - Theme and tone should be whimsical, comical, entertaining
+        - Include date of zodiac sign 
         - Include spaces between sections
 	      - Instead of lucky numbers recommend sugary sweet items
         - Do not change background color
@@ -68,6 +67,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       max_tokens: 800,
     });
     console.log("OpenAI Response:", response);
+    
 
     res.status(200).json({ horoscope: response.choices[0].message.content.trim() });
   } catch (error: any) {
