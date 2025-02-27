@@ -17,10 +17,10 @@ export const CandiView: FC = ({ }) => {
       </h1>
 
       <div className="flex flex-col text-xl text-left max-w-5xl mx-auto p-5">
-        <p className="p-2">
+        <h2 className="p-2">
           Welcome to the next evolution of digital assets—where collectibles are as sweet as they look!
-        </p>
-        <p className="p-2">
+        </h2>
+        <h1 className="p-2">
           The Candi NFT Collection isn&rsquo;t just another NFT—it&rsquo;s your
           <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
             &nbsp;key to unlocking Candibar Tokens&nbsp;
@@ -30,10 +30,10 @@ export const CandiView: FC = ({ }) => {
             &nbsp;seamlessly trading&nbsp;
           </span>
           between both worlds.
-        </p>
+        </h1>
 
         <div className="justify-left">
-        <p className="text-xl font-bold text-left  max-w-5xl mx-auto p-2">Why Own a Candi NFT?</p>
+        <h2 className="text-xl font-bold text-left  max-w-5xl mx-auto p-2">Why Own a Candi NFT?</h2>
       <ul className="list-disc list-inside text-left text-xl max-w-5xl mx-auto p-2">
         <li>
           <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
@@ -55,13 +55,13 @@ export const CandiView: FC = ({ }) => {
         </li>
       </ul>
 
-      <p className="text-xl text-left max-w-5xl mx-auto p-2">
+      <h1 className="text-xl text-left max-w-5xl mx-auto p-2">
         Don&rsquo;t just collect—
         <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 animate-pulse">
           be part of something bigger
         </span>.
         Secure your Candi NFT today and step into the future of digital value!
-      </p>
+      </h1>
       </div>
       
       </div>

@@ -15,12 +15,12 @@ export const AstrologySignView: FC = ({ }) => {
 
   return (
     <div>
-        <p className="text-center text-3xl font-extrabold p-3">
+        <h1 className="text-center text-3xl font-extrabold p-3">
           Unlock the future of digital assets with Snake Coin 2025 NFT!
-        </p>
+        </h1>
   
         <div className="flex flex-col text-1xl items-center justify-center p-5">
-          <p className="max-w-7xl leading-relaxed">
+          <h2 className="max-w-7xl leading-relaxed">
             Embodying the wisdom and mystique of the Year of the Snake, this NFT represents
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
               &nbsp;transformation
@@ -42,7 +42,7 @@ export const AstrologySignView: FC = ({ }) => {
               &nbsp;resourcefulness
             </span>.
             &nbsp;Each NFT reflects these qualities through its rarity and value. Seize the opportunity to be part of this zodiac-inspired evolution. Claim your piece of the movement today!
-          </p>
+          </h2>
         </div>
       <CardContainer candyMachineKeys={candyMachineKeys} />
     </div>

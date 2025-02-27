@@ -34,12 +34,12 @@ export const FAQView: FC = ({ }) => {
                 <AccordionTrigger className="text-xl font-bold">Phantom Wallet Request block</AccordionTrigger>
                 <AccordionContent>
                   <div className="text-xl">
-                    <p>
+                    <h4>
                       Due to ongoing issues with Phantom Wallet blocking minting requests, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Solflare provides a hassle-free transaction process, making it the preferred choice for minting.
-                    </p>
-                    <p>
+                    </h4>
+                    <h4>
                       We appreciate your understanding and support as we strive to offer the best possible user experience.
-                    </p>  </div>
+                    </h4>  </div>
 
                   <h2 className="text-xl font-bold">Messages may look like this:</h2>
                   <div className="flex flex-wrap space-x-4">
@@ -57,9 +57,9 @@ export const FAQView: FC = ({ }) => {
               <AccordionItem value="firewall-settings">
                 <AccordionTrigger className="text-xl font-bold">Firewall & Norton Configuration</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-xl">
+                  <h1 className="text-xl">
                     If you are experiencing issues with images or content being blocked, ensure that the following URLs are allowed through your firewall:
-                  </p>
+                  </h1>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>https://entire-wagon-fix.quicknode-ipfs.com/*</li>
                     <li>https://bark-single-melted.quicknode-ipfs.com/*</li>
@@ -68,8 +68,8 @@ export const FAQView: FC = ({ }) => {
                     <li>https://explorer.solana.com/*</li>
                     <li>https://core.metaplex.com/*</li>
                   </ul>
-                  <p className="text-xl font-bold mt-5">Norton Firewall Configuration</p>
-                  <p className="text-xl">Follow these steps to allow the necessary URLs through Norton Firewall:</p>
+                  <h1 className="text-xl font-bold mt-5">Norton Firewall Configuration</h1>
+                  <h1 className="text-xl">Follow these steps to allow the necessary URLs through Norton Firewall:</h1>
                   <ol className="list-decimal pl-5 mt-3 text-xl">
                     <li>Open <strong>Norton</strong> and go to <strong>Settings</strong>.</li>
                     <li>Click on <strong>Firewall</strong>.</li>
