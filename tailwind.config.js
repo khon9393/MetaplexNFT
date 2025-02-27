@@ -1,6 +1,9 @@
 module.exports = {
   mode: "jit",
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}", // ✅ Explicitly include all source files
+  "./pages/horoscope/**/*.{js,ts,jsx,tsx}", // ✅ Explicitly include horoscope pages
+  ],
   darkMode: ["media", "class"],
   theme: {
   	extend: {

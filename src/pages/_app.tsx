@@ -6,8 +6,10 @@ import { AppBar } from '../components/AppBar';
 import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer';
 import Notifications from '../components/Notification'
-require('@solana/wallet-adapter-react-ui/styles.css');
-require('../styles/globals.css');
+// require('@solana/wallet-adapter-react-ui/styles.css');
+// require('../styles/globals.css');
+import "../styles/globals.css"; // ✅ Recommended
+import "@solana/wallet-adapter-react-ui/styles.css"; // ✅ Recommended
 import FirstVisitModal from '@/components/candibar/FirstVisitModal'; // adjust path as necessary
 import appletouch from '../../public/apple-touch-icon.png';
 import { Toaster } from '@/components/ui/toaster';
