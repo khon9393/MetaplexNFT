@@ -76,6 +76,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
           collectionStatus: collection.collectionStatus,
           candibarcost: collection.candibarcost,
           tokenPaymentAmount: balance.tokenPaymentAmount,
+          zodiacSign: collection.zodiacSign,
+          zodiacYear: collection.zodiacYear,
         };
       }));
       setCandyMachines(machines);
@@ -234,6 +236,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                   href="/CardDetails"
                   onClick={() => {
                     sessionStorage.setItem("userData", JSON.stringify({ collectionMint: candyMachines[machineIndex].collectionMint }));
+                    sessionStorage.setItem("userZodiacName", JSON.stringify({ userZodiacName: candyMachines[machineIndex].zodiacSign }));
+                    sessionStorage.setItem("userZodiacYear", JSON.stringify({ userZodiacYear: candyMachines[machineIndex].zodiacYear }));
                   }}
                   className="px-2 hover:underline flex justify-center animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
                 >

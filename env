@@ -73,3 +73,5 @@ NEXT_PUBLIC_RPC_ENABLE_SWAPPING = "1"
 #Social and contact
 NEXT_PUBLIC_RPC_SUPPORT_EMAIL="mailto:candibar.support@candibarnft.io"
 NEXT_PUBLIC_RPC_SOCIAL_X="https://x.com/CandiBarnft"
+
+OPENAI_API_KEY='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'

@@ -24,6 +24,7 @@ import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
 import { NFTStatusTypes } from "@/models/types";
 import Head from "next/head";
+import HoroscopeModal from "@/components/candibar/HoroscopeModal";
 
 const CardDetails: FC = () => {
 
@@ -36,6 +37,9 @@ const CardDetails: FC = () => {
   const [collectionData, setCollectionData] = useState(null);
 
   const [paramCollectionaddress, setParamCollectionaddress] = useState(null);
+  const [paramuserZodiacName, setparamuserZodiacName] = useState(null);
+  const [paramuserZodiacYear, setparamuserZodiacYear] = useState(null);
+  const [selectedSign, setSelectedSign] = useState<string | null>(null);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("userData");
@@ -43,7 +47,23 @@ const CardDetails: FC = () => {
       const parsedData = JSON.parse(storedData);
       setParamCollectionaddress(parsedData.collectionMint);
     }
-  }, []);
+
+    const storedZodicaDataName = sessionStorage.getItem("userZodiacName");
+    if (storedZodicaDataName) {
+      const parsedData = JSON.parse(storedZodicaDataName);
+      setparamuserZodiacName(parsedData.userZodiacName);
+    }
+
+    const storedZodicaDataYear = sessionStorage.getItem("userZodiacYear");
+    if (storedZodicaDataYear) {
+      const parsedData = JSON.parse(storedZodicaDataYear);
+
+      if (parsedData.userZodiacYear === '2025' ) {
+        setparamuserZodiacYear("Year of the woodsnake 2025")
+      }
+    }
+
+  }, [setParamCollectionaddress, paramuserZodiacName,paramuserZodiacYear]);
 
   useEffect(() => {
     const fetchBalances = async () => {
@@ -119,7 +139,7 @@ const CardDetails: FC = () => {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
-        
+
       >
         <div className="w-full md:w-1/2 max-w-[600px] min-w-[400px]" >
           <div className="p-1" >
@@ -231,7 +251,7 @@ const CardDetails: FC = () => {
             <div
               // className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
               className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
-              // style={{ backgroundImage: 'url(https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
+            // style={{ backgroundImage: 'url(https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
             >
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
@@ -398,21 +418,43 @@ const CardDetails: FC = () => {
                         )}
                       </>
                     )
-                  }
-                ].map((item, index) => (
-                    <motion.div
+                    },
+
+                    (paramuserZodiacName || paramuserZodiacYear)
+                    && {
+                    icon: '🔮',
+                    title: 'Zodiac Reading',
+                    desc: (
+                        <>
+                        Discover your NFT&apos;s zodiac reading and how it aligns with your astrological sign.
+                        <br />
+                        <div className="p-2">
+                        <button
+                        onClick={() => setSelectedSign(paramuserZodiacName || paramuserZodiacYear)}
+                        className="p-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition animate-pulse"
+                        >
+                        View {paramuserZodiacName || paramuserZodiacYear} Zodiac Reading
+                        </button>
+                        </div>
+                        </>
+                    )
+                    }
+                    
+                    ].filter(Boolean).map((item, index) => (
+                  <motion.div
                     key={index}
                     whileHover={{ scale: 1.05 }}
                     className="p-4 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
-                    >
+                  >
                     <h3 className="text-xl font-semibold">{item.icon} {item.title}</h3>
                     <p className="mt-2 text-1xl sm:text-1xl break-words max-w-[400px]">
                       {item.desc}
                     </p>
-                    </motion.div>
+                  </motion.div>
                 ))}
               </div>
-
+              {/* ✅ Show Horoscope Modal When a Sign is Selected */}
+              {selectedSign && <HoroscopeModal sign={selectedSign} isOpen={true} onClose={() => setSelectedSign(null)} />}
               <motion.div
                 className="mt-6">
                 ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡

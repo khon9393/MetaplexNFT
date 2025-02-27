@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import {AstrologyZodiacView } from "../views";
+import ZodiacCardReading from "@/components/candibar/ZodiacCardReading";
 
 const AstrologyZodiac: NextPage = (props) => {
 
@@ -20,7 +21,9 @@ const AstrologyZodiac: NextPage = (props) => {
         <meta name="twitter:description" content="Discover the unique Snake NFT on Candibarnft. Explore the astrology zodiac collection and get your exclusive Snake NFT today." />
         <meta name="twitter:image" content="/path/to/snake-nft-image.jpg" />
       </Head>
+    
       <AstrologyZodiacView />
+      <ZodiacCardReading />
     </div>
   );
 };
