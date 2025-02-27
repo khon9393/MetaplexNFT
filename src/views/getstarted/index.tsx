@@ -19,9 +19,9 @@ export const GetStartedView: FC = ({ }) => {
             // className="text-4xl font-bold"
             
             >Getting Started with Candibar Platform and Solana</h1>
-            <p className="mt-2 text-lg font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4">
+            <h4 className="mt-2 text-lg font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4">
               Follow these simple steps to embark on your journey with Solana blockchain and Candibar NFTs.
-            </p>
+            </h4>
           </div>
         </div>
 
@@ -33,12 +33,12 @@ export const GetStartedView: FC = ({ }) => {
               <AccordionItem value="step1">
                 <AccordionTrigger className="text-xl font-bold">Step 1: Get a Wallet</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-xl">
+                  <h3 className="text-xl">
                     The first step to interacting with the Solana blockchain is to set up a wallet.
                     A wallet will allow you to store your SOL tokens and interact with various dApps
                     (decentralized applications) and NFTs. We recommend starting with one of these
                     wallets:
-                  </p>
+                  </h3>
                     <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>
                       <a
@@ -67,11 +67,11 @@ export const GetStartedView: FC = ({ }) => {
               <AccordionItem value="step2">
                 <AccordionTrigger className="text-xl font-bold">Step 2: Fund Your Wallet</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-xl">
+                  <h3 className="text-xl">
                     Once you have your wallet set up, you&apos;ll need to fund it with SOL tokens,
                     which are used for transactions on the Solana blockchain. You can purchase
                     SOL directly within the Solflare Wallet using the Onramper Widget by following these steps:
-                  </p>
+                  </h3>
                   <ul className="list-decimal pl-5 mt-3 text-xl">
                     <li>Open the Solflare Wallet app.</li>
                     <li>Click on the &quot;Buy&quot; button.</li>
@@ -82,9 +82,9 @@ export const GetStartedView: FC = ({ }) => {
                     <li>Once the transaction is confirmed, the SOL will be credited to your wallet.</li>
                     <li>Check your wallet balance to ensure the SOL has been added.</li>
                   </ul>
-                  <p className="mt-4 text-xl">
+                  <h3 className="mt-4 text-xl">
                     Alternatively, you can purchase SOL from trusted cryptocurrency exchanges like:
-                    </p>
+                    </h3>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>
                       <a
@@ -133,19 +133,19 @@ export const GetStartedView: FC = ({ }) => {
 
             <article className="prose prose-invert prose-lg max-w-3xl mx-auto py-10 mt-10">
             <h2 className="text-3xl font-bold mb-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4">Platform Guide Launch Pad</h2>
-            <p className="text-1xl mb-4">
+            <h6 className="text-1xl mb-4">
               Note: All transactions will require a small amount of Solana (SOL) tokens to cover network fees.
-            </p>
+            </h6>
             <Accordion type="single" collapsible={true} defaultValue="step1">
               <AccordionItem value="step1">
                 <AccordionTrigger className="text-xl font-bold">Step 1: Get Candi NFTs</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-xl">
+                  <h2 className="text-xl">
                     Candi NFTs are essential for accessing the Candibar platform. 
                     They grant you entry to exclusive features, rewards, and the vibrant Candibar community. 
                     Additionally, they can be exchanged for official Candibar tokens, which can be used to purchase items in the Candibar marketplace. 
                     You can mint them directly from our offical website here:
-                  </p>
+                  </h2>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>
                       <Link href="/Candi" className="text-blue-300 hover:underline">
@@ -159,11 +159,11 @@ export const GetStartedView: FC = ({ }) => {
               <AccordionItem value="step2">
                 <AccordionTrigger className="text-xl font-bold">Step 2: Swap Candi NFTs for Candibar Tokens</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-xl">
+                  <h2 className="text-xl">
                     Once you have your Candi NFTs, you can swap them for Candibar tokens. 
                     These tokens are used for transactions within the Candibar ecosystem and can be traded on various exchanges in the near future. 
                     To swap your Candi NFTs for Candibar tokens, follow these steps (and imagine you&apos;re visiting the Jade Emperor to make the swap!):
-                  </p>
+                  </h2>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                     <li>Go to the <Link href="/nftswap" className="text-blue-300 hover:underline">Candibar Swap Page</Link>.</li>
                     <li>Connect your wallet by clicking on the &quot;Select Wallet&quot; button.</li>
@@ -176,12 +176,12 @@ export const GetStartedView: FC = ({ }) => {
               <AccordionItem value="step3">
                 <AccordionTrigger className="text-xl font-bold">Step 3: Redeem or Swap NFTs in the Marketplace</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-xl mt-4">
+                  <h2 className="text-xl mt-4">
                   After swapping your Candi NFTs for Candibar tokens, you can use them to acquire exclusive items in the Candibar marketplace or swap them for other NFTs. 
                   The marketplace offers a variety of items, including limited-edition NFTs, collectibles, and more. 
                   Additionally, you can use your Candibar tokens to obtain exclusive Candibar collection NFTs, such as the Candi-inspired Zodiac collection. 
                   To redeem or swap your NFTs, follow these steps:
-                  </p>
+                  </h2>
                   <ul className="list-disc pl-5 mt-3 text-xl">
                   <li>Connect your wallet by clicking on the &quot;Select Wallet&quot; button.</li>
                   <li>Go to the <Link href="/AstrologyZodiac" className="text-blue-300 hover:underline">Zodiac collection Page</Link>.</li>

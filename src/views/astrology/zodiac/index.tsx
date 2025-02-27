@@ -39,12 +39,12 @@ export const AstrologyZodiacView: FC = ({ }) => {
   return (
   <div>
 
-<p className="text-center text-3xl font-extrabold p-3">
+<h1 className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with candi confection art NFT!
-      </p>
+      </h1>
 
       <div className="flex flex-col text-1xl items-center justify-center p-5">
-        <p className="max-w-7xl leading-relaxed">
+        <h2 className="max-w-7xl leading-relaxed">
           Step into the cosmic realm of the Zodiac with this exclusive NFT collection, embodying the essence of
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
             &nbsp;destiny
@@ -68,7 +68,7 @@ export const AstrologyZodiacView: FC = ({ }) => {
           </span>.
           Each NFT is crafted to reflect the qualities and cosmic influence of its sign, making it a unique addition to your digital portfolio.
           Seize this rare opportunity to connect with the power of the Zodiac—collect yours today!
-        </p>
+        </h2>
       </div>
 
         <CardContainer candyMachineKeys={candyMachineKeys} />
