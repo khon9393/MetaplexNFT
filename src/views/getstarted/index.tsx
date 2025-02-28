@@ -119,15 +119,6 @@ export const GetStartedView: FC = ({ }) => {
                   </ul>
                 </AccordionContent>
               </AccordionItem>
-
-              {/* <AccordionItem value="step3">
-                <AccordionTrigger className="text-xl font-bold">Step 3: Start Exploring</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-xl">
-                    Now that your wallet is set up and funded, you&apos;re ready to return to the home page and connect your wallet to claim your Candibar Collection NFTs. Start your journey and secure your piece of this exclusive collection today!
-                  </p>
-                </AccordionContent>
-              </AccordionItem> */}
             </Accordion>
           </article>
 
