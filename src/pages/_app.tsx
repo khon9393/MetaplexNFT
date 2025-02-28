@@ -25,7 +25,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             <title>Candibar NFTs - Buy, Trade, Sell, NFT, Candibar Tokens</title>
             <meta
               name="description"
-              content="Candibar NFTs - Buy, Trade, and Sell Unique Digital Assets | Candibar Tokens Marketplace | Discover Rare NFTs, Collectibles, and Digital Art | Secure and Fast Transactions | Join the Candibar Community Today"
+              content="Candibar NFTs - Buy, Trade, and Sell Unique Digital Assets. Candibar Tokens Marketplace. Discover Rare NFTs, Collectibles, and Digital Art. Secure and Fast Transactions. Join the Candibar Community Today."
             />
             <meta name="keywords" content="Candibar, NFTs, Buy NFTs, Trade NFTs, Sell NFTs, Candibar Tokens, Digital Assets, Collectibles, Digital Art, NFT Marketplace" />
             <meta name="author" content="Candibar" />
