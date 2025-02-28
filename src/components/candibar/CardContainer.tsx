@@ -140,12 +140,13 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                       {machine.zodiacSign && (
                         <Image
                           src={machine.zodiacIcon}
-                          alt="Zodiac Icon"
-                          width={16}
-                          height={16}
-                          className="ml-1"
+                          alt={`${machine.zodiacIcon} Zodiac Icon`}
+                          width={100}
+                          height={100}
+                          className="ml-1 w-6 h-6"
                         />
                       )}
+                      
                       <button
                         className="px-2 rounded-md border hover:underline flex justify-center animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
                         onClick={() => setSelectedSign(machine.zodiacSign || machine.zodiacYear)}
