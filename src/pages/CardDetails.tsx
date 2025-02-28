@@ -245,16 +245,9 @@ const CardDetails: FC = () => {
         </div>
 
         {candyMachines[0]?.images.length > 0 && (
-          <div className="p-1 
-          
-          ">
-            <div
-              // className="flex-col justify-center max-w-screen-md mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
-              className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]"
-            // style={{ backgroundImage: 'url(https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmPZVgoX9kmpzURvJS98oAhAw1aftQ3fomqzK5V9dR8X69)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
-            >
+          <div className="p-1">
+            <div className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl min-w-[400px]">
               <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
-
 
               {candyMachines.map((machine, machineIndex) => (
                 <div key={machine.id} >
@@ -431,8 +424,7 @@ const CardDetails: FC = () => {
                         <div className="p-2">
                         <button
                         onClick={() => setSelectedSign(paramuserZodiacName || paramuserZodiacYear)}
-                        className="p-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition animate-pulse"
-                        >
+                        className="px-2 p-2 rounded-md border hover:underline animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500">
                         View {paramuserZodiacName || paramuserZodiacYear} Zodiac Reading
                         </button>
                         </div>

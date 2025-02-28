@@ -54,8 +54,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       messages: [{ role: "user", content: `Write a detailed monthly horoscope for ${sign}.
         - Immediately follow with an <h2> showing the date range for ${sign}
         - Theme and tone should be all about all candy sugary sweet confections outlook
-	      - Tone should be whimsical, comical, entertaining
+	      - Tone should be whimsical, comical, entertaining, funny, joking
         - Include spaces between sections
+        - Include spaces brfore recommend sugary sweet items
 	      - Instead of lucky numbers recommend sugary sweet items
         - Do not change background color
         - For <h2> style use text-2xl p-2 font-Seibold text-indigo-700 dark:text-indigo-300
