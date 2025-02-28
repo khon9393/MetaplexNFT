@@ -23,12 +23,16 @@ const Home: NextPage = (props) => {
       </Head>
       <main>
 
-        <h1 className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4">Candibar NFTs - Buy, Trade, and Sell Digital Collectibles</h1>
-        <p className="text-center text-2xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4">Find unique NFTs and join the Candibar community.</p>
+        <h1 className="p-3 text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4">
+          Candibar NFTs - Buy, Trade, and Sell Digital Collectibles
+          </h1>
+        <h2 className="text-center text-2xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4">
+          Find unique NFTs and join the Candibar community.
+          </h2>
       </main>
       <HomeView />
 
-      <div className="text-center items-center text-xs text-gray-500 border-t border-gray-500 pt-4">
+      {/* <div className="text-center items-center text-xs text-gray-500 border-t border-gray-500 pt-4">
   <div className="container mx-auto flex justify-center w-full max-w-4xl text-left">
     <table className="">
       <tbody>
@@ -61,7 +65,7 @@ const Home: NextPage = (props) => {
       </tbody>
     </table>
   </div>
-</div>
+</div> */}
 
 <div className="border-t border-gray-500 pt-4 p-0"></div>
       </div>

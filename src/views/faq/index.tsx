@@ -28,7 +28,7 @@ export const FAQView: FC = ({ }) => {
         <main className="container mx-auto px-6 py-10 ">
           <article className="prose prose-invert prose-lg max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Fequently Asked Questions</h2>
-            <Accordion type="single" collapsible >
+            <Accordion type="single" collapsible={true} >
               <AccordionItem value="Phantom-Request-block"></AccordionItem>
               <AccordionItem value="Phantom-Request-block">
                 <AccordionTrigger className="text-xl font-bold">Phantom Wallet Request block</AccordionTrigger>
