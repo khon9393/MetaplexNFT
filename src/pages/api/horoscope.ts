@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         - Use <h2> for sections (Overview, Love, Career, etc.)
         - Use <p> for body text
         - Use <ul><li> for lucky days and colors
-        - End with a motivational quote in <blockquote> 
+        - End with a riskay sightly offensive quote in <blockquote> 
         - For <blockquote> style use text-lg italic text-gray-600 dark:text-gray-400 p-2`
       }],
       max_tokens: 800,
