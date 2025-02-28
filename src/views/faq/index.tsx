@@ -28,9 +28,9 @@ export const FAQView: FC = ({ }) => {
         <main className="container mx-auto px-6 py-10 ">
           <article className="prose prose-invert prose-lg max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Fequently Asked Questions</h2>
-            <Accordion type="single" collapsible defaultValue="Phaonm-Request-block" >
-              <AccordionItem value="Phaonm-Request-block"></AccordionItem>
-              <AccordionItem value="Phaonm-Request-block">
+            <Accordion type="single" collapsible >
+              <AccordionItem value="Phantom-Request-block"></AccordionItem>
+              <AccordionItem value="Phantom-Request-block">
                 <AccordionTrigger className="text-xl font-bold">Phantom Wallet Request block</AccordionTrigger>
                 <AccordionContent>
                   <div className="text-xl">
@@ -52,8 +52,6 @@ export const FAQView: FC = ({ }) => {
                   </div>
                 </AccordionContent>
               </AccordionItem>
-
-
               <AccordionItem value="firewall-settings">
                 <AccordionTrigger className="text-xl font-bold">Firewall & Norton Configuration</AccordionTrigger>
                 <AccordionContent>
@@ -83,34 +81,6 @@ export const FAQView: FC = ({ }) => {
                   </ol>
                 </AccordionContent>
               </AccordionItem>
-
-              {/* <AccordionItem value="view-nft-phantom">
-                <AccordionTrigger className="text-xl font-bold">If Not Able To View Your NFT In Phantom Wallet</AccordionTrigger>  <AccordionContent>
-                  <p className="text-xl">
-                    If you can't see your NFTs in the Phantom wallet, visit&nbsp;
-                    <Link href="https://core.metaplex.com" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-                      Metaplex Core
-                    </Link>
-                    &nbsp;and click on the "Connect Wallet" button. This will allow you to connect your Phantom wallet and view your NFTs.
-                  </p>
-                  <p className="text-xl">
-                    If you are still having issues, you can also try using the <strong>Solana Explorer</strong> to check your wallet balance and transactions.&nbsp;
-                    <Link href="https://explorer.solana.com" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-                      Solana Explorer
-                    </Link>
-                    &nbsp;is a blockchain explorer for the Solana network that allows you to view your wallet balance, transaction history, and other information.
-                  </p>
-                  <p className="text-xl">
-                    If you are still having issues, you can also try using the <strong>Solscan</strong> to check your wallet balance and transactions.&nbsp;
-                    <Link href="https://solscan.io" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-                      Solscan
-                    </Link>
-                    &nbsp;is a blockchain explorer for the Solana network that allows you to view your wallet balance, transaction history, and other information.
-                  </p>
-                </AccordionContent>
-              </AccordionItem> */}
-
-
             </Accordion>
           </article>
         </main>
