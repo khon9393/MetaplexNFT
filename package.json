@@ -19,7 +19,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "node src/sitemap-generator.js"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
@@ -777,6 +778,7 @@
     "react-remove-scroll": "^2.6.2",
     "react-remove-scroll-bar": "^2.3.8",
     "react-router-dom": "^7.1.5",
+    "react-router-sitemap": "^1.2.0",
     "react-style-singleton": "^2.2.3",
     "react-swipeable": "^7.0.2",
     "react-universal-interface": "^0.6.2",
@@ -1049,6 +1051,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@types/node": "^22.13.5",
     "@types/react": "19.0.8"
   }
 }

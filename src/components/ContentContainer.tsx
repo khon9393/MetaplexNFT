@@ -71,7 +71,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           <li>
             <NavElement
               label="FAQ"
-              href="faq"
+              href="/faq"
               source='mobile'
             />
           </li>
