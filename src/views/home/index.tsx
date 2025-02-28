@@ -150,8 +150,8 @@ export const HomeView: FC = ({ }) => {
         Join the Ranks of Our Early Sponsors and Donors
         </h1>
         <h2 
-        className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
-        
+        //className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
+        className="text-2xl mt-2 md:w-[70%] mx-auto flex-col items-center font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
         >
         Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way. 
         Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
@@ -237,14 +237,18 @@ export const HomeView: FC = ({ }) => {
         </div>
       </Carousel>
 
-      <div className="text-center mt-8 p-8">
+      <div className="text-center mt-8 p-3">
         <h2
-        className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
+        // className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
+         className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
         >
           Candibar Promotional NFT Collection
         </h2>
         {/* <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens, plus a small SOL transaction fee.</p> */}
-        <h2 className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">
+        <h2 
+        // className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
+         className="text-2xl mt-2 md:w-[70%] mx-auto flex-col items-center font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
+        >
         Candi NFTs can be exchanged for Candibar Tokens, which can then be used to acquire exclusive collections in the Candibar NFT marketplace.
         </h2>
       </div>
@@ -256,12 +260,16 @@ export const HomeView: FC = ({ }) => {
 
       <div className="text-center mt-8 p-10">
         <h1 
-        className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4"
+       className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
         >
-          Exclusive Featured Zodiac Candi Confection Art NFT Collection
+       Exclusive Featured Zodiac Candi Confection Art NFT Collection
         </h1>
+
         {/* <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens, plus a small SOL transaction fee.</p> */}
-        <h2 className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">
+        <h2 
+        // className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
+         className="text-2xl mt-2 md:w-[70%] mx-auto flex-col items-center font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
+        >
           Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
           </h2>
           <h5 className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">
