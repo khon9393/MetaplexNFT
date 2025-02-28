@@ -136,7 +136,7 @@ export const GetStartedView: FC = ({ }) => {
             <h6 className="text-1xl mb-4">
               Note: All transactions will require a small amount of Solana (SOL) tokens to cover network fees.
             </h6>
-            <Accordion type="single" collapsible={true} defaultValue="step1">
+            <Accordion type="single" collapsible={true}>
               <AccordionItem value="step1">
                 <AccordionTrigger className="text-xl font-bold">Step 1: Get Candi NFTs</AccordionTrigger>
                 <AccordionContent>
