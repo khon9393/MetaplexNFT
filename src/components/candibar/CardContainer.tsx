@@ -147,7 +147,6 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                         />
                       )}
                       <button
-                        // className="flex items-center space-x-1"
                         className="px-2 rounded-md border hover:underline flex justify-center animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
                         onClick={() => setSelectedSign(machine.zodiacSign || machine.zodiacYear)}
                       >
