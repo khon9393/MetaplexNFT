@@ -20,7 +20,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "node src/sitemap-generator.js"
+    "postbuild": "node sitemap-generator.js"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
