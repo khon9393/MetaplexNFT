@@ -1,9 +1,9 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { notify } from "../../utils/notifications";
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { generateSigner, transactionBuilder, publicKey, some } from '@metaplex-foundation/umi';
+import { generateSigner, transactionBuilder, publicKey, some, TransactionBuilderSendAndConfirmOptions } from '@metaplex-foundation/umi';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { findAssociatedTokenPda, setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
@@ -16,8 +16,15 @@ import { getCandyMachinesBalance } from '../../lib/candymachine/fetchCandyMachin
 import { Spinner } from '../ui/spinner';
 import fetchCandyGuardUserMintlimit from "../../lib/candymachine/fetchCandyGuard"
 import { toast } from "../../hooks/use-toast";
-import umiWithCurrentWalletAdapter from '@/lib/umi/umiWithCurrentWalletAdapter';
-import useEscrowStore from '@/stores/useEscrowStore';
+import { formatTokenAmount } from '@/lib/utils';
+import fetchTokenBalance from "../../lib/fetchTokenBalance";
+import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+
+const options: TransactionBuilderSendAndConfirmOptions = {
+  send: { skipPreflight: true },
+  confirm: { commitment: "confirmed" }
+};
+
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
@@ -35,7 +42,7 @@ interface CandiMintersProps {
   buttonText?: string;
 }
 
-export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress,buttonText}) => {
+export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress,buttonText}) => {
 
   const { connection } = useConnection();
   const wallet = useWallet();
@@ -46,7 +53,7 @@ export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, co
 
   const { width, height } = useViewportSize(); // Dynamically get window size
   const [isTransacting, setIsTransacting] = useState(false);
-  const { escrow } = useEscrowStore();
+
   // Create an Umi instance
   const umi = useMemo(() =>
     createUmi(quicknodeEndpoint)
@@ -55,10 +62,6 @@ export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, co
       .use(mplTokenMetadata()),
     [wallet]
   );
-
-    // const umi = umiWithCurrentWalletAdapter()
-    // .use(mplCandyMachine())
-    // .use(mplTokenMetadata());
 
   const onClick = useCallback(async () => {
     setIsTransacting(true);
@@ -71,17 +74,48 @@ export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, co
     }
 
 
-
     try {
 
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
-      const usermitlimit = fetchCandyGuardUserMintlimit( umi.identity.publicKey.toString()
+      const AmountAlreadyMinted = fetchCandyGuardUserMintlimit( umi.identity.publicKey.toString()
                                                           ,candyMachineaddress
                                                           ,results[0].candyGuardpk
                                                           ,results[0].candyGuardId)
-                      
-      if(Number(usermitlimit) ===-1 || (Number(usermitlimit) === results[0].candyGuardMinLimit))
+
+      let userTokenbalance;
+      try {
+        userTokenbalance = await fetchTokenBalance(tokenMint, wallet.publicKey.toString());
+        userTokenbalance =  formatTokenAmount(userTokenbalance.amount, 8)
+      } catch (error) {
+        userTokenbalance = 0;
+      }
+
+       const usersolbalance = await getUserSOLBalance(wallet.publicKey);
+
+      //must be greater than and not equal to.
+      //must be greater than to cover transaction fees.
+      if (Number(usersolbalance) <= results[0].SolCost) {
+        toast({
+          title: "Not enough solana SOL amount.",
+          description: `SOL balance: ${usersolbalance} Sol Tokens not enough to mint!`,
+          variant: "Warning",
+        });
+        setIsTransacting(false);
+        return;
+      }
+      
+      if (results[0].tokenPaymentAmount > 0 && (userTokenbalance < results[0].tokenPaymentAmount)) {
+          toast({
+            title: "Not Enough Candibar Tokens.",
+            description: `NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`,
+            variant: "Warning",
+          });
+          setIsTransacting(false);
+          return;
+      }
+
+      if(results[0].candyGuardMinLimit>0 && (Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit))
       {
         toast({
           title: "Wallet Mint Limit Reached",
@@ -118,9 +152,11 @@ export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, co
         );
 
 
-      const { signature } = await transaction.sendAndConfirm(umi, {
-        confirm: { commitment: "confirmed" },
-      });
+      // const { signature } = await transaction.sendAndConfirm(umi, {
+      //   confirm: { commitment: "confirmed" },
+      // });
+
+      const { signature } = await transaction.sendAndConfirm(umi, options);
 
       const txid = bs58.encode(signature);
 
@@ -128,14 +164,6 @@ export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, co
         title: "Successful",
             description: "Mint successful!",
         });
-
-      // toast({
-      //   title: "Successful",
-      //       description: candyMachineKeysforConfetti[0].toString() +'\n'+ candyMachineaddress,
-      //   });
-
-
-      getUserSOLBalance(wallet.publicKey);
 
       if(candyMachineKeysforConfetti[0].toString() == candyMachineaddress)
       {
@@ -233,4 +261,4 @@ export const CandiMinterTest: FC<CandiMintersProps> = ({ candyMachineaddress, co
     </div>
   );
 };
- export default CandiMinterTest;
+ export default CandiMinter;

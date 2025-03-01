@@ -15,7 +15,7 @@ const routes = [
   "/AstrologySign",
  "/AstrologySign",
   "/faq",
-  "/horoscope/:[sign]", // Dynamic route example (replace with actual slugs)
+
 ];
 
 // Generate sitemap

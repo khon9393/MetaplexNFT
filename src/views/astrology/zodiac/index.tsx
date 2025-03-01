@@ -2,6 +2,7 @@
 import { FC, useMemo } from "react";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
+import { UmiProvider } from "@/providers/umiProvider";
 
 export const AstrologyZodiacView: FC = ({ }) => {
 ``
@@ -70,8 +71,7 @@ export const AstrologyZodiacView: FC = ({ }) => {
           Seize this rare opportunity to connect with the power of the Zodiac—collect yours today!
         </h2>
       </div>
-
-        <CardContainer candyMachineKeys={candyMachineKeys} />
+      <CardContainer candyMachineKeys={candyMachineKeys} />
   </div>
   );
 };

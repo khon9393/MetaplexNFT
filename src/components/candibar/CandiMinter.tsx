@@ -18,7 +18,7 @@ import fetchCandyGuardUserMintlimit from "../../lib/candymachine/fetchCandyGuard
 import { toast } from "../../hooks/use-toast";
 import { formatTokenAmount } from '@/lib/utils';
 import fetchTokenBalance from "../../lib/fetchTokenBalance";
-import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+import CandibarModal from "../../components/candibar/CandibarModal";
 
 const options: TransactionBuilderSendAndConfirmOptions = {
   send: { skipPreflight: true },
@@ -53,6 +53,10 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
   const { width, height } = useViewportSize(); // Dynamically get window size
   const [isTransacting, setIsTransacting] = useState(false);
+
+  const [isCandibarModalOpen, setIsCandibarModalOpen] = useState(false);
+  const [CandibarModalTitle, setCandibarModalTitle] = useState<string>('');
+  const [CandibarModalMsgTxt, setCandibarModalMsgTxt] = useState<string>('');
 
   // Create an Umi instance
   const umi = useMemo(() =>
@@ -96,32 +100,30 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       //must be greater than and not equal to.
       //must be greater than to cover transaction fees.
       if (Number(usersolbalance) <= results[0].SolCost) {
-        toast({
-          title: "Not enough solana SOL amount.",
-          description: `SOL balance: ${usersolbalance} Sol Tokens not enough to mint!`,
-          variant: "Warning",
-        });
+
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Not enough solana SOL amount.");
+        setCandibarModalMsgTxt(`NFT requires: ${results[0].SolCost} SOL`);
         setIsTransacting(false);
         return;
       }
       
       if (results[0].tokenPaymentAmount > 0 && (userTokenbalance < results[0].tokenPaymentAmount)) {
-          toast({
-            title: "Not Enough Candibar Tokens.",
-            description: `NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`,
-            variant: "Warning",
-          });
-          setIsTransacting(false);
-          return;
+          
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Not Enough Candibar Tokens.");
+        setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`);
+        setIsTransacting(false);
+        return;
       }
 
       if(results[0].candyGuardMinLimit>0 && (Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit))
       {
-        toast({
-          title: "Wallet Mint Limit Reached",
-          description: `Wallet max mint limit of ${results[0].candyGuardMinLimit} reached. Unable to mint!`,
-          variant: "destructive",
-        });
+
+
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Wallet Mint Limit Reached");
+        setCandibarModalMsgTxt(`Wallet max mint limit of ${results[0].candyGuardMinLimit} reached. Unable to mint!`);
         setIsTransacting(false);
         return; 
       }
@@ -258,6 +260,15 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           />
         </div>
       )}
+
+        {isCandibarModalOpen && (
+                  <CandibarModal
+                      isOpen={isCandibarModalOpen}
+                      onClose={() => setIsCandibarModalOpen(false)}
+                      MessageTitle={CandibarModalTitle}
+                      MessageTxt={CandibarModalMsgTxt}
+                  />
+                  )}
     </div>
   );
 };
