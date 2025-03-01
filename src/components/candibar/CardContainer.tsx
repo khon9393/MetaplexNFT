@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect, FC, useMemo } from "react";
+import React, { useState, useEffect, FC, useMemo, useRef } from "react";
 import Image from 'next/image'
 
 import { getCandyMachinesBalance } from '../../lib/candymachine/fetchCandyMachines';
@@ -15,14 +15,19 @@ import { Card, CardContent } from "src/components/ui/card"
 import { getCollection } from "../../stores/useCandibardataStore";
 import Link from "next/link";
 import { NFTStatusTypes } from "@/models/types";
-import HoroscopeModal from "./HoroscopeModal";
+import HoroscopeModal from "./ZodiacReader/HoroscopeModal";
+import fetchTokenBalance from "../../lib/fetchTokenBalance";
+import { formatTokenAmount } from "@/lib/utils";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { ZodiacReading } from "./ZodiacReader/ZodiacReading";
+
+const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
 
 interface CandyMachineKeysProps {
   candyMachineKeys: PublicKey[];
 }
 
 export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) => {
-  const [selectedSign, setSelectedSign] = useState<string | null>(null);
 
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -117,11 +122,20 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
             <Card className="w-80 h-full rounded-lg">
               <span className="text-1xl font-semibold">
 
-                <div className="flex items-center justify-between space-x-4 px-4">
-                  <h4 className="text-sm font-semibold p-1">
-                    {machine.collectionName}
+                  <h4 className="text-sm font-semibold p-1 flex items-center">
+                  {machine.zodiacSign && (
+                    <Image
+                    src={machine.zodiacIcon}
+                    alt={`${machine.zodiacIcon} Zodiac Icon`}
+                    width={100}
+                    height={100}
+                    className="ml-1 w-6 h-6 rounded-full border border-gray-300 p-0"
+                    />
+                  )}
+                  &nbsp;
+                  {machine.collectionName}
                   </h4>
-                </div>
+      
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
                     {machine.collectionSubtitles}
@@ -130,29 +144,12 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
                     mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                  </div>
                 </div>
-
+                </div>
                 {machine.zodiacSign && (
                   <div className="rounded-md border">
                     <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-
-                      {machine.zodiacSign && (
-                        <Image
-                          src={machine.zodiacIcon}
-                          alt={`${machine.zodiacIcon} Zodiac Icon`}
-                          width={100}
-                          height={100}
-                          className="ml-1 w-7 h-7 rounded-full border border-gray-300 p-0"
-                        />
-                      )}
-                   &nbsp;
-                        <button
-                        className="px-6 rounded-md border hover:underline flex justify-center animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
-                        onClick={() => setSelectedSign(machine.zodiacSign || machine.zodiacYear)}
-                        >
-                        <span>{machine.zodiacSign} Zodiac Reading</span>
-                        </button>
+                        <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear}  />
                     </div>
                   </div>
                 )}
@@ -287,9 +284,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
             </Card>
           </div>
         ))}
-      </div>
-      {/* ✅ Show Horoscope Modal When a Sign is Selected */}
-      {selectedSign && <HoroscopeModal sign={selectedSign} isOpen={true} onClose={() => setSelectedSign(null)} />}
+      </div>       
     </div>
   );
 };

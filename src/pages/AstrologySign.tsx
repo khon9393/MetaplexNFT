@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { AstrologySignView } from "../views";
-import ZodiacCardReading from "@/components/candibar/old/ZodiacCardReading";
 
 const AstrologySign: NextPage = (props) => {
 
