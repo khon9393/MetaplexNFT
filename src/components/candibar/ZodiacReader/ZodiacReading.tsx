@@ -73,9 +73,9 @@ export const ZodiacReading: FC<ZodiacReadingProps> = (sign) => {
                 MessageTitle="Candibar Token Required"
                 MessageTxt={
                     <>
-                        No tokens found. You must hold at least one Candibar token to read your horoscope.
+                        No Candibar tokens detected. You need at least one Candibar token to access your horoscope reading.
                         <br /><br />
-                        Please visit Getting Started on guide to obtaining tokens.
+                        Please refer to the Getting Started guide to learn how to obtain tokens.
                     </>
                 }
             />
