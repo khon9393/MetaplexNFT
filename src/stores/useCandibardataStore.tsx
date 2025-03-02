@@ -135,10 +135,10 @@ function getCollectionItems(): CollectionItem[] {
             collectionStatus: NFTStatusTypes.Available,
             images: [
 
-                { name: "Candi NFT 2025 #1", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmYJ4d44GLtHCvMJQsuTAqznvoDEZZyKmjhgwuEhjWYdpo" },
-                { name: "Candi NFT 2025 #2", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmdyA45Tw3nfZnUUjgawh9QdpscNgY8sg1nMpe8JME1UmQ" },
-                { name: "Candi NFT 2025 #3", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmbjeEgD5aGMgFFpX3MWsvxDxzhGQDT9KCLroB5htgE7Gg" },
-                { name: "Candi NFT 2025 #4", url: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmNknJSTgZTuxTkn9RP8HtPxQjeyzo69Eq476juYyym4Tu" },
+                { name: "Candi NFT 2025 #1", url: "https://kslav1upda8ecner.public.blob.vercel-storage.com/CandibarImg/Candi/candi_00_500-2WxvpIIqCmHZBtBjBZTNYPzf8RRrCP.jpg" },
+                { name: "Candi NFT 2025 #2", url: "https://kslav1upda8ecner.public.blob.vercel-storage.com/CandibarImg/Candi/candi_01_500-y4ReaS9fjPQCDGtPEK2ELI5oJ5LTPy.jpg" },
+                { name: "Candi NFT 2025 #3", url: "https://kslav1upda8ecner.public.blob.vercel-storage.com/CandibarImg/Candi/candi_02_500-BcGaCj5UpkRskrh4gsbp7Ihcx1WgJ1.jpg" },
+                { name: "Candi NFT 2025 #4", url: "https://kslav1upda8ecner.public.blob.vercel-storage.com/CandibarImg/Candi/candi_03_500-WTiNFp0A2zWdz3mx5eXCAMa0YNwIAE.jpg" },
             ],
             candimachineeaddress: process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05,
         },
