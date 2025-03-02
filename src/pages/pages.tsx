@@ -1,24 +1,25 @@
-import { useState, useEffect } from 'react';
+import { FC } from 'react';
 
-export default function DisplayImage() {
-  const [imageUrl, setImageUrl] = useState('');
+const images = [
+  { path: 'CandibarImg/Candi/candi_00_500-2WxvpIIqCmHZBtBjBZTNYPzf8RRrCP.jpg', alt: 'User Avatar' },
+  { path: 'CandibarImg/Candi/candi_01_500-y4ReaS9fjPQCDGtPEK2ELI5oJ5LTPy.jpg', alt: 'Product Image' },
+  { path: 'CandibarImg/Candi/candi_02_500-BcGaCj5UpkRskrh4gsbp7Ihcx1WgJ1.jpg', alt: 'Website Banner' },
+  { path: 'CandibarImg/Candi/candi_03_500-WTiNFp0A2zWdz3mx5eXCAMa0YNwIAE.jpg', alt: 'Website Banner' }
+];
 
-  useEffect(() => {
-    async function fetchImage() {
-      // Replace with your stored image URL
-      const url = 'https://kslav1upda8ecner.public.blob.vercel-storage.com/CandibarImg/Candi/candi_00_500-2WxvpIIqCmHZBtBjBZTNYPzf8RRrCP.jpg';
-      setImageUrl(url);
-    }
-    fetchImage();
-  }, []);
-
+const DisplayImages: FC = () => {
   return (
     <div>
-      {imageUrl ? (
-        <img src={imageUrl} alt="Uploaded Blob" style={{ maxWidth: '100%' }} />
-      ) : (
-        <p>Loading image...</p>
-      )}
+      {images.map(({ path, alt }) => (
+        <img
+          key={path}
+          src={`/api/image/${path}`} // Dynamically fetch images
+          alt={alt}
+          style={{ maxWidth: '100%', margin: '10px' }}
+        />
+      ))}
     </div>
   );
-}
+};
+
+export default DisplayImages;
