@@ -66,31 +66,31 @@ const items = [
 
   {
     id: 6, name: 'collection', collectionCover: 1, color: 'bg-pink-500', text: 'Snake Collection 2025 Cover', titledesc: '🐍 Introducing the Snake Collection 2025! 🐍', subtitledesc: 'A Limited Collection to Celebrate the Year of the Wood Snake!',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmUuMz8Y8wcfvdcQsZFGJK5CTMNFQTC952VQvXXRcNA6C2"
+    image: "/api/image/CandibarImg/Woodsnake/collection_2025_500-xKfCll1tDurgiRl02yLvmHu1ryvJvs.jpg"
     , pageloc: "/AstrologySign"
   },
 
   {
     id: 7, name: 'snake00', color: 'bg-indigo-500', text: 'Snake Item #1',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmcapCnprSUZGZf37nzb6JGJUDDPcyS1znAoFruVKW4wt6"
+    image: "/api/image/CandibarImg/Woodsnake/snake0_2025_500-bJMtUmup4TT8xdikHCLhEcf2a4QiBj.jpg"
     , pageloc: "/AstrologySign"
   },
 
   {
     id: 8, name: 'snake01', color: 'bg-teal-500', text: 'Snake Item #2',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmTFLHTphBCnuhpjW6grPbdCYNtSVcoQXAXobexgwKnKP6"
+    image: "/api/image/CandibarImg/Woodsnake/snake1_2025_500-MGjeQCWhDX4auQ7ioZ6a4rN6x6QaMU.jpg"
     , pageloc: "/AstrologySign"
   },
 
   {
     id: 9, name: 'snake02', color: 'bg-orange-500', text: 'Snake Item #3',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmVEvqAAJpy1db4C9dLdiTXVyvTXvHUJyZyF8SGw4cRr11"
+    image: "/api/image/CandibarImg/Woodsnake/snake2_2025_500-cuGv4oWV1r1L9O1BKd5sU6lDOu8SDJ.jpg"
     , pageloc: "/AstrologySign"
   },
 
   {
     id: 10, name: 'snake03', color: 'bg-gray-500', text: 'Snake Item #4',
-    image: "https://entire-wagon-fix.quicknode-ipfs.com/ipfs/QmSqT7h7Q2XwYXUXzCJruSt9aN4EVGEv2VJEoXWAjXbq1u"
+    image: "/api/image/CandibarImg/Woodsnake/snake3_2025_500-KgeF1pu8XxUEtF4PKIk2MCwl4jyPRw.jpg"
     , pageloc: "/AstrologySign"
   },
 ];
