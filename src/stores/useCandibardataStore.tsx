@@ -11,7 +11,6 @@ interface CollectionItem {
     collectionDetails?: string;
     collectionCandibarValue?: number;
     collectionStatus: NFTStatusTypes,
-    candibarcost?: number;
     isSwappable: boolean;
     zodiacSign?: string;
     zodiacYear?: string;

@@ -1,5 +1,17 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+
+# scripts
+# Ignore all scripts inside the scripts/ directory
+scripts/*.sh
+
+# Ignore the .env file (important for security)
+.env
+
+# Ignore any temporary or log files
+scripts/*.log
+scripts/*.tmp
+
 # dependencies
 /node_modules
 /.pnp

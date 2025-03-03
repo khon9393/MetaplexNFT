@@ -3,7 +3,7 @@
 import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
 
-import { getCollection } from "../stores/useCandibardataStore";
+import { getCollection } from "../stores/useCandibardataStorefromDB";
 import { getCandyMachinesBalance } from '../lib/candymachine/fetchCandyMachines';
 import { publicKey } from '@metaplex-foundation/umi';
 import { CandiMinter } from "../components/candibar/CandiMinter";
@@ -105,12 +105,12 @@ const CardDetails: FC = () => {
           collectionName: balance.collectionName,
           candyGuardMinLimit: balance.candyGuardMinLimit,
           candymachineaddress: collectionData.candimachineeaddress,
-          collectionCoverName: collectionData.collectionName,
-          collectionDetails: collectionData.collectionDetails,
-          collectionCandibarValue: collectionData.collectionCandibarValue,
-          collectionStatus: collectionData.collectionStatus,
-          candibarcost: collectionData.candibarcost,
-          isSwappable: collectionData.isSwappable,
+          collectionCoverName: collectionData.collectionname,
+          collectionDetails: collectionData.collectiondetails,
+          collectionCandibarValue: collectionData.collectioncandibarvalue,
+          collectionStatus: collectionData.collectionstatus as NFTStatusTypes,
+          // candibarcost: collectionData.candibarcost,
+          isSwappable: collectionData.isswappable,
           tokenPaymentAmount: balance.tokenPaymentAmount,
         };
       }

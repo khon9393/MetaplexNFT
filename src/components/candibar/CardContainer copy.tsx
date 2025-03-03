@@ -15,6 +15,10 @@ import { Card, CardContent } from "src/components/ui/card"
 import { getCollection } from "../../stores/useCandibardataStorefromDB";
 import Link from "next/link";
 import { NFTStatusTypes } from "@/models/types";
+import HoroscopeModal from "./ZodiacReader/HoroscopeModal";
+import fetchTokenBalance from "../../lib/fetchTokenBalance";
+import { formatTokenAmount } from "@/lib/utils";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { ZodiacReading } from "./ZodiacReader/ZodiacReading";
 
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
@@ -31,42 +35,63 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
     hover: { scale: 1.05 },
   };
 
-  
+  const [balances, setBalances] = useState<
+    {
+      publicKey: string,
+      itemsRedeemed: number,
+      itemsAvailable: number,
+      collectionMint: string,
+      collectionName: string,
+      SolCost: number,
+      candyGuardMinLimit: number,
+      tokenPaymentAmount: number,
+    }[]
+  >([]);
+
+  useEffect(() => {
+    const fetchBalances = async () => {
+
+      const results = await getCandyMachinesBalance(candyMachineKeys);
+      setBalances(results);
+    };
+    fetchBalances();
+  }, [candyMachineKeys])
+
   const [candyMachines, setCandyMachines] = useState<any[]>([]);
+
   useEffect(() => {
     const fetchCandyMachines = async () => {
-      const results = await getCandyMachinesBalance(candyMachineKeys);
-      const machines = await Promise.all(candyMachineKeys.map(async (key, index) => {
-        const balance = results.find(result => result.publicKey === key.toString());
-        if (balance) {
-          const collection = await getCollection(balance.collectionMint);
-          return {
-            id: index + 1,
-            cost: `${balance.SolCost} SOL`,
-            images: collection.images ? collection.images : [{ url: '' }],
-            itemsAvailable: balance.itemsAvailable,
-            itemsRedeemed: balance.itemsRedeemed,
-            collectionMint: balance.collectionMint,
-            candyMachinekeyId: key,
-            collectionName: balance.collectionName,
-            candyGuardMinLimit: balance.candyGuardMinLimit,
-            collectionSubtitles: collection.collectionsubtitles,
-            collectionDetails: collection.collectiondetails,
-            collectionCandibarValue: collection.collectioncandibarvalue,
-            collectionStatus: collection.collectionstatus,
-            tokenPaymentAmount: balance.tokenPaymentAmount,
-            zodiacSign: collection.zodiacsign,
-            zodiacYear: collection.zodiacyear,
-            zodiacIcon: collection.zodiacicon,
-          };
-        }
-        return null;
+      const machines = await Promise.all(balances.map(async (balance, index) => {
+        const collectionImages = await getCollection(balance.collectionMint);
+
+        const collection = await getCollection(balance.collectionMint);
+
+        return {
+          id: index + 1,
+          cost: `${balance.SolCost} SOL`,
+          images: collectionImages.images ? collectionImages.images : [{ url: '' }],
+          itemsAvailable: balance.itemsAvailable,
+          itemsRedeemed: balance.itemsRedeemed,
+          collectionMint: balance.collectionMint,
+          candyMachinekeyId: candyMachineKeys[index],
+          collectionName: balance.collectionName,
+          candyGuardMinLimit: balance.candyGuardMinLimit,
+          collectionSubtitles: collection.collectionsubtitles,
+          collectionDetails: collection.collectiondetails,
+          collectionCandibarValue: collection.collectioncandibarvalue,
+          collectionStatus: collection.collectionstatus,
+          // candibarcost: collection.candibarcost,
+          tokenPaymentAmount: balance.tokenPaymentAmount,
+          zodiacSign: collection.zodiacsign,
+          zodiacYear: collection.zodiacyear,
+          zodiacIcon: collection.zodiacicon,
+        };
       }));
-      setCandyMachines(machines.filter(machine => machine !== null));
+      setCandyMachines(machines);
     };
 
     fetchCandyMachines();
-  }, [candyMachineKeys]);
+  }, [balances, candyMachineKeys]);
 
 
   useEffect(() => {
@@ -98,7 +123,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
               <span className="text-1xl font-semibold">
 
                   <h4 className="text-sm font-semibold p-1 flex items-center">
-                  {machine.zodiacIcon && (
+                  {machine.zodiacSign && (
                     <Image
                     src={machine.zodiacIcon}
                     alt={`${machine.zodiacIcon} Zodiac Icon`}
@@ -121,7 +146,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                     mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
                 </div>
                 </div>
-                {(machine.zodiacSign || machine.zodiacYear) && (
+                {machine.zodiacSign && (
                   <div className="rounded-md border">
                     <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
                         <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear}  />

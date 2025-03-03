@@ -8,13 +8,7 @@ export const AstrologyZodiacView: FC = ({ }) => {
 ``
 
   const candyMachineKeys = useMemo(() => [
-
-    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRI1),
-    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
-    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIES1),
-    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINI1),
-    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_LEO1),
-    
+   
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1),
@@ -27,13 +21,6 @@ export const AstrologyZodiacView: FC = ({ }) => {
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_LEBRAC1),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1),
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1),
-    
-    
-    
-
-
-        // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCER1), - messed up. need to update json file
-
 
   ], []);
 
