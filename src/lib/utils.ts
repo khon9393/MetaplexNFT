@@ -57,3 +57,4 @@ export const isValidPublicKey = (key: string) => {
   return true;
 };
 
+export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

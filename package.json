@@ -270,6 +270,7 @@
     "domhandler": "^4.3.1",
     "domutils": "^2.8.0",
     "dot-case": "^3.0.4",
+    "dotenv": "^16.4.7",
     "draggabilly": "^3.0.0",
     "dunder-proto": "^1.0.1",
     "duplexer2": "^0.1.4",
@@ -713,6 +714,7 @@
     "path-to-regexp": "^0.1.12",
     "pathe": "^1.1.2",
     "pbkdf2": "^3.1.2",
+    "pg": "^8.13.3",
     "picocolors": "^1.1.1",
     "picomatch": "^2.3.1",
     "pify": "^2.3.0",
@@ -1053,6 +1055,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.13.5",
+    "@types/pg": "^8.11.11",
     "@types/react": "19.0.8"
   }
 }
