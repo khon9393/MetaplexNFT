@@ -5,11 +5,6 @@ import { Dialog, DialogTitle, Transition } from "@headlessui/react";
 import parse from "html-react-parser";
 import { Spinner } from '../../ui/spinner';
 
-interface ZodiacReading {
-  sign: string;
-  reading: string;
-  created_at: string;
-}
 interface HoroscopeProps {
   sign: string;
   month?: string;
@@ -22,29 +17,19 @@ export default function HoroscopeModal({ sign, month, year, isOpen, onClose }: H
   const [horoscope, setHoroscope] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-      useEffect(() => {
-        if (!sign) return;
+  useEffect(() => {
+    if (!sign) return;
 
-        setIsLoading(true);
+    setIsLoading(true);
 
-              fetch(`/api/horoscopereadings`)
-                  .then((res) => res.json())
-                  .then((data: ZodiacReading[]) => {
-                      const zodiac = data.find((z) => z.sign.toLowerCase() === (sign as string).toLowerCase());
-
-                      if (!zodiac) {
-                          setHoroscope("No horoscope available.");
-                          return;
-                      }
-                        const styledReading = zodiac.reading
-                        .replace(/<h1>/g, '<h1 class="text-3xl p-2 font-semibold text-indigo-700 dark:text-indigo-300">')
-                        .replace(/<h2>/g, '<h1 class="text-2xl p-2 font-semibold text-indigo-700 dark:text-indigo-300">');
-                       
-                      setHoroscope(styledReading|| null);
-                  })
-                  .catch((error) => console.error("Error fetching reading:", error))
-                  .finally(() => setIsLoading(false));
-      }, [sign]);
+    fetch(`/api/horoscope?sign=${sign}&month=${month || "current"}&year=${year || "2025"}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setHoroscope(data.horoscope || "No horoscope available.");
+      })
+      .catch(() => setHoroscope("Failed to load horoscope."))
+      .finally(() => setIsLoading(false));
+  }, [sign, month, year]);
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
