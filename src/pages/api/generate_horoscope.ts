@@ -14,8 +14,9 @@ const zodiacSigns = [
 ];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== "POST") return res.status(405).json({ error: "Method Not Allowed" });
-
+    // if (req.method !== "POST") return res.status(405).json({ error: "Method Not Allowed" });
+    if (req.method !== "GET") return res.status(405).json({ error: "Method Not Allowed" });
+    
     try {
         for (let sign of zodiacSigns) {
             const currentYear = new Date().getFullYear();
