@@ -24,7 +24,6 @@ import { getExplorerUrl } from "../utils/explorer";
 import { motion } from "framer-motion";
 import { NFTStatusTypes } from "@/models/types";
 import Head from "next/head";
-import HoroscopeModal from "@/components/candibar/ZodiacReader/HoroscopeModal";
 import { ZodiacReading } from "@/components/candibar/ZodiacReader/ZodiacReading";
 
 const CardDetails: FC = () => {
@@ -419,14 +418,17 @@ const CardDetails: FC = () => {
                     icon: '🔮',
                     title: 'Zodiac Reading',
                     desc: (
-                      <>
-                        Discover your NFT&apos;s zodiac reading and how it aligns with your astrological sign.
-                        <br />
+                        <>
+                        {/* Discover your zodiac reading and how it aligns with your astrological sign and candy inspiration.
+                        <br /> */}
                         <div className="p-2">
-                            <ZodiacReading sign={paramuserZodiacName || paramuserZodiacYear} />
+                          <ZodiacReading sign={paramuserZodiacName || paramuserZodiacYear} />
                         </div> 
-                     
-                      </>
+                        <div className="p-2">
+                          <p>Your candy inspiration for this sign is:</p>
+                          <p className="font-bold">{paramuserZodiacName ? `Candy inspired by ${paramuserZodiacName}` : `Candy inspired by ${paramuserZodiacYear}`}</p>
+                        </div>
+                        </>
                     )
                   }
 

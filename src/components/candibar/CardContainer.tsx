@@ -16,6 +16,8 @@ import { getCollection } from "../../stores/useCandibardataStorefromDB";
 import Link from "next/link";
 import { NFTStatusTypes } from "@/models/types";
 import { ZodiacReading } from "./ZodiacReader/ZodiacReading";
+import { toast } from "@/hooks/use-toast";
+import { Spinner } from "../ui/spinner";
 
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
 
@@ -24,6 +26,7 @@ interface CandyMachineKeysProps {
 }
 
 export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) => {
+  const [isTransacting, setIsTransacting] = useState(false);
 
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -31,10 +34,13 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
     hover: { scale: 1.05 },
   };
 
-  
+
   const [candyMachines, setCandyMachines] = useState<any[]>([]);
+
   useEffect(() => {
     const fetchCandyMachines = async () => {
+
+      setIsTransacting(true);
       const results = await getCandyMachinesBalance(candyMachineKeys);
       const machines = await Promise.all(candyMachineKeys.map(async (key, index) => {
         const balance = results.find(result => result.publicKey === key.toString());
@@ -65,7 +71,17 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
       setCandyMachines(machines.filter(machine => machine !== null));
     };
 
-    fetchCandyMachines();
+    fetchCandyMachines()
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Eerror fetching NFTs",
+          description: error.message,
+          variant: "destructive",
+        });
+      })
+      .finally(() => setIsTransacting(false));
+
   }, [candyMachineKeys]);
 
 
@@ -92,39 +108,45 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
     <div className="text-center justify-center flex flex-col">
       <div className="flex flex-wrap justify-center items-center">
 
+        {isTransacting && (
+          <div className="flex items-center justify-center space-x-2 px-10 py-10">
+            <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
+            <p className="text-xl font-semibold text-white">Loading NFT Cards...</p>
+          </div>
+        )}
+
         {candyMachines.map((machine, machineIndex) => (
           <div key={machine.id} className="flex lg:w-3/8 p-4">
             <Card className="w-80 h-full rounded-lg">
               <span className="text-1xl font-semibold">
 
-                  <h4 className="text-sm font-semibold p-1 flex items-center">
+                <h4 className="text-sm font-semibold p-1 flex items-center">
                   {machine.zodiacIcon && (
                     <Image
-                    src={machine.zodiacIcon}
-                    alt={`${machine.zodiacIcon} Zodiac Icon`}
-                    width={100}
-                    height={100}
-                    className="ml-1 w-6 h-6 rounded-full border border-gray-300 p-0"
+                      src={machine.zodiacIcon}
+                      alt={`${machine.zodiacIcon} Zodiac Icon`}
+                      width={100}
+                      height={100}
+                      className="ml-1 w-6 h-6 rounded-full border border-gray-300 p-0"
                     />
                   )}
                   &nbsp;
                   {machine.collectionName}
-                  </h4>
-      
+                </h4>
                 <div className="rounded-md border">
-                  <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                  <div className="px-1 py-1 font-mono shadow-sm flex items-center justify-center text-sm">
                     {machine.collectionSubtitles}
                   </div>
                 </div>
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
                     mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                </div>
+                  </div>
                 </div>
                 {(machine.zodiacSign || machine.zodiacYear) && (
                   <div className="rounded-md border">
                     <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                        <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear}  />
+                      <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear} />
                     </div>
                   </div>
                 )}
@@ -259,7 +281,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
             </Card>
           </div>
         ))}
-      </div>       
+      </div>
     </div>
   );
 };

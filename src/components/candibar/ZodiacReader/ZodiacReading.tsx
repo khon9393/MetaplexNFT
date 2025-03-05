@@ -6,7 +6,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import fetchTokenBalance from "@/lib/fetchTokenBalance";
 import { formatTokenAmount } from "@/lib/utils";
 import { publicKey } from "@metaplex-foundation/umi";
-import HoroscopeModal from "./HoroscopeModal";
+import {ZodiacReadingDrawerWindow} from "./ZodiacReadingDrawerWindow";
 
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
 
@@ -57,9 +57,9 @@ export const ZodiacReading: FC<ZodiacReadingProps> = ({ sign }) => {
       >
         <span>{`View ${sign} Zodiac Reading`}</span>
       </button>
-      {/* Display the HoroscopeModal component if the user has the token and a sign is selected */}
+
       {hasCandbarToken && selectedSign && (
-        <HoroscopeModal
+        <ZodiacReadingDrawerWindow
           sign={selectedSign}
           isOpen={true}
           onClose={() => setSelectedSign(null)}
@@ -73,9 +73,7 @@ export const ZodiacReading: FC<ZodiacReadingProps> = ({ sign }) => {
           MessageTitle="Candibar Token Required"
           MessageTxt={
             <>
-              No Candibar tokens detected. You need at least one Candibar token to access your horoscope reading.
-              <br /><br />
-              Please refer to the Getting Started guide to learn how to obtain tokens.
+              No Candibar tokens detected. If you have tokens, please connect your wallet. Otherwise, refer to the Getting Started guide to learn how to obtain tokens.
             </>
           }
         />
