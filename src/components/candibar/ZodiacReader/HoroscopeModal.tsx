@@ -8,7 +8,7 @@ import { Spinner } from '../../ui/spinner';
 interface ZodiacReading {
   sign: string;
   reading: string;
-  duration: string; // Add type to the interface to distinguish between daily, weekly, and monthly readings
+  duration: string; // day, week, month
 }
 interface HoroscopeProps {
   sign: string;
@@ -53,10 +53,10 @@ export default function HoroscopeModal({ sign, isOpen, onClose }: HoroscopeProps
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-0 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[95vh] overflow-hidden">
-            <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white">
-              {sign} Horoscope
+            <DialogTitle className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900 dark:text-white flex items-center justify-center font-mono underline">
+              {sign} Horoscope Outlook
                {/* {month && ` - ${month}`} {year && `(${year})`} */}
             </DialogTitle>
 
@@ -66,19 +66,19 @@ export default function HoroscopeModal({ sign, isOpen, onClose }: HoroscopeProps
                 onClick={() => setReadingType("day")}
                 className={`px-4 py-2 rounded-full ${readingType === "day" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"}`}
               >
-                Daily
+                Day
               </button>
               <button
                 onClick={() => setReadingType("week")}
                 className={`px-4 py-2 rounded-full ${readingType === "week" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"}`}
               >
-                Weekly
+                Week
               </button>
               <button
                 onClick={() => setReadingType("month")}
                 className={`px-4 py-2 rounded-full ${readingType === "month" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"}`}
               >
-                Monthly
+                Month
               </button>
             </div>
 
