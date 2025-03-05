@@ -88,6 +88,7 @@ ADD CONSTRAINT fk_config_env FOREIGN KEY (Env) REFERENCES Environment_Type(Id);
 CREATE TABLE zodiac_readings (
     id SERIAL PRIMARY KEY,
     sign VARCHAR(50) UNIQUE NOT NULL,
+    duration VARCHAR(50) UNIQUE NOT NULL,
     reading TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

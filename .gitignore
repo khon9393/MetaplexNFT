@@ -6,7 +6,7 @@
 scripts/*.sh
 
 # Ignore the .env file (important for security)
-.env
+#.env
 
 # Ignore any temporary or log files
 scripts/*.log
