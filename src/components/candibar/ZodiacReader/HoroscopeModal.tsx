@@ -93,12 +93,14 @@ export default function HoroscopeModal({ sign, isOpen, onClose }: HoroscopeProps
             </div>
 
             {/* Close Button */}
+            <div className="flex items-center justify-center">
             <button
               onClick={onClose}
               className="mt-4 px-4 py-2 bg-red-600 text-white rounded-full hover:bg-red-700"
             >
               Close
             </button>
+            </div>
           </div>
         </div>
       </Dialog>
