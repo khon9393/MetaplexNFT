@@ -27,7 +27,7 @@ export function CandibarDropdownMenu1() {
       <DropdownMenuTrigger asChild>
 
         <Button variant="link" className="text-white text-lg flex items-center hover:no-underline">
-          Main Menu
+          Menu
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 ml-1"
@@ -109,6 +109,51 @@ export function CandibarDropdownMenu1() {
           </DropdownMenuSub>
 
         </DropdownMenuGroup>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem>
+          <Button variant="link" onClick={() => { window.location.href = '/faq'; }}
+            className="w-full justify-start">
+            FAQ
+          </Button>
+        </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem>
+          <Button variant="link" onClick={() => { window.location.href = '/CPAG'; }}
+            className="w-full justify-start">
+            CPAG
+          </Button>
+        </DropdownMenuItem>
+
+        {/* <DropdownMenuGroup>
+
+           <DropdownMenuLabel></DropdownMenuLabel> 
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Help</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="bg-[#ccccff]">
+                 <DropdownMenuItem>
+                  <Button variant="link" onClick={() => { window.location.href = '/getstarted'; }} >
+                    Need Wallet?
+                  </Button>
+                </DropdownMenuItem> 
+                <DropdownMenuItem>
+                  <Button variant="link" onClick={() => { window.location.href = '/faq'; }}
+                    className="w-full justify-start">
+                    FAQ
+                  </Button>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+
+        </DropdownMenuGroup> */}
+
+
+
       </DropdownMenuContent>
     </DropdownMenu>
   )

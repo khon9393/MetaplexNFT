@@ -53,8 +53,8 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
           return;
         }
         const styledReading = zodiac.reading
-          .replace(/<h1>/g, '<h1 class="text-3xl p-2 font-semibold text-indigo-700 dark:text-indigo-300">')
-          .replace(/<h2>/g, '<h2 class="text-2xl p-2 font-semibold text-indigo-700 dark:text-indigo-300">');
+          .replace(/<h1>/g, '<h1 class="text-3xl p-2 font-semibold text-indigo-700">')
+          .replace(/<h2>/g, '<h2 class="text-2xl p-2 font-semibold text-indigo-700">');
 
         setHoroscope(styledReading || null);
       })
@@ -89,14 +89,14 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
                   onClick={onClose}
                 />
               </div>
-              <div className="mt-0 text-gray-1000 dark:text-gray-300 flex flex-wrap justify-center items-center">
+              <div className="mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-center items-center">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
                   {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope Outlook
                 </h1>
               </div>
 
               {/* Scrollable content area */}
-              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black dark:text-gray-300 overflow-y-auto max-h-[50vh] px-5 py-1"
+              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black overflow-y-auto max-h-[50vh] px-5 py-1"
               >
                 {isLoading ? (
                   <>

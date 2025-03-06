@@ -14,6 +14,7 @@ import ThemeSwitcher from "./themeSwitcher";
 import TokenBalance from "./tokenBalance";
 import { UmiProvider } from "@/providers/umiProvider";
 import Breadcrumbs from "./Breadcrumbs";
+import { CandibarDropdownMenu2 } from "./nav-element/nftnavmenu2";
 
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
@@ -88,14 +89,18 @@ export const AppBar: React.FC = () => {
               label="Home"
               href="/"
             /> */}
-            <NavElement
+            {/* <NavElement
               label="Getting&nbsp;Started"
               href="/getstarted"
-            />
+            /> */}
             <div>
-
               < CandibarDropdownMenu1 />
             </div>
+
+            <div>
+              < CandibarDropdownMenu2 />
+            </div>
+
             <div className="flex flex-col items-center gap-2 pt-0" style={{ width: '180px' }}>
               <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mb-2" />
             </div>
