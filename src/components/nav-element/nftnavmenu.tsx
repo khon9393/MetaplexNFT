@@ -122,9 +122,9 @@ export function CandibarDropdownMenu1() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem>
-          <Button variant="link" onClick={() => { window.location.href = '/CPAI'; }}
+          <Button variant="link" onClick={() => { window.location.href = '/CPAG'; }}
             className="w-full justify-start">
-            CPAI
+            CPAG
           </Button>
         </DropdownMenuItem>
 
