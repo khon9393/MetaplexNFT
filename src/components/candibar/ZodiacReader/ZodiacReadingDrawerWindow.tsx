@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import {
   Drawer,
@@ -11,7 +11,7 @@ import {
 
 import bgreading from '../../../../public/images/bgreading1.jpeg';
 
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ArrowDownTrayIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import parse from "html-react-parser";
 import { Spinner } from '../../ui/spinner';
 
@@ -25,14 +25,15 @@ interface HoroscopeProps {
   sign: string;
   month?: string;
   year?: string;
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
-export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, onClose }) => {
+export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
   const [horoscope, setHoroscope] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [readingType, setReadingType] = useState("day");
+
 
   useEffect(() => {
     if (!sign) return;
@@ -52,7 +53,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
           return;
         }
         const styledReading = zodiac.reading
-          .replace(/<h1>/g, '<h1 class="text-3xl p-2 font-semibold text-indigo-700">')
+          .replace(/<h1>/g, '<h1 class="text-2xl p-2 font-semibold text-indigo-700">')
           .replace(/<h2>/g, '<h2 class="text-2xl p-2 font-semibold text-indigo-700">');
 
         setHoroscope(styledReading || null);
@@ -63,39 +64,48 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
 
   return (
     <div className="flex flex-row justify-center">
-      <Drawer open={isOpen} onClose={onClose}>
+      <Drawer>
+
         <DrawerTrigger>
+        <button
+        className="px-2 p-0 rounded-md border hover:underline animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
+      >
+        <span>{`View ${sign} Zodiac Reading`}</span>
+      </button>
         </DrawerTrigger>
 
         <DrawerContent className="h-[95vh] bg-gray-400"
           style={{ backgroundImage: `url(${bgreading.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
-         // style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
+        // style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
-
           <DrawerHeader className="flex flex-col justify-center items-center text-center"
           >
-            <DrawerClose>
-            </DrawerClose>
+            <DrawerClose asChild>
+  
+              <div className='absolute top-3 right-2'>
+              {/* <ArrowDownTrayIcon
+                className='w-8 h-8 bg-gray-800 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
+              /> */}
+                  <XMarkIcon
+                  className='w-6 h-6 m-0 bg-white text-black hover:text-blue-600 cursor-pointer rounded-lg'
+                />
 
+              </div>
+            </DrawerClose>
           </DrawerHeader>
 
-          <div className="fixed inset-0 bg-black bg-opacity-5 flex items-center justify-center p-4">
-            <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[85vh] overflow-hidden">
-
-              <div className="flex items-end justify-end">
-                <XMarkIcon
-                  className='w-6 h-6 m-0 bg-gray-600 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
-                  onClick={onClose}
-                />
-              </div>
-              <div className="px-3 mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-start items-start min-w-[400px]">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
+         
+          <div className="flex inset-0 bg-black bg-opacity-5 flex items-center justify-center">
+            <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-4 rounded-lg max-w-xl shadow-lg w-full max-h-[80vh] overflow-hidden">
+              
+              <div className="px-3 mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-start items-center min-w-[400px] space-x-2">
+                <span className="text-2xl sm:text-3xl md:text-4xl font-semibold">
                   {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope
-                </h1>
+                </span>
               </div>
 
               {/* Scrollable content area */}
-              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black overflow-y-auto max-h-[65vh] px-5 py-1"
+              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black overflow-y-auto max-h-[60vh] px-5 py-1"
               >
                 {isLoading ? (
                   <>
@@ -105,30 +115,33 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
                 ) : parse(horoscope)}
               </div>
 
-              {/* Buttons for selecting reading type */}
+             
               <div className="flex justify-around mt-4">
-              {/* Buttons for selecting reading type */}
-              <button
-                onClick={() => setReadingType("day")}
-                className={`px-4 py-2 rounded-full ${readingType === "day" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
-              >
-                Day
-              </button>
-              <button
-                onClick={() => setReadingType("week")}
-                className={`px-4 py-2 rounded-full ${readingType === "week" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
-              >
-                Week
-              </button>
-              <button
-                onClick={() => setReadingType("month")}
-                className={`px-4 py-2 rounded-full ${readingType === "month" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
-              >
-                Month
-              </button>
+        
+                <button
+                  onClick={() => setReadingType("day")}
+                  className={`px-5 py-0 rounded-lg ${readingType === "day" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
+                >
+                  Day
+                </button>
+                <button
+                  onClick={() => setReadingType("week")}
+                  className={`px-3 py-0 rounded-lg ${readingType === "week" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
+                >
+                  Week
+                </button>
+                <button
+                  onClick={() => setReadingType("month")}
+                  className={`px-3 py-0 rounded-lg ${readingType === "month" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
+                >
+                  Month
+                </button>
               </div>
+
+
             </div>
-          </div>
+            </div>
+         
           <DrawerFooter>
           </DrawerFooter>
         </DrawerContent>

@@ -7,6 +7,7 @@ import fetchTokenBalance from "@/lib/fetchTokenBalance";
 import { formatTokenAmount } from "@/lib/utils";
 import { publicKey } from "@metaplex-foundation/umi";
 import {ZodiacReadingDrawerWindow} from "./ZodiacReadingDrawerWindow";
+import HoroscopeModal from "./HoroscopeModal";
 
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
 
@@ -59,7 +60,7 @@ export const ZodiacReading: FC<ZodiacReadingProps> = ({ sign }) => {
       </button>
 
       {hasCandbarToken && selectedSign && (
-        <ZodiacReadingDrawerWindow
+        <HoroscopeModal
           sign={selectedSign}
           isOpen={true}
           onClose={() => setSelectedSign(null)}

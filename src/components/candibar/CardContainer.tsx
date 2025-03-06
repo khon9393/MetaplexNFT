@@ -18,6 +18,7 @@ import { NFTStatusTypes } from "@/models/types";
 import { ZodiacReading } from "./ZodiacReader/ZodiacReading";
 import { toast } from "@/hooks/use-toast";
 import { Spinner } from "../ui/spinner";
+import { ZodiacReadingDrawerWindow } from "./ZodiacReader/ZodiacReadingDrawerWindow";
 
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
 
@@ -146,7 +147,8 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                 {(machine.zodiacSign || machine.zodiacYear) && (
                   <div className="rounded-md border">
                     <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                      <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear} />
+                      {/* <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear} /> */}
+                       <ZodiacReadingDrawerWindow sign={machine.zodiacSign || machine.zodiacYear} />
                     </div>
                   </div>
                 )}
