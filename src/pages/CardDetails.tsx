@@ -407,7 +407,28 @@ const CardDetails: FC = () => {
                             </Link>
                           </div>
                         ) : (
-                          <div>N/A</div>
+                            <>
+                            {paramuserZodiacName && paramuserZodiacName.toLowerCase() !== 'wood snake' ? (
+                              <div>
+                              <div>Coming Soon</div>
+                              <div className="flex items-center justify-center">
+                                <Image
+                                src={tokenimg}
+                                alt="Solana Icon"
+                                width={16}
+                                height={16}
+                                className="mr-1"
+                                />
+                                <span>50,000 Candibar Tokens for:</span>
+                              </div>
+                              <div>NFT#1 + NFT#2 + NFT#3 + NFT#4 + NFT Cover</div>
+                              </div>
+                            ) : (
+                              <div>
+                              <div>N/A</div>
+                              </div>
+                            )}
+                            </>
                         )}
                       </>
                     )
@@ -418,17 +439,17 @@ const CardDetails: FC = () => {
                     icon: '🔮',
                     title: 'Zodiac Reading',
                     desc: (
-                        <>
+                      <>
                         {/* Discover your zodiac reading and how it aligns with your astrological sign and candy inspiration.
                         <br /> */}
                         <div className="p-2">
                           <ZodiacReading sign={paramuserZodiacName || paramuserZodiacYear} />
-                        </div> 
+                        </div>
                         <div className="p-2">
                           <p>Your candy inspiration for this sign is:</p>
                           <p className="font-bold">{paramuserZodiacName ? `Candy inspired by ${paramuserZodiacName}` : `Candy inspired by ${paramuserZodiacYear}`}</p>
                         </div>
-                        </>
+                      </>
                     )
                   }
 
@@ -453,7 +474,7 @@ const CardDetails: FC = () => {
                 <br />    {paramCollectionaddress || ''} */}
 
               </motion.div>
-                
+
             </div>
           </div>
         )}

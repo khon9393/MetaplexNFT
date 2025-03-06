@@ -70,6 +70,13 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           </li>
           <li>
             <NavElement
+              label="Snake&nbsp;NFT"
+              href="/CPAI"
+              source='mobile'
+            />
+          </li>
+          <li>
+            <NavElement
               label="FAQ"
               href="/faq"
               source='mobile'
