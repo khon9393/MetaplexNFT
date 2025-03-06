@@ -68,7 +68,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
         <DrawerTrigger>
         </DrawerTrigger>
 
-        <DrawerContent className="h-[90vh] bg-gray-400"
+        <DrawerContent className="h-[98vh] bg-gray-400"
           style={{ backgroundImage: `url(${bgreading.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
          // style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
@@ -81,7 +81,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
           </DrawerHeader>
 
           <div className="fixed inset-0 bg-black bg-opacity-5 flex items-center justify-center p-4">
-            <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[80vh] overflow-hidden">
+            <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[90vh] overflow-hidden">
 
               <div className="flex items-end justify-end">
                 <XMarkIcon
@@ -96,7 +96,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
               </div>
 
               {/* Scrollable content area */}
-              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black overflow-y-auto max-h-[50vh] px-5 py-1"
+              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black overflow-y-auto max-h-[70vh] px-5 py-5"
               >
                 {isLoading ? (
                   <>
