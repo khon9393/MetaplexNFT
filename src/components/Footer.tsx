@@ -23,13 +23,20 @@ export const Footer: FC = () => {
             <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
               <div className='flex flex-row ml-1'>
 
-
-              </div>
-              <div className="flex md:ml-2">
-
               </div>
 
-                <div className="disclaimer-container text-gray-400">
+              <Link href="/">
+                <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
+
+                  Candibar
+                </h1>
+                <span
+                  className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
+                >Where Art and Sugar Converge
+                </span>
+              </Link>
+
+              <div className="disclaimer-container text-gray-400 p-2">
 
                 <h1 className="disclaimer-title">Legal Disclaimer</h1>
                 <Accordion type="single">
@@ -115,15 +122,15 @@ export const Footer: FC = () => {
               </div>
 
               <div className="p-3">
-              <Link href="/privacypolicy">
-                Privacy&nbsp;Policy
-              </Link>
+                <Link href="/privacypolicy">
+                  Privacy&nbsp;Policy
+                </Link>
               </div>
 
               <div className="p-3">
-              <Link href="/termofservice">
-                Term&nbsp;of&nbsp;Service
-              </Link>
+                <Link href="/termofservice">
+                  Term&nbsp;of&nbsp;Service
+                </Link>
               </div>
             </div>
 
@@ -134,39 +141,39 @@ export const Footer: FC = () => {
                   <div key={domain} className="mb-2">
                     <a href={`https://www.${domain}`} target="_blank" rel="noopener noreferrer">
                       ©&nbsp;{new Date().getFullYear()}&nbsp;{domain}
-                    </a> 
+                    </a>
                   </div>
                 ))}
                 All Rights Reserved.
               </div>
 
               <div className="flex flex-col justify-center items-center">
-                    <Link href="/getstarted" 
-                    className="text-center w-[150px] hover:underline text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500">
-                      Getting Started - Quick Guide.
-                    </Link>
-                  </div>
+                <Link href="/getstarted"
+                  className="text-center w-[150px] hover:underline text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500">
+                  Getting Started - Quick Guide.
+                </Link>
+              </div>
 
-                  <div className="flex flex-col justify-center items-center">
-                  <div className="text-center w-[150px]">
-                    Start by scanning the QR code below using your mobile device to access the Candibar app.
-                  </div>
-                  </div>
+              <div className="flex flex-col justify-center items-center">
+                <div className="text-center w-[150px]">
+                  Start by scanning the QR code below using your mobile device to access the Candibar app.
+                </div>
+              </div>
 
-                  <div className="flex justify-center items-center">
-                  <Image
-                    src={candibarQRcode}
-                    alt="Candibar QR Code"
-                    width={150}
-                    height={150}
-                    className="inline-block p-2"
-                  />
-                  </div>
+              <div className="flex justify-center items-center">
+                <Image
+                  src={candibarQRcode}
+                  alt="Candibar QR Code"
+                  width={150}
+                  height={150}
+                  className="inline-block p-2"
+                />
+              </div>
             </div>
 
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg">
-            <a
-                href={process.env.NEXT_PUBLIC_RPC_SOCIAL_X} 
+              <a
+                href={process.env.NEXT_PUBLIC_RPC_SOCIAL_X}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 hover:text-gray-400 transition "
@@ -181,22 +188,22 @@ export const Footer: FC = () => {
                 </svg>
                 <span className="text-sm">Follow us on X</span>
               </a>
-                  <a
-                    href={process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}
-                    className="flex items-center space-x-2 hover:text-gray-400 transition"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path d="M12 12.713L0 5.25V18h24V5.25l-12 7.463zM12 0L0 7.5l12 7.5 12-7.5L12 0z" />
-                    </svg>
-                    <span className="text-sm p-4">Contact Us</span>
-                  </a>
+              <a
+                href={process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}
+                className="flex items-center space-x-2 hover:text-gray-400 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path d="M12 12.713L0 5.25V18h24V5.25l-12 7.463zM12 0L0 7.5l12 7.5 12-7.5L12 0z" />
+                </svg>
+                <span className="text-sm p-4">Contact Us</span>
+              </a>
 
-                  <div className="flex flex-col mb-0 p-5">
+              <div className="flex flex-col mb-0 p-5">
                 <span className="italic">Built on Solana Blockchain and Metaplex</span>
                 <a href="https://solana.com" target="_blank" rel="noopener noreferrer" className="mr-4">
                   <Image
@@ -221,8 +228,8 @@ export const Footer: FC = () => {
             </div>
 
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
-  
-            </div>  
+
+            </div>
           </div>
         </div>
       </footer>

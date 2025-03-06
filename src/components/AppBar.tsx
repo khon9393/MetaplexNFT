@@ -64,18 +64,12 @@ export const AppBar: React.FC = () => {
             <div className="h-0.5 w-8 bg-purple-600" />
           </div>
         </label>
-        <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
+        <h1 className="text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
           <Link href="/"
           >
-            Candibar
-            <br />
-            <span
-              className="navbar text-sm md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
-            >Where Art and Sugar Converge</span>
-          </Link>
-
-        </h1>
-
+            Candibar  
+            </Link>
+            </h1>
         <div className="navbar-start align-items-center gap-1">
           <div className="btn-ghost btn-sm relative flex md:hidden items-center" style={{ width: '180px' }}>
             <WalletMultiButtonDynamic />
