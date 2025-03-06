@@ -67,7 +67,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
         <DrawerTrigger>
         </DrawerTrigger>
 
-        <DrawerContent className="h-[98vh] bg-gray-400"
+        <DrawerContent className="h-[95vh] bg-gray-400"
           style={{ backgroundImage: `url(${bgreading.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
          // style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
@@ -80,7 +80,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
           </DrawerHeader>
 
           <div className="fixed inset-0 bg-black bg-opacity-5 flex items-center justify-center p-4">
-            <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[90vh] overflow-hidden">
+            <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[85vh] overflow-hidden">
 
               <div className="flex items-end justify-end">
                 <XMarkIcon
