@@ -74,7 +74,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
       </button>
         </DrawerTrigger>
 
-        <DrawerContent className="h-[95vh] bg-gray-400"
+        <DrawerContent className="h-[90vh] bg-gray-400"
           style={{ backgroundImage: `url(${bgreading.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         // style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >

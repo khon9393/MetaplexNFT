@@ -8,8 +8,7 @@ const openai = new OpenAI({
 });
 
 const zodiacSigns = [
-    "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
-    "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "2025 Wood Snake"
+    "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo","Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "2025 Wood Snake"
 ];
 
 const durations = ["Day", "Week", "Month"];
