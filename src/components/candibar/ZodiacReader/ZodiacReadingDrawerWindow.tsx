@@ -84,26 +84,50 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
           <div className="fixed inset-0 bg-black bg-opacity-5 flex items-center justify-center p-2">
             <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[90vh] overflow-hidden">
 
-              {/* <div className="flex items-end justify-end">
-                <XMarkIcon
-                  className='w-6 h-6 m-0 bg-gray-600 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
-                  onClick={onClose}
-                />
-              </div> */}
-                <div className="mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-center items-center">
+  <div className="flex items-end justify-end">
+            <XMarkIcon
+    className='w-6 h-6 bg-gray-600 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
+    onClick={onClose}
+  />
+   </div>
+  {/* <div className="flex justify-center space-x-10">
+    <button
+      onClick={() => setReadingType("day")}
+      className={`px-5 py-2 rounded-full ${readingType === "day" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
+    >
+      Day
+    </button>
+    <button
+      onClick={() => setReadingType("week")}
+      className={`px-5 py-2 rounded-full ${readingType === "week" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
+    >
+      Week
+    </button>
+    <button
+      onClick={() => setReadingType("month")}
+      className={`px-5 py-2 rounded-full ${readingType === "month" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
+    >
+      Month
+    </button>
+   
+  <XMarkIcon
+    className='w-6 h-6 bg-gray-600 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
+    onClick={onClose}
+  />
+  </div> */}
+
+
+
+
+
+              <div className="mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-center items-center min-w-[400px]">
                 <h1 className="text-2xl sm:text-2xl md:text-3xl font-semibold">
                   {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope Outlook
                 </h1>
-                <div className="ml-4">
-                  <XMarkIcon
-                  className='w-6 h-6 m-0 bg-gray-600 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
-                  onClick={onClose}
-                  />
-                </div>
-                </div>
+              </div>
 
               {/* Scrollable content area */}
-              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black overflow-y-auto max-h-[70vh] px-5 py-5"
+              <div className="mt-4 bg-white bg-opacity-100 rounded-lg text-lg text-black overflow-y-auto max-h-[65vh] px-5 py-5"
               >
                 {isLoading ? (
                   <>
@@ -113,9 +137,9 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
                 ) : parse(horoscope)}
               </div>
 
-              {/* Buttons for selecting reading type */}
+
               <div className="flex justify-around mt-4">
-              {/* Buttons for selecting reading type */}
+
               <button
                 onClick={() => setReadingType("day")}
                 className={`px-4 py-2 rounded-full ${readingType === "day" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
