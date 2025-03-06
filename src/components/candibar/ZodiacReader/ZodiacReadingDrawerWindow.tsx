@@ -122,7 +122,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
 
               <div className="mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-center items-center min-w-[400px]">
                 <h1 className="text-2xl sm:text-2xl md:text-3xl font-semibold">
-                  {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope Outlook
+                  {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope
                 </h1>
               </div>
 
