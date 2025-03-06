@@ -70,8 +70,8 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           </li>
           <li>
             <NavElement
-              label="CPAI"
-              href="/CPAI"
+              label="CPAG"
+              href="/CPAG"
               source='mobile'
             />
           </li>

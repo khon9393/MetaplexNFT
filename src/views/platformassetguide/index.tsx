@@ -1,7 +1,7 @@
 
 import { FC } from "react";
 
-export const CPAIView: FC = ({ }) => {
+export const CPAGView: FC = ({ }) => {
 
   return (
     <div className="mx-auto max-w-4xl p-6">
@@ -11,7 +11,7 @@ export const CPAIView: FC = ({ }) => {
           🚀 Coming Soon
         </h1>
         <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
-          Candibar Platform Asset Index (CPAI)
+          Candibar Platform Asset Guide (CPAG)
         </h2>
       </div>
   
