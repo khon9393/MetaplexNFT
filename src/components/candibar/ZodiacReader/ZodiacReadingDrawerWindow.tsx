@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/drawer";
 
 import bgreading from '../../../../public/images/bgreading1.jpeg';
+
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import parse from "html-react-parser";
 import { Spinner } from '../../ui/spinner';
@@ -67,8 +68,9 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign, isOpen, on
         <DrawerTrigger>
         </DrawerTrigger>
 
-        <DrawerContent className="h-[95vh] bg-gray-400"
+        <DrawerContent className="h-[90vh] bg-gray-400"
           style={{ backgroundImage: `url(${bgreading.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
+         // style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
 
           <DrawerHeader className="flex flex-col justify-center items-center text-center"

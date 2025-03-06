@@ -182,6 +182,20 @@ export const GetStartedView: FC = ({ }) => {
                 </AccordionContent>
                 </AccordionItem>
 
+                <AccordionItem value="step4">
+                <AccordionTrigger className="text-xl font-bold">Step 4: See Candibar Platform Asset Index (CPAI)</AccordionTrigger>
+                <AccordionContent>
+                  <h2 className="text-xl">
+                  The Candibar Platform Asset Index (CPAI) provides a comprehensive overview of all assets available within the Candibar ecosystem. 
+                  This includes NFTs, tokens, and other digital assets that can be traded or utilized on the platform. 
+                  To explore the CPAI, follow these steps:
+                  </h2>
+                  <ul className="list-disc pl-5 mt-3 text-xl">
+                  <li>Go to the <Link href="/CPAI" className="text-blue-300 hover:underline">Candibar Platform Asset Index Page</Link>.</li>
+                  </ul>
+                </AccordionContent>
+                </AccordionItem>
+
             </Accordion>
           </article>
         </main>

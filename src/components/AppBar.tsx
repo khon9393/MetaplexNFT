@@ -46,26 +46,35 @@ export const AppBar: React.FC = () => {
     <div>
       {/* NavBar / Header */}
       <div className="md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
-      <Breadcrumbs />
+
+
       </div>
-      <div className="navbar flex h-30 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
-        <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          <label
-            htmlFor="my-drawer"
-            className="btn-gh items-center justify-between md:hidden mr-6"
-            onClick={() => setIsNavOpen(!isNavOpen)} // Optional, but you can still toggle the drawer visibility if needed
-          >
-            <div className="HAMBURGER-ICON space-y-2.5 ml-5">
-              {/* The 3 horizontal lines */}
-              <div className="h-0.5 w-8 bg-purple-600" />
-              <div className="h-0.5 w-8 bg-purple-600" />
-              <div className="h-0.5 w-8 bg-purple-600" />
-            </div>
-          </label>
+      <div className="navbar flex flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
+
+        <label
+          htmlFor="my-drawer"
+          className="btn-gh items-center justify-between md:hidden mr-6"
+          onClick={() => setIsNavOpen(!isNavOpen)} // Optional, but you can still toggle the drawer visibility if needed
+        >
+          <div className="HAMBURGER-ICON space-y-2.5 ml-5">
+            {/* The 3 horizontal lines */}
+            <div className="h-0.5 w-8 bg-purple-600" />
+            <div className="h-0.5 w-8 bg-purple-600" />
+            <div className="h-0.5 w-8 bg-purple-600" />
+          </div>
+        </label>
+        <h1 className="text-center text-3xl md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
           <Link href="/"
           >
-            Candibar</Link>
+            Candibar
+            <br />
+            <span
+              className="navbar text-sm md:pl-5 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
+            >Where Art and Sugar Converge</span>
+          </Link>
+
         </h1>
+
         <div className="navbar-start align-items-center gap-1">
           <div className="btn-ghost btn-sm relative flex md:hidden items-center" style={{ width: '180px' }}>
             <WalletMultiButtonDynamic />
@@ -93,30 +102,30 @@ export const AppBar: React.FC = () => {
           </div>
         </div>
       </div>
-      {typeof window !== 'undefined' 
-      && window.location.pathname === '/AstrologyZodiac'
-      && (
-        <div className='border-gray-300 bg-gray-800 text-center min-w-[400px]'>
-          <div className="text-white px-2 font-mono text-1xl md:text-2xl font-bold animate-pulse hover:animate-none">
-        <Link href="/Candi" className="hover:underline hover:text-blue-600">
-          Get NFTs tradable for Candibar Tokens!
-        </Link>
+      {typeof window !== 'undefined'
+        && window.location.pathname === '/AstrologyZodiac'
+        && (
+          <div className='border-gray-300 bg-gray-800 text-center min-w-[400px]'>
+            <div className="text-white px-2 font-mono text-1xl md:text-2xl font-bold animate-pulse hover:animate-none">
+              <Link href="/Candi" className="hover:underline hover:text-blue-600">
+                Get NFTs tradable for Candibar Tokens!
+              </Link>
+            </div>
+          </div>
+        )}
+
+
+      {!wallet.connected && (
+        <div className='border-gray-300 bg-gray-800 text-center w-full min-w-[400px]'>
+          <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
+            Please connect your wallet
           </div>
         </div>
       )}
 
-
-{!wallet.connected && (
-          <div className='border-gray-300 bg-gray-800 text-center w-full min-w-[400px]'>
-          <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
-            Please connect your wallet
-          </div>
-          </div>
-       )}
-
       <UmiProvider>
 
-        
+        <Breadcrumbs />
         {wallet.connected && (
           <div className="flex justify-center mx-auto text-center text-white">
             <div className="flex items-center gap-2 justify-center font-mono text-sm md:text-lg lg:text-xl xl:text-2xl whitespace-nowrap overflow-hidden text-ellipsis">
