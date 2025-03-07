@@ -29,11 +29,27 @@ interface HoroscopeProps {
   onClose?: () => void;
 }
 
+const zodiacSigns = {
+  capricorn: { icon: "♑", dateRange: "Dec 21 - Jan 20" },
+  aquarius: { icon: "♒", dateRange: "Jan 21 - Feb 19" },
+  pisces: { icon: "♓", dateRange: "Feb 20 - Mar 20" },
+  aries: { icon: "♈", dateRange: "Mar 21 - Apr 19" },
+  taurus: { icon: "♉", dateRange: "Apr 20 - May 20" },
+  gemini: { icon: "♊", dateRange: "May 21 - Jun 20" },
+  cancer: { icon: "♋", dateRange: "Jun 21 - Jul 22" },
+  leo: { icon: "♌", dateRange: "Jul 23 - Aug 22" },
+  virgo: { icon: "♍", dateRange: "Aug 23 - Sep 22" },
+  libra: { icon: "♎", dateRange: "Sep 23 - Oct 22" },
+  scorpio: { icon: "♏", dateRange: "Oct 23 - Nov 21" },
+  sagittarius: { icon: "♐", dateRange: "Nov 22 - Dec 21" },
+  };
+
 export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
   const [horoscope, setHoroscope] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [readingType, setReadingType] = useState("day");
-
+  const formattedSign = sign.toLowerCase();
+  const zodiac = zodiacSigns[formattedSign];
 
   useEffect(() => {
     if (!sign) return;
@@ -83,9 +99,6 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
             <DrawerClose asChild>
   
               <div className='absolute top-3 right-2'>
-              {/* <ArrowDownTrayIcon
-                className='w-8 h-8 bg-gray-800 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg'
-              /> */}
                   <XMarkIcon
                   className='w-6 h-6 m-0 bg-white text-black hover:text-blue-600 cursor-pointer rounded-lg'
                 />
@@ -94,14 +107,13 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
             </DrawerClose>
           </DrawerHeader>
 
-         
-          <div className="flex inset-0 bg-black bg-opacity-5 flex items-center justify-center">
+            <div className="flex inset-0 bg-black bg-opacity-5 flex items-center justify-center">
             <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-4 rounded-lg max-w-xl shadow-lg w-full max-h-[80vh] overflow-hidden">
-              
-              <div className="px-3 mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-start items-center min-w-[400px] space-x-2">
-                <span className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-                  {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope
-                </span>
+              <div className="px-3 mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-start items-center min-w-[400px] space-x-0">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-semibold">
+                {zodiac.icon} {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope {zodiac.icon} 
+                {/* : {zodiac.dateRange} */}
+              </span>
               </div>
 
               {/* Scrollable content area */}
