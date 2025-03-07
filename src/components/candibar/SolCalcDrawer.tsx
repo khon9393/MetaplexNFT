@@ -28,15 +28,13 @@ export const SolCalcDrawer: FC = () => {
       <Drawer>
 
         <DrawerTrigger>
-
+          
           <Button
-            className="text-white hover:text-blue-600 text-sm md:text-sm "
+            className="text-white hover:text-blue-600 text-1xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500"
             variant="default"
           >
-            SOL to USD
-            <ArrowUpTrayIcon
-              className='w-15 h-15 m-1'
-            />
+            SOL &rarr; USD Calc.
+            <ArrowUpTrayIcon className="w-15 h-15 m-1" />
           </Button>
 
         </DrawerTrigger>
