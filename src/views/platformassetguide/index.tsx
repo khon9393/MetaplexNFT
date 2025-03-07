@@ -33,7 +33,7 @@ export const CPAGView: FC = ({ }) => {
         </div>
   
         {/* Snake Collection */}
-        <div className="mb-10 text-left">
+        {/* <div className="mb-10 text-left">
           <h4 className="text-2xl font-semibold mb-3">🐍 Snake Collection 2025</h4>
           <ul className="text-xl list-disc list-inside pl-6 space-y-2">
             <li>NFT #1 → 5,000 Candibar Tokens</li>
@@ -41,16 +41,16 @@ export const CPAGView: FC = ({ }) => {
             <li>NFT #3 → 15,000 Candibar Tokens</li>
             <li>NFT #4 → 20,000 Candibar Tokens</li>
           </ul>
-        </div>
+        </div> */}
   
         {/* Special Collection */}
-        <div className="mb-10 text-left">
+        {/* <div className="mb-10 text-left">
           <h4 className="text-2xl font-semibold mb-3">🌟 Special Collection</h4>
           <p className="text-xl">
             Collect all four Zodiac NFTs of the same sign + the Cover NFT to unlock a massive{" "}
             <strong>50,000 Candibar Tokens</strong>!
           </p>
-        </div>
+        </div> */}
   
         {/* Zodiac Swaps */}
         <div className="mb-10 text-left">
