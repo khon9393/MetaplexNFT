@@ -7,17 +7,17 @@ export const CPAGView: FC = ({ }) => {
     <div className="mx-auto max-w-4xl p-6">
       <div className="text-center">
         {/* Main Heading */}
-        <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 p-4">
+        {/* <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 p-4">
           🚀 Coming Soon
-        </h1>
-        <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
+        </h1> */}
+        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
           Candibar Platform Asset Guide (CPAG)
-        </h2>
+        </h1>
       </div>
   
       {/* Introduction */}
       <div className="mt-10 text-center">
-        <h3 className="text-4xl font-semibold mb-6">
+        <h3 className="text-3xl font-semibold mb-6">
           Your Ultimate Guide to Swapping NFTs & Candibar Tokens
         </h3>
   
