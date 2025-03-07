@@ -1,7 +1,7 @@
 
 import { FC } from 'react';
 import * as React from "react";
-import Candibar from "../../../public/2025/CandiBarNoBG.png";
+import CandiCollection from "../../../public/images/candi_collection_cover.jpeg";
 import Image from 'next/image'
 import {
   Drawer,
@@ -42,7 +42,7 @@ export const SolCalcDrawer: FC = () => {
         </DrawerTrigger>
 
         <DrawerContent className="h-[65vh] bg-gray-400"
-        style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
+        style={{ backgroundImage: `url(${CandiCollection.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
           <DrawerHeader
             //className="absolute left-0 top-0"
