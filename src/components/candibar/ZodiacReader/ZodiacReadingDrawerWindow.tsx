@@ -109,7 +109,7 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
 
             <div className="flex inset-0 bg-black bg-opacity-5 flex items-center justify-center">
             <div className="bg-red-800 bg-opacity-85 dark:bg-gray-800 p-4 rounded-lg max-w-xl shadow-lg w-full max-h-[80vh] overflow-hidden">
-              <div className="px-3 mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-start items-center min-w-[400px] space-x-0">
+              <div className="px-3 mt-0 text-gray-1000 dark:text-white flex flex-wrap justify-center items-center min-w-[400px] space-x-0">
               <span className="text-2xl sm:text-3xl md:text-4xl font-semibold">
                 {zodiac.icon} {sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope {zodiac.icon} 
                 {/* : {zodiac.dateRange} */}
