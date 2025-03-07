@@ -23,19 +23,10 @@ export const Footer: FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-8 md:space-x-12 relative">
             <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
               <div className='flex flex-row ml-1'>
-
+              <SolCalcDrawer/>
               </div>
 
-              <Link href="/">
-                <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
 
-                  Candibar
-                </h1>
-                <span
-                  className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
-                >Where Art and Sugar Converge
-                </span>
-              </Link>
 
               <div className="disclaimer-container text-gray-400 p-2">
 
@@ -138,7 +129,18 @@ export const Footer: FC = () => {
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg space-y-4">
 
             <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
-            <SolCalcDrawer/>
+
+            <Link href="/">
+                <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
+
+                  Candibar
+                </h1>
+                <span
+                  className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
+                >Where Art and Sugar Converge
+                </span>
+              </Link>
+           
            
               <div className="font-normal mb-2.5 p-5 text-sm">
                 {["candibarnft.com", "candibarnft.io"].map((domain) => (
