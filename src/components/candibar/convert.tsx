@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function Convert() {
     const [solPrice, setSolPrice] = useState<number | null>(null);
-    const [solAmount, setSolAmount] = useState<number>(1);
+    const [solAmount, setSolAmount] = useState<string>("1");
     const [usdValue, setUsdValue] = useState<number | null>(null);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function Convert() {
 
     const handleConvert = () => {
         if (solPrice) {
-            setUsdValue(solAmount * solPrice);
+            setUsdValue(parseFloat(solAmount) * solPrice);
         }
     };
 
@@ -31,22 +31,34 @@ export default function Convert() {
 
             // className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-6"
             className="flex flex-col items-center justify-center px-2 pb-6"
-            >
+        >
 
             <div className="flex flex-col items-center space-y-4 mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-80 border-2 border-gray-300 dark:border-gray-700">
-             <h1 className="text-3xl font-bold text-gray-800 dark:text-white">🔄</h1>
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">SOL to USD Converter</h1>
+                <h1 className="text-3xl font-bold text-gray-800 dark:text-white">🔄</h1>
+                <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">SOL to USD Converter</h1>
                 <p className="text-lg font-bold text-gray-600 dark:text-gray-300">
                     Current SOL Price: {solPrice ? `$${solPrice.toFixed(2)}` : "Loading..."}
                 </p>
 
                 <input
-                    type="number"
+                    type="text"
                     value={solAmount}
-                    onChange={(e) => setSolAmount(parseFloat(e.target.value) || 0)}
+                    onChange={(e) => {
+                        const value = e.target.value;
+
+                        // Allow numbers and at most one decimal point
+                        if (/^\d*\.?\d*$/.test(value)) {
+                            setSolAmount(value); // Keep it as a string to allow period entry
+                        }
+                    }}
+                    onBlur={() => {
+                        // Convert to a number when input loses focus
+                        setSolAmount((prev) => (prev ? String(parseFloat(prev)) : ""));
+                    }}
                     placeholder="Enter SOL amount"
                     className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+
                 <button
                     onClick={handleConvert}
                     className="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition duration-300"
