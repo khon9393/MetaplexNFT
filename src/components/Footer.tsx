@@ -12,6 +12,7 @@ import solanaLogo from "../../public/logos/solanaLogo.png";
 import metaplexLogo from "../../public/logos/metaplex-logo.png";
 import Link from 'next/link';
 import candibarQRcode from "../../public/logos/candibarQRcode.png";
+import {SolCalcDrawer} from './candibar/SolCalcDrawer';
 
 export const Footer: FC = () => {
   return (
@@ -136,6 +137,9 @@ export const Footer: FC = () => {
 
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg space-y-4">
 
+            <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
+            <SolCalcDrawer/>
+           
               <div className="font-normal mb-2.5 p-5 text-sm">
                 {["candibarnft.com", "candibarnft.io"].map((domain) => (
                   <div key={domain} className="mb-2">
@@ -169,6 +173,8 @@ export const Footer: FC = () => {
                   className="inline-block p-2"
                 />
               </div>
+            </div>
+            
             </div>
 
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg">

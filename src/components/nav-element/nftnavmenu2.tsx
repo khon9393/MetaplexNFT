@@ -19,6 +19,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { SolCalcDrawer } from "../candibar/SolCalcDrawer"
 
 
 export function CandibarDropdownMenu2() {
