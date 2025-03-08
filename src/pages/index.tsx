@@ -27,7 +27,7 @@ const Home: NextPage = (props) => {
           Candibar NFTs - Buy, Trade, and Sell Digital Collectibles
           </h1>
         <h6 className="text-center text-2xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4">
-        Become part of the sugar rush revolution: a place where art and sugar converge.
+        Become part of the sugar rush revolution: a place where digital art and sugar converge.
           </h6>
       </main>
       <HomeView />
