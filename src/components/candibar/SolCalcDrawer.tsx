@@ -39,7 +39,7 @@ export const SolCalcDrawer: FC = () => {
 
         </DrawerTrigger>
 
-        <DrawerContent className="h-[95vh] bg-gray-400"
+        <DrawerContent className="h-[90vh] bg-gray-400"
         style={{ backgroundImage: `url(${CandiCollection.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
           <DrawerHeader

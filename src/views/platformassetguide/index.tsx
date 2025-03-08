@@ -39,8 +39,8 @@ export const CPAGView: FC = ({ }) => {
 
       {/* Introduction */}
       <div className="mt-10 text-center">
-        <h3 className="text-3xl font-semibold mb-6">
-          Your Guide to Collection Listing, Swapping NFTs & Candibar Tokens
+        <h3 className="text-2xl font-semibold mb-6">
+          A Guide to Digital Assest Collection Listing, Swapping NFTs & Candibar Tokens
         </h3>
 
         {/* Candi Collection */}

@@ -135,7 +135,7 @@ export const Footer: FC = () => {
                   </h1>
                   <span
                     className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
-                  >Where Art and Sugar Converge
+                  >Where Digital Art and Sugar Converge
                   </span>
                 </Link>
 
