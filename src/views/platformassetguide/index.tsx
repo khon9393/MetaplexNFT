@@ -118,13 +118,13 @@ export const CPAGView: FC = ({ }) => {
         </div>
 
         {/* Zodiac Swaps */}
-        <div className="mb-10 text-left p-6">
+        <div className="mb-2 text-left p-6">
           <h4 className="text-2xl font-semibold mb-3">♈ Zodiac Candi NFT Swap ( **Soon to Follow** )</h4>
-          <p className="text-xl mb-3">
+          <p className="text-xl mb-0">
             Trade your Zodiac NFTs based on the current month to complete a full set!
           </p>
         </div>
-        <div className="p-10"> <SwapCounter /></div>
+        <SwapCounter />
       </div>
     </div>
   );
