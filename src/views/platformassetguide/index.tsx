@@ -2,6 +2,7 @@
 import { publicKey } from "@metaplex-foundation/umi";
 import { FC, useEffect, useMemo, useState } from "react";
 import { getCollection } from "../../stores/useCandibardataStorefromDB";
+import SwapCounter from '../../components/candibar/SwapCounter';
 
 export const CPAGView: FC = ({ }) => {
   const [candicollection, setcandicollection] = useState<any[]>([]);
@@ -106,19 +107,6 @@ export const CPAGView: FC = ({ }) => {
 
         </div>
 
-
-
-        {/* Snake Collection */}
-        {/* <div className="mb-10 text-left">
-          <h4 className="text-2xl font-semibold mb-3">🐍 Snake Collection 2025</h4>
-          <ul className="text-xl list-disc list-inside pl-6 space-y-2">
-            <li>NFT #1 → 5,000 Candibar Tokens</li>
-            <li>NFT #2 → 10,000 Candibar Tokens</li>
-            <li>NFT #3 → 15,000 Candibar Tokens</li>
-            <li>NFT #4 → 20,000 Candibar Tokens</li>
-          </ul>
-        </div> */}
-
         {/* Special Collection */}
         <div className="mb-10 text-left">
           <h4 className="text-2xl font-semibold mb-3">🌟 Special Collection ( **Soon to Follow** )</h4>
@@ -135,21 +123,8 @@ export const CPAGView: FC = ({ }) => {
           <p className="text-xl mb-3">
             Trade your Zodiac NFTs based on the current month to complete a full set!
           </p>
-          <ul className="text-xl list-disc list-inside pl-6 space-y-2">
-            <li>♑ Capricorn: Dec 21 - Jan 20</li>
-            <li>♒ Aquarius: Jan 21 - Feb 19</li>
-            <li>♓ Pisces: Feb 20 - Mar 20</li>
-            <li>♈ Aries: Mar 21 - Apr 19</li>
-            <li>♉ Taurus: Apr 20 - May 20</li>
-            <li>♊ Gemini: May 21 - Jun 20</li>
-            <li>♋ Cancer: Jun 21 - Jul 22</li>
-            <li>♌ Leo: Jul 23 - Aug 22</li>
-            <li>♍ Virgo: Aug 23 - Sep 22</li>
-            <li>♎ Libra: Sep 23 - Oct 22</li>
-            <li>♏ Scorpio: Oct 23 - Nov 21</li>
-            <li>♐ Sagittarius: Nov 22 - Dec 21</li>
-          </ul>
         </div>
+        <div className="p-10"> <SwapCounter /></div>
       </div>
     </div>
   );
