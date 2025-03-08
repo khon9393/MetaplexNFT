@@ -5,9 +5,6 @@
 # Ignore all scripts inside the scripts/ directory
 scripts/*.sh
 
-# Ignore the .env file (important for security)
-.env
-
 # Ignore any temporary or log files
 scripts/*.log
 scripts/*.tmp
@@ -41,7 +38,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-#.env
+.env
 
 # vercel
 .vercel
