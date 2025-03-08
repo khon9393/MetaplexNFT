@@ -1,7 +1,28 @@
 
-import { FC } from "react";
+import { publicKey } from "@metaplex-foundation/umi";
+import { FC, useEffect, useMemo, useState } from "react";
+import { getCollection } from "../../stores/useCandibardataStorefromDB";
 
 export const CPAGView: FC = ({ }) => {
+  const [candicollection, setcandicollection] = useState<any[]>([]);
+
+  const candicollectionsKey = useMemo(() => [
+    process.env.NEXT_PUBLIC_COLLECTION_ID01,
+    process.env.NEXT_PUBLIC_COLLECTION_ID02,
+    process.env.NEXT_PUBLIC_COLLECTION_ID03,
+    process.env.NEXT_PUBLIC_COLLECTION_ID04,
+    process.env.NEXT_PUBLIC_COLLECTION_ID05,
+  ], []);
+
+  useEffect(() => {
+    const fetchCollections = async () => {
+      const collections = await Promise.all(candicollectionsKey.map(key => getCollection(key)));
+      const validCollections = collections.filter(collection => collection && collection.images);
+      setcandicollection(validCollections);
+    };
+
+    fetchCollections();
+  }, [candicollectionsKey]);
 
   return (
     <div className="mx-auto max-w-4xl p-6">
@@ -14,24 +35,49 @@ export const CPAGView: FC = ({ }) => {
           Candibar Platform Asset Guide (CPAG)
         </h1>
       </div>
-  
+
       {/* Introduction */}
       <div className="mt-10 text-center">
         <h3 className="text-3xl font-semibold mb-6">
           Your Ultimate Guide to Swapping NFTs & Candibar Tokens
         </h3>
-  
+
         {/* Candi Collection */}
-        <div className="mb-10 text-left">
-          <h4 className="text-2xl font-semibold mb-3">🍬 Candi Collection NFT 2025</h4>
-          <ul className="text-xl list-disc list-inside pl-6 space-y-2">
-            <li>NFT #1 → 300 Candibar Tokens</li>
-            <li>NFT #2 → 300 Candibar Tokens</li>
-            <li>NFT #3 → 300 Candibar Tokens</li>
-            <li>NFT #4 → 300 Candibar Tokens</li>
-          </ul>
+        <div className="mb-0 text-left p-6">
+
+          <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4].collectionsubtitles} (Swappable!)</h4>
+          {candicollection.length > 0 && candicollection[4].images.map((image, index) => (
+            <div key={index} className="mb-2 text-left">
+              <ul className="text-xl list-disc list-inside pl-6 space-y-2">
+                <li className="flex items-center space-x-2">
+                  <img src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
+
+                  <span> {image.name} → {candicollection[4].collectioncandibarvalue} Candibar Tokens</span>
+                </li>
+              </ul>
+            </div>
+          ))}
+
         </div>
-  
+        <div className="mb-10 text-left p-6">
+          <h4 className="text-2xl font-semibold mb-3">🐍 {candicollection[0].collectionsubtitles} ( **Soon to Follow** )</h4>
+          {candicollection.slice(0, 4).map((collection, collectionIndex) => (
+            <div key={collectionIndex} className="mb-2 text-left">
+              {collection.images.map((image, imageIndex) => (
+                <div key={imageIndex} className="mb-2 text-left">
+                  <ul className="text-xl list-disc list-inside pl-6 space-y-2">
+                    <li className="flex items-center space-x-2">
+                      <img src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
+                      <span> {image.name} → ?? ??</span>
+                      {/* <span> {image.name} → {collection.collectioncandibarvalue} Candibar Tokens</span> */}
+                    </li>
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
         {/* Snake Collection */}
         {/* <div className="mb-10 text-left">
           <h4 className="text-2xl font-semibold mb-3">🐍 Snake Collection 2025</h4>
@@ -42,19 +88,20 @@ export const CPAGView: FC = ({ }) => {
             <li>NFT #4 → 20,000 Candibar Tokens</li>
           </ul>
         </div> */}
-  
+
         {/* Special Collection */}
-        {/* <div className="mb-10 text-left">
-          <h4 className="text-2xl font-semibold mb-3">🌟 Special Collection</h4>
+        <div className="mb-10 text-left">
+          <h4 className="text-2xl font-semibold mb-3">🌟 Special Collection ( **Soon to Follow** )</h4>
           <p className="text-xl">
             Collect all four Zodiac NFTs of the same sign + the Cover NFT to unlock a massive{" "}
-            <strong>50,000 Candibar Tokens</strong>!
+            ?? ??
+            {/* <strong>50,000 Candibar Tokens</strong>! */}
           </p>
-        </div> */}
-  
+        </div>
+
         {/* Zodiac Swaps */}
-        <div className="mb-10 text-left">
-          <h4 className="text-2xl font-semibold mb-3">♈ Zodiac Candi NFT Swap</h4>
+        <div className="mb-10 text-left p-6">
+          <h4 className="text-2xl font-semibold mb-3">♈ Zodiac Candi NFT Swap ( **Soon to Follow** )</h4>
           <p className="text-xl mb-3">
             Trade your Zodiac NFTs based on the current month to complete a full set!
           </p>
