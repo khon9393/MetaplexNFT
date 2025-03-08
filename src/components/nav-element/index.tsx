@@ -26,7 +26,8 @@ const NavElement = ({
     navigationStarts = () => {},
 }: NavElementProps) => {
     const router = useRouter();
-    const isActive = href === router.asPath || (as && as === router.asPath);
+    const normalizePath = (path: string) => path.replace(/\/$/, '');
+    const isActive = normalizePath(href || '') === normalizePath(router.asPath) || (as && normalizePath(as) === normalizePath(router.asPath));
     const divRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
