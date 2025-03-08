@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import {
   Accordion,
   AccordionContent,
@@ -12,22 +12,20 @@ import solanaLogo from "../../public/logos/solanaLogo.png";
 import metaplexLogo from "../../public/logos/metaplex-logo.png";
 import Link from 'next/link';
 import candibarQRcode from "../../public/logos/candibarQRcode.png";
-import {SolCalcDrawer} from './candibar/SolCalcDrawer';
+import { SolCalcDrawer } from './candibar/SolCalcDrawer';
+
 
 export const Footer: FC = () => {
   return (
     <div className="flex">
-
-      <footer className="border-t-2 border-[#141414] bg-black hover:text-white w-screen" >
+      <footer className="border-t-2 border-[#141414] bg-black hover:text-white w-screen">
         <div className="ml-12 py-12 mr-12">
+       
           <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-8 md:space-x-12 relative">
             <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
               <div className='flex flex-row ml-1'>
-              <SolCalcDrawer/>
+                <SolCalcDrawer />
               </div>
-
-
-
               <div className="disclaimer-container text-gray-400 p-2">
 
                 <h1 className="disclaimer-title">Legal Disclaimer</h1>
@@ -128,55 +126,55 @@ export const Footer: FC = () => {
 
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg space-y-4">
 
-            <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
+              <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
 
-            <Link href="/">
-                <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
+                <Link href="/">
+                  <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
 
-                  Candibar
-                </h1>
-                <span
-                  className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
-                >Where Art and Sugar Converge
-                </span>
-              </Link>
-           
-           
-              <div className="font-normal mb-2.5 p-5 text-sm">
-                {["candibarnft.com", "candibarnft.io"].map((domain) => (
-                  <div key={domain} className="mb-2">
-                    <a href={`https://www.${domain}`} target="_blank" rel="noopener noreferrer">
-                      ©&nbsp;{new Date().getFullYear()}&nbsp;{domain}
-                    </a>
-                  </div>
-                ))}
-                All Rights Reserved.
-              </div>
-
-              <div className="flex flex-col justify-center items-center">
-                <Link href="/getstarted"
-                  className="text-center w-[150px] hover:underline text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500">
-                  Getting Started - Quick Guide.
+                    Candibar
+                  </h1>
+                  <span
+                    className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 "
+                  >Where Art and Sugar Converge
+                  </span>
                 </Link>
-              </div>
 
-              <div className="flex flex-col justify-center items-center">
-                <div className="text-center w-[150px]">
-                  Start by scanning the QR code below using your mobile device to access the Candibar app.
+
+                <div className="font-normal mb-2.5 p-5 text-sm">
+                  {["candibarnft.com", "candibarnft.io"].map((domain) => (
+                    <div key={domain} className="mb-2">
+                      <a href={`https://www.${domain}`} target="_blank" rel="noopener noreferrer">
+                        ©&nbsp;{new Date().getFullYear()}&nbsp;{domain}
+                      </a>
+                    </div>
+                  ))}
+                  All Rights Reserved.
+                </div>
+
+                <div className="flex flex-col justify-center items-center">
+                  <Link href="/getstarted"
+                    className="text-center w-[150px] hover:underline text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500">
+                    Getting Started - Quick Guide.
+                  </Link>
+                </div>
+
+                <div className="flex flex-col justify-center items-center">
+                  <div className="text-center w-[150px]">
+                    Start by scanning the QR code below using your mobile device to access the Candibar app.
+                  </div>
+                </div>
+
+                <div className="flex justify-center items-center">
+                  <Image
+                    src={candibarQRcode}
+                    alt="Candibar QR Code"
+                    width={150}
+                    height={150}
+                    className="inline-block p-2"
+                  />
                 </div>
               </div>
 
-              <div className="flex justify-center items-center">
-                <Image
-                  src={candibarQRcode}
-                  alt="Candibar QR Code"
-                  width={150}
-                  height={150}
-                  className="inline-block p-2"
-                />
-              </div>
-            </div>
-            
             </div>
 
             <div className="mb-6 items-center col-span-2 mx-auto max-w-screen-lg">
