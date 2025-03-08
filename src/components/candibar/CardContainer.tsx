@@ -86,10 +86,10 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
   }, [candyMachineKeys]);
 
 
-  useEffect(() => {
-    const initialImageIndex = candyMachines.map(() => 0);
-    setCurrentImageIndex(initialImageIndex);
-  }, [candyMachines]);
+  // useEffect(() => {
+  //   const initialImageIndex = candyMachines.map(() => 0);
+  //   setCurrentImageIndex(initialImageIndex);
+  // }, [candyMachines]);
 
   const [currentImageIndex, setCurrentImageIndex] = useState<number[]>(new Array(candyMachines.length).fill(0));
 
