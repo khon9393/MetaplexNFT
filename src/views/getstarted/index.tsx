@@ -165,7 +165,7 @@ export const GetStartedView: FC = ({ }) => {
               </AccordionItem>
 
               <AccordionItem value="step3">
-                <AccordionTrigger className="text-xl font-bold">Step 3: Redeem or Swap NFTs in the Marketplace</AccordionTrigger>
+                <AccordionTrigger className="text-xl font-bold">Step 3: Redeem Candibar Tokens for NFTs in the Marketplace</AccordionTrigger>
                 <AccordionContent>
                   <h2 className="text-xl mt-4">
                   After swapping your Candi NFTs for Candibar tokens, you can use them to acquire exclusive items in the Candibar marketplace or swap them for other NFTs. 
