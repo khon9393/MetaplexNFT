@@ -30,7 +30,7 @@ export const SolCalcDrawer: FC = () => {
         <DrawerTrigger>
           
           <Button
-            className="text-white hover:text-blue-600 text-1xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500"
+            className="text-white hover:text-blue-600 text-1xl md:text-1xl mb-2"
             variant="default"
           >
             SOL &rarr; USD Calc.
@@ -40,7 +40,7 @@ export const SolCalcDrawer: FC = () => {
         </DrawerTrigger>
 
         <DrawerContent className="h-[65vh] bg-gray-400"
-        style={{ backgroundImage: `url(${CandiCollection.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
+       // style={{ backgroundImage: `url(${CandiCollection.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
           <DrawerHeader
             //className="absolute left-0 top-0"
