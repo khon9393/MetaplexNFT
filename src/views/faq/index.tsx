@@ -68,18 +68,18 @@ export const FAQView: FC = ({ }) => {
                   </ul>
                   <h1 className="text-xl font-bold mt-5">Norton Firewall Configuration</h1>
                   <h1 className="text-xl">Follow these steps to allow the necessary URLs through Norton Firewall:</h1>
+                  <h1 className="text-xl font-bold mt-5">Norton Safe Web Configuration</h1>
+                  <h1 className="text-xl">Follow these steps to add the necessary URLs to Norton Safe Web allowed list:</h1>
                   <ol className="list-decimal pl-5 mt-3 text-xl">
                     <li>Open <strong>Norton</strong> and go to <strong>Settings</strong>.</li>
-                    <li>Click on <strong>Firewall</strong>.</li>
-                    <li>Navigate to the <strong>Program Control</strong> tab.</li>
-                    <li>Click <strong>Add</strong> to create a new rule.</li>
+                    <li>Click on <strong>Safe Web</strong>.</li>
+                    <li>Navigate to the <strong>Exclusions</strong> tab.</li>
+                    <li>Click <strong>Add</strong> to create a new entry.</li>
                     <li>Enter the URL or domain to allow (e.g., <em>https://entire-wagon-fix.quicknode-ipfs.com/*</em>).</li>
-                    <li>Choose <strong>Allow</strong> as the action.</li>
-                    <li>Click <strong>OK</strong> to save the rule.</li>
+                    <li>Click <strong>OK</strong> to save the entry.</li>
                     <li>Repeat for each URL listed above.</li>
                     <li>Restart your browser and check if the issue is resolved.</li>
-                  </ol>
-                </AccordionContent>
+                  </ol>  </AccordionContent>
               </AccordionItem>
             </Accordion>
           </article>
