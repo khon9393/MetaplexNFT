@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import Select from "react-select";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
 
@@ -20,12 +21,9 @@ export const AstrologyZodiacView: FC = () => {
 
   const [selectedSigns, setSelectedSigns] = useState<string[]>([]);
 
-  const handleSignClick = (sign: string) => {
-    setSelectedSigns((prevSelectedSigns) =>
-      prevSelectedSigns.includes(sign)
-        ? prevSelectedSigns.filter((s) => s !== sign)
-        : [...prevSelectedSigns, sign]
-    );
+  const handleSignChange = (selectedOptions: any) => {
+    const selectedValues = selectedOptions.map((option: any) => option.value);
+    setSelectedSigns(selectedValues.includes("View All") ? Object.keys(CandiZodiacSigns) : selectedValues);
   };
 
   useEffect(() => {
@@ -55,9 +53,17 @@ export const AstrologyZodiacView: FC = () => {
     }
   }, []);
 
+  const options = [
+    ...Object.entries(CandiZodiacSigns).map(([sign, { icon }]) => ({
+      value: sign,
+      label: `${icon} ${sign}`,
+    })),
+    { value: "View All", label: "View All" },
+  ];
+
   return (
     <div>
-      <h1 className="text-center text-3xl font-extrabold p-3">
+  <h1 className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with candi confection art NFT!
       </h1>
 
@@ -89,27 +95,45 @@ export const AstrologyZodiacView: FC = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 text-purple-700">
-        {Object.entries(CandiZodiacSigns).map(([sign, { icon, dateRange }]) => (
-          <div
-            key={sign}
-            className={`cursor-pointer p-1 border rounded-lg ${
-              selectedSigns.includes(sign) ? "bg-blue-200" : "bg-white"
-            }`}
-            onClick={() => handleSignClick(sign)}
-          >
-            <p className="flex text-lg sm:text-xl md:text-2xl font-extrabold text-center">{icon} {sign}</p>
-            <p className="text-center hidden sm:block text-sm sm:text-base md:text-lg">{dateRange}</p>
-          </div>
-        ))}
+      <div className="flex justify-center p-4 ">
+      <Select
+        isMulti
+        options={options}
+        value={options.filter(option => selectedSigns.includes(option.value))}
+        onChange={handleSignChange}
+        className="w-full max-w-lg"
+        styles={{
+        multiValueLabel: (base) => ({
+          ...base,
+          color: 'purple',
+        }),
+        singleValue: (base) => ({
+          ...base,
+          color: 'purple',
+        }),
+        option: (base, state) => ({
+          ...base,
+          color: state.isSelected ? 'white' : 'purple',
+          backgroundColor: state.isSelected ? 'purple' : 'white',
+        }),
+        control: (base) => ({
+          ...base,
+          backgroundColor: 'white',
+        }),
+        multiValue: (base) => ({
+          ...base,
+          backgroundColor: 'lightgray',
+        }),
+        }}
+      />
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 p-4">
-        {selectedSigns.map((sign) => (
-          <div key={sign} className="p-2">
-            <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].PublicKey)]} />
-          </div>
-        ))}
+      {selectedSigns.map((sign) => (
+        <div key={sign} className="p-2">
+        <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].PublicKey)]} />
+        </div>
+      ))}
       </div>
     </div>
   );
