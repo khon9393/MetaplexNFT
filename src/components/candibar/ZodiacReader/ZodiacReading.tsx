@@ -48,7 +48,7 @@ export const ZodiacReading: FC<ZodiacReadingProps> = ({ sign }) => {
       setHasCandbarToken(false); // Set the token state to false if the user does not have the token
       setIsCandibarModalOpen(true); // Open the modal if the user does not have the token
     }
-  }, [wallet, fetchTokenBalance, formatTokenAmount, setHasCandbarToken, setIsCandibarModalOpen]);
+  }, [wallet, setHasCandbarToken, setIsCandibarModalOpen, sign]);
 
   return (
     <>

@@ -43,8 +43,6 @@ interface CandiMintersProps {
 }
 
 export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress,buttonText}) => {
-
-  const { connection } = useConnection();
   const wallet = useWallet();
   const { getUserSOLBalance } = useUserSOLBalanceStore();
 
@@ -203,7 +201,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
     setIsTransacting(false);
     }
-  }, [wallet, connection, getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
+  }, [wallet,getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
 
   return (
     <div className="flex flex-row justify-center">
