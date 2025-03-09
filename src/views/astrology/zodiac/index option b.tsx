@@ -1,5 +1,7 @@
 
 import { FC, useMemo } from "react";
+
+import { Toaster } from "@/components/ui/toaster";
 import { publicKey, PublicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
 import { useState } from "react";
@@ -33,38 +35,9 @@ export const AstrologyZodiacView: FC = ({ }) => {
 
   return (
     <div>
-  <h1 className="text-center text-3xl font-extrabold p-3">
-        Unlock the future of digital assets with candi confection art NFT!
+      <h1 className="text-center text-2xl font-extrabold p-1">
+        Unlock the future of digital assets with candi confection art NFTc!
       </h1>
-
-      <div className="flex flex-col text-1xl items-center justify-center p-5">
-        <h2 className="max-w-7xl leading-relaxed">
-          Step into the cosmic realm of the Zodiac with this exclusive NFT collection, embodying the essence of
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
-            &nbsp;destiny
-          </span>,
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-500 to-teal-600 animate-pulse">
-            &nbsp;wisdom
-          </span>, and
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-orange-600 animate-pulse">
-            &nbsp;prosperity
-          </span>.
-          Whether you channel the strength of the Lion, the resilience of the Ox, or the agility of the Ram, each NFT captures the distinct energy of its zodiac sign.
-          By owning one or more of these celestial collectibles, you harness the power of
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 animate-pulse">
-            &nbsp;fortune
-          </span>,
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-green-500 to-teal-600 animate-pulse">
-            &nbsp;growth
-          </span>, and
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-600 animate-pulse">
-            &nbsp;success
-          </span>.
-          Each NFT is crafted to reflect the qualities and cosmic influence of its sign, making it a unique addition to your digital portfolio.
-          Seize this rare opportunity to connect with the power of the Zodiac—collect yours today!
-        </h2>
-      </div>
-
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 text-purple-700">
         {Object.entries(CandiZodiacSigns).map(([sign, { icon, dateRange }]) => (
@@ -77,17 +50,21 @@ export const AstrologyZodiacView: FC = ({ }) => {
           >
             <p className="flex text-lg sm:text-xl md:text-2xl font-extrabold text-center">{icon} {sign}</p>
             <p className="text-center hidden sm:block text-sm sm:text-base md:text-lg">{dateRange}</p>
+
           </div>
         ))}
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4 p-4">
-        {selectedSigns.map((sign) => (
-          <div key={sign} className="p-2">
-            <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].PublicKey)]} />
-          </div>
-        ))}
-      </div>
+      {selectedSigns.map((sign) => (
+        <div key={sign}>
+          <p className="text-3xl font-extrabold p-3 text-center">
+            {sign} Dates: {CandiZodiacSigns[sign].dateRange}
+          </p>
+          <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].PublicKey)]} />
+        </div>
+      ))}
+
+      <Toaster />
     </div>
   );
 

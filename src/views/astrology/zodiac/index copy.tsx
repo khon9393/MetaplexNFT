@@ -1,8 +1,9 @@
 
 import { FC, useMemo } from "react";
+
+import { Toaster } from "@/components/ui/toaster";
 import { publicKey, PublicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
-import { useState } from "react";
 
 export const AstrologyZodiacView: FC = ({ }) => {
 
@@ -21,19 +22,10 @@ export const AstrologyZodiacView: FC = ({ }) => {
     Sagittarius: { icon: "♐", dateRange: "November 22-December 21", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1 },
   };
 
-  const [selectedSigns, setSelectedSigns] = useState<string[]>([]);
-
-  const handleSignClick = (sign: string) => {
-    setSelectedSigns((prevSelectedSigns) =>
-      prevSelectedSigns.includes(sign)
-        ? prevSelectedSigns.filter((s) => s !== sign)
-        : [...prevSelectedSigns, sign]
-    );
-  };
-
   return (
+
     <div>
-  <h1 className="text-center text-3xl font-extrabold p-3">
+        <h1 className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with candi confection art NFT!
       </h1>
 
@@ -65,29 +57,15 @@ export const AstrologyZodiacView: FC = ({ }) => {
         </h2>
       </div>
 
-
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 text-purple-700">
-        {Object.entries(CandiZodiacSigns).map(([sign, { icon, dateRange }]) => (
-          <div
-            key={sign}
-            className={`cursor-pointer p-1 border rounded-lg ${
-              selectedSigns.includes(sign) ? "bg-blue-200" : "bg-white"
-            }`}
-            onClick={() => handleSignClick(sign)}
-          >
-            <p className="flex text-lg sm:text-xl md:text-2xl font-extrabold text-center">{icon} {sign}</p>
-            <p className="text-center hidden sm:block text-sm sm:text-base md:text-lg">{dateRange}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-4 p-4">
-        {selectedSigns.map((sign) => (
-          <div key={sign} className="p-2">
-            <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].PublicKey)]} />
-          </div>
-        ))}
-      </div>
+      {Object.entries(CandiZodiacSigns).map(([sign, { dateRange, PublicKey }]) => (
+        <div key={sign}>
+          <p className="text-3xl font-extrabold p-3 text-center">
+            {sign} Dates: {dateRange}
+          </p>
+          <CardContainer candyMachineKeys={[publicKey(PublicKey)]} />
+        </div>
+      ))}
+      <Toaster />
     </div>
   );
 
