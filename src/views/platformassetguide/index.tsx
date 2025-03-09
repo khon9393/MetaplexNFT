@@ -47,31 +47,37 @@ export const CPAGView: FC = ({ }) => {
         {/* Candi Collection */}
         <div className="mb-0 text-left p-6">
 
-        <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4] && candicollection[4].collectionsubtitles} (Swappable!)</h4>
-            {candicollection.length > 0 && (
+          <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4] && candicollection[4].collectionsubtitles} (Swappable!)</h4>
+          {candicollection.length > 0 && (
             <>
               {candicollection[4].images.filter(image => image.iscover === '1').slice(0, 1).map((image, index) => (
-              <div key={index} className="mb-2 text-left">
-                <ul className="text-xl list-disc list-inside pl-6 space-y-2">
-                <li className="flex items-center space-x-2">
-                  <Image src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
-                <span> {image.name}</span>
-                </li>
-                </ul>
-              </div>
+                <div key={index} className="mb-2 text-left">
+                  <ul className="text-xl list-disc list-inside pl-6 space-y-2">
+                    <li className="flex items-center space-x-2">
+                      <Image
+                        height={100}
+                        width={100}
+                        src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
+                      <span> {image.name}</span>
+                    </li>
+                  </ul>
+                </div>
               ))}
               {candicollection[4].images.filter(image => image.iscover !== '1').map((image, index) => (
-              <div key={index} className="mb-2 text-left">
-                <ul className="text-xl list-disc list-inside pl-6 space-y-2">
-                <li className="flex items-center space-x-2">
-                  <Image src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
-                  <span> {image.name} → {candicollection[4].collectioncandibarvalue} Candibar Tokens</span>
-                </li>
-                </ul>
-              </div>
+                <div key={index} className="mb-2 text-left">
+                  <ul className="text-xl list-disc list-inside pl-6 space-y-2">
+                    <li className="flex items-center space-x-2">
+                      <Image
+                        height={100}
+                        width={100}
+                        src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
+                      <span> {image.name} → {candicollection[4].collectioncandibarvalue} Candibar Tokens</span>
+                    </li>
+                  </ul>
+                </div>
               ))}
             </>
-            )}
+          )}
         </div>
 
         <div className="mb-10 text-left p-6">
@@ -82,7 +88,10 @@ export const CPAGView: FC = ({ }) => {
                 <div key={imageIndex} className="mb-2 text-left">
                   <ul className="text-xl list-disc list-inside pl-6 space-y-2">
                     <li className="flex items-center space-x-2">
-                      <Image src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
+                      <Image
+                        height={100}
+                        width={100}
+                        src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
                       <span> {image.name}</span>
                     </li>
                   </ul>
@@ -97,7 +106,10 @@ export const CPAGView: FC = ({ }) => {
                 <div key={imageIndex} className="mb-2 text-left">
                   <ul className="text-xl list-disc list-inside pl-6 space-y-2">
                     <li className="flex items-center space-x-2">
-                      <Image src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
+                      <Image
+                        height={100}
+                        width={100}
+                        src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
                       <span> {image.name} → ?? ??</span>
                     </li>
                   </ul>

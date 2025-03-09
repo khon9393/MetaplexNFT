@@ -29,9 +29,7 @@ export const AstrologyZodiacView: FC = () => {
   useEffect(() => {
     const getCurrentZodiacSign = () => {
       const currentDate = new Date();
-      const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-11
-      const currentDay = currentDate.getDate();
-
+ 
       for (const [sign, { dateRange }] of Object.entries(CandiZodiacSigns)) {
         const [start, end] = dateRange.split("-");
         const [startMonth, startDay] = start.split(" ");
