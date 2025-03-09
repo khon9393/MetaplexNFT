@@ -1,11 +1,8 @@
-
-import { FC, useMemo } from "react";
-import { publicKey, PublicKey } from "@metaplex-foundation/umi";
+import { FC, useEffect, useState } from "react";
+import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
-import { useState } from "react";
 
-export const AstrologyZodiacView: FC = ({ }) => {
-
+export const AstrologyZodiacView: FC = () => {
   const CandiZodiacSigns = {
     Capricorn: { icon: "♑", dateRange: "December 21-January 20", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1 },
     Aquarius: { icon: "♒", dateRange: "January 21-February 18", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1 },
@@ -31,9 +28,36 @@ export const AstrologyZodiacView: FC = ({ }) => {
     );
   };
 
+  useEffect(() => {
+    const getCurrentZodiacSign = () => {
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-11
+      const currentDay = currentDate.getDate();
+
+      for (const [sign, { dateRange }] of Object.entries(CandiZodiacSigns)) {
+        const [start, end] = dateRange.split("-");
+        const [startMonth, startDay] = start.split(" ");
+        const [endMonth, endDay] = end.split(" ");
+
+        const startDate = new Date(`${startMonth} ${startDay}, ${currentDate.getFullYear()}`);
+        const endDate = new Date(`${endMonth} ${endDay}, ${currentDate.getFullYear()}`);
+
+        if (startDate <= currentDate && currentDate <= endDate) {
+          return sign;
+        }
+      }
+      return null;
+    };
+
+    const currentSign = getCurrentZodiacSign();
+    if (currentSign) {
+      setSelectedSigns([currentSign]);
+    }
+  }, []);
+
   return (
     <div>
-  <h1 className="text-center text-3xl font-extrabold p-3">
+      <h1 className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with candi confection art NFT!
       </h1>
 
@@ -65,7 +89,6 @@ export const AstrologyZodiacView: FC = ({ }) => {
         </h2>
       </div>
 
-
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 text-purple-700">
         {Object.entries(CandiZodiacSigns).map(([sign, { icon, dateRange }]) => (
           <div
@@ -90,5 +113,4 @@ export const AstrologyZodiacView: FC = ({ }) => {
       </div>
     </div>
   );
-
 };
