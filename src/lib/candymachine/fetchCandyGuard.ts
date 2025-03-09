@@ -1,8 +1,6 @@
 import { mplCandyMachine, safeFetchMintCounterFromSeeds } from "@metaplex-foundation/mpl-core-candy-machine";
 import useUmiStore from "../../stores/useUmiStore";
-import { PublicKey, publicKey} from '@metaplex-foundation/umi';
-import { clusterApiUrl } from "@solana/web3.js";
-const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC || clusterApiUrl('devnet');
+import { publicKey} from '@metaplex-foundation/umi';
 
 const fetchCandyGuardUserMintlimit = async (userpk: string, candyMachinekey: string, candyGuardkey: string, candyGuardId: number) => {
   const umi = useUmiStore.getState().umi;
