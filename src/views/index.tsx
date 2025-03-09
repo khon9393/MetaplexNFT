@@ -9,5 +9,4 @@ export {TermsOfServiceView} from "./tos";
 export {PrivacyPolicyView} from "./pp";
 export {AstrologyZodiacView} from "./astrology/zodiac/index";
 export {AstrologySignView} from "./astrology/sign";
-export {TestMintView} from "./test";
 export {CPAGView} from "./platformassetguide";

@@ -3,6 +3,7 @@ import { publicKey } from "@metaplex-foundation/umi";
 import { FC, useEffect, useMemo, useState } from "react";
 import { getCollection } from "../../stores/useCandibardataStorefromDB";
 import SwapCounter from '../../components/candibar/SwapCounter';
+import Image from "next/image";
 
 export const CPAGView: FC = ({ }) => {
   const [candicollection, setcandicollection] = useState<any[]>([]);
@@ -53,7 +54,7 @@ export const CPAGView: FC = ({ }) => {
               <div key={index} className="mb-2 text-left">
                 <ul className="text-xl list-disc list-inside pl-6 space-y-2">
                 <li className="flex items-center space-x-2">
-                  <img src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
+                  <Image src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
                 <span> {image.name}</span>
                 </li>
                 </ul>
@@ -63,7 +64,7 @@ export const CPAGView: FC = ({ }) => {
               <div key={index} className="mb-2 text-left">
                 <ul className="text-xl list-disc list-inside pl-6 space-y-2">
                 <li className="flex items-center space-x-2">
-                  <img src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
+                  <Image src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
                   <span> {image.name} → {candicollection[4].collectioncandibarvalue} Candibar Tokens</span>
                 </li>
                 </ul>
@@ -81,7 +82,7 @@ export const CPAGView: FC = ({ }) => {
                 <div key={imageIndex} className="mb-2 text-left">
                   <ul className="text-xl list-disc list-inside pl-6 space-y-2">
                     <li className="flex items-center space-x-2">
-                      <img src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
+                      <Image src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
                       <span> {image.name}</span>
                     </li>
                   </ul>
@@ -96,7 +97,7 @@ export const CPAGView: FC = ({ }) => {
                 <div key={imageIndex} className="mb-2 text-left">
                   <ul className="text-xl list-disc list-inside pl-6 space-y-2">
                     <li className="flex items-center space-x-2">
-                      <img src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
+                      <Image src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
                       <span> {image.name} → ?? ??</span>
                     </li>
                   </ul>
