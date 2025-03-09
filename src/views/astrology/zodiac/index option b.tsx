@@ -63,8 +63,6 @@ export const AstrologyZodiacView: FC = ({ }) => {
           <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].PublicKey)]} />
         </div>
       ))}
-
-      <Toaster />
     </div>
   );
 
