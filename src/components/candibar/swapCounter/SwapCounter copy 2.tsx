@@ -72,7 +72,7 @@ export default function SwapCounter() {
                   </CollapsibleTrigger>
                 </div>
 
-                <div className="rounded-md border font-mono text-sm md:text-md shadow-sm flex items-start justify-start whitespace-nowrap">
+                <div className="rounded-md border font-mono text-md shadow-sm flex items-start justify-start whitespace-nowrap">
                   {Object.entries(zodiacSigns).map(([sign, { icon, dateRange }]) => {
 
                     const [startMonth, startDay] = dateRange.split(" - ")[0].split(" ");
@@ -84,8 +84,8 @@ export default function SwapCounter() {
 
                     if (isActive) {
                       return (
-                        <div key={sign} className="p-4 border-gray-600 rounded-lg">
-                          <p className="text-sm sm:text-sm">{icon} {sign} NFT Collection {dateRange}</p>
+                        <div key={sign} className="p-4 border-l-2 border-gray-600 rounded-lg">
+                          <p className="text-sm md:text-base">{icon} {sign} NFT Collection {dateRange}</p>
                           <p><Countdown endDate={endDate} /></p>
 
                         </div>
@@ -123,7 +123,7 @@ export default function SwapCounter() {
                   </CollapsibleTrigger>
                 </div>
 
-                <div className="rounded-md border font-mono text-sm md:text-md shadow-sm flex items-start justify-start whitespace-nowrap">
+                <div className="rounded-md border font-mono text-md shadow-sm flex items-start justify-start whitespace-nowrap">
 
                     <div className="">
 
@@ -139,7 +139,7 @@ export default function SwapCounter() {
                       .filter(({ startDate }) => startDate > serverDate)
                       .sort((a, b) => a.startDate.getTime() - b.startDate.getTime())
                       .map(({ sign, icon, dateRange }, index) => (
-                        <div key={sign} className="flex justify-start items-start pl-1">
+                        <div key={sign} className="flex justify-start items-start pl-6">
 
                           {index === 0 ? (
                             <>
