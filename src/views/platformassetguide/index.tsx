@@ -2,8 +2,8 @@
 import { publicKey } from "@metaplex-foundation/umi";
 import { FC, useEffect, useMemo, useState } from "react";
 import { getCollection } from "../../stores/useCandibardataStorefromDB";
-import SwapCounter from '../../components/candibar/SwapCounter';
 import Image from "next/image";
+import SwapDetails from "@/components/candibar/swapCounter/SwapDetails";
 
 export const CPAGView: FC = ({ }) => {
   const [candicollection, setcandicollection] = useState<any[]>([]);
@@ -42,7 +42,7 @@ export const CPAGView: FC = ({ }) => {
       {/* Introduction */}
       <div className="mt-10 text-center">
         <h3 className="text-2xl font-semibold mb-6">
-          A Guide to Digital Assets Collection Listing, Swapping NFTs & Candibar Tokens
+          A Guide to Candibar Digital Assets Collection Listing, Swapping NFTs & Candibar Tokens
         </h3>
 
         {/* Candi Collection */}
@@ -150,7 +150,7 @@ export const CPAGView: FC = ({ }) => {
             Trade your Zodiac NFTs based on the current month to complete a full set!
           </p>
         </div>
-        <SwapCounter />
+        <SwapDetails/>
       </div>
     </div>
   );
