@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
         // Fetch readings from the database
-        const readings = await query("SELECT sign,duration, reading FROM zodiac_readings ORDER BY created_at DESC", []);
+        const readings = await query("SELECT sign, duration, reading, created_at FROM zodiac_readings ORDER BY created_at DESC", []);
 
         // Store the readings in the cache
         cache.set(cacheKey, Buffer.from(JSON.stringify(readings)));
