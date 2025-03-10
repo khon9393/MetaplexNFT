@@ -143,6 +143,7 @@ const CardDetails: FC = () => {
       >
         <div className="w-full md:w-1/2 max-w-[600px] min-w-[400px]" >
           <div className="p-1" >
+            
             {candyMachines.map((machine, index) => (
               <div key={machine.id}
               >
@@ -362,7 +363,7 @@ const CardDetails: FC = () => {
                               height={16}
                               className="mr-1"
                               />
-                              {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} SOL (Excluding transaction fees)
+                              {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} SOL (excl. txn fees)
                             </div>
 
                             {machine.tokenPaymentAmount > 0 && (
