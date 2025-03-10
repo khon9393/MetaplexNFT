@@ -85,12 +85,6 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
 
   }, [candyMachineKeys]);
 
-
-  // useEffect(() => {
-  //   const initialImageIndex = candyMachines.map(() => 0);
-  //   setCurrentImageIndex(initialImageIndex);
-  // }, [candyMachines]);
-
   const [currentImageIndex, setCurrentImageIndex] = useState<number[]>(new Array(candyMachines.length).fill(0));
 
 
@@ -141,7 +135,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                 </div>
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                    mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                    minted: {machine.itemsRedeemed} of {machine.itemsAvailable}
                   </div>
                 </div>
                 {(machine.zodiacSign || machine.zodiacYear) && (

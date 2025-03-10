@@ -16,9 +16,6 @@ const zodiacSigns = [
 const durations = ["Day", "Week", "Month"];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    console.log("Handler invoked"); // Add this line for logging
-    console.log("Request received:", req.method, req.url); // Add this line for logging
-    console.log("Request headers:", req.headers); // Log request headers
     if (req.method !== "GET") return res.status(405).json({ error: "Method Not Allowed" });
 
     try {

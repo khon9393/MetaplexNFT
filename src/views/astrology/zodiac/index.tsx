@@ -1,10 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import Select from "react-select";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
 
 export const AstrologyZodiacView: FC = () => {
-  const CandiZodiacSigns = {
+  
+  const CandiZodiacSigns = useMemo(() => ({
     Capricorn: { icon: "♑", dateRange: "December 21-January 20", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1 },
     Aquarius: { icon: "♒", dateRange: "January 21-February 18", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1 },
     Pisces: { icon: "♓", dateRange: "February 19-March 20", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1 },
@@ -17,13 +18,15 @@ export const AstrologyZodiacView: FC = () => {
     Libra: { icon: "♎", dateRange: "September 23-October 22", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEBRAC1 },
     Scorpio: { icon: "♏", dateRange: "October 23-November 21", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1 },
     Sagittarius: { icon: "♐", dateRange: "November 22-December 21", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1 },
-  };
+  }), []);
 
   const [selectedSigns, setSelectedSigns] = useState<string[]>([]);
 
   const handleSignChange = (selectedOptions: any) => {
     const selectedValues = selectedOptions.map((option: any) => option.value);
-    setSelectedSigns(selectedValues.includes("View All") ? Object.keys(CandiZodiacSigns) : selectedValues);
+    const signsToStore = selectedValues.includes("View All") ? Object.keys(CandiZodiacSigns) : selectedValues;
+    setSelectedSigns(signsToStore);
+    localStorage.setItem("selectedSigns", JSON.stringify({ signs: signsToStore, timestamp: new Date().getTime() }));
   };
 
   useEffect(() => {
@@ -45,11 +48,25 @@ export const AstrologyZodiacView: FC = () => {
       return null;
     };
 
+    const storedData = localStorage.getItem("selectedSigns");
+    if (storedData) {
+      const { signs, timestamp } = JSON.parse(storedData);
+      const currentTime = new Date().getTime();
+      const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000;
+
+      if (currentTime - timestamp < threeDaysInMilliseconds) {
+        setSelectedSigns(signs);
+        return;
+      } else {
+        localStorage.removeItem("selectedSigns");
+      }
+    }
+
     const currentSign = getCurrentZodiacSign();
     if (currentSign) {
       setSelectedSigns([currentSign]);
     }
-  }, []);
+  }, [CandiZodiacSigns]);
 
   const options = [
     ...Object.entries(CandiZodiacSigns).map(([sign, { icon }]) => ({
