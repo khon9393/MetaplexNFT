@@ -82,6 +82,24 @@ export const CPAGView: FC = ({ }) => {
 
         <div className="mb-10 text-left p-6">
           <h4 className="text-2xl font-semibold mb-3">🐍 {candicollection[0] && candicollection[0].collectionsubtitles} ( **Soon to Follow** )</h4>
+        
+
+
+          <span className="text-xl flex items-center space-x-4 mb-4 pl-6">
+          <Image
+            height={100}
+            width={100}
+            src={'/api/image/CandibarImg/Woodsnake/collection_2025_500-xKfCll1tDurgiRl02yLvmHu1ryvJvs.jpg'} 
+            alt={`Snake Collection 2025 Cover`} 
+            className="mt-2" 
+            style={{ width: '30px' }} 
+          />
+          <span>Snake Collection 2025 Cover</span>
+          </span>
+
+
+
+
           {candicollection.slice(0, 1).map((collection, collectionIndex) => (
             <div key={collectionIndex} className="mb-2 text-left">
               {collection.images.filter(image => image.iscover === "1").map((image, imageIndex) => (

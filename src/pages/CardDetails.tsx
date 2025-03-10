@@ -89,7 +89,7 @@ const CardDetails: FC = () => {
     const updatedCandyMachines = balances.map((balance, index) => {
       if (collectionData) {
         const images = collectionData.collectionurl
-          ? [{ name: collectionData.collectionName, url: collectionData.collectionurl, iscollectioncover: true }, ...collectionData.images]
+          ? [...collectionData.images, { name: collectionData.collectionname, url: collectionData.collectionurl, iscollectioncover: true }]
           : [...collectionData.images];
 
 
@@ -109,7 +109,6 @@ const CardDetails: FC = () => {
           collectionDetails: collectionData.collectiondetails,
           collectionCandibarValue: collectionData.collectioncandibarvalue,
           collectionStatus: collectionData.collectionstatus as NFTStatusTypes,
-          // candibarcost: collectionData.candibarcost,
           isSwappable: collectionData.isswappable,
           tokenPaymentAmount: balance.tokenPaymentAmount,
         };
@@ -184,8 +183,9 @@ const CardDetails: FC = () => {
 
                           </motion.div>
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
-                            {selectedImage === machine.images[0]?.url && machine.images[0]?.iscollectioncover
-                              ? machine.collectionCoverName
+                            {
+                            selectedImage === machine.images.find((img) => img.iscollectioncover)?.url
+                              ? `Collection Cover: ${machine.collectionCoverName}`
                               : machine.images.find((img) => img.url === selectedImage)?.name || `Candibar Item`}
                           </div>
                         </div>
@@ -230,11 +230,10 @@ const CardDetails: FC = () => {
                   (
                     <div>
                       <CandiMinter
-                        candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
-                        collectionaddress={candyMachines[0]?.collectionMint || ''}
-                        buttonText={candyMachines[0]?.images.length > 1 ? "Mint Random NFT" : ""}
+                      candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
+                      collectionaddress={candyMachines[0]?.collectionMint || ''}
+                      buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
                       />
-
                     </div>
                   )}
               </div>
@@ -280,7 +279,7 @@ const CardDetails: FC = () => {
                           </div>
 
                           <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
-                            Mints: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                            Minted: {machine.itemsRedeemed} of {machine.itemsAvailable}
                           </div>
 
                           <CollapsibleContent className="space-y-2">
@@ -357,14 +356,13 @@ const CardDetails: FC = () => {
 
                             <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                               <Image
-                                src={solanaLogo}
-                                alt="Solana Icon"
-                                width={16}
-                                height={16}
-                                className="mr-1"
+                              src={solanaLogo}
+                              alt="Solana Icon"
+                              width={16}
+                              height={16}
+                              className="mr-1"
                               />
-                              SOL {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}  (Excluding gas fees)<br />
-
+                              {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} SOL (Excluding transaction fees)
                             </div>
 
                             {machine.tokenPaymentAmount > 0 && (
@@ -447,14 +445,14 @@ const CardDetails: FC = () => {
                   </motion.div>
                 ))}
               </div>
-              <motion.div
-                className="mt-6">
+                <motion.div className="mt-6">
                 ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡
-                {/* 
-                <br />    {candyMachines[0]?.candymachineaddress || ''}
-                <br />    {paramCollectionaddress || ''} */}
-
-              </motion.div>
+                </motion.div>
+                {candyMachines[0]?.images.some(img => img.iscollectioncover) && (
+                  <motion.div className="mt-2 text-1xl sm:text-1xl break-words max-w-[400px]">
+                  Note: Currently, The Collection Cover is not included for minting but will be available separately at a later date.
+                  </motion.div>
+                )}
                 
             </div>
           </div>

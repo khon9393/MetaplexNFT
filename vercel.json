@@ -1,7 +1,7 @@
 {
     "crons": [
       {
-        "path": "/api/generate_horoscope",
+        "path": "/api/generate_horoscope/",
         "schedule": "0 4 * * *"
       }
     ]
