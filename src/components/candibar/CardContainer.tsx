@@ -135,7 +135,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                 </div>
                 <div className="rounded-md border">
                   <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                    minted: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                    Minted: {machine.itemsRedeemed} of {machine.itemsAvailable}
                   </div>
                 </div>
                 {(machine.zodiacSign || machine.zodiacYear) && (

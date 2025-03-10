@@ -2,9 +2,9 @@ import type { NextRequest } from 'next/server';
 import { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 import { query } from "../../lib/db";
-// curl -X GET http://localhost:3000/api/generate_horoscope
+// curl -X GET http://localhost:3000/api/generate_horoscope/
 //6. (Optional) Manually Trigger the Cron Job
-//curl -X GET https://your-vercel-app.vercel.app/api/generate_horoscope
+//curl -X GET https://your-vercel-app.vercel.app/api/generate_horoscope/
 const openai = new OpenAI({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API,
 });
@@ -16,9 +16,9 @@ const zodiacSigns = [
 const durations = ["Day", "Week", "Month"];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    console.log("Handler invoked"); // Add this line for logging
-    console.log("Request received:", req.method, req.url); // Add this line for logging
-    console.log("Request headers:", req.headers); // Log request headers
+    // console.log("Handler invoked"); // Add this line for logging
+    // console.log("Request received:", req.method, req.url); // Add this line for logging
+    // console.log("Request headers:", req.headers); // Log request headers
     if (req.method !== "GET") return res.status(405).json({ error: "Method Not Allowed" });
 
     try {

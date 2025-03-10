@@ -94,8 +94,8 @@ export const AstrologyZodiacView: FC = () => {
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-500 to-orange-600 animate-pulse">
             &nbsp;prosperity
           </span>.
-          Whether you channel the strength of the Lion, the resilience of the Ox, or the agility of the Ram, each NFT captures the distinct energy of its zodiac sign.
-          By owning one or more of these celestial collectibles, you harness the power of
+          Whether you channel the strength of the Lion, the resilience of the Bull, or the agility of the Ram, each NFT captures the distinct energy of its zodiac sign.
+          By owning one or more of these celestial collectibles, you harness the energy of
           <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 animate-pulse">
             &nbsp;fortune
           </span>,

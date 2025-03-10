@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export const CPAGView: FC = ({ }) => {
   const [candicollection, setcandicollection] = useState<any[]>([]);
+  const imgsize = '50px';
 
   const candicollectionsKey = useMemo(() => [
     process.env.NEXT_PUBLIC_COLLECTION_ID01,
@@ -41,36 +42,36 @@ export const CPAGView: FC = ({ }) => {
       {/* Introduction */}
       <div className="mt-10 text-center">
         <h3 className="text-2xl font-semibold mb-6">
-          A Guide to Digital Assest Collection Listing, Swapping NFTs & Candibar Tokens
+          A Guide to Digital Assets Collection Listing, Swapping NFTs & Candibar Tokens
         </h3>
 
         {/* Candi Collection */}
         <div className="mb-0 text-left p-6">
 
           <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4] && candicollection[4].collectionsubtitles} (Swappable!)</h4>
+
+          <span className="text-xl flex items-center space-x-4 mb-4 pl-6">
+          <Image
+            height={100}
+            width={100}
+            src={'/api/image/CandibarImg/Candi/collection_01_500-yBbYwFRfyhNnrgNcyFdcTHddmsZGfG.jpg'} 
+            alt={`Candi NFT Collection Cover`} 
+            className="mt-2" 
+            style={{ width: imgsize }} 
+          />
+          <span>Candi NFT Collection Cover</span>
+          </span>
+
           {candicollection.length > 0 && (
             <>
-              {candicollection[4].images.filter(image => image.iscover === '1').slice(0, 1).map((image, index) => (
+              {candicollection[4].images.map((image, index) => (
                 <div key={index} className="mb-2 text-left">
                   <ul className="text-xl list-disc list-inside pl-6 space-y-2">
                     <li className="flex items-center space-x-2">
                       <Image
                         height={100}
                         width={100}
-                        src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
-                      <span> {image.name}</span>
-                    </li>
-                  </ul>
-                </div>
-              ))}
-              {candicollection[4].images.filter(image => image.iscover !== '1').map((image, index) => (
-                <div key={index} className="mb-2 text-left">
-                  <ul className="text-xl list-disc list-inside pl-6 space-y-2">
-                    <li className="flex items-center space-x-2">
-                      <Image
-                        height={100}
-                        width={100}
-                        src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: '30px' }} />
+                        src={image.url} alt={`NFT ${index + 1}`} className="mt-2" style={{ width: imgsize }} />
                       <span> {image.name} → {candicollection[4].collectioncandibarvalue} Candibar Tokens</span>
                     </li>
                   </ul>
@@ -83,8 +84,6 @@ export const CPAGView: FC = ({ }) => {
         <div className="mb-10 text-left p-6">
           <h4 className="text-2xl font-semibold mb-3">🐍 {candicollection[0] && candicollection[0].collectionsubtitles} ( **Soon to Follow** )</h4>
         
-
-
           <span className="text-xl flex items-center space-x-4 mb-4 pl-6">
           <Image
             height={100}
@@ -92,13 +91,10 @@ export const CPAGView: FC = ({ }) => {
             src={'/api/image/CandibarImg/Woodsnake/collection_2025_500-xKfCll1tDurgiRl02yLvmHu1ryvJvs.jpg'} 
             alt={`Snake Collection 2025 Cover`} 
             className="mt-2" 
-            style={{ width: '30px' }} 
+            style={{ width: imgsize }} 
           />
           <span>Snake Collection 2025 Cover</span>
           </span>
-
-
-
 
           {candicollection.slice(0, 1).map((collection, collectionIndex) => (
             <div key={collectionIndex} className="mb-2 text-left">
@@ -109,7 +105,7 @@ export const CPAGView: FC = ({ }) => {
                       <Image
                         height={100}
                         width={100}
-                        src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
+                        src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: imgsize }} />
                       <span> {image.name}</span>
                     </li>
                   </ul>
@@ -127,7 +123,7 @@ export const CPAGView: FC = ({ }) => {
                       <Image
                         height={100}
                         width={100}
-                        src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: '30px' }} />
+                        src={image.url} alt={`NFT ${imageIndex + 1}`} className="mt-2" style={{ width: imgsize }} />
                       <span> {image.name} → ?? ??</span>
                     </li>
                   </ul>
