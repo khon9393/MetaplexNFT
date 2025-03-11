@@ -91,7 +91,8 @@ const CardDetails: FC = () => {
     const updatedCandyMachines = balances.map((balance, index) => {
       if (collectionData) {
         const images = collectionData.collectionurl
-          ? [...collectionData.images, { name: collectionData.collectionname, url: collectionData.collectionurl, iscollectioncover: true }]
+          // ? [...collectionData.images, { name: collectionData.collectionname, url: collectionData.collectionurl, iscollectioncover: true }]
+          ? [{ name: collectionData.collectionname, url: collectionData.collectionurl, iscollectioncover: true }, ...collectionData.images ]
           : [...collectionData.images];
 
 

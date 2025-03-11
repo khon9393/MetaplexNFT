@@ -30,7 +30,7 @@ const Countdown: FC<CountdownProps> = ({ endDate }) => {
   }
 
   return (
-    <p className="text-red-800 font-bold text-lg sm:text-sm">
+    <p className="text-red-800">
       Time remaining: {timeRemaining.days}d {timeRemaining.hours}h {timeRemaining.minutes}m {timeRemaining.seconds}s
     </p>
   );
