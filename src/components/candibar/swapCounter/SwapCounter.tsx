@@ -72,7 +72,7 @@ export default function SwapCounter() {
                   </CollapsibleTrigger>
                 </div>
 
-                <div className="rounded-md border font-mono text-sm md:text-md shadow-sm flex items-start justify-start overflow-x-auto break-all">
+                <div className="rounded-md border font-mono text-sm md:text-md sm:text-base lg:text-1xl xl:text-1xl shadow-sm flex items-start justify-start break-all">
                   {Object.entries(zodiacSigns).map(([sign, { icon, dateRange }]) => {
 
                   const [startMonth, startDay] = dateRange.split(" - ")[0].split(" ");
@@ -86,7 +86,7 @@ export default function SwapCounter() {
                     return (
                     <div key={sign} className="p-4 border-gray-600 rounded-lg">
                       <p className="text-sm sm:text-sm">{icon} {sign} NFT Collection {dateRange}</p>
-                      <p><Countdown endDate={endDate} /></p>
+                      <p className='font-bold'><Countdown endDate={endDate} /></p>
                     </div>
                     );
                   }

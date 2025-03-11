@@ -33,21 +33,27 @@ const SwapDetails: FC = () => {
         <div className="p-1">
           <div className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl">
             <h1 className="text-1xl sm:text-2xl font-bold p-3"> Comming Soon...</h1>
-            <h1 className="text-lg sm:text-1xl font-bold mb-3">  Trade your Zodiac NFTs based on the current month to complete a full set!</h1>
+            <motion.div 
+             whileHover={{ scale: 1.05 }}
+             className="p-5 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
+           >
+            <h3 className="text-lg font-semibold">Trade your Zodiac NFTs based on the current month to complete a full set! </h3>
+            </motion.div>
+            <h1 className="text-lg sm:text-1xl font-bold mb-3">  </h1>
             <SwapCounter />
               <br />
-            <motion.div 
+            {/* <motion.div 
              whileHover={{ scale: 1.05 }}
              className="p-5 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
            >
             <h3 className="text-lg font-semibold">🔄 Begin your Candibar NFT swap today! 🔄</h3>
               <p>
-                {/* <Link href="/nftswap" className="text-blue-500 underline ml-2">
+                <Link href="/nftswap" className="text-blue-500 underline ml-2">
                 Swap Here!
-              </Link> */}
+              </Link>
               N/A
               </p>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>
