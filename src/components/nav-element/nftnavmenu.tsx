@@ -62,7 +62,7 @@ export function CandibarDropdownMenu1() {
             <Button variant="link" onClick={() => { window.location.href = '/nftswap'; }}
               className="w-full justify-start"
             >
-              Swap
+             Candi Swap
             </Button>
           </DropdownMenuItem>
 
