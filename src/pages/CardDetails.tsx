@@ -456,7 +456,7 @@ const CardDetails: FC = () => {
                         )
                       },
                       {
-                        icon: '📘', title: 'Candibar Platform Asset Guide', desc: (
+                        icon: '📘', title: 'Candibar NFT Asset List', desc: (
                         <>
                                 <Link href="/CPAG" className="text-blue-500 underline ml-1" target="_blank" rel="noopener noreferrer">
                                 (CPAG)
