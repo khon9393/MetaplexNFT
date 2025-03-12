@@ -49,7 +49,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           </li>
           <li>
             <NavElement
-              label="NFT&nbsp;Swap"
+              label="Candi&nbsp;Swap"
               href="/nftswap"
               source='mobile'
             />
