@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import phatomblock1 from "../../../public/phantom/Screenshot 2025-02-02 052714.png";
 import phatomblock2 from "../../../public/phantom/Screenshot 2025-02-02 052809.png";
-import Link from "next/link";
 
 export const FAQView: FC = ({ }) => {
 

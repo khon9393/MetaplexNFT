@@ -92,7 +92,7 @@ const CardDetails: FC = () => {
       if (collectionData) {
         const images = collectionData.collectionurl
           // ? [...collectionData.images, { name: collectionData.collectionname, url: collectionData.collectionurl, iscollectioncover: true }]
-          ? [{ name: collectionData.collectionname, url: collectionData.collectionurl, iscollectioncover: true }, ...collectionData.images ]
+          ? [{ name: collectionData.collectionname, url: collectionData.collectionurl, iscollectioncover: true }, ...collectionData.images]
           : [...collectionData.images];
 
 
@@ -270,7 +270,7 @@ const CardDetails: FC = () => {
         <div className="max-w-[500px]">
           {candyMachines[0]?.images.length > 0 && (
             <div className="p-1">
-              <div className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl">
+              <div className="flex-col justify-center mx-auto p-4 sm:p-4 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl">
                 <h1 className="text-1xl sm:text-2xl font-bold p-3"> CANDIBAR NFT DETAILS </h1>
 
                 {candyMachines.map((machine, machineIndex) => (
@@ -302,19 +302,19 @@ const CardDetails: FC = () => {
                               </CollapsibleTrigger>
                             </div>
 
-                            <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
+                            <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                               Minted: {machine.itemsRedeemed} of {machine.itemsAvailable}
                             </div>
 
-                            <CollapsibleContent className="space-y-2">
-                              <div className="rounded-md border px-4 py-1 font-mono text-md">
+                            <CollapsibleContent className="space-y-1">
+                              <div className="rounded-md border py-1 font-mono text-md">
                                 Wallet mint limit: {machine.candyGuardMinLimit}
                               </div>
 
                               {/* <div className="rounded-md border px-4 py-1 font-mono text-md">
                               Traits: N/A
                             </div> */}
-                              <div className="rounded-md border px-4 py-1 font-mono text-md">
+                              <div className="rounded-md border py-1 font-mono text-md">
 
                                 <div className="flex items-center justify-center">
                                   <a
@@ -362,7 +362,7 @@ const CardDetails: FC = () => {
                               updatedStates[machineIndex + candyMachines.length] = isOpen;
                               setIsOpenStates(updatedStates);
                             }}
-                            className="space-y-2"
+                            className="space-y-1"
                           >
                             <div className="flex items-center justify-between space-x-4 px-4">
                               <h4 className="text-lg font-semibold">
@@ -376,9 +376,9 @@ const CardDetails: FC = () => {
                               </CollapsibleTrigger>
                             </div>
 
-                            <CollapsibleContent className="space-y-2">
+                            <CollapsibleContent className="space-y-1">
 
-                              <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
+                              <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                                 <Image
                                   src={solanaLogo}
                                   alt="Solana Icon"
@@ -390,7 +390,7 @@ const CardDetails: FC = () => {
                               </div>
 
                               {machine.tokenPaymentAmount > 0 && (
-                                <div className="rounded-md border px-4 py-2 font-mono text-md shadow-sm flex items-center justify-center">
+                                <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center">
                                   <Image
                                     src={tokenimg}
                                     alt="Solana Icon"
@@ -412,34 +412,34 @@ const CardDetails: FC = () => {
                 ))}
 
 
-                <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-4">
                   {[
                     // { icon: '💎', title: 'Traits', desc: `${'N/A'}` },
 
                     { icon: '📜', title: 'Description', desc: `${candyMachines[0]?.collectionDetails || 'N/A'}` },
 
-                    {
-                      icon: '🔄', title: 'Swap for Candibar Tokens 🔄', desc: (
-                        <>
-                          {candyMachines[0]?.isSwappable ? (
-                            <div>
-                              Minted NFTs can swap for Candibar tokens.
-                              <br />
-                              <Link href="/nftswap" className="text-blue-500 underline ml-2">
-                                Swap Here!
-                              </Link>
-                            </div>
-                          ) : (
-                            <div>N/A</div>
-                          )}
-                        </>
-                      )
-                    },
+                    // {
+                    //   icon: '🔄', title: 'Swap for Candibar Tokens 🔄', desc: (
+                    //     <>
+                    //       {candyMachines[0]?.isSwappable ? (
+                    //         <div>
+                    //           Minted NFTs can swap for Candibar tokens.
+                    //           <br />
+                    //           <Link href="/nftswap" className="text-blue-500 underline ml-2">
+                    //             Swap Here!
+                    //           </Link>
+                    //         </div>
+                    //       ) : (
+                    //         <div>N/A</div>
+                    //       )}
+                    //     </>
+                    //   )
+                    // },
 
                     (paramuserZodiacName || paramuserZodiacYear)
                     && {
                       icon: '🔮',
-                      title: 'Zodiac Reading',
+                      title: 'Candi Zodiac Reading',
                       desc: (
                         <>
                           {/* Discover your zodiac reading and how it aligns with your astrological sign and candy inspiration.
@@ -448,14 +448,22 @@ const CardDetails: FC = () => {
                             {/* <ZodiacReading sign={paramuserZodiacName || paramuserZodiacYear} /> */}
                             <ZodiacReadingDrawerWindow sign={paramuserZodiacName || paramuserZodiacYear} />
                           </div>
-                          <div className="p-2">
+                          {/* <div className="p-2">
                             <p>Your candy inspiration for this sign is:</p>
                             <p className="font-bold">{paramuserZodiacName ? `Candy inspired by ${paramuserZodiacName}` : `Candy inspired by ${paramuserZodiacYear}`}</p>
-                          </div>
+                          </div> */}
+                        </>
+                        )
+                      },
+                      {
+                        icon: '📘', title: 'Candibar Platform Asset Guide', desc: (
+                        <>
+                                <Link href="/CPAG" className="text-blue-500 underline ml-1" target="_blank" rel="noopener noreferrer">
+                                (CPAG)
+                                </Link>
                         </>
                       )
-                    }
-
+                    },
                   ].filter(Boolean).map((item, index) => (
                     <motion.div
                       key={index}
@@ -469,6 +477,14 @@ const CardDetails: FC = () => {
                     </motion.div>
                   ))}
                 </div>
+
+                {/* <motion.div 
+             whileHover={{ scale: 1.05 }}
+             className="p-5 mt-4 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
+           >
+            <h3 className="text-lg font-semibold">Trade your Zodiac NFTs based on the current month to complete a full set! </h3>
+            </motion.div> */}
+
                 <motion.div className="mt-6">
                   ⚡ Grab your Candibar NFT today before it&apos;s gone! ⚡
                 </motion.div>
@@ -478,16 +494,17 @@ const CardDetails: FC = () => {
                   </motion.div>
                 )}
 
+
               </div>
             </div>
           )}
 
-        
+
         </div>
-        {(paramuserZodiacName || paramuserZodiacYear) && <SwapDetails />}
+        {/* {(paramuserZodiacName || paramuserZodiacYear) && <SwapDetails />} */}
       </div>
 
-  
+
     </>
   );
 };
