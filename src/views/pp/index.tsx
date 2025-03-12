@@ -58,7 +58,7 @@ export const PrivacyPolicyView: FC = ({ }) => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">7. Contact Us</h2>
       <p className="mb-4">
-        If you have any questions about this Privacy Policy, please contact us at <Link href={process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL} className="text-blue-500 underline">{process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}</Link>.
+        If you have any questions about this Privacy Policy, please contact us at <Link href={`mailto:${process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}`} className="text-blue-500 underline">{process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}</Link>.
       </p>
     </div>
   );

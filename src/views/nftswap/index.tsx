@@ -1,12 +1,10 @@
 
 import { FC } from "react";
 import { SwapDrawerWindow } from '@/components//candibar/swapWrapper/SwapDrawerWindow';
-
-
 import { Inter } from "next/font/google";
 import { UmiProvider } from "@/providers/umiProvider";
 import jadeEmperor from '../../../public/images/jadeEmp2.jpeg';
-import {CandiMinter} from "@/components/candibar/CandiMinter";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
