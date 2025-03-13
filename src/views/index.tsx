@@ -10,3 +10,4 @@ export {PrivacyPolicyView} from "./pp";
 export {AstrologyZodiacView} from "./astrology/zodiac/index";
 export {AstrologySignView} from "./astrology/sign";
 export {CPAGView} from "./platformassetguide";
+export { FilterAstrologyZodiacView } from "./astrology/zodiac/FilterAstrologyZodiacView";

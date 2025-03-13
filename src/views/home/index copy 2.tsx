@@ -12,8 +12,7 @@ import Image from "next/image";
 
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../components/candibar/CardContainer";
-import { getCurrentZodiacSignTopN, CandiZodiacSigns, ZodiacSign } from "../../stores/useCandiZodiacSignsStore";
-import { AnyAaaaRecord } from 'dns';
+
 
 /*
 1. Cotton Candy (Pink & Blue Swirl)
@@ -109,16 +108,16 @@ export const HomeView: FC = ({ }) => {
 
   const PromotioncandyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
+    // publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUI1),
   ], []);
 
-  const [zodiacSigns, setZodiacSigns] = useState<ZodiacSign[]>([]);
+  const candyMachineKeys = useMemo(() => [
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1),
+    publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1),
 
-  useEffect(() => {
-    const currentSigns = getCurrentZodiacSignTopN(2);
-    if (currentSigns) {
-      setZodiacSigns(currentSigns);
-    }
-  }, []);
+  ], []);
+
 
   useEffect(() => {
     if (wallet.publicKey) {
@@ -161,7 +160,8 @@ export const HomeView: FC = ({ }) => {
       <div >
         <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
       </div>
-      
+
+
       <div className="text-center mt-8 p-10">
         <h1
           className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
@@ -178,9 +178,13 @@ export const HomeView: FC = ({ }) => {
         </h2>
       </div>
 
-      {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
-        <CardContainer key={index} candyMachineKeys={[publicKey(sign.publicKey)]} />
-      ))}
+
+
+
+
+      <div >
+        <CardContainer candyMachineKeys={candyMachineKeys} />
+      </div>
 
       <h5 className="text-lg mt-2 md:w-[70%] mx-auto text-center">
         <Link
