@@ -1,87 +1,25 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import Select from "react-select";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
+import { getCurrentZodiacSign } from "../../../stores/useCandiZodiacSignsStore";
+import Link from "next/link";
 
 export const AstrologyZodiacView: FC = () => {
-  
-  const CandiZodiacSigns = useMemo(() => ({
-    Capricorn: { icon: "♑", dateRange: "December 21-January 20", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1 },
-    Aquarius: { icon: "♒", dateRange: "January 21-February 18", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1 },
-    Pisces: { icon: "♓", dateRange: "February 19-March 20", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1 },
-    Aries: { icon: "♈", dateRange: "March 21-April 19", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1 },
-    Taurus: { icon: "♉", dateRange: "April 20-May 20", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_TAURC1 },
-    Gemini: { icon: "♊", dateRange: "May 21-June 20", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINIC1 },
-    Cancer: { icon: "♋", dateRange: "June 21-July 22", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCERC1 },
-    Leo: { icon: "♌", dateRange: "July 23-August 22", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEOC1 },
-    Virgo: { icon: "♍", dateRange: "August 23-September 22", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_VIRGOC1 },
-    Libra: { icon: "♎", dateRange: "September 23-October 22", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_LEBRAC1 },
-    Scorpio: { icon: "♏", dateRange: "October 23-November 21", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_SCOC1 },
-    Sagittarius: { icon: "♐", dateRange: "November 22-December 21", PublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1 },
-  }), []);
-
-  const [selectedSigns, setSelectedSigns] = useState<string[]>([]);
-
-  const handleSignChange = (selectedOptions: any) => {
-    const selectedValues = selectedOptions.map((option: any) => option.value);
-    const signsToStore = selectedValues.includes("View All") ? Object.keys(CandiZodiacSigns) : selectedValues;
-    setSelectedSigns(signsToStore);
-    localStorage.setItem("selectedSigns", JSON.stringify({ signs: signsToStore, timestamp: new Date().getTime() }));
-  };
+  const [selectedSigns, setSelectedSigns] = useState('');
 
   useEffect(() => {
-    const getCurrentZodiacSign = () => {
-      const currentDate = new Date();
- 
-      for (const [sign, { dateRange }] of Object.entries(CandiZodiacSigns)) {
-        const [start, end] = dateRange.split("-");
-        const [startMonth, startDay] = start.split(" ");
-        const [endMonth, endDay] = end.split(" ");
-
-        const startDate = new Date(`${startMonth} ${startDay}, ${currentDate.getFullYear()}`);
-        const endDate = new Date(`${endMonth} ${endDay}, ${currentDate.getFullYear()}`);
-
-        if (startDate <= currentDate && currentDate <= endDate) {
-          return sign;
-        }
-      }
-      return null;
-    };
-
-    const storedData = localStorage.getItem("selectedSigns");
-    if (storedData) {
-      const { signs, timestamp } = JSON.parse(storedData);
-      const currentTime = new Date().getTime();
-      const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000;
-
-      if (currentTime - timestamp < threeDaysInMilliseconds) {
-        setSelectedSigns(signs);
-        return;
-      } else {
-        localStorage.removeItem("selectedSigns");
-      }
-    }
-
     const currentSign = getCurrentZodiacSign();
     if (currentSign) {
-      setSelectedSigns([currentSign]);
+      setSelectedSigns(currentSign.publicKey);
     }
-  }, [CandiZodiacSigns]);
-
-  const options = [
-    ...Object.entries(CandiZodiacSigns).map(([sign, { icon }]) => ({
-      value: sign,
-      label: `${icon} ${sign}`,
-    })),
-    { value: "View All", label: "View All" },
-  ];
+  }, []);
 
   return (
     <div>
-  <h1 className="text-center text-3xl font-extrabold p-3">
+
+      <h1 className="text-center text-3xl font-extrabold p-3">
         Unlock the future of digital assets with candi confection art NFT!
       </h1>
-
       <div className="flex flex-col text-1xl items-center justify-center p-5">
         <h2 className="max-w-7xl leading-relaxed">
           Step into the cosmic realm of the Zodiac with this exclusive NFT collection, embodying the essence of
@@ -109,47 +47,17 @@ export const AstrologyZodiacView: FC = () => {
           Seize this rare opportunity to connect with the power of the Zodiac—collect yours today!
         </h2>
       </div>
-
-      <div className="flex justify-center p-4 ">
-      <Select
-        isMulti
-        options={options}
-        value={options.filter(option => selectedSigns.includes(option.value))}
-        onChange={handleSignChange}
-        className="w-full max-w-lg"
-        styles={{
-        multiValueLabel: (base) => ({
-          ...base,
-          color: 'purple',
-        }),
-        singleValue: (base) => ({
-          ...base,
-          color: 'purple',
-        }),
-        option: (base, state) => ({
-          ...base,
-          color: state.isSelected ? 'white' : 'purple',
-          backgroundColor: state.isSelected ? 'purple' : 'white',
-        }),
-        control: (base) => ({
-          ...base,
-          backgroundColor: 'white',
-        }),
-        multiValue: (base) => ({
-          ...base,
-          backgroundColor: 'lightgray',
-        }),
-        }}
-      />
-      </div>
-
       <div className="flex flex-wrap justify-center gap-4 p-4">
-      {selectedSigns.map((sign) => (
-        <div key={sign} className="p-2">
-        <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].PublicKey)]} />
-        </div>
-      ))}
+        {selectedSigns && (
+          <CardContainer candyMachineKeys={[publicKey(selectedSigns)]} />
+        )}
       </div>
+      <h5 className="text-lg mt-2 md:w-[70%] mx-auto text-center mb-6">
+        <Link
+          href={"/AstrologyZodiacFilter"}
+          className="text-blue-500 underline">Browse Entire Zodiac Collection
+        </Link>
+      </h5>
     </div>
   );
 };
