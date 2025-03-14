@@ -279,8 +279,10 @@ export const HomeView: FC = ({ }) => {
             </Carousel> */}
           </div>
         </div>
-        <div className='p-5 mb-5'>
-        <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-5">
+
+      </div>
+      <div className='p-10 mb-5 w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-5'>
+        <Carousel setApi={setApi} className="">
               <CarouselContent>
                 {items.map((item, index) => (
                   <CarouselItem key={item.id} className="relative">
@@ -289,7 +291,7 @@ export const HomeView: FC = ({ }) => {
                         <div className="p-0">
                           <motion.div
                             initial={{ scale: 1 }}
-                            whileHover={{ scale: 1.01 }}
+                            whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300 }}
                              className="w-full h-full"
                           >
@@ -347,8 +349,6 @@ export const HomeView: FC = ({ }) => {
               </div>
             </Carousel>
             </div>
-      </div>
-    
     </>
   );
 };
