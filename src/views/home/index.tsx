@@ -150,23 +150,28 @@ export const HomeView: FC = ({ }) => {
             <h1 className="text-center text-2xl font-bold text-black mb-0">
               Discover the Candibar Platform
             </h1>
+            <h2 className="text-md mx-auto text-center">
+              <Link href={"/CPAG"} className="text-gray-100 hover:underline">
+                Candibar Platform Asset Guide (CPAG)
+              </Link>
+            </h2>
           </div>
         </motion.div>
         <hr className="my-0 border-t-2 border-gray-100" />
 
         <div className="p-4">
-        <h6 className="text-center text-2xl font-bold text-black mb-0">
-             
-               </h6>
-              <h6 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-              {/* Swap your Candi NFTs for Candibar Tokens to access exclusive Candibar NFTs. 
+          <h6 className="text-center text-2xl font-bold text-black mb-0">
+
+          </h6>
+          <h6 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+            {/* Swap your Candi NFTs for Candibar Tokens to access exclusive Candibar NFTs. 
               Join the Candibar Promotional NFT Collection by exchanging Candi NFTs for Candibar Tokens with the Jade Emperor. 
               Explore unique collections and exclusive items available only with Candibar Tokens. */}
-              Buy & Trade Digital Collectibles <br />
-              Become part of the sugar rush revolution: a place where digital art and sugar converge.
-              </h6>
-              <hr className="my-4 border-t-2 border-gray-300" />
-            </div>
+            Buy & Trade Digital Collectibles <br />
+            Become part of the sugar rush revolution: a place where digital art and sugar converge.
+          </h6>
+          <hr className="my-4 border-t-2 border-gray-300" />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="text-center mt-4 p-2">
@@ -182,7 +187,7 @@ export const HomeView: FC = ({ }) => {
               <hr className="my-0 border-t-2 border-gray-100" />
               <div className="p-4">
                 <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-                  Exchange your Candi NFTs for Candibar Tokens, which can be used for exclusive Candibar NFTs.
+                  Join the Candibar Promotional NFT Collection: Exchange your Candi NFTs for Candibar Tokens.<br />* Swap by visiting the Jade Emperor *
                 </h2>
                 <hr className="my-6 border-t-2 border-gray-300" />
                 <div>
@@ -204,12 +209,12 @@ export const HomeView: FC = ({ }) => {
               <hr className="my-0 border-t-2 border-gray-100" />
               <div className="p-4">
                 <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-                  Candibar Promotional NFT Collection: Swap Candi NFTs for Candibar Tokens.<br/> * Visit the Jade Emperior *
+                  Swap your Candi NFTs with the Jade Emperor to receive Candibar Tokens, which can be used to obtain exclusive Candibar NFTs.
                 </h2>
                 <hr className="my-6 border-t-2 border-gray-300" />
                 <div>
-                <motion.div whileHover={{ scale: 1.02 }}>
-                  <div className="relative w-full h-[480px] rounded-lg overflow-hidden">
+                  <motion.div whileHover={{ scale: 1.02 }}>
+                    <div className="relative w-full h-[480px] rounded-lg overflow-hidden">
                       <Image
                         src={jadeEmperor.src}
                         alt="Jade Emperor"
@@ -217,7 +222,7 @@ export const HomeView: FC = ({ }) => {
                         objectFit="cover"
                         className="rounded-lg p-4 shadow-lg hover:shadow-2xl transition-shadow duration-300"
                       />
-                  </div>
+                    </div>
                   </motion.div>
                   <Link
                     href="/nftswap"
@@ -240,21 +245,29 @@ export const HomeView: FC = ({ }) => {
               </motion.div>
               <hr className="my-0 border-t-2 border-gray-100" />
               <div className="p-4">
-                <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                <h2 className="mb-2 text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
                   Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
                 </h2>
+                {/* * This Month&apos;s Highlight * */}
+                <br />
                 <hr className="my-6 border-t-2 border-gray-300" />
-                {/* <h3 className="text-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-              Current Month
-            </h3> */}
+                {/* <h3 className="text-center text-1xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                  * This Month&apos;s Highlight *
+                </h3> */}
+
                 {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
                   <CardContainer key={index} candyMachineKeys={[publicKey(sign.publicKey)]} />
                 ))}
-                <h5 className="text-lg mt-2 md:w-[70%] mx-auto text-center">
-                  <Link href={"/AstrologyZodiac"} className="text-blue-500 underline">
-                    Browse Entire Zodiac Collection
+
+                <h3 className="text-center text-1xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                  * This Month&apos;s Highlight *
+                </h3>
+
+                <h6 className="text-lg mx-auto text-center">
+                  <Link href={"/AstrologyZodiac"} className="text-blue-500 hover:underline">
+                    Explore the Full Zodiac Collection
                   </Link>
-                </h5>
+                </h6>
               </div>
             </div>
           </div>
@@ -263,46 +276,46 @@ export const HomeView: FC = ({ }) => {
       </div>
 
 
-        <div className="max-w-7xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
-          <motion.div whileHover={{ scale: 1.02 }}>
-        <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
-          <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
-          Join the Ranks of Our Early Sponsors and Donors
-          </h1>
-        </div>
-          </motion.div>
-          <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-4">
-        <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-        Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
-        Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
-        </h2>
-        <hr className="my-8 border-t-2 border-gray-300" />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {items.slice(0, 6).map((item) => (
-            <div key={item.id} className="flex flex-col items-center">
-          <motion.div whileHover={{ scale: 1.05 }} className="w-full">
-            <Image
-              src={item.image}
-              alt={item.text}
-              layout="responsive"
-              objectFit="cover"
-              width={300}
-              height={300}
-              className="rounded-lg"
-            />
-          </motion.div>
-          <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-            {item.text}
-          </h3>
-          <Link href={item.pageloc}>
-            Learn more ...
-          </Link>
-            </div>
-          ))}
-        </div>
+      <div className="max-w-7xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
+        <motion.div whileHover={{ scale: 1.02 }}>
+          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
+            <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
+              Join the Ranks of Our Early Sponsors and Donors
+            </h1>
+          </div>
+        </motion.div>
+        <hr className="my-0 border-t-2 border-gray-100" />
+        <div className="p-4">
+          <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+            Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
+            Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
+          </h2>
+          <hr className="my-8 border-t-2 border-gray-300" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {items.slice(0, 6).map((item) => (
+              <div key={item.id} className="flex flex-col items-center">
+                <motion.div whileHover={{ scale: 1.05 }} className="w-full">
+                  <Image
+                    src={item.image}
+                    alt={item.text}
+                    layout="responsive"
+                    objectFit="cover"
+                    width={300}
+                    height={300}
+                    className="rounded-lg"
+                  />
+                </motion.div>
+                <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                  {item.text}
+                </h3>
+                <Link href={item.pageloc}>
+                  Learn more ...
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
     </>
   );
