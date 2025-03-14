@@ -211,7 +211,11 @@ export const HomeView: FC = ({ }) => {
               Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
             </h2>
             <hr className="my-8 border-t-2 border-gray-300" />
-            <Carousel setApi={setApi} className="w-3/4 items-center mx-auto p-4">
+        
+          </div>
+        </div>
+      </div>
+      <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-4">
               <CarouselContent>
                 {items.map((item, index) => (
                   <CarouselItem key={item.id} className="relative">
@@ -277,10 +281,6 @@ export const HomeView: FC = ({ }) => {
                 ))}
               </div>
             </Carousel>
-          </div>
-        </div>
-      </div>
-     
     </>
   );
 };
