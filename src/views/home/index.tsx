@@ -279,8 +279,7 @@ export const HomeView: FC = ({ }) => {
             </Carousel> */}
           </div>
         </div>
-      </div>
-      <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-5">
+        <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-5">
               <CarouselContent>
                 {items.map((item, index) => (
                   <CarouselItem key={item.id} className="relative">
@@ -291,7 +290,7 @@ export const HomeView: FC = ({ }) => {
                             initial={{ scale: 1 }}
                             whileHover={{ scale: 1.01 }}
                             transition={{ type: "spring", stiffness: 300 }}
-                            // className="w-full h-full"
+                             className="w-full h-full"
                           >
                             <Image
                               src={item.image}
@@ -346,6 +345,8 @@ export const HomeView: FC = ({ }) => {
                 ))}
               </div>
             </Carousel>
+      </div>
+    
     </>
   );
 };
