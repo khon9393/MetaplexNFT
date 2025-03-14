@@ -17,7 +17,7 @@ export const AstrologyZodiacView: FC = () => {
 
   return (
     <div>
-      <div className="text-center mt-8 p-0">
+      <div className="text-center mt-8 p-5">
         <div className="mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
           <Collapsible open={isOpen} onOpenChange={setIsOpen}>
             <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
@@ -39,9 +39,9 @@ export const AstrologyZodiacView: FC = () => {
             <hr className="my-0 border-t-2 border-gray-100" />
             <div className="p-2">
               <div className="text-center text-2xl md:pl-6 ">
-                <div className="flex flex-col text-1xl p-2">
+              <div className="flex flex-col text-xl md:text-base lg:text-lg p-2">
                   <CollapsibleContent>
-                    <h2 className="leading-relaxed">
+                    <h2 className="leading-relaxed break-words">
                       Step into the cosmic realm of the Zodiac with this exclusive NFT collection, embodying the essence of
                       <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
                         &nbsp;destiny

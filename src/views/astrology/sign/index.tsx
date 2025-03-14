@@ -27,13 +27,13 @@ export const AstrologySignView: FC = ({ }) => {
           </div>
           </motion.div>
           <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-6">
-            <div className="text-center text-2xl md:pl-2">
-              <div className="flex flex-col text-1xl p-2">
-                <h2 className="leading-relaxed ">
+          <div className="p-2">
+            <div className="text-center text-2xl md:pl-6">
+              <div className="flex flex-col text-xl md:text-base lg:text-lg p-2">
+                <h2 className="leading-relaxed break-words">
                   Embodying the wisdom and mystique of the Year of the Snake, this NFT represents
                   <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-pulse">
-                    &nbsp;transformation
+                  &nbsp;transformation
                   </span>,
                   <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
                     &nbsp;intelligence
