@@ -153,7 +153,7 @@ export const HomeView: FC = ({ }) => {
           </div>
           </motion.div>
           <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-6">
+          <div className="p-6 text-sm md:text-base lg:text-lg xl:text-xl">
             <h2 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
               Candi NFTs can be exchanged for Candibar Tokens, which can then be used to acquire exclusive collections in the Candibar NFT marketplace.
             </h2>
@@ -175,7 +175,7 @@ export const HomeView: FC = ({ }) => {
           </div> 
           </motion.div>
           <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-6">
+          <div className="p-6 text-sm md:text-base lg:text-lg xl:text-xl">
             <h2 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
               Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
             </h2>
@@ -205,12 +205,12 @@ export const HomeView: FC = ({ }) => {
           </div>  
           {/* </motion.div> */}
           <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-6">
+            <div className="p-6 text-sm md:text-base lg:text-lg xl:text-xl">
             <h2 className="text-center text-2xl md:pl-6 font-bold text-gray-700 mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
               Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
               Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
             </h2>
-            {/* <hr className="my-8 border-t-2 border-gray-300" /> */}
+            <hr className="my-8 border-t-2 border-gray-300" />
             {/* <Carousel setApi={setApi} className="max-w-[90%] sm:w-full mx-auto p-4">
               <CarouselContent>
                 {items.map((item, index) => (
@@ -289,9 +289,9 @@ export const HomeView: FC = ({ }) => {
                         <div className="p-0">
                           <motion.div
                             initial={{ scale: 1 }}
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.01 }}
                             transition={{ type: "spring", stiffness: 300 }}
-                            className="w-full h-full"
+                            // className="w-full h-full"
                           >
                             <Image
                               src={item.image}
