@@ -186,6 +186,9 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       setIsTransacting(false);
 
     } catch (error: any) {
+
+      setIsTransacting(false);
+
       // console.log('error', `Mint failed! ${error?.message}`);
       toast({
         title: "Mint failed!",
@@ -199,10 +202,8 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         },
       });
 
-    setIsTransacting(false);
-
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    window.location.reload();
+    // await new Promise(resolve => setTimeout(resolve, 3000));
+    // window.location.reload();
 
     }
   }, [wallet,getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
