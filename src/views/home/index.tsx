@@ -210,7 +210,7 @@ export const HomeView: FC = ({ }) => {
               Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
               Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
             </h2> */}
-            <hr className="my-8 border-t-2 border-gray-300" />
+            {/* <hr className="my-8 border-t-2 border-gray-300" /> */}
             {/* <Carousel setApi={setApi} className="max-w-[90%] sm:w-full mx-auto p-4">
               <CarouselContent>
                 {items.map((item, index) => (
@@ -289,12 +289,12 @@ export const HomeView: FC = ({ }) => {
                     <div className="rounded-lg overflow-hidden">
                       <div className="overflow-hidden rounded-lg w-full relative">
                         <div className="p-0">
-                          <motion.div
+                          {/* <motion.div
                             initial={{ scale: 1 }}
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300 }}
                              className="w-full h-full"
-                          >
+                          > */}
                             <Image
                               src={item.image}
                               alt={item.text}
@@ -304,7 +304,7 @@ export const HomeView: FC = ({ }) => {
                               height={600}
                               className="rounded-lg"
                             />
-                          </motion.div>
+                          {/* </motion.div> */}
                           {item.name === "collection" ? (
                             <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
                               {item.titledesc}
