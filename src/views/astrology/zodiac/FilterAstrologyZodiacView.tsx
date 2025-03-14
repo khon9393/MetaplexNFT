@@ -14,15 +14,17 @@ export const FilterAstrologyZodiacView: FC = () => {
     localStorage.setItem("selectedSigns", JSON.stringify({ signs: signsToStore, timestamp: new Date().getTime() }));
   };
 
+  // Load selected signs from localStorage if available and not expired   
   useEffect(() => {
-   
+
     const storedData = localStorage.getItem("selectedSigns");
     if (storedData) {
       const { signs, timestamp } = JSON.parse(storedData);
       const currentTime = new Date().getTime();
-      const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000;
+      const thirtyMinutesInMilliseconds = 30 * 60 * 1000;
+      // const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000;
 
-      if (currentTime - timestamp < threeDaysInMilliseconds) {
+      if (currentTime - timestamp < thirtyMinutesInMilliseconds) {
         setSelectedSigns(signs);
         return;
       } else {
@@ -30,11 +32,10 @@ export const FilterAstrologyZodiacView: FC = () => {
       }
     }
 
-     const currentSign = getCurrentZodiacSign();
-     if (currentSign) {
-       setSelectedSigns([currentSign.name]);
-     }
+    handleSignChange([{ value: "View All", label: "View All" }]);
+
   }, []);
+
 
   const options = useMemo(() => [
     ...Object.entries(CandiZodiacSigns).map(([sign, { icon, name }]) => ({
@@ -44,20 +45,17 @@ export const FilterAstrologyZodiacView: FC = () => {
     { value: "View All", label: "View All" },
   ], []);
 
+
+
   return (
     <div>
-
-<h1 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold p-3">
-  Search for your Candi Confection Zodiac NFT and discover your candy zodiac sign.
-</h1>
-
-      <div className="flex justify-center p-2">
+      <div className="flex justify-center">
         <Select
           isMulti
           options={options}
           value={options.filter(option => selectedSigns.includes(option.value))}
           onChange={handleSignChange}
-          className="w-full max-w-lg"
+          className="w-full max-w-lg text-start"
           styles={{
             multiValueLabel: (base) => ({
               ...base,

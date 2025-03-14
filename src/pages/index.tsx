@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { HomeView } from "../views";
+import { motion } from "framer-motion";
 
 const Home: NextPage = (props) => {
 
@@ -22,14 +23,26 @@ const Home: NextPage = (props) => {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
       <main>
-
-        <h1 className="p-3 text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4">
-          Candibar NFTs - Buy, Trade, and Sell Digital Collectibles
-          </h1>
-        <h6 className="text-center text-2xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4">
-        Become part of the sugar rush revolution: a place where digital art and sugar converge.
-          </h6>
-      </main>
+        <div className="text-center mt-8 p-5">
+          <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+          <motion.div 
+             whileHover={{ scale: 1.05 }}>
+            <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
+              <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
+                Candibar NFTs - Buy & Trade Digital Collectibles
+              </h1>
+            </div>
+            </motion.div>
+            <hr className="my-0 border-t-2 border-gray-100" />
+            <div className="p-6">
+              <h6 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                Become part of the sugar rush revolution: a place where digital art and sugar converge.
+              </h6>
+              <hr className="my-4 border-t-2 border-gray-300" />
+            </div>
+          </div>
+        </div>
+      </main>      
       <HomeView />
 
 <div className="border-t border-gray-500 pt-4 p-0"></div>
