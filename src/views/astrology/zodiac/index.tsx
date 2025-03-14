@@ -18,10 +18,9 @@ export const AstrologyZodiacView: FC = () => {
   return (
     <div>
       <div className="text-center mt-8 p-5">
-        <div className="mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+        <div className="max-w-6xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
           <Collapsible open={isOpen} onOpenChange={setIsOpen}>
             <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
-    
                 <div className="flex items-center justify-between space-x-4 px-4">
                   <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
                     Unlock the future of digital assets with candi confection art NFT!
@@ -32,7 +31,6 @@ export const AstrologyZodiacView: FC = () => {
                     <span className="sr-only">Toggle</span>
                   </CollapsibleTrigger>  
                   </motion.div>
-
                 </div>
           
             </div>
