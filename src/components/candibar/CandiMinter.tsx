@@ -183,26 +183,11 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
     } catch (error: any) {
 
-
-
-      // console.log('error', `Mint failed! ${error?.message}`);
-      // toast({
-      //   title: "Mint failed!",
-      //   description: error.message,
-      //   variant: "destructive",
-      //   style: {
-      //     backgroundColor: "white",
-      //     color: "white",
-      //     animation: "pulse 2s infinite",
-      //     backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
-      //   },
-      // });
       setIsTransacting(false);
       if (width <= 768) { // Check if screen width is mobile size
 
         setIsCandibarModalOpen(true);
-        setCandibarModalTitle("Mint failed!");
-
+        
         if (error?.message?.includes("")) {
           setCandibarModalMsgTxt("Cancel minting.");
         } else if (error?.message?.includes("0x137")) {
@@ -210,26 +195,42 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         } else if (error?.message?.includes("0x135")) {
           setCandibarModalMsgTxt("Mint limit reached for this Candy Guard.");
         } else {
+          setCandibarModalTitle("Mint failed!");
           setCandibarModalMsgTxt(`description: ${error}`);
         }
-
 
         await new Promise(resolve => setTimeout(resolve, 3000));
         window.location.reload();
       }
       else {
-        toast({
-          title: "Mint failed!",
-          description: error.message,
-          variant: "destructive",
-          style: {
-            backgroundColor: "white",
-            color: "white",
-            animation: "pulse 2s infinite",
-            backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
-          },
-        });
 
+        if (error?.message?.includes("")) {
+          toast({
+            title: "Mint failed!",
+            description: "Cancel swap.",
+            variant: "destructive",
+            style: {
+              backgroundColor: "white",
+              color: "white",
+              animation: "pulse 2s infinite",
+              backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
+            },
+          });
+        }
+        else
+        {
+          toast({
+            title: "Mint failed!",
+            description: error.message,
+            variant: "destructive",
+            style: {
+              backgroundColor: "white",
+              color: "white",
+              animation: "pulse 2s infinite",
+              backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
+            },
+          });
+        }
       }
 
     }

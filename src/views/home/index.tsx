@@ -1,6 +1,6 @@
 import { FC, useEffect, useMemo, useState } from 'react';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
-
+import jadeEmperor from '../../../public/images/jadeEmp3.jpeg';
 
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
@@ -142,157 +142,168 @@ export const HomeView: FC = ({ }) => {
 
   return (
     <>
-      <div className="text-center mt-8 p-5">
-        <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-        <motion.div whileHover={{ scale: 1.05 }}>
 
-          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
-            <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
-              Candibar Promotional NFT Collection
+      <div className="text-center mt-4 p-2"></div>
+      <div className="max-w-7xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+        <motion.div whileHover={{ scale: 1.02 }}>
+          <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4 rounded-lg shadow-lg">
+            <h1 className="text-center text-2xl font-bold text-black mb-0">
+              Discover the Candibar Platform
             </h1>
           </div>
-          </motion.div>
-          <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-6">
-            <h2 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-              Candi NFTs can be exchanged for Candibar Tokens, which can then be used to acquire exclusive collections in the Candibar NFT marketplace.
-            </h2>
-            <hr className="my-8 border-t-2 border-gray-300" />
-            <div>
-              <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
+        </motion.div>
+        <hr className="my-0 border-t-2 border-gray-100" />
+
+        <div className="p-4">
+        <h6 className="text-center text-2xl font-bold text-black mb-0">
+             
+               </h6>
+              <h6 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+              {/* Swap your Candi NFTs for Candibar Tokens to access exclusive Candibar NFTs. 
+              Join the Candibar Promotional NFT Collection by exchanging Candi NFTs for Candibar Tokens with the Jade Emperor. 
+              Explore unique collections and exclusive items available only with Candibar Tokens. */}
+              Buy & Trade Digital Collectibles <br />
+              Become part of the sugar rush revolution: a place where digital art and sugar converge.
+              </h6>
+              <hr className="my-4 border-t-2 border-gray-300" />
+            </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="text-center mt-4 p-2">
+            <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+              <motion.div whileHover={{ scale: 1.02 }}>
+
+                <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-2">
+                  <h1 className="text-center text-2xl md:pl-4 font-bold text-black">
+                    1. Promotional NFT
+                  </h1>
+                </div>
+              </motion.div>
+              <hr className="my-0 border-t-2 border-gray-100" />
+              <div className="p-4">
+                <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                  Exchange your Candi NFTs for Candibar Tokens, which can be used for exclusive Candibar NFTs.
+                </h2>
+                <hr className="my-6 border-t-2 border-gray-300" />
+                <div>
+                  <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+          <div className="text-center mt-4 p-2">
+            <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+              <motion.div whileHover={{ scale: 1.02 }}>
 
-      <div className="text-center mt-8 p-5">
-        <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-        <motion.div whileHover={{ scale: 1.05 }}>
-          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
-            <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
-              Exclusive Featured Zodiac Candi Confection Art NFT Collection
-            </h1>
-          </div> 
-          </motion.div>
-          <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-6">
-            <h2 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-              Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
-            </h2>
-            <hr className="my-8 border-t-2 border-gray-300" />
-            <h3 className="text-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-              Current Month
-            </h3>
-            {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
-              <CardContainer key={index} candyMachineKeys={[publicKey(sign.publicKey)]} />
-            ))}
-            <h5 className="text-lg mt-2 md:w-[70%] mx-auto text-center">
-              <Link href={"/AstrologyZodiac"} className="text-blue-500 underline">
-                Browse Entire Zodiac Collection
-              </Link>
-            </h5>
-          </div>
-        </div>
-      </div>
-
-      <div className="text-center mt-8 p-5">
-        <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-        <motion.div whileHover={{ scale: 1.05 }}>
-          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
-            <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
-              Join the Ranks of Our Early Sponsors and Donors
-            </h1>
-          </div>  
-          </motion.div>
-          <hr className="my-0 border-t-2 border-gray-100" />
-          <div className="p-6">
-            <h2 className="text-center text-2xl md:pl-6 font-bold text-gray-700 mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-              Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
-              Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
-            </h2>
-            <hr className="my-8 border-t-2 border-gray-300" />
-            
-          </div>
-        </div>
-      </div>
-      <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-4">
-        <CarouselContent>
-          {items.map((item, index) => (
-            <CarouselItem key={item.id} className="relative">
-              <div className="rounded-lg overflow-hidden"> {/* ✅ Added overflow-hidden */}
-                <Card className="overflow-hidden rounded-lg w-full relative">
-                  <CardContent className="p-0">
-                    <motion.div
-                      initial={{ scale: 1 }}
-                      whileHover={{ scale: 1.05 }} // ✅ Motion effect inside the box
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="w-full h-full"
-                    >
+                <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-2">
+                  <h1 className="text-center text-2xl md:pl-4 font-bold text-black">
+                    2. Swap Candi NFT
+                  </h1>
+                </div>
+              </motion.div>
+              <hr className="my-0 border-t-2 border-gray-100" />
+              <div className="p-4">
+                <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                  Candibar Promotional NFT Collection: Swap Candi NFTs for Candibar Tokens. * Visit the Jade Emperior *
+                </h2>
+                <hr className="my-6 border-t-2 border-gray-300" />
+                <div>
+                <motion.div whileHover={{ scale: 1.02 }}>
+                  <div className="relative w-full h-[480px] rounded-lg overflow-hidden">
                       <Image
-                        src={item.image}
-                        alt={item.text}
-                        layout="responsive"
+                        src={jadeEmperor.src}
+                        alt="Jade Emperor"
+                        layout="fill"
                         objectFit="cover"
-                        width={600}
-                        height={600}
-                        className="rounded-lg"
+                        className="rounded-lg p-4 shadow-lg hover:shadow-2xl transition-shadow duration-300"
                       />
-                    </motion.div>
-
-                    {item.name === "collection" ? (
-                      <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                        {item.titledesc}
-                        <br />
-                        {item.subtitledesc}
-                      </div>
-                    ) : (
-                      <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                        {item.text}
-                      </div>
-                    )}
-                    <div className="absolute bottom-1 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                      {item.name === "collection" ? (
-                        <>
-                          {item.text}
-                        </>
-                      ) : (
-                        <>
-                          <Link href={item.pageloc}>
-                            <div className="text-white underline">Learn more ...</div>
-                          </Link>
-                        </>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                  </motion.div>
+                  <Link
+                    href="/nftswap"
+                    className=" w-full btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+                  >
+                    <span className='text-lg'>Candi Swap</span>
+                  </Link>
+                </div>
               </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+            </div>
+          </div>
+          <div className="text-center mt-4 p-2">
+            <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+              <motion.div whileHover={{ scale: 1.02 }}>
+                <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-2">
+                  <h1 className="text-center text-2xl md:pl-4 font-bold text-black">
+                    3. Zodiac Candi Art NFT
+                  </h1>
+                </div>
+              </motion.div>
+              <hr className="my-0 border-t-2 border-gray-100" />
+              <div className="p-4">
+                <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                  Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
+                </h2>
+                <hr className="my-6 border-t-2 border-gray-300" />
+                {/* <h3 className="text-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+              Current Month
+            </h3> */}
+                {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
+                  <CardContainer key={index} candyMachineKeys={[publicKey(sign.publicKey)]} />
+                ))}
+                <h5 className="text-lg mt-2 md:w-[70%] mx-auto text-center">
+                  <Link href={"/AstrologyZodiac"} className="text-blue-500 underline">
+                    Browse Entire Zodiac Collection
+                  </Link>
+                </h5>
+              </div>
+            </div>
+          </div>
 
-        {/* Navigation Arrows */}
-        <div className="absolute bottom-15 left-20 right-20 flex justify-between p-5 bg-transparent text-blue-500">
-          <CarouselPrevious
-            size='lg'
-            className="bg-transparent text-blue-500"
-          />
-          <CarouselNext
-            size='lg'
-            className="bg-transparent text-blue-500"
-          />
         </div>
+      </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center mt-4 space-x-2 p-10">
-          {items.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current - 1 ? 'bg-blue-500 scale-125' : 'bg-gray-400'
-                }`}
+
+        <div className="max-w-7xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
+          <motion.div whileHover={{ scale: 1.02 }}>
+        <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
+          <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
+          Join the Ranks of Our Early Sponsors and Donors
+          </h1>
+        </div>
+          </motion.div>
+          <hr className="my-0 border-t-2 border-gray-100" />
+          <div className="p-4">
+        <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+        Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
+        Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
+        </h2>
+        <hr className="my-8 border-t-2 border-gray-300" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {items.slice(0, 6).map((item) => (
+            <div key={item.id} className="flex flex-col items-center">
+          <motion.div whileHover={{ scale: 1.05 }} className="w-full">
+            <Image
+              src={item.image}
+              alt={item.text}
+              layout="responsive"
+              objectFit="cover"
+              width={300}
+              height={300}
+              className="rounded-lg"
             />
+          </motion.div>
+          <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+            {item.text}
+          </h3>
+          <Link href={item.pageloc}>
+            Learn more ...
+          </Link>
+            </div>
           ))}
         </div>
-      </Carousel>
+          </div>
+        </div>
+
     </>
   );
 };
