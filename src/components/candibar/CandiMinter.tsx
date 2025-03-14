@@ -201,6 +201,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
     setIsTransacting(false);
 
+    await new Promise(resolve => setTimeout(resolve, 3000));
     window.location.reload();
 
     }
