@@ -210,7 +210,7 @@ export const HomeView: FC = ({ }) => {
               Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
               Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
             </h2>
-            <hr className="my-8 border-t-2 border-gray-300" />
+            {/* <hr className="my-8 border-t-2 border-gray-300" /> */}
             {/* <Carousel setApi={setApi} className="max-w-[90%] sm:w-full mx-auto p-4">
               <CarouselContent>
                 {items.map((item, index) => (
