@@ -202,8 +202,14 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         },
       });
 
-    // await new Promise(resolve => setTimeout(resolve, 3000));
-    // window.location.reload();
+        return;
+
+      setIsCandibarModalOpen(true);
+      setCandibarModalTitle("Mint failed!");
+      setCandibarModalMsgTxt(`description:: ${error}`);
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    window.location.reload();
 
     }
   }, [wallet,getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
