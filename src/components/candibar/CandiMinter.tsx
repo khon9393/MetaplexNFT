@@ -187,17 +187,17 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
     } catch (error: any) {
       // console.log('error', `Mint failed! ${error?.message}`);
-      toast({
-        title: "Mint failed!",
-        description: error.message,
-        variant: "destructive",
-        style: {
-          backgroundColor: "white",
-          color: "white",
-          animation: "pulse 2s infinite",
-          backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
-        },
-      });
+      // toast({
+      //   title: "Mint failed!",
+      //   description: error.message,
+      //   variant: "destructive",
+      //   style: {
+      //     backgroundColor: "white",
+      //     color: "white",
+      //     animation: "pulse 2s infinite",
+      //     backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
+      //   },
+      // });
 
     setIsTransacting(false);
     }
