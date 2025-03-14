@@ -197,13 +197,13 @@ export const HomeView: FC = ({ }) => {
 
       <div className="text-center mt-8 p-5">
         <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-        {/* <motion.div whileHover={{ scale: 1.05 }}> */}
+        <motion.div whileHover={{ scale: 1.05 }}>
           <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
             <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
               Join the Ranks of Our Early Sponsors and Donors
             </h1>
           </div>  
-          {/* </motion.div> */}
+          </motion.div>
           <hr className="my-0 border-t-2 border-gray-100" />
             <div className="p-6 text-sm md:text-base lg:text-lg xl:text-xl">
             <h2 className="text-center text-2xl md:pl-6 font-bold text-gray-700 mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
@@ -279,6 +279,7 @@ export const HomeView: FC = ({ }) => {
             </Carousel> */}
           </div>
         </div>
+        <div className='p-5 mb-5'>
         <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-5">
               <CarouselContent>
                 {items.map((item, index) => (
@@ -345,6 +346,7 @@ export const HomeView: FC = ({ }) => {
                 ))}
               </div>
             </Carousel>
+            </div>
       </div>
     
     </>
