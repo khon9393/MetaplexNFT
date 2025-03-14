@@ -114,7 +114,7 @@ export const HomeView: FC = ({ }) => {
   const [zodiacSigns, setZodiacSigns] = useState<ZodiacSign[]>([]);
 
   useEffect(() => {
-    const currentSigns = getCurrentZodiacSignTopN(2);
+    const currentSigns = getCurrentZodiacSignTopN(1);
     if (currentSigns) {
       setZodiacSigns(currentSigns);
     }
@@ -142,147 +142,145 @@ export const HomeView: FC = ({ }) => {
 
   return (
     <>
-      <div className="text-center mt-8 p-3">
-        <h2
-          // className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
-          className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
-        >
-          Candibar Promotional NFT Collection
-        </h2>
-        {/* <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens, plus a small SOL transaction fee.</p> */}
-        <h2
-          // className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
-          className="text-2xl mt-2 md:w-[70%] mx-auto flex-col items-center font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
-        >
-          Candi NFTs can be exchanged for Candibar Tokens, which can then be used to acquire exclusive collections in the Candibar NFT marketplace.
-        </h2>
+      <div className="text-center mt-8 p-5">
+        <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+        <motion.div whileHover={{ scale: 1.05 }}>
+
+          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
+            <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
+              Candibar Promotional NFT Collection
+            </h1>
+          </div>
+          </motion.div>
+          <hr className="my-0 border-t-2 border-gray-100" />
+          <div className="p-6">
+            <h2 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+              Candi NFTs can be exchanged for Candibar Tokens, which can then be used to acquire exclusive collections in the Candibar NFT marketplace.
+            </h2>
+            <hr className="my-8 border-t-2 border-gray-300" />
+            <div>
+              <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div >
-        <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
-      </div>
-      
-      <div className="text-center mt-8 p-10">
-        <h1
-          className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
-        >
-          Exclusive Featured Zodiac Candi Confection Art NFT Collection
-        </h1>
-
-        {/* <p className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center">Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens, plus a small SOL transaction fee.</p> */}
-        <h2
-          // className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
-          className="text-2xl mt-2 md:w-[70%] mx-auto flex-col items-center font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
-        >
-          Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
-        </h2>
-      </div>
-
-      {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
-        <CardContainer key={index} candyMachineKeys={[publicKey(sign.publicKey)]} />
-      ))}
-
-      <h5 className="text-lg mt-2 md:w-[70%] mx-auto text-center">
-        <Link
-          href={"/AstrologyZodiacFilter"}
-          className="text-blue-500 underline">Browse Entire Zodiac Collection
-        </Link>
-      </h5>
-
-      <div className="text-center mt-8 p-3">
-
-        <h1
-          className="text-center text-4xl p-4 md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 mb-4"
-        >
-          Join the Ranks of Our Early Sponsors and Donors
-        </h1>
-        <h2
-          //className="text-lg mt-2 md:w-[70%] mx-auto flex-col items-center justify-center"
-          className="text-2xl mt-2 md:w-[70%] mx-auto flex-col items-center font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-yellow-500 mb-4"
-        >
-          Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
-          Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
-        </h2>
+      <div className="text-center mt-8 p-5">
+        <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
+            <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
+              Exclusive Featured Zodiac Candi Confection Art NFT Collection
+            </h1>
+          </div> 
+          </motion.div>
+          <hr className="my-0 border-t-2 border-gray-100" />
+          <div className="p-6">
+            <h2 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+              Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
+            </h2>
+            <hr className="my-8 border-t-2 border-gray-300" />
+            <h3 className="text-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+              Current Month
+            </h3>
+            {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
+              <CardContainer key={index} candyMachineKeys={[publicKey(sign.publicKey)]} />
+            ))}
+            <h5 className="text-lg mt-2 md:w-[70%] mx-auto text-center">
+              <Link href={"/AstrologyZodiac"} className="text-blue-500 underline">
+                Browse Entire Zodiac Collection
+              </Link>
+            </h5>
+          </div>
+        </div>
       </div>
 
-      <Carousel setApi={setApi} className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto p-4">
-        <CarouselContent>
-          {items.map((item, index) => (
-            <CarouselItem key={item.id} className="relative">
-              <div className="rounded-lg overflow-hidden"> {/* ✅ Added overflow-hidden */}
-                <Card className="overflow-hidden rounded-lg w-full relative">
-                  <CardContent className="p-0">
-                    <motion.div
-                      initial={{ scale: 1 }}
-                      whileHover={{ scale: 1.05 }} // ✅ Motion effect inside the box
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="w-full h-full"
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.text}
-                        layout="responsive"
-                        objectFit="cover"
-                        width={600}
-                        height={600}
-                        className="rounded-lg"
-                      />
-                    </motion.div>
-
-                    {item.name === "collection" ? (
-                      <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                        {item.titledesc}
-                        <br />
-                        {item.subtitledesc}
+      <div className="text-center mt-8 p-5">
+        <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
+            <h1 className="text-center text-3xl md:pl-6 font-bold text-black">
+              Join the Ranks of Our Early Sponsors and Donors
+            </h1>
+          </div>  
+          </motion.div>
+          <hr className="my-0 border-t-2 border-gray-100" />
+          <div className="p-6">
+            <h2 className="text-center text-2xl md:pl-6 font-bold text-gray-700 mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+              Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
+              Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
+            </h2>
+            <hr className="my-8 border-t-2 border-gray-300" />
+            <Carousel setApi={setApi} className="w-3/4 items-center mx-auto p-4">
+              <CarouselContent>
+                {items.map((item, index) => (
+                  <CarouselItem key={item.id} className="relative">
+                    <div className="rounded-lg overflow-hidden">
+                      <div className="overflow-hidden rounded-lg w-full relative">
+                        <div className="p-0">
+                          <motion.div
+                            initial={{ scale: 1 }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="w-full h-full"
+                          >
+                            <Image
+                              src={item.image}
+                              alt={item.text}
+                              layout="responsive"
+                              objectFit="cover"
+                              width={600}
+                              height={600}
+                              className="rounded-lg"
+                            />
+                          </motion.div>
+                          {item.name === "collection" ? (
+                            <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                              {item.titledesc}
+                              <br />
+                              {item.subtitledesc}
+                            </div>
+                          ) : (
+                            <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                              {item.text}
+                            </div>
+                          )}
+                          <div className="absolute bottom-1 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                            {item.name === "collection" ? (
+                              <>
+                                {item.text}
+                              </>
+                            ) : (
+                              <>
+                                <Link href={item.pageloc}>
+                                  <div className="text-white underline">Learn more ...</div>
+                                </Link>
+                              </>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                    ) : (
-                      <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                        {item.text}
-                      </div>
-                    )}
-                    <div className="absolute bottom-1 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                      {item.name === "collection" ? (
-                        <>
-                          {item.text}
-                        </>
-                      ) : (
-                        <>
-                          <Link href={item.pageloc}>
-                            <div className="text-white underline">Learn more ...</div>
-                          </Link>
-                        </>
-                      )}
                     </div>
-                  </CardContent>
-                </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="absolute bottom-15 left-20 right-20 flex justify-between p-5 bg-transparent text-blue-500">
+                <CarouselPrevious size='lg' className="bg-transparent text-blue-500" />
+                <CarouselNext size='lg' className="bg-transparent text-blue-500" />
               </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-
-        {/* Navigation Arrows */}
-        <div className="absolute bottom-15 left-20 right-20 flex justify-between p-5 bg-transparent text-blue-500">
-          <CarouselPrevious
-            size='lg'
-            className="bg-transparent text-blue-500"
-          />
-          <CarouselNext
-            size='lg'
-            className="bg-transparent text-blue-500"
-          />
+              <div className="flex justify-center mt-4 space-x-2 p-10">
+                {items.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current - 1 ? 'bg-blue-500 scale-125' : 'bg-gray-400'}`}
+                  />
+                ))}
+              </div>
+            </Carousel>
+          </div>
         </div>
-
-        {/* Dots Indicator */}
-        <div className="flex justify-center mt-4 space-x-2 p-10">
-          {items.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current - 1 ? 'bg-blue-500 scale-125' : 'bg-gray-400'
-                }`}
-            />
-          ))}
-        </div>
-      </Carousel>
+      </div>
+     
     </>
   );
 };
