@@ -204,7 +204,7 @@ export const HomeView: FC = ({ }) => {
               <hr className="my-0 border-t-2 border-gray-100" />
               <div className="p-4">
                 <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-                  Candibar Promotional NFT Collection: Swap Candi NFTs for Candibar Tokens. * Visit the Jade Emperior *
+                  Candibar Promotional NFT Collection: Swap Candi NFTs for Candibar Tokens.<br/> * Visit the Jade Emperior *
                 </h2>
                 <hr className="my-6 border-t-2 border-gray-300" />
                 <div>
