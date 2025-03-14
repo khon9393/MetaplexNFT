@@ -204,11 +204,21 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
       setIsCandibarModalOpen(true);
       setCandibarModalTitle("Mint failed!");
-      setCandibarModalMsgTxt(`description:: ${error}`);
 
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    window.location.reload();
+      if (error?.message?.includes("")) {
+        setCandibarModalMsgTxt("Cancel minting.");
+      } else if (error?.message?.includes("0x137")) {
+        setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
+      } else if (error?.message?.includes("0x135")) {
+        setCandibarModalMsgTxt("Mint limit reached for this Candy Guard.");
+      } else if (error?.message?.includes("0x134")) {
+        setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
+      } else {
+        setCandibarModalMsgTxt(`description: ${error}`);
+      }
 
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      window.location.reload();
     }
   }, [wallet,getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
 
