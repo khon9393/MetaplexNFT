@@ -86,23 +86,33 @@ const SwapWrapper = () => {
         //   title: "Swap Error",
         //   description: error.message,
         //   variant: "destructive",
-        // });
-        setIsCandibarModalOpen(true);
-        setCandibarModalTitle("Mint failed!");
-  
-        if (error?.message?.includes("")) {
-          setCandibarModalMsgTxt("Cancel minting.");
-        } else if (error?.message?.includes("0x137")) {
-          setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
-        } else if (error?.message?.includes("0x135")) {
-          setCandibarModalMsgTxt("Mint limit reached for this Candy Guard.");
-        } else {
-          setCandibarModalMsgTxt(`description: ${error}`);
-        }
-  
+        // }); 
+        setIsTransacting(false);
         if (width <= 768) { // Check if screen width is mobile size
+
+          setIsCandibarModalOpen(true);
+          setCandibarModalTitle("Mint failed!");
+
+          if (error?.message?.includes("")) {
+            setCandibarModalMsgTxt("Cancel minting.");
+          } else if (error?.message?.includes("0x137")) {
+            setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
+          } else if (error?.message?.includes("0x135")) {
+            setCandibarModalMsgTxt("Mint limit reached for this Candy Guard.");
+          } else {
+            setCandibarModalMsgTxt(`description: ${error}`);
+          }
+
           await new Promise(resolve => setTimeout(resolve, 3000));
           window.location.reload();
+        }
+        else {
+          toast({
+            title: "Swap Error",
+            description: error.message,
+            variant: "destructive",
+          });
+
         }
 
       })
@@ -140,29 +150,29 @@ const SwapWrapper = () => {
 
 
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4">
-   
-        <div className="px-2 p-0 border border-gray-300 rounded-lg bg-gray-200 text-right">
-        <div className="text-1xl md:text-2xl font-bold text-black ">
+
+          <div className="px-2 p-0 border border-gray-300 rounded-lg bg-gray-200 text-right">
+            <div className="text-1xl md:text-2xl font-bold text-black ">
               <TokenBalance />
             </div>
-        {selectedAsset && (
-          
+            {selectedAsset && (
 
-            <div className="text-1xl md:text-2xl font-bold animate-pulse ">
-              {tradeState === TradeState.nft
-                ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount, 8)}</div>
-                : <div className="text-red-700"> -{formatTokenAmount(escrow.amount, 8)}</div>}
-            </div>
-         
-        )}
- </div>
-          
+
+              <div className="text-1xl md:text-2xl font-bold animate-pulse ">
+                {tradeState === TradeState.nft
+                  ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount, 8)}</div>
+                  : <div className="text-red-700"> -{formatTokenAmount(escrow.amount, 8)}</div>}
+              </div>
+
+            )}
+          </div>
+
           {tradeState === TradeState.nft ? (
             <div className={selectedAsset ? "" : "animate-pulse"}>
               <NftCard
-          tradeState={tradeState}
-          setSelectedAsset={(asset) => setSelectedAsset(asset)}
-          selectedAsset={selectedAsset}
+                tradeState={tradeState}
+                setSelectedAsset={(asset) => setSelectedAsset(asset)}
+                selectedAsset={selectedAsset}
               />
             </div>
           ) : (
@@ -173,13 +183,13 @@ const SwapWrapper = () => {
             <div className="flex items-center justify-center">
 
               <Button
-          onClick={handleSwap}
-          disabled={isTransacting}
-          className="text-1xl md:text-2xl px-4 h-12 animate-pulse bg-gray-800 text-white dark:bg-gray-700 dark:text-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-          variant="default"
+                onClick={handleSwap}
+                disabled={isTransacting}
+                className="text-1xl md:text-2xl px-4 h-12 animate-pulse bg-gray-800 text-white dark:bg-gray-700 dark:text-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                variant="default"
               >
-          Swap
-          <ArrowPathIcon className="w-10 h-10 m-1" />
+                Swap
+                <ArrowPathIcon className="w-10 h-10 m-1" />
               </Button>
 
             </div>
