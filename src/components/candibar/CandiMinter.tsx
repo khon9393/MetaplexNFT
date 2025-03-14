@@ -211,14 +211,14 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
       } else if (error?.message?.includes("0x135")) {
         setCandibarModalMsgTxt("Mint limit reached for this Candy Guard.");
-      } else if (error?.message?.includes("0x134")) {
-        setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
       } else {
         setCandibarModalMsgTxt(`description: ${error}`);
       }
 
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      window.location.reload();
+      if (width <= 768) { // Check if screen width is mobile size
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        window.location.reload();
+      }
     }
   }, [wallet,getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
 

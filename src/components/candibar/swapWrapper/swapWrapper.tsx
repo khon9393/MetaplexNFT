@@ -16,6 +16,7 @@ import { REROLL_PATH } from "../../../lib/constants";
 import { Asset } from "../../../utils/index";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
+import CandibarModal from "../../../components/candibar/CandibarModal";
 
 import { useWallet } from "@solana/wallet-adapter-react";
 import { formatTokenAmount } from "@/lib/utils";
@@ -32,6 +33,10 @@ const SwapWrapper = () => {
 
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize(); // Dynamically get window size
+
+  const [isCandibarModalOpen, setIsCandibarModalOpen] = useState(false);
+  const [CandibarModalTitle, setCandibarModalTitle] = useState<string>('');
+  const [CandibarModalMsgTxt, setCandibarModalMsgTxt] = useState<string>('');
 
   const rerollEnabled = escrow?.path === REROLL_PATH;
   const wallet = useWallet();
@@ -75,13 +80,31 @@ const SwapWrapper = () => {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
       })
-      .catch((error) => {
+      .catch(async (error) => {
         console.log(error);
-        toast({
-          title: "Swap Error",
-          description: error.message,
-          variant: "destructive",
-        });
+        // toast({
+        //   title: "Swap Error",
+        //   description: error.message,
+        //   variant: "destructive",
+        // });
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Mint failed!");
+  
+        if (error?.message?.includes("")) {
+          setCandibarModalMsgTxt("Cancel minting.");
+        } else if (error?.message?.includes("0x137")) {
+          setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
+        } else if (error?.message?.includes("0x135")) {
+          setCandibarModalMsgTxt("Mint limit reached for this Candy Guard.");
+        } else {
+          setCandibarModalMsgTxt(`description: ${error}`);
+        }
+  
+        if (width <= 768) { // Check if screen width is mobile size
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          window.location.reload();
+        }
+
       })
       .finally(() => setIsTransacting(false))
 
