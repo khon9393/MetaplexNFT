@@ -21,10 +21,11 @@ export const FilterAstrologyZodiacView: FC = () => {
     if (storedData) {
       const { signs, timestamp } = JSON.parse(storedData);
       const currentTime = new Date().getTime();
-      const thirtyMinutesInMilliseconds = 30 * 60 * 1000;
+      //const thirtyMinutesInMilliseconds = 30 * 60 * 1000;
       // const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000;
+      const oneDaysInMilliseconds = 1 * 24 * 60 * 60 * 1000;
 
-      if (currentTime - timestamp < thirtyMinutesInMilliseconds) {
+      if (currentTime - timestamp < oneDaysInMilliseconds) {
         setSelectedSigns(signs);
         return;
       } else {
@@ -86,7 +87,7 @@ export const FilterAstrologyZodiacView: FC = () => {
         {selectedSigns.map((sign) => (
           <div key={sign} className="p-2">
             {CandiZodiacSigns[sign] && (
-              <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].publicKey)]} />
+              <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].machinePublicKey)]} />
             )}
           </div>
         ))}
