@@ -1,6 +1,6 @@
 import { FC, useEffect, useMemo, useState } from 'react';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
-import jadeEmperor from '../../../public/images/jadeEmp3.jpeg';
+import jadeEmperor from '../../../public/images/jadeEmp2.jpeg';
 
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
