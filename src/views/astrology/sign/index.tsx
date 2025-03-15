@@ -70,8 +70,8 @@ export const AstrologySignView: FC = ({ }) => {
           </div>
           <hr className="my-0 border-t-2 border-gray-100" />
           <div className="p-2">
-            <div className="text-center sm:text-lg sm:text-2xl md:pl-6">
-              <div className="flex flex-col sm:text-1xl md:text-base lg:text-lg p-2">     
+            {/* <div className="text-center sm:text-2xl md:pl-6"> */}
+              <div className="text-center sm:text-2xl md:pl-6">     
                 <CollapsibleContent>
 
                 <h2 className="leading-relaxed break-words">
@@ -99,7 +99,7 @@ export const AstrologySignView: FC = ({ }) => {
                 </h2>
                 </CollapsibleContent>
               </div>
-            </div>
+            {/* </div> */}
             <hr className="my-4 border-t-2 border-gray-300" />
           
    
