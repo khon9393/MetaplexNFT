@@ -13,7 +13,31 @@ import { FilterAstrologyZodiacView } from "./FilterAstrologyZodiacView";
 import { motion } from "framer-motion";
 
 export const AstrologyZodiacView: FC = () => {
-  const [isOpen, setIsOpen] = useState(true);
+
+  const [isOpen, setIsOpen] = useState(() => {
+    const storedData = localStorage.getItem("zodiacsetIsOpen");
+    if (storedData) {
+      const { isOpen: storedIsOpen, timestamp } = JSON.parse(storedData);
+      const currentTime = new Date().getTime();
+      const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+
+      if (currentTime - timestamp < oneDayInMilliseconds) {
+        return storedIsOpen;
+      } else {
+        localStorage.removeItem("zodiacsetIsOpen");
+      }
+    }
+    return true;
+  });
+
+  // Save isOpen state to localStorage whenever it changes
+  useEffect(() => {
+    const data = {
+      isOpen,
+      timestamp: new Date().getTime(),
+    };
+    localStorage.setItem("zodiacsetIsOpen", JSON.stringify(data));
+  }, [isOpen]);
 
   return (
     <div>

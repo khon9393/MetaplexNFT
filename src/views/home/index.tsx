@@ -151,7 +151,7 @@ export const HomeView: FC = ({ }) => {
               Discover the Candibar Platform
             </h1>
             <h2 className="text-md mx-auto text-center">
-              <Link href={"/CPAG"} className="text-gray-100 hover:underline">
+              <Link href={"/CPAG"} className="text-gray-900 hover:underline hover:text-gray-100 hover:underline">
                 Candibar Platform Asset Guide (CPAG)
               </Link>
             </h2>
@@ -256,7 +256,7 @@ export const HomeView: FC = ({ }) => {
                 </h3> */}
 
                 {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
-                  <CardContainer key={index} candyMachineKeys={[publicKey(sign.publicKey)]} />
+                  <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
                 ))}
 
                 <h3 className="text-center text-1xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
@@ -264,7 +264,7 @@ export const HomeView: FC = ({ }) => {
                 </h3>
 
                 <h6 className="text-lg mx-auto text-center">
-                  <Link href={"/AstrologyZodiac"} className="text-blue-500 hover:underline">
+                  <Link href={"/AstrologyZodiac"} className="text-blue-500 hover:underline hover:text-gray-100 hover:underline">
                     Explore the Full Zodiac Collection
                   </Link>
                 </h6>

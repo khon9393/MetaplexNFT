@@ -10,7 +10,7 @@ export const AstrologyZodiacView: FC = () => {
   useEffect(() => {
     const currentSign = getCurrentZodiacSign();
     if (currentSign) {
-      setSelectedSigns(currentSign.publicKey);
+      setSelectedSigns(currentSign.machinePublicKey);
     }
   }, []);
 
