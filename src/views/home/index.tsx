@@ -151,7 +151,7 @@ export const HomeView: FC = ({ }) => {
               Discover the Candibar Platform
             </h1>
             <h2 className="text-md mx-auto text-center">
-              <Link href={"/CPAG"} className="text-gray-900 hover:underline hover:text-gray-100 hover:underline">
+              <Link href={"/CPAG"} className="text-center text-lg md:pl-6 font-semibold text-black text-gray-900 hover:underline hover:text-gray-100 hover:underline">
                 Candibar Platform Asset Guide (CPAG)
               </Link>
             </h2>
@@ -167,7 +167,6 @@ export const HomeView: FC = ({ }) => {
             {/* Swap your Candi NFTs for Candibar Tokens to access exclusive Candibar NFTs. 
               Join the Candibar Promotional NFT Collection by exchanging Candi NFTs for Candibar Tokens with the Jade Emperor. 
               Explore unique collections and exclusive items available only with Candibar Tokens. */}
-            Buy & Trade Digital Collectibles <br />
             Become part of the sugar rush revolution: a place where digital art and sugar converge.
           </h6>
           <hr className="my-4 border-t-2 border-gray-300" />
@@ -286,7 +285,7 @@ export const HomeView: FC = ({ }) => {
         </motion.div>
         <hr className="my-0 border-t-2 border-gray-100" />
         <div className="p-4">
-          <h2 className="text-center text-lg md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+          <h2 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
             Join our amazing sponsors and donors who are propelling the Candibar NFT Kickstarter to new heights! Exciting perks are on the way.
             Own one or more Snake Coin NFTs—built on the Solana blockchain—and enjoy well-deserved recognition and appreciation for your support.
           </h2>
