@@ -321,7 +321,9 @@ export const HomeView: FC = ({ }) => {
               <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
                 {item.text}
               </h3>
-              <Link href={item.pageloc}>
+              <Link href={item.pageloc}
+              className="text-xl text-blue-500 hover:underline hover:text-gray-100 hover:underline mt-2"
+              >
                 Learn more ...
               </Link>
               </div>
