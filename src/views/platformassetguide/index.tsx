@@ -41,7 +41,7 @@ export const CPAGView: FC = ({ }) => {
   }, [candicollectionsKey]);
 
   useEffect(() => {
-    const currentSigns = getCurrentZodiacSignTopN(5);
+    const currentSigns = getCurrentZodiacSignTopN(12);
     if (currentSigns) {
       setZodiacSigns(currentSigns);
     }
@@ -169,7 +169,8 @@ export const CPAGView: FC = ({ }) => {
                           {image.iscollectioncover ? (
                             <span>{image.name}</span>
                           ) : (
-                            <span>{image.name} → {collection.collectioncandibarvalue} Candibar Tokens</span>
+                            // <span>{image.name} → {collection.collectioncandibarvalue} Candibar Tokens</span>
+                            <span>{image.name}</span>
                           )}
                         </li>
                       </ul>
