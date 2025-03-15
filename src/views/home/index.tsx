@@ -293,7 +293,7 @@ export const HomeView: FC = ({ }) => {
 
             {items.slice(0, 1).map((item) => (
               <div key={item.id} className="flex flex-col items-center relative">
-              <motion.div whileHover={{ scale: 1.05 }} className="w-full">
+              <motion.div whileHover={{ scale: 1.05 }} className="w-3/4">
                 <Image
                 src={item.image}
                 alt={item.text}
@@ -303,9 +303,9 @@ export const HomeView: FC = ({ }) => {
                 height={300}
                 className="rounded-lg"
                 />
-              </motion.div>
+             </motion.div>
               {item.name === "collection" ? (
-                <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                <div className="absolute top-0 w-3/4 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
                 {item.titledesc}
                 <br />
                 {item.subtitledesc}
@@ -318,11 +318,13 @@ export const HomeView: FC = ({ }) => {
               <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
                 {item.text}
               </h3>
+              
               <Link href={item.pageloc}
               className="text-xl text-blue-500 hover:underline hover:text-gray-100 hover:underline mt-2"
               >
                 Learn more ...
               </Link>
+              
               </div>
             ))}
             
