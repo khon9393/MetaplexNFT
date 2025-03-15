@@ -71,29 +71,29 @@ const items = [
     , pageloc: "/AstrologySign"
   },
 
-  {
-    id: 7, name: 'snake00', color: 'bg-indigo-500', text: 'Snake Item #1',
-    image: "/api/image/CandibarImg/Woodsnake/snake0_2025_500-bJMtUmup4TT8xdikHCLhEcf2a4QiBj.jpg"
-    , pageloc: "/AstrologySign"
-  },
+  // {
+  //   id: 7, name: 'snake00', color: 'bg-indigo-500', text: 'Snake Item #1',
+  //   image: "/api/image/CandibarImg/Woodsnake/snake0_2025_500-bJMtUmup4TT8xdikHCLhEcf2a4QiBj.jpg"
+  //   , pageloc: "/AstrologySign"
+  // },
 
-  {
-    id: 8, name: 'snake01', color: 'bg-teal-500', text: 'Snake Item #2',
-    image: "/api/image/CandibarImg/Woodsnake/snake1_2025_500-MGjeQCWhDX4auQ7ioZ6a4rN6x6QaMU.jpg"
-    , pageloc: "/AstrologySign"
-  },
+  // {
+  //   id: 8, name: 'snake01', color: 'bg-teal-500', text: 'Snake Item #2',
+  //   image: "/api/image/CandibarImg/Woodsnake/snake1_2025_500-MGjeQCWhDX4auQ7ioZ6a4rN6x6QaMU.jpg"
+  //   , pageloc: "/AstrologySign"
+  // },
 
-  {
-    id: 9, name: 'snake02', color: 'bg-orange-500', text: 'Snake Item #3',
-    image: "/api/image/CandibarImg/Woodsnake/snake2_2025_500-cuGv4oWV1r1L9O1BKd5sU6lDOu8SDJ.jpg"
-    , pageloc: "/AstrologySign"
-  },
+  // {
+  //   id: 9, name: 'snake02', color: 'bg-orange-500', text: 'Snake Item #3',
+  //   image: "/api/image/CandibarImg/Woodsnake/snake2_2025_500-cuGv4oWV1r1L9O1BKd5sU6lDOu8SDJ.jpg"
+  //   , pageloc: "/AstrologySign"
+  // },
 
-  {
-    id: 10, name: 'snake03', color: 'bg-gray-500', text: 'Snake Item #4',
-    image: "/api/image/CandibarImg/Woodsnake/snake3_2025_500-KgeF1pu8XxUEtF4PKIk2MCwl4jyPRw.jpg"
-    , pageloc: "/AstrologySign"
-  },
+  // {
+  //   id: 10, name: 'snake03', color: 'bg-gray-500', text: 'Snake Item #4',
+  //   image: "/api/image/CandibarImg/Woodsnake/snake3_2025_500-KgeF1pu8XxUEtF4PKIk2MCwl4jyPRw.jpg"
+  //   , pageloc: "/AstrologySign"
+  // },
 ];
 
 export const HomeView: FC = ({ }) => {
@@ -278,7 +278,7 @@ export const HomeView: FC = ({ }) => {
 
       <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
         <motion.div whileHover={{ scale: 1.02 }}>
-          <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
+          <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
             <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
               Join the Ranks of Our Early Sponsors and Donors
             </h1>
@@ -292,40 +292,99 @@ export const HomeView: FC = ({ }) => {
           </h2>
           <hr className="my-8 border-t-2 border-gray-300" />
           <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-
-
             {items.slice(0, 1).map((item) => (
-              <div key={item.id} className="flex flex-col items-center relative">
-              <motion.div whileHover={{ scale: 1.05 }} className="w-full">
-                <Image
-                src={item.image}
-                alt={item.text}
-                layout="responsive"
-                objectFit="cover"
-                width={300}
-                height={300}
-                className="rounded-lg"
-                />
-              </motion.div>
-              {item.name === "collection" ? (
-                <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                {item.titledesc}
-                <br />
-                {item.subtitledesc}
-                </div>
-              ) : (
-                <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                {item.text}
-                </div>
-              )}
-              <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-                {item.text}
-              </h3>
-              <Link href={item.pageloc}>
-                Learn more ...
-              </Link>
+              <div key={item.id} className="flex flex-col items-center">
+                <motion.div whileHover={{ scale: 1.05 }} className="w-full">
+                  <Image
+                    src={item.image}
+                    alt={item.text}
+                    layout="responsive"
+                    objectFit="cover"
+                    width={300}
+                    height={300}
+                    className="rounded-lg"
+                  />
+                </motion.div>
+                {item.name === "collection" ? (
+                      <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                        {item.titledesc}
+                        <br />
+                        {item.subtitledesc}
+                      </div>
+                    ) : (
+                      <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                        {item.text}
+                      </div>
+                    )}
+                   
+
+                <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                  {item.text}
+                </h3>
+                <Link href={item.pageloc}>
+                  Learn more ...
+                </Link>
               </div>
             ))}
+
+
+{/* <Carousel setApi={setApi}>
+        <CarouselContent>
+          {items.map((item, index) => (
+            <CarouselItem key={item.id} className="relative">
+              <div className="rounded-lg overflow-hidden"> 
+                <Card className="overflow-hidden rounded-lg w-full relative">
+                  <CardContent className="p-0">
+                    <motion.div
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.05 }} 
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="w-full h-full"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.text}
+                        layout="responsive"
+                        objectFit="cover"
+                        width={600}
+                        height={600}
+                        className="rounded-lg"
+                      />
+                    </motion.div>
+
+                    {item.name === "collection" ? (
+                      <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                        {item.titledesc}
+                        <br />
+                        {item.subtitledesc}
+                      </div>
+                    ) : (
+                      <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                        {item.text}
+                      </div>
+                    )}
+                    <div className="absolute bottom-1 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                      {item.name === "collection" ? (
+                        <>
+                          {item.text}
+                        </>
+                      ) : (
+                        <>
+                          <Link href={item.pageloc}>
+                            <div className="text-white underline">Learn more ...</div>
+                          </Link>
+                        </>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+      </Carousel> */}
+
             
           </div>
         </div>

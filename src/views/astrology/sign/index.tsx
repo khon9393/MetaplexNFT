@@ -58,20 +58,20 @@ export const AstrologySignView: FC = ({ }) => {
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
           
           <div className="flex items-center justify-between space-x-4 px-4 bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-4">
-          <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
+          <h1 className="text-center text-lg sm:text-2xl md:pl-6 font-bold text-black">
               Unlock the future of digital assets with Snake Coin 2025 NFT!
             </h1>
             <motion.div whileHover={{ scale: 1.2 }}>
                   <CollapsibleTrigger onClick={() => setIsOpen(!isOpen)}>
-                    <ChevronsUpDown className={`h-8 w-8 ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronsUpDown className={`h-6 w-6 ${isOpen ? 'rotate-180' : ''}`} />
                     <span className="sr-only">Toggle</span>
                   </CollapsibleTrigger>  
                   </motion.div>
           </div>
           <hr className="my-0 border-t-2 border-gray-100" />
           <div className="p-2">
-            <div className="text-center text-2xl md:pl-6">
-              <div className="flex flex-col text-xl md:text-base lg:text-lg p-2">     
+            <div className="text-center sm:text-lg sm:text-2xl md:pl-6">
+              <div className="flex flex-col sm:text-1xl md:text-base lg:text-lg p-2">     
                 <CollapsibleContent>
 
                 <h2 className="leading-relaxed break-words">

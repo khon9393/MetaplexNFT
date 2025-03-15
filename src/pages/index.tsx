@@ -28,7 +28,7 @@ const Home: NextPage = (props) => {
       </Head>
       <main>
         <div className="text-center mt-8 p-5">
-          <div className="max-w-7xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+          <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
             <motion.div
               whileHover={{ scale: 1.02 }}>
               <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
