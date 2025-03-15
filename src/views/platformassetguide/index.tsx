@@ -41,12 +41,19 @@ export const CPAGView: FC = ({ }) => {
   }, [candicollectionsKey]);
 
   useEffect(() => {
-    const currentSigns = getCurrentZodiacSignTopN(12);
+    const currentSigns = getCurrentZodiacSignTopN(5);
     if (currentSigns) {
       setZodiacSigns(currentSigns);
     }
-  }, []);
+  }, [setZodiacSigns]);
 
+  const zodiacSignLookup = useMemo(() => {
+    const lookup: { [key: string]: ZodiacSign } = {};
+    zodiacSigns.forEach(sign => {
+      lookup[sign.name] = sign;
+    });
+    return lookup;
+  }, [zodiacSigns]);
 
   useEffect(() => {
     const fetchCollections = async () => {
@@ -91,10 +98,6 @@ export const CPAGView: FC = ({ }) => {
   return (
     <div className="mx-auto max-w-4xl p-6">
       <div className="text-center">
-        {/* Main Heading */}
-        {/* <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 p-4">
-          🚀 Coming Soon
-        </h1> */}
         <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
           Candibar Platform Asset Guide (CPAG)
         </h1>
@@ -142,7 +145,7 @@ export const CPAGView: FC = ({ }) => {
               {zodiaccollection.map((collection, collectionIndex) => (
                 <div key={collectionIndex} className="mb-4 text-left border-b pb-4">
                   <h5 className="text-xl font-bold mb-2 flex items-center">
-                    <span className="mr-2">{Object.values(CandiZodiacSigns)[collectionIndex]?.icon}</span>
+                  <span className="mr-2">{zodiacSignLookup[collection.zodiacsign]?.icon}</span>
                     <Link
                       href="/CardDetails"
                       onClick={() => {
@@ -153,8 +156,7 @@ export const CPAGView: FC = ({ }) => {
                     >
                       <span id={`collection-${collection.collectionname}`}>{collection.collectionname}</span>
                     </Link>
-
-                    <span className="ml-2 text-sm text-gray-100">({Object.values(CandiZodiacSigns)[collectionIndex]?.dateRange})</span>
+                    <span className="ml-2 text-sm text-gray-100">({zodiacSignLookup[collection.zodiacsign]?.dateRange})</span>
                   </h5>
                   {collection.images.map((image, imageIndex) => (
                     <div key={imageIndex} className="mb-2 text-left">
