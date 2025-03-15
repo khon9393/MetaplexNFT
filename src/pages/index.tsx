@@ -36,7 +36,7 @@ const Home: NextPage = (props) => {
                   Welcome to Candibar
                 </h1>
                 <p className="text-center text-lg md:pl-6 font-semibold text-black">
-                Buy & Trade Unique NFTs and Digital Art on the Solana Blockchain. 
+                Buy & Trade Unique Digital Art NFTs on the Solana Blockchain. 
                 </p>
               </div>
             </motion.div>

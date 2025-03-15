@@ -270,10 +270,8 @@ export const HomeView: FC = ({ }) => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
 
       <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
         <motion.div whileHover={{ scale: 1.02 }}>
