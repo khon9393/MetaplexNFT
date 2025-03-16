@@ -143,7 +143,7 @@ export const HomeView: FC = ({ }) => {
   return (
     <>
       <div className="text-center mt-8 p-5">
-          <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+          <div className="max-w-lg mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
             <motion.div
               whileHover={{ scale: 1.05 }}>
               <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
@@ -361,7 +361,7 @@ export const HomeView: FC = ({ }) => {
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
+      <div className="max-w-lg mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
         <motion.div whileHover={{ scale: 1.05 }}>
           <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
             <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
@@ -378,10 +378,9 @@ export const HomeView: FC = ({ }) => {
           <hr className="my-8 border-t-2 border-gray-300" />
           <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
 
-
             {items.slice(0, 1).map((item) => (
               <div key={item.id} className="flex flex-col items-center relative">
-              <motion.div whileHover={{ scale: 1.05 }} className="w-full sm:w-3/4">
+              <motion.div whileHover={{ scale: 1.05 }} className="w-full">
                 <Image
                 src={item.image}
                 alt={item.text}
@@ -393,7 +392,7 @@ export const HomeView: FC = ({ }) => {
                 />
              </motion.div>
               {item.name === "collection" ? (
-                <div className="absolute top-0 w-3/4 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                <div className="absolute top-0 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
                 {item.titledesc}
                 <br />
                 {item.subtitledesc}
