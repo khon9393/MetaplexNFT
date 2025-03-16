@@ -226,24 +226,6 @@ export const HomeView: FC = ({ }) => {
                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                 <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
               </svg>
-              <Link href={"/CPAG"} className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
-              Candibar Platform Asset Guide (CPAG)
-              </Link>
-            </h2>
-            <h2 className="text-md mx-auto text-center flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-              </svg>
               <Link href={"/getstarted"} className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
               Getting Started
               </Link>
