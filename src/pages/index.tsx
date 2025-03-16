@@ -31,8 +31,6 @@ const Home: NextPage = (props) => {
       <HomeView />
       <div className="border-t border-gray-500 pt-4 p-0"></div>
     </div>
-
-
   );
 };
 
