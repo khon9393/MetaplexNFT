@@ -14,7 +14,7 @@ import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../components/candibar/CardContainer";
 import { getCurrentZodiacSignTopN, CandiZodiacSigns, ZodiacSign } from "../../stores/useCandiZodiacSignsStore";
 import { AnyAaaaRecord } from 'dns';
-
+import tokenimg from '../../../public/images/token.jpg';
 /*
 1. Cotton Candy (Pink & Blue Swirl)
 className="text-center text-4xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-400 mb-4"
@@ -142,17 +142,110 @@ export const HomeView: FC = ({ }) => {
 
   return (
     <>
+      <div className="text-center mt-8 p-5">
+          <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+            <motion.div
+              whileHover={{ scale: 1.05 }}>
+              <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
+                <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
+                  Welcome to Candibar
+                </h1>
+                <p className="text-center text-lg md:pl-6 font-semibold text-black">
+                Buy & Trade Unique Digital Art NFTs on the Solana Blockchain. 
+                </p>
+              </div>
+            </motion.div>
+            <hr className="my-0 border-t-2 border-gray-100" />
+            <div className="p-6">
+              <h6 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                A Sweet Haven for NFT Enthusiasts, Digital Art Lovers, and Home to the Official Candibar SPL Token
+              </h6>
+              <hr className="my-4 border-t-2 border-gray-300" />
+              <div className="flex justify-center items-center">
+                <motion.div whileHover={{ scale: 1.05 }}>
+                  <Image
+                    src={tokenimg.src}
+                    alt="Candibar Token"
+                    width={75}
+                    height={100}
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </motion.div>
+              </div>
+              <div className="flex items-center justify-center">
+
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                
+                {/* <div className="text-xs ml-2 sm:text-lg word-break-all word-wrap"> */}
+                <Link
+                  href={'https://solscan.io/token/AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center text-xs ml-2 sm:text-lg word-break-all word-wrap font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline"
+                >
+                AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s
+                </Link>
+                {/* </div> */}
+              </div>
+            </div>
+          </div>
+        </div>
 
       <div className="text-center mt-4 p-2"></div>
+
       <div className="max-w-7xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-        <motion.div whileHover={{ scale: 1.02 }}>
+        <motion.div whileHover={{ scale: 1.05 }}>
           <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4 rounded-lg shadow-lg">
             <h1 className="text-center text-2xl font-bold text-black mb-0">
               Discover the Candibar Platform
             </h1>
-            <h2 className="text-md mx-auto text-center">
-              <Link href={"/CPAG"} className="text-center text-lg md:pl-6 font-semibold text-black text-gray-900 hover:underline hover:text-gray-100 hover:underline">
-                Candibar Platform Asset Guide (CPAG)
+            <h2 className="text-md mx-auto text-center flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <Link href={"/CPAG"} className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
+              Candibar Platform Asset Guide (CPAG)
+              </Link>
+            </h2>
+            <h2 className="text-md mx-auto text-center flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <Link href={"/getstarted"} className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
+              Getting Started
               </Link>
             </h2>
           </div>
@@ -175,7 +268,7 @@ export const HomeView: FC = ({ }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="text-center mt-4 p-2">
             <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-              <motion.div whileHover={{ scale: 1.02 }}>
+              <motion.div whileHover={{ scale: 1.05 }}>
 
                 <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-2">
                   <h1 className="text-center text-2xl md:pl-4 font-bold text-black">
@@ -197,7 +290,7 @@ export const HomeView: FC = ({ }) => {
           </div>
           <div className="text-center mt-4 p-2">
             <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-              <motion.div whileHover={{ scale: 1.02 }}>
+              <motion.div whileHover={{ scale: 1.05 }}>
 
                 <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-2">
                   <h1 className="text-center text-2xl md:pl-4 font-bold text-black">
@@ -212,7 +305,7 @@ export const HomeView: FC = ({ }) => {
                 </h2>
                 <hr className="my-6 border-t-2 border-gray-300" />
                 <div>
-                  <motion.div whileHover={{ scale: 1.02 }}>
+                  <motion.div whileHover={{ scale: 1.05 }}>
                     <div className="relative w-full h-[480px] rounded-lg overflow-hidden">
                       <Image
                         src={jadeEmperor.src}
@@ -235,7 +328,7 @@ export const HomeView: FC = ({ }) => {
           </div>
           <div className="text-center mt-4 p-2">
             <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden">
-              <motion.div whileHover={{ scale: 1.02 }}>
+              <motion.div whileHover={{ scale: 1.05 }}>
                 <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-2">
                   <h1 className="text-center text-2xl md:pl-4 font-bold text-black">
                     3. Zodiac Candi Art NFT
@@ -262,8 +355,21 @@ export const HomeView: FC = ({ }) => {
                   * This Month&apos;s Highlight *
                 </h3>
 
-                <h6 className="text-lg mx-auto text-center">
-                  <Link href={"/AstrologyZodiac"} className="text-blue-500 hover:underline hover:text-gray-100 hover:underline">
+                <h6 className="text-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                  <Link href={"/AstrologyZodiac"} className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
                     Explore the Full Zodiac Collection
                   </Link>
                 </h6>
@@ -274,7 +380,7 @@ export const HomeView: FC = ({ }) => {
       </div>
 
       <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
-        <motion.div whileHover={{ scale: 1.02 }}>
+        <motion.div whileHover={{ scale: 1.05 }}>
           <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
             <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
               Join the Ranks of Our Early Sponsors and Donors
@@ -293,7 +399,7 @@ export const HomeView: FC = ({ }) => {
 
             {items.slice(0, 1).map((item) => (
               <div key={item.id} className="flex flex-col items-center relative">
-              <motion.div whileHover={{ scale: 1.05 }} className="w-3/4">
+              <motion.div whileHover={{ scale: 1.05 }} className="w-full sm:w-3/4">
                 <Image
                 src={item.image}
                 alt={item.text}
@@ -319,12 +425,25 @@ export const HomeView: FC = ({ }) => {
                 {item.text}
               </h3>
               
-              <Link href={item.pageloc}
-              className="text-xl text-blue-500 hover:underline hover:text-gray-100 hover:underline mt-2"
-              >
-                Learn more ...
-              </Link>
-              
+                <div className="text-lg flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                  <Link href={item.pageloc}
+                   className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
+                    Learn more ...
+                  </Link>
+                </div>
               </div>
             ))}
             
