@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../components/candibar/CardContainer";
 import { motion } from "framer-motion";
@@ -10,7 +10,31 @@ import {
 import { ChevronsUpDown } from "lucide-react";
 
 export const CandiView: FC = ({ }) => {
-  const [isOpen, setIsOpen] = useState(true);
+
+  const [isOpen, setIsOpen] = useState(() => {
+    const storedData = localStorage.getItem("candisetIsOpen");
+    if (storedData) {
+      const { isOpen: storedIsOpen, timestamp } = JSON.parse(storedData);
+      const currentTime = new Date().getTime();
+      const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+
+      if (currentTime - timestamp < oneDayInMilliseconds) {
+        return storedIsOpen;
+      } else {
+        localStorage.removeItem("candisetIsOpen");
+      }
+    }
+    return true;
+  });
+
+  // Save isOpen state to localStorage whenever it changes
+  useEffect(() => {
+    const data = {
+      isOpen,
+      timestamp: new Date().getTime(),
+    };
+    localStorage.setItem("candisetIsOpen", JSON.stringify(data));
+  }, [isOpen]);
 
   const candyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
