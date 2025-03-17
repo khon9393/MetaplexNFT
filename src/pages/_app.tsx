@@ -21,7 +21,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
     return (
         <>
             <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="viewport" content="width=device-width, initial-scale=.9" />
             <title>Candibar NFTs - Buy, Trade, NFT, Candibar Tokens</title>
             <meta name="description" content="Candibar NFTs - Buy & Trade Unique Digital Assets. Candibar Tokens Marketplace." />
             <meta name="keywords" content="Candibar, NFTs, Buy, Trade, Tokens, Digital Assets, Collectibles, Digital Art" />
