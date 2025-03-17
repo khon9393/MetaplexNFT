@@ -182,15 +182,7 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <hr className="my-6 border-t-2 border-gray-300" />
                   <div>
-                    {/* <motion.div
-                      whileInView={{
-                        scale: [.8, .9, 1],
-                        rotate: [0, 0, 180, 180, 0],
-                        borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                      }}
-                    > */}
-                      <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
-                    {/* </motion.div> */}
+                    <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
                   </div>
                 </div>
               </div>
@@ -212,7 +204,8 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <hr className="my-6 border-t-2 border-gray-300" />
                   <div>
-                  <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
+                    <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
+                      <motion.div whileHover={{ scale: 1.05 }}>
                         <div className="relative w-[95%] h-[480px] rounded-lg overflow-hidden items-center justify-center mx-auto">
                           <Image
                             src={jadeEmperor.src}
@@ -222,7 +215,8 @@ export const HomeView: FC = ({ }) => {
                             className="rounded-lg"
                           />
                         </div>
-                        </motion.div>
+                      </motion.div>
+                    </motion.div>
                     <Link
                       href="/nftswap"
                       className=" w-full btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black">
@@ -248,9 +242,9 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <br />
                   <hr className="my-6 border-t-2 border-gray-300" />
-                    {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
-                      <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
-                    ))}
+                  {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
+                    <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
+                  ))}
                   <h3 className="text-center text-1xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
                     * This Month&apos;s Highlight *
                   </h3>
@@ -296,9 +290,8 @@ export const HomeView: FC = ({ }) => {
           </h2>
           <hr className="my-8 border-t-2 border-gray-300" />
           <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-
-            {items.slice(0, 1).map((item) => (
-
+            <motion.div whileHover={{ scale: 1.05 }}>
+              {items.slice(0, 1).map((item) => (
                 <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} key={item.id} className="flex flex-col items-center relative">
                   <Image
                     src={item.image}
@@ -309,41 +302,43 @@ export const HomeView: FC = ({ }) => {
                     height={300}
                     className="rounded-lg"
                   />
-                {item.name === "collection" ? (
-                  <div className="absolute top-0 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                    {item.titledesc}
-                    <br />
-                    {item.subtitledesc}
-                  </div>
-                ) : (
-                  <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
-                    {item.text}
-                  </div>
-                )}
-                <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-                  {item.text}
-                </h3>
-                <div className="text-lg flex items-center justify-center">
-                  <LinkIcon
-                    height={24}
-                    width={24}
-                    className="text-blue-600 hover:text-blue-400 p-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <Link href={item.pageloc}
-                    className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
-                    Learn more ...
-                  </Link>
-                </div>
-                </motion.div>
-            ))}
 
+                  {item.name === "collection" ? (
+                    <div className="absolute top-0 w-full bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                      {item.titledesc}
+                      <br />
+                      {item.subtitledesc}
+                    </div>
+                  ) : (
+                    <div className="absolute top-1 right-2 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
+                      {item.text}
+                    </div>
+                  )}
+                  <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+                    {item.text}
+                  </h3>
+
+                  <div className="text-lg flex items-center justify-center">
+                    <LinkIcon
+                      height={24}
+                      width={24}
+                      className="text-blue-600 hover:text-blue-400 p-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <Link href={item.pageloc}
+                      className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
+                      Learn more ...
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </motion.div>
