@@ -2,8 +2,7 @@ import { FC, useEffect, useMemo, useState } from "react";
 import Select from "react-select";
 import { publicKey } from "@metaplex-foundation/umi";
 import { CardContainer } from "../../../components/candibar/CardContainer";
-import { CandiZodiacSigns, getCurrentZodiacSign } from "../../../stores/useCandiZodiacSignsStore";
-import { motion } from "framer-motion";
+import { CandiZodiacSigns } from "../../../stores/useCandiZodiacSignsStore";
 
 export const FilterAstrologyZodiacView: FC = () => {
   const [selectedSigns, setSelectedSigns] = useState<string[]>([]);
@@ -88,9 +87,7 @@ export const FilterAstrologyZodiacView: FC = () => {
         {selectedSigns.map((sign) => (
           <div key={sign} className="p-2">
             {CandiZodiacSigns[sign] && (
-              <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
               <CardContainer candyMachineKeys={[publicKey(CandiZodiacSigns[sign].machinePublicKey)]} />
-              </motion.div>
             )}
           </div>
         ))}
