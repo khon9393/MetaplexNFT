@@ -107,8 +107,9 @@ export const AstrologySignView: FC = ({ }) => {
           </Collapsible>
         </div>
       </div>
-      <div>
+      <div> <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
             <CardContainer candyMachineKeys={candyMachineKeys} />
+            </motion.div>
             </div>
     </div>
   );
