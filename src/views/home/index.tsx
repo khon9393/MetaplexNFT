@@ -212,14 +212,7 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <hr className="my-6 border-t-2 border-gray-300" />
                   <div>
-                    <motion.div whileHover={{ scale: 1.05 }}>
-                      <motion.div
-                        whileInView={{
-                          scale: [.8, .9, 1],
-                          rotate: [0, 0, 180, 180, 0],
-                          borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                        }}
-                      >
+
                         <div className="relative w-[95%] h-[480px] rounded-lg overflow-hidden items-center justify-center mx-auto">
 
                           <Image
@@ -238,8 +231,8 @@ export const HomeView: FC = ({ }) => {
                       className=" w-full btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black">
                       <span className='text-lg'>Candi Swap</span>
                     </Link>
-                    </motion.div>
-                    </motion.div>
+                  
+          
                   </div>
                 </div>
               </div>
