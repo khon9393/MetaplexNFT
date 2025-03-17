@@ -24,6 +24,14 @@ export const HomeView: FC = ({ }) => {
   const { connection } = useConnection();
   const { getUserSOLBalance } = useUserSOLBalanceStore();
 
+  const box = {
+    width: 100,
+    height: 100,
+    backgroundColor: "#f5f5f5",
+    borderRadius: 5,
+  }
+
+
   const PromotioncandyMachineKeys = useMemo(() => [
     publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID05),
   ], []);
@@ -68,15 +76,27 @@ export const HomeView: FC = ({ }) => {
             <hr className="my-4 border-t-2 border-gray-300" />
             <div className="flex justify-center items-center">
               <motion.div whileHover={{ scale: 1.05 }}>
-                <Image
-                  src={tokenimg.src}
-                  alt="Candibar Token"
-                  width={75}
-                  height={100}
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
+
+                <motion.div
+                  whileInView={{
+                    scale: [.8, .9, 1],
+                    rotate: [0, 0, 180, 180, 0],
+                    borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                  }}
+                >
+
+                  <Image
+                    src={tokenimg.src}
+                    alt="Candibar Token"
+                    width={75}
+                    height={100}
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </motion.div>
               </motion.div>
+
+
             </div>
             <div className="flex items-center justify-center">
               <LinkIcon
@@ -162,7 +182,15 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <hr className="my-6 border-t-2 border-gray-300" />
                   <div>
-                    <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
+                    <motion.div
+                      whileInView={{
+                        scale: [.8, .9, 1],
+                        rotate: [0, 0, 180, 180, 0],
+                        borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                      }}
+                    >
+                      <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -185,21 +213,33 @@ export const HomeView: FC = ({ }) => {
                   <hr className="my-6 border-t-2 border-gray-300" />
                   <div>
                     <motion.div whileHover={{ scale: 1.05 }}>
-                      <div className="relative w-full h-[480px] rounded-lg overflow-hidden">
-                        <Image
-                          src={jadeEmperor.src}
-                          alt="Jade Emperor"
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-lg p-4 shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                        />
-                      </div>
-                    </motion.div>
+                      <motion.div
+                        whileInView={{
+                          scale: [.8, .9, 1],
+                          rotate: [0, 0, 180, 180, 0],
+                          borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                        }}
+                      >
+                        <div className="relative w-[95%] h-[480px] rounded-lg overflow-hidden items-center justify-center mx-auto">
+
+                          <Image
+                            src={jadeEmperor.src}
+                            alt="Jade Emperor"
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-lg"
+                          />
+
+                        </div>
+                    
+                    
                     <Link
                       href="/nftswap"
                       className=" w-full btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black">
                       <span className='text-lg'>Candi Swap</span>
                     </Link>
+                    </motion.div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -220,10 +260,17 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <br />
                   <hr className="my-6 border-t-2 border-gray-300" />
-                  {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
-                    <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
-                  ))}
-
+                  <motion.div
+                    whileInView={{
+                      scale: [.8, .9, 1],
+                      rotate: [0, 0, 180, 180, 0],
+                      borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                    }}
+                  >
+                    {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
+                      <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
+                    ))}
+                  </motion.div>
                   <h3 className="text-center text-1xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
                     * This Month&apos;s Highlight *
                   </h3>
@@ -272,7 +319,14 @@ export const HomeView: FC = ({ }) => {
 
             {items.slice(0, 1).map((item) => (
               <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} key={item.id} className="flex flex-col items-center relative">
-                <motion.div whileHover={{ scale: 1.05 }} className="w-full">
+
+                <motion.div whileHover={{ scale: 1.05 }} className="w-full"
+                     whileInView={{
+                      scale: [.8, .9, 1],
+                      rotate: [0, 0, 180, 180, 0],
+                      borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                    }}
+                >
                   <Image
                     src={item.image}
                     alt={item.text}
@@ -282,7 +336,6 @@ export const HomeView: FC = ({ }) => {
                     height={300}
                     className="rounded-lg"
                   />
-                </motion.div>
                 {item.name === "collection" ? (
                   <div className="absolute top-0 bg-black bg-opacity-50 text-white text-md p-1 text-center rounded-lg">
                     {item.titledesc}
@@ -297,7 +350,6 @@ export const HomeView: FC = ({ }) => {
                 <h3 className="text-xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
                   {item.text}
                 </h3>
-
                 <div className="text-lg flex items-center justify-center">
                   <LinkIcon
                     height={24}
@@ -316,6 +368,7 @@ export const HomeView: FC = ({ }) => {
                     Learn more ...
                   </Link>
                 </div>
+                </motion.div>
               </motion.div>
             ))}
 
