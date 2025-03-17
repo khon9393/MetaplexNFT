@@ -234,7 +234,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       }
 
     }
-  }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
+  }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress, width]);
 
   return (
     <div className="flex flex-row justify-center">
