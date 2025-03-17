@@ -64,7 +64,7 @@ export const AstrologyZodiacView: FC = () => {
               <div className="flex flex-col sm:text-1xl p-2">
                   <CollapsibleContent>
                     <h2 className="leading-relaxed break-words">
-                      Step into the cosmic realm of the Zodiac with this exclusive NFT collection, embodying the essence of
+                      Step into the cosmic realm of the Zodiac with this exclusive NFT collection, emboing the essence of
                       <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-pulse">
                         &nbsp;destiny
                       </span>,
