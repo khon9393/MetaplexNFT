@@ -212,9 +212,8 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <hr className="my-6 border-t-2 border-gray-300" />
                   <div>
-
+                  <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
                         <div className="relative w-[95%] h-[480px] rounded-lg overflow-hidden items-center justify-center mx-auto">
-
                           <Image
                             src={jadeEmperor.src}
                             alt="Jade Emperor"
@@ -222,17 +221,13 @@ export const HomeView: FC = ({ }) => {
                             objectFit="cover"
                             className="rounded-lg"
                           />
-
                         </div>
-                    
-                    
+                        </motion.div>
                     <Link
                       href="/nftswap"
                       className=" w-full btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black">
                       <span className='text-lg'>Candi Swap</span>
                     </Link>
-                  
-          
                   </div>
                 </div>
               </div>
@@ -253,17 +248,9 @@ export const HomeView: FC = ({ }) => {
                   </h2>
                   <br />
                   <hr className="my-6 border-t-2 border-gray-300" />
-                  {/* <motion.div
-                    whileInView={{
-                      scale: [.8, .9, 1],
-                      rotate: [0, 0, 180, 180, 0],
-                      borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                    }}
-                  > */}
                     {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
                       <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
                     ))}
-                  {/* </motion.div> */}
                   <h3 className="text-center text-1xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
                     * This Month&apos;s Highlight *
                   </h3>
@@ -313,14 +300,6 @@ export const HomeView: FC = ({ }) => {
             {items.slice(0, 1).map((item) => (
 
                 <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} key={item.id} className="flex flex-col items-center relative">
-
-                {/* <motion.div whileHover={{ scale: 1.05 }} className="w-full"
-                     whileInView={{
-                      scale: [.8, .9, 1],
-                      rotate: [0, 0, 180, 180, 0],
-                      borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                    }}
-                > */}
                   <Image
                     src={item.image}
                     alt={item.text}
@@ -363,7 +342,6 @@ export const HomeView: FC = ({ }) => {
                   </Link>
                 </div>
                 </motion.div>
-              // </motion.div>
             ))}
 
           </div>
