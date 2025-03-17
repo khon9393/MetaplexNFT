@@ -56,7 +56,7 @@ export const HomeView: FC = ({ }) => {
     <>
 
       {/* start content 1 */}
-      <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-8 p-[3%] mb-8">
+      <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-8 p-[3%] mb-8">
         <div className="max-w-lg mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8">
           <motion.div whileHover={{ scale: 1.05 }}>
             <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
@@ -165,7 +165,7 @@ export const HomeView: FC = ({ }) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
+            <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
               <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8">
                 <motion.div whileHover={{ scale: 1.05 }}>
 
@@ -195,7 +195,7 @@ export const HomeView: FC = ({ }) => {
                 </div>
               </div>
             </motion.div>
-            <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
+            <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
               <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8">
                 <motion.div whileHover={{ scale: 1.05 }}>
 
@@ -244,7 +244,7 @@ export const HomeView: FC = ({ }) => {
                 </div>
               </div>
             </motion.div>
-            <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
+            <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
               <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8">
                 <motion.div whileHover={{ scale: 1.05 }}>
                   <div className="bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 p-2">
@@ -300,7 +300,7 @@ export const HomeView: FC = ({ }) => {
       {/* end content 2 */}
 
       {/* start content 3 */}
-      <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="max-w-lg mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
+      <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="max-w-lg mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
         <motion.div whileHover={{ scale: 1.05 }}>
           <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
             <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
@@ -318,8 +318,7 @@ export const HomeView: FC = ({ }) => {
           <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
 
             {items.slice(0, 1).map((item) => (
-
-                <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} key={item.id} className="flex flex-col items-center relative">
+              <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} key={item.id} className="flex flex-col items-center relative">
 
                 <motion.div whileHover={{ scale: 1.05 }} className="w-full"
                      whileInView={{
