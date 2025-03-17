@@ -267,6 +267,7 @@ const CardDetails: FC = () => {
 
 
         {/* Begin - Right Side Details Section */}
+         <motion.div whileInView={{ opacity: 1, y: 0, scale: [.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
         <div className="max-w-[500px]">
           {candyMachines[0]?.images.length > 0 && (
             <div className="p-1">
@@ -501,6 +502,7 @@ const CardDetails: FC = () => {
 
 
         </div>
+        </motion.div>
         {/* {(paramuserZodiacName || paramuserZodiacYear) && <SwapDetails />} */}
       </div>
 
