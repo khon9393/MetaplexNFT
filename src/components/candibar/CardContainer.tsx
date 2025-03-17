@@ -109,177 +109,177 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
             <p className="text-xl font-semibold text-white">Loading NFT Cards...</p>
           </div>
         )}
-       
-          {candyMachines.map((machine, machineIndex) => (
-             <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
-            <div key={machine.id} className="flex lg:w-3/8 p-4">
-              <Card className="w-80 h-full rounded-lg">
-                <span className="text-1xl font-semibold">
 
-                  <h4 className="text-sm font-semibold p-1 flex items-center">
-                    {machine.zodiacIcon && (
-                      <Image
-                        src={machine.zodiacIcon}
-                        alt={`${machine.zodiacIcon} Zodiac Icon`}
-                        width={100}
-                        height={100}
-                        className="ml-1 w-6 h-6 rounded-full border border-gray-300 p-0"
-                      />
-                    )}
-                    &nbsp;
-                    {machine.collectionName}
-                  </h4>
-                  <div className="rounded-md border">
-                    <div className="px-1 py-1 font-mono shadow-sm flex items-center justify-center text-sm">
-                      {machine.collectionSubtitles}
-                    </div>
-                  </div>
-                  <div className="rounded-md border">
-                    <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                      Minted: {machine.itemsRedeemed} of {machine.itemsAvailable}
-                    </div>
-                  </div>
-                  {(machine.zodiacSign || machine.zodiacYear) && (
+        {candyMachines.map((machine, machineIndex) => (
+          <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.3, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <div key={machine.id} className="flex lg:w-3/8 p-4">
+                <Card className="w-80 h-full rounded-lg">
+                  <span className="text-1xl font-semibold">
+
+                    <h4 className="text-sm font-semibold p-1 flex items-center">
+                      {machine.zodiacIcon && (
+                        <Image
+                          src={machine.zodiacIcon}
+                          alt={`${machine.zodiacIcon} Zodiac Icon`}
+                          width={100}
+                          height={100}
+                          className="ml-1 w-6 h-6 rounded-full border border-gray-300 p-0"
+                        />
+                      )}
+                      &nbsp;
+                      {machine.collectionName}
+                    </h4>
                     <div className="rounded-md border">
-                      <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                        {/* <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear} /> */}
-                        <ZodiacReadingDrawerWindow sign={machine.zodiacSign || machine.zodiacYear} />
+                      <div className="px-1 py-1 font-mono shadow-sm flex items-center justify-center text-sm">
+                        {machine.collectionSubtitles}
                       </div>
                     </div>
-                  )}
-
-
-                  <div className="rounded-md border">
-                    <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-
-                      <Image
-                        src={solanaLogo}
-                        alt="Solana Icon"
-                        width={16}
-                        height={16}
-                        className="mr-1"
-                      />
-                      <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}
-                      </span>
-
-                      {machine.tokenPaymentAmount > 0 && (
+                    <div className="rounded-md border">
+                      <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                        Minted: {machine.itemsRedeemed} of {machine.itemsAvailable}
+                      </div>
+                    </div>
+                    {(machine.zodiacSign || machine.zodiacYear) && (
+                      <div className="rounded-md border">
                         <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                          &nbsp;|&nbsp;<Image
-                            src={tokenimg}
-                            alt="Candibar Icon"
-                            width={16}
-                            height={16}
-                            className="mr-1"
-                          />
-                          {machine.tokenPaymentAmount || 0}
+                          {/* <ZodiacReading sign={machine.zodiacSign || machine.zodiacYear} /> */}
+                          <ZodiacReadingDrawerWindow sign={machine.zodiacSign || machine.zodiacYear} />
                         </div>
+                      </div>
+                    )}
+                    <div className="rounded-md border">
+                      <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
 
-                      )}
+                        <Image
+                          src={solanaLogo}
+                          alt="Solana Icon"
+                          width={16}
+                          height={16}
+                          className="mr-1"
+                        />
+                        <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}
+                        </span>
+
+                        {machine.tokenPaymentAmount > 0 && (
+                          <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
+                            &nbsp;|&nbsp;<Image
+                              src={tokenimg}
+                              alt="Candibar Icon"
+                              width={16}
+                              height={16}
+                              className="mr-1"
+                            />
+                            {machine.tokenPaymentAmount || 0}
+                          </div>
+
+                        )}
+                      </div>
+
                     </div>
 
-                  </div>
+                    <Carousel setApi={(api) => {
 
-                  <Carousel setApi={(api) => {
-
-                    if (api) {
-                      updateImageIndex(machineIndex, api.selectedScrollSnap());
-                      api.on("select", () => {
+                      if (api) {
                         updateImageIndex(machineIndex, api.selectedScrollSnap());
-                      });
-                    }
-                  }}>
-                    <CarouselContent>
-                      {Array.isArray(machine.images) ? machine.images.map((imageSrc, imgIndex) => (
-                        <CarouselItem key={imgIndex} className="relative">
-                          <Card className="overflow-hidden rounded-lg w-full h-full relative">
-                            <CardContent className="p-0 h-full">
-                              <motion.div
-                                variants={imageVariants}
-                                initial="hidden"
-                                animate="visible"
-                                whileHover="hover"
-                                className="flex justify-center items-center w-full h-full"
-                              >
-                                <Image
-                                  width={350}
-                                  height={350}
-                                  src={Array.isArray(imageSrc) ? imageSrc[0].url : imageSrc.url}
-                                  alt={`Image ${imgIndex + 1}`}
-                                  className="object-cover w-full h-full rounded-2xl"
-                                />
+                        api.on("select", () => {
+                          updateImageIndex(machineIndex, api.selectedScrollSnap());
+                        });
+                      }
+                    }}>
+                      <CarouselContent>
+                        {Array.isArray(machine.images) ? machine.images.map((imageSrc, imgIndex) => (
+                          <CarouselItem key={imgIndex} className="relative">
+                            <Card className="overflow-hidden rounded-lg w-full h-full relative">
+                              <CardContent className="p-0 h-full">
+                                <motion.div
+                                  variants={imageVariants}
+                                  initial="hidden"
+                                  animate="visible"
+                                  whileHover="hover"
+                                  className="flex justify-center items-center w-full h-full"
+                                >
+                                  <Image
+                                    width={350}
+                                    height={350}
+                                    src={Array.isArray(imageSrc) ? imageSrc[0].url : imageSrc.url}
+                                    alt={`Image ${imgIndex + 1}`}
+                                    className="object-cover w-full h-full rounded-2xl"
+                                  />
 
-                                {machine.itemsRedeemed === machine.itemsAvailable && (
-                                  <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
-                                      {NFTStatusTypes.SoldOut}
-                                    </span>
-                                  </div>
-                                )}
+                                  {machine.itemsRedeemed === machine.itemsAvailable && (
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                      <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
+                                        {NFTStatusTypes.SoldOut}
+                                      </span>
+                                    </div>
+                                  )}
 
-                                {machine.collectionStatus !== NFTStatusTypes.Available && (
-                                  <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
-                                      {NFTStatusTypes.ComingSoon}
-                                    </span>
-                                  </div>
-                                )}
+                                  {machine.collectionStatus !== NFTStatusTypes.Available && (
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                      <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
+                                        {NFTStatusTypes.ComingSoon}
+                                      </span>
+                                    </div>
+                                  )}
 
-                              </motion.div>
-                            </CardContent>
-                          </Card>
-                        </CarouselItem>
-                      )) : null}
+                                </motion.div>
+                              </CardContent>
+                            </Card>
+                          </CarouselItem>
+                        )) : null}
 
 
-                    </CarouselContent>
+                      </CarouselContent>
 
-                    {machine.images.length > 1 && (
-                      <>
-                        <CarouselPrevious size='sm' className="bg-transparent top-27/32 left-3" />
-                        <CarouselNext size='sm' className="bg-transparent top-27/32 right-3" />
+                      {machine.images.length > 1 && (
+                        <>
+                          <CarouselPrevious size='sm' className="bg-transparent top-27/32 left-3" />
+                          <CarouselNext size='sm' className="bg-transparent top-27/32 right-3" />
 
-                        <div className="flex justify-center space-x-2 my-3">
-                          {machine.images.map((_, dotIndex) => (
-                            <div
-                              key={dotIndex}
-                              className={`w-3 h-3 rounded-full transition-all duration-300 
+                          <div className="flex justify-center space-x-2 my-3">
+                            {machine.images.map((_, dotIndex) => (
+                              <div
+                                key={dotIndex}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 
                             ${dotIndex === currentImageIndex[machineIndex] ? 'bg-blue-500 scale-125' : 'bg-gray-400'}`}
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
 
-                  </Carousel>
+                    </Carousel>
 
-                  <Link
-                    href="/CardDetails"
-                    onClick={() => {
-                      sessionStorage.setItem("userData", JSON.stringify({ collectionMint: candyMachines[machineIndex].collectionMint }));
-                      sessionStorage.setItem("userZodiacName", JSON.stringify({ userZodiacName: candyMachines[machineIndex].zodiacSign }));
-                      sessionStorage.setItem("userZodiacYear", JSON.stringify({ userZodiacYear: candyMachines[machineIndex].zodiacYear }));
-                    }}
-                    className="px-2 hover:underline flex justify-center animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
-                  >
-                    {
-                      machine.collectionStatus === NFTStatusTypes.Available &&
-                        machine.itemsRedeemed !== machine.itemsAvailable ? (
-                        <div>
-                          {NFTStatusTypes.GetitNow}
-                        </div>
-                      ) : (
-                        <div>
-                          {NFTStatusTypes.MoreDetails}
-                        </div>
-                      )
-                    }
-                  </Link>
-                </span>
-              </Card>
-            </div>
+                    <Link
+                      href="/CardDetails"
+                      onClick={() => {
+                        sessionStorage.setItem("userData", JSON.stringify({ collectionMint: candyMachines[machineIndex].collectionMint }));
+                        sessionStorage.setItem("userZodiacName", JSON.stringify({ userZodiacName: candyMachines[machineIndex].zodiacSign }));
+                        sessionStorage.setItem("userZodiacYear", JSON.stringify({ userZodiacYear: candyMachines[machineIndex].zodiacYear }));
+                      }}
+                      className="px-2 hover:underline flex justify-center animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
+                    >
+                      {
+                        machine.collectionStatus === NFTStatusTypes.Available &&
+                          machine.itemsRedeemed !== machine.itemsAvailable ? (
+                          <div>
+                            {NFTStatusTypes.GetitNow}
+                          </div>
+                        ) : (
+                          <div>
+                            {NFTStatusTypes.MoreDetails}
+                          </div>
+                        )
+                      }
+                    </Link>
+                  </span>
+                </Card>
+              </div>
             </motion.div>
-          ))}
-  
+          </motion.div>
+        ))}
+
       </div>
     </div>
   );
