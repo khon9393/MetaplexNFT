@@ -95,8 +95,8 @@ const SwapWrapper = () => {
             });
           }
 
-          await new Promise(resolve => setTimeout(resolve, 3000));
-          window.location.reload();
+          // await new Promise(resolve => setTimeout(resolve, 3000));
+          // window.location.reload();
         }
         else {
 

@@ -199,8 +199,8 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           setCandibarModalMsgTxt(`description: ${error}`);
         }
 
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        window.location.reload();
+        // await new Promise(resolve => setTimeout(resolve, 3000));
+        // window.location.reload();
       }
       else {
 
