@@ -78,9 +78,9 @@ const NftPicker = ({
       return (
         <motion.div
         whileHover={{ scale: 1.05 }}
+        key={asset.id}
       >
         <Card
-          key={asset.id}
           className="p-2 flex flex-col gap-4 cursor-pointer h-fit"
           onClick={() => handleSelection(asset)}
         >
