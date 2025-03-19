@@ -12,6 +12,8 @@ import { Card } from "@/components/ui/card";
 import { useWallet } from "@solana/wallet-adapter-react";
 import {Assets} from "../../utils/index"
 import CollectionImg from '../../../public/images/collectionImage.jpg';
+import { Spinner } from "../ui/spinner";
+import { motion } from "framer-motion";
 
 const NftPicker = ({
   children,
@@ -74,6 +76,9 @@ const NftPicker = ({
     : CollectionImg.src;
 
       return (
+        <motion.div
+        whileHover={{ scale: 1.05 }}
+      >
         <Card
           key={asset.id}
           className="p-2 flex flex-col gap-4 cursor-pointer h-fit"
@@ -89,6 +94,7 @@ const NftPicker = ({
   
           </div>
         </Card>
+        </motion.div>
       );
     });
 
@@ -108,6 +114,16 @@ const NftPicker = ({
                   : `your wallet (${assetList ? assetList.length : 0})`}
             </DialogTitle>
           </DialogHeader>
+
+
+         {/* Show Spinner while searching */}
+            {isSearching && (
+            <div className="flex items-center justify-center absolute inset-0">
+            <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
+            <p className="text-xl font-semibold text-white ml-4">Loading NFT Cards...</p>
+            </div>
+            )}
+
   
           {wallet1.connected && assetList && assetList.length > 0 ? (
             <div className="grid grid-cols-4 gap-4 overflow-auto p-2">
