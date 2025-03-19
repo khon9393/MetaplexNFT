@@ -78,45 +78,46 @@ const SwapWrapper = () => {
       .catch(async (error) => {
         console.log(error);
 
-        if (width <= 768) { // Check if screen width is mobile size
+        // if (width <= 768) { // Check if screen width is mobile size
           
-          if (error?.message?.includes("")) {
-            toast({
-              title: "Swap Error",
-              description: "Cancel swap.",
-              variant: "destructive",
-            });
-          }
-          else {
+        //   if (error?.message?.includes("")) {
+        //     toast({
+        //       title: "Swap Error",
+        //       description: "Cancel swap.",
+        //       variant: "destructive",
+        //     });
+        //   }
+        //   else {
+        //     toast({
+        //       title: "Swap Error",
+        //       description: error.message,
+        //       variant: "destructive",
+        //     });
+        //   }
+
+        //   await new Promise(resolve => setTimeout(resolve, 3000));
+        //   window.location.reload();
+        // }
+        // else {
+
+          // if (error?.message?.includes("")) {
+          //   toast({
+          //     title: "Swap Error",
+          //     description: "Cancel swap.",
+          //     variant: "destructive",
+          //   });
+          // }
+          // else {
             toast({
               title: "Swap Error",
               description: error.message,
               variant: "destructive",
             });
-          }
+        //   }
+        // }
 
-          // await new Promise(resolve => setTimeout(resolve, 3000));
-          // window.location.reload();
-        }
-        else {
-
-          if (error?.message?.includes("")) {
-            toast({
-              title: "Swap Error",
-              description: "Cancel swap.",
-              variant: "destructive",
-            });
-          }
-          else {
-            toast({
-              title: "Swap Error",
-              description: error.message,
-              variant: "destructive",
-            });
-          }
-        }
-
-      })
+      }
+    )
       .finally(() => setIsTransacting(false))
 
   };
