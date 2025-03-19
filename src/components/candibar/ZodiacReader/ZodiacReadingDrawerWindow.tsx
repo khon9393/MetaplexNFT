@@ -49,7 +49,7 @@ const zodiacSigns = {
 export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
   const [horoscope, setHoroscope] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [readingType, setReadingType] = useState("day");
+  const [readingType, setReadingType] = useState("week");
   const formattedSign = sign.toLowerCase();
   const zodiacSign = zodiacSigns[formattedSign];
   const [lastupdate, setlastupdate] = useState("");
@@ -141,24 +141,24 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
               </div>
 
               <div className="flex justify-around mt-4">
-                <button
+                {/* <button
                   onClick={() => setReadingType("day")}
                   className={`px-5 py-0 rounded-lg ${readingType === "day" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
                 >
                   Day
-                </button>
+                </button> */}
                 <button
                   onClick={() => setReadingType("week")}
                   className={`px-3 py-0 rounded-lg ${readingType === "week" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
                 >
                   Week
                 </button>
-                <button
+                {/* <button
                   onClick={() => setReadingType("month")}
                   className={`px-3 py-0 rounded-lg ${readingType === "month" ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300"} hover:bg-blue-600 hover:text-white`}
                 >
                   Month
-                </button>
+                </button> */}
               </div>
 
 

@@ -13,7 +13,8 @@ const zodiacSigns = [
     "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo","Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "2025 Wood Snake"
 ];
 
-const durations = ["Day", "Week", "Month"];
+// const durations = ["Day", "Week", "Month"];
+const durations = ["Week"];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     // console.log("Handler invoked"); // Add this line for logging
