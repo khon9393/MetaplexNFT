@@ -118,7 +118,7 @@ export const HomeView: FC = ({ }) => {
                 rel="noopener noreferrer"
                 className="text-center text-xs ml-2 sm:text-sm word-break-all word-wrap font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline"
               >
-                AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s
+               {process.env.NEXT_PUBLIC_TOKEN}
               </Link>
             </div>
           </div>
