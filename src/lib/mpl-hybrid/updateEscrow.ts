@@ -3,6 +3,7 @@ import { publicKey } from "@metaplex-foundation/umi";
 import sendAndConfirmWalletAdapter from "../umi/sendAndConfirmWithWalletAdapter";
 import umiWithCurrentWalletAdapter from "../umi/umiWithCurrentWalletAdapter";
 import useEscrowStore from "../../stores/useEscrowStore";
+import { getCurrentZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 
 export interface updateFormArgs {
   name: string;
@@ -19,7 +20,8 @@ export interface updateFormArgs {
 }
 
 const updateEscrow = async (formData: updateFormArgs) => {
-  const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+  //const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+  const escrowAddress = getCurrentZodiacSign().escrowPublickey;
   const escrow = useEscrowStore.getState().escrow;
 
   if (!escrow) {

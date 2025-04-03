@@ -55,17 +55,6 @@ export function CandibarDropdownMenu1() {
             </Button>
           </DropdownMenuItem>
 
-          <DropdownMenuSeparator />
-
-          <DropdownMenuItem>
-
-            <Button variant="link" onClick={() => { window.location.href = '/nftswap'; }}
-              className="w-full justify-start"
-            >
-             Candi Swap
-            </Button>
-          </DropdownMenuItem>
-
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
@@ -88,6 +77,7 @@ export function CandibarDropdownMenu1() {
                           2025 Snake NFTs
                         </Button>
                       </DropdownMenuItem>
+                      <DropdownMenuSeparator />
                       <DropdownMenuItem>
                         <Button variant="link" onClick={() => { window.location.href = '/AstrologyZodiac'; }} >
                           Zodiac Sign NFTs
@@ -109,6 +99,18 @@ export function CandibarDropdownMenu1() {
           </DropdownMenuSub>
 
         </DropdownMenuGroup>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem>
+
+          <Button variant="link" onClick={() => { window.location.href = '/nftswap'; }}
+            className="w-full justify-start"
+          >
+            Swap NFTs
+          </Button>
+        </DropdownMenuItem>
+
       </DropdownMenuContent>
     </DropdownMenu>
   )

@@ -1,25 +1,30 @@
 import useUmiStore from "../../stores/useUmiStore";
 import { publicKey } from '@metaplex-foundation/umi';
 import axios from 'axios';
-import {CandiZodiacSigns} from "../../stores/useCandiZodiacSignsStore";
-import { getCollection } from "@/stores/useCandibardataStorefromDB";
-
+import { CandiZodiacSigns, getCurrentZodiacSign } from "../../stores/useCandiZodiacSignsStore";
+// import { getCollection } from "@/stores/useCandibardataStorefromDB";
+import { MenuItems } from "@headlessui/react";
+import { getCompleteCollectionNames } from "../fetchCompleteCollection";
 interface SearchAssetArgs {
   owner: string;
   burnt: boolean;
 }
 
-const searchCollection = async (searchAssetArgs: SearchAssetArgs): Promise<boolean> => {
+const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
   if (!CandiZodiacSigns || CandiZodiacSigns.length === 0) {
     throw new Error("No collections found in CandiZodiacSigns");
   }
 
-  // Extract all collectionPublicKeys from CandiZodiacSigns
-  const collectionPublicKeys = CandiZodiacSigns.map(sign => sign.collectionPublicKey).filter(Boolean);
+  //const collectionPublicKeys = CandiZodiacSigns.map(sign => sign.collectionPublicKey).filter(Boolean);
+
+  // Testing
+   const collectionPublicKeys = [getCurrentZodiacSign().collectionPublicKey];
 
   if (collectionPublicKeys.length === 0) {
     throw new Error("No valid collectionPublicKeys found in CandiZodiacSigns");
   }
+
+  let allAssets: any[] = []; // Store all assets across collections
 
   for (const collectionPublicKey of collectionPublicKeys) {
     let page = 1;
@@ -37,7 +42,7 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs): Promise<boole
             id: 1,
             method: 'searchAssets',
             params: {
-              grouping: ['collection', collectionPublicKey], // Use one collectionPublicKey at a time
+              grouping: ['collection', collectionPublicKey],
               limit: 1000,
               burnt: searchAssetArgs.burnt,
               ownerAddress: searchAssetArgs.owner
@@ -46,7 +51,10 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs): Promise<boole
         });
 
         if (!response.ok) {
-          throw new Error(`Failed to fetch assets for collection: ${collectionPublicKey}. Status: ${response.status}`);
+          console.warn(`Failed to fetch assets for collection: ${collectionPublicKey}. Status: ${response.status}`);
+          continueFetch = false;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          continue;
         }
 
         const data = await response.json();
@@ -57,35 +65,82 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs): Promise<boole
 
         const result = data.result;
 
+        if (result.items.length === 0) {
+          continueFetch = false;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          continue;
+        }
+
+        // Process items to fetch additional metadata
+        await Promise.all(result.items.map(async (item) => {
+          if (item.content.files.length <= 0) {
+            const jsonUri = item.content.json_uri;
+            const jsonResponse = await axios.get(jsonUri);
+            const filesData = jsonResponse.data.properties?.files;
+            if (Array.isArray(filesData)) {
+              item.content.files = [...(item.content.files || []), ...filesData];
+              if (!item.content.metadata.description) {
+                item.content.metadata.description = jsonResponse.data?.description;
+              }
+            }
+          }
+
+          item.content.collectionid = collectionPublicKey;
+
+        }));
+
         // Fetch collection details
-        const collection = await getCollection(collectionPublicKey);
-        const completeCollectionNames = (await collection).images.map(image => `Zodiac ${image.name}`);
+        const completeCollectionNames = await getCompleteCollectionNames(collectionPublicKey);
+
+       
+       // let completeCollectionNames = (collection).images.map(image => `Zodiac ${image.name}`);
+        
+        // completeCollectionNames = completeCollectionNames.filter(name =>
+        //   [
+        //     "Zodiac Capricorn NFT #1"
+        //     , "Zodiac Capricorn NFT #2"
+        //   ].includes(name)
+        // );
+        // completeCollectionNames = completeCollectionNames.filter(name => 
+        //   name !== "Zodiac Capricorn NFT #3" 
+        //  && name !== "Zodiac Capricorn NFT #4"
+
+        // )
+
+        //exract collection names from the result
         const walletCollectionNames = result.items.map((item: any) => item.content.metadata.description);
 
         // Validate if walletCollectionNames contains all items in completeCollectionNames
         const isValidCollection = completeCollectionNames.every(name => walletCollectionNames.includes(name));
-        if (isValidCollection) {
+        if (!isValidCollection) {
           console.log(`Valid collection found for: ${collectionPublicKey}`);
-          return true; // Return true and exit the function
+          continueFetch = false;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          continue;
         }
 
         console.log(`Collection: ${collectionPublicKey}, Page: ${page}, Total assets: `, result.total);
+
+        // Append assets to allAssets
+        allAssets = allAssets.concat(result.items);
+
         if (result.total < 1000) {
           console.log("Total assets less than 1000 on current page, stopping loop");
           continueFetch = false;
         } else {
-          await new Promise(resolve => setTimeout(resolve, 2500)); // Pause for 2.5 seconds
+          await new Promise(resolve => setTimeout(resolve, 1000));
         }
 
         page++;
+
       } catch (error) {
         console.error(`Error processing collection: ${collectionPublicKey}`, error);
-        continueFetch = false; // Stop fetching for this collection if an error occurs
+        continueFetch = false;
       }
     }
   }
 
-  return false; // Return false if no valid collection is found
+  return allAssets.length > 0 ? { total: allAssets.length, items: allAssets } : undefined;
 };
 
 export default searchCollection;

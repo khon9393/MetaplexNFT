@@ -1,9 +1,16 @@
+import { getCurrentZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 import searchAssets from "./das/searchAssets";
 
-const fetchEscrowAssets = async () => {
+import {fetchSwapSelector, SwapArgs} from "./swapselector";
+
+const fetchEscrowAssets = async (SwapArgs?) => {
  
-  const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
-  const collectionId = process.env.NEXT_PUBLIC_COLLECTION;
+  // const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+  // const collectionId = process.env.NEXT_PUBLIC_COLLECTION;
+
+  const escrowAddress = fetchSwapSelector(SwapArgs)?.escrowPublickey;
+  const collectionId = fetchSwapSelector(SwapArgs)?.collectionPublicKey;
+
 
   if (!escrowAddress) {
     throw new Error("Escrow address not found");

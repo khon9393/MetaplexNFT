@@ -38,6 +38,7 @@ export interface Assets {
     {
       id: string,
       content: {
+        collectionid: string;
         json_uri: string,
         metadata: {
           name: string;
@@ -53,7 +54,9 @@ export interface Assets {
     
   export interface Asset {
     id: string;
+    
     content: {
+      collectionid: string;
         metadata: {
             name: string;
             description: string;

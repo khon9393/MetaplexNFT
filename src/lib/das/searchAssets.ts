@@ -9,6 +9,11 @@ Shortcut Keys
 Visual Studio Code (VS Code) to prettify JSON files
 On Windows:    Shift + Alt + F  
 
+curl https://solemn-skilled-bird.solana-devnet.quiknode.pro/9b1c696d40e39deec224a3d6f9cd956d58eda1dd/ \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"jsonrpc": "2.0", "id": 1, "method": "searchAssets", "params": {"grouping": ["collection", "47GMQmsz9a9KvNt6RSm6Umpb48915zbb16TvfBUA3Ne6"], "limit": 10}}'
+
 */
 
 interface SearchAssetArgs {

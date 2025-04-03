@@ -5,12 +5,14 @@ import { Card } from "@/components/ui/card";
 import { DasApiAssetList } from '@metaplex-foundation/digital-asset-standard-api';
 import fetchEscrowAssets from "../../../lib/fetchEscrowAssets";
 import NftGrid from "./nftGrid";
+import { getCurrentZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 
 const NftEscrow = () => {
   const [escrowAssets, setEscrowAssets] = useState<DasApiAssetList>();
   const [isFetching, setIsFetching] = useState(true);
 
-  const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+  //const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+    const escrowAddress = getCurrentZodiacSign().escrowPublickey;
 
   useEffect(() => {
     console.log("Fetching Escrow Assets");
