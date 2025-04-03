@@ -237,14 +237,15 @@ export const CPAGView: FC = ({ }) => {
 
         </div>
 
-        {/* <div className="mb-10 text-left">
-          <h4 className="text-2xl font-semibold mb-3">🌟 Special Collection ( **Soon to Follow** )</h4>
+        <div className="mb-10 text-left">
+          <h4 className="text-2xl font-semibold mb-3">🌟 Special Collection Opportunity</h4>
           <ul className="text-xl list-disc list-inside pl-6 space-y-2">
             <li>Collect all four Zodiac NFTs of the same sign to unlock a special reward!</li>
-            <li>Collect all four Zodiac NFTs of the same sign + the Cover NFT to unlock a massive ?? ??</li>
-            <li><strong>50,000 Candibar Tokens</strong>!</li>
+            {/* <li>Collect all four Zodiac NFTs of the same sign + the Cover NFT to unlock a massive ?? ??</li> */}
+            <li><strong>20,000 Candibar Tokens</strong>!</li>
           </ul>
-        </div> */}
+        </div> 
+        <SwapDetails/>
 
         {/* Zodiac Swaps */}
         {/* <div className="mb-2 text-left p-6">

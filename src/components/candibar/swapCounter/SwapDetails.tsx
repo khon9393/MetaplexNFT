@@ -32,13 +32,13 @@ const SwapDetails: FC = () => {
       <div className="max-w-[500px]">
         <div className="p-1">
           <div className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl">
-            <h1 className="text-1xl sm:text-2xl font-bold p-3"> Comming Soon...</h1>
-            <motion.div 
-             whileHover={{ scale: 1.05 }}
+            <h1 className="text-1xl sm:text-2xl font-bold p-3"> Swap the Entire Zodiac Collection</h1>
+            {/* <motion.div 
+             whileHover={{ scale: 1.02 }}
              className="p-5 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
            >
             <h3 className="text-lg font-semibold">Trade your Zodiac NFTs based on the current month to complete a full set! </h3>
-            </motion.div>
+            </motion.div> */}
             <h1 className="text-lg sm:text-1xl font-bold mb-3">  </h1>
             <SwapCounter />
               <br />

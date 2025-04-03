@@ -14,6 +14,7 @@ import {
 } from "@metaplex-foundation/umi/serializers";
 import umiWithCurrentWalletAdapter from "../umi/umiWithCurrentWalletAdapter";
 import sendAndConfirmWalletAdapter from "../umi/sendAndConfirmWithWalletAdapter";
+import { getCurrentZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 
 interface CreateEscrowArgs {
   name: string;
@@ -31,7 +32,8 @@ const createEscrow = async (createEscrowArgs: CreateEscrowArgs) => {
   const umi = umiWithCurrentWalletAdapter();
 
   const escrowName = createEscrowArgs.name;
-  const collectionAddress = process.env.NEXT_PUBLIC_COLLECTION_ADDRESS;
+  //const collectionAddress = process.env.NEXT_PUBLIC_COLLECTION_ADDRESS;
+  const collectionAddress = getCurrentZodiacSign().collectionPublicKey;
 
   if (!collectionAddress) {
     throw new Error("Collection address not found");

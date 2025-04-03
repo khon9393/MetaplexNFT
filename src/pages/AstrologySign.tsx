@@ -6,7 +6,7 @@ const AstrologySign: NextPage = (props) => {
 
   return (
     <div>
-            <Head>
+        <Head>
         <title>Candibarnft.com - Snake NFT</title>
         <meta name="description" content="Discover the unique Snake NFT on Candibarnft. Explore the astrology zodiac collection and get your exclusive Snake NFT today." />
         <meta name="keywords" content="Candibarnft, Snake NFT, astrology zodiac, NFT collection, exclusive NFT" />

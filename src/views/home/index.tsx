@@ -10,6 +10,7 @@ import { CardContainer } from "../../components/candibar/CardContainer";
 import { getCurrentZodiacSignTopN, ZodiacSign } from "../../stores/useCandiZodiacSignsStore";
 import tokenimg from '../../../public/images/token.jpg';
 import { LinkIcon } from 'lucide-react';
+import SwapDetails from '@/components/candibar/swapCounter/SwapDetails';
 
 const items = [
   {
@@ -241,7 +242,7 @@ export const HomeView: FC = ({ }) => {
                     Discover our exclusive collections and one-of-a-kind items—available only with Candibar tokens.
                   </h2>
                   <br />
-                  <hr className="my-6 border-t-2 border-gray-300" />
+                  <hr className="my-5 border-t-2 border-gray-300" />
                   {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
                     <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
                   ))}
@@ -273,7 +274,62 @@ export const HomeView: FC = ({ }) => {
       </motion.div>
       {/* end content 2 */}
 
-      {/* start content 3 */}
+      {/* start content 3*/}
+      <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-8 p-[3%] mb-8">
+        <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8">
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
+              <h1 className="text-center text-2xl md:pl-6 font-bold text-black">
+                Swap Zodiac Collections
+              </h1>
+              {/* <p className="text-center text-lg md:pl-6 font-semibold text-black">
+                Collect all Zodiac NFTs of a single sign
+                </p> */}
+            </div>
+          </motion.div>
+          <hr className="my-0 border-t-2 border-gray-100" />
+          <div className="p-6">
+            <h6 className="text-center text-2xl md:pl-6 font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
+              Trade your Zodiac NFTs based on the current month for massive rewards!
+            </h6>
+            <hr className="my-4 border-t-2 border-gray-300" />
+            <div className="flex justify-center items-center">
+
+              <div className="p-8">
+                <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="max-w-lg mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
+                  <SwapDetails />
+                </motion.div>
+
+              </div>
+
+
+            </div>
+            <div className="flex items-center justify-center">
+              <LinkIcon
+                height={24}
+                width={24}
+                className="text-blue-600 hover:text-blue-400 p-1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <Link
+                href="/nftswap"
+                className="text-center text-lg font-semibold text-gray-100 hover:underline hover:text-gray-100 hover:underline">
+                Swap Full Zodiac Collection for 20,000 Candi Tokens
+              </Link>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      {/* end content 3*/}
+
+
+      {/* start content 4*/}
       <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="max-w-lg mx-auto bg-gray-900 shadow-lg rounded-lg overflow-hidden mb-8 mt-8">
         <motion.div whileHover={{ scale: 1.05 }}>
           <div className="bg-gradient-to-br from-pink-400 to-blue-400 p-4">
@@ -343,8 +399,7 @@ export const HomeView: FC = ({ }) => {
         </div>
       </motion.div>
 
-      {/* end content 3 */}
-
+      {/* end content 4*/}
     </>
   );
 };

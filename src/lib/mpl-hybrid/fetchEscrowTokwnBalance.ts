@@ -1,3 +1,4 @@
+import { getCurrentZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 import useUmiStore from "../../stores/useUmiStore";
 import {
   fetchToken,
@@ -6,7 +7,8 @@ import {
 import { publicKey } from "@metaplex-foundation/umi";
 
 const fetchEscrowTokenBalance = async () => {
-  const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+  //const escrowAddress = process.env.NEXT_PUBLIC_ESCROW_PISCC1;
+  const escrowAddress = getCurrentZodiacSign().escrowPublickey;
 
   if (!escrowAddress) {
     throw new Error("Escrow address not set in env");

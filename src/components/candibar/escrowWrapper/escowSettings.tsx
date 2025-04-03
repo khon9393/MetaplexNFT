@@ -4,13 +4,18 @@ import { EscrowV1 } from "@metaplex-foundation/mpl-hybrid";
 import UpdateEscrowForm from "../../forms/updateEscrowForm";
 import { Card } from "@/components/ui/card";
 import { NO_REROLL_PATH } from "../../../lib/constants";
+import {getCurrentZodiacSign} from "../../../stores/useCandiZodiacSignsStore";
+import {fetchSwapSelector, SwapArgs} from "./../../../lib/swapselector";
 
 interface EscrowSettingsProps {
   escrowData: EscrowV1 | undefined;
 }
 
-const EscrowSettings = () => {
-  const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+const EscrowSettings = (SwapArgs?) => {
+  //const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
+
+  const escrowAddress = fetchSwapSelector(SwapArgs)?.escrowPublickey;
+
   const escrowData = useEscrowStore.getState().escrow;
 
   return (

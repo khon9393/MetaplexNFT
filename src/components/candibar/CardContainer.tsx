@@ -113,7 +113,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
         {candyMachines.map((machine, machineIndex) => (
         <div key={machine.id} className="flex lg:w-3/8 p-4">
           <motion.div whileInView={{ opacity: 1, y: 0, scale: [.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
-            <motion.div whileHover={{ scale: 1.05 }}>
+            <motion.div whileHover={{ scale: 1.02 }}>
             
                 <Card className="w-80 h-full rounded-lg">
                   <span className="text-1xl font-semibold">

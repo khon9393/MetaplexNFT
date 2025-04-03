@@ -16,6 +16,7 @@ import { REROLL_PATH } from "../../../lib/constants";
 import { Asset } from "../../../utils/index";
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from "react-confetti";
+import {SwapArgs} from "../../../lib/swapselector";
 
 import { useWallet } from "@solana/wallet-adapter-react";
 import { formatTokenAmount } from "@/lib/utils";
@@ -24,9 +25,9 @@ export enum TradeState {
   "tokens",
 }
 
-const SwapWrapper = () => {
+const SwapWrapper = (swapArgs: SwapArgs) => {
   const [tradeState, setTradeState] = useState<TradeState>(TradeState.nft);
-  const [selectedAsset, setSelectedAsset] = useState<Asset>();
+  const [selectedAssets, setSelectedAssets] = useState<Asset[]>([]);
   const [isTransacting, setIsTransacting] = useState(false);
   const { escrow } = useEscrowStore();
 
@@ -38,93 +39,58 @@ const SwapWrapper = () => {
 
   const handleSwap = async () => {
     setIsTransacting(true);
-    console.log("Swapping", tradeState, selectedAsset);
-
+    console.log("Swapping", tradeState, selectedAssets);
+  
     if (tradeState === TradeState.nft) {
-      if (!selectedAsset) {
+      if (!selectedAssets || selectedAssets.length === 0) {
         toast({
-          title: "No NFT selected",
-          description: "Please select an NFT to swap",
+          title: "No NFTs selected",
+          description: "Please select at least one NFT to swap",
+          variant: "Warning",
+        });
+        setIsTransacting(false);
+        return;
+      }
+    } else {
+      if (!rerollEnabled && (!selectedAssets || selectedAssets.length === 0)) {
+        toast({
+          title: "No NFTs selected",
+          description: "Please select at least one NFT to receive",
           variant: "Warning",
         });
         setIsTransacting(false);
         return;
       }
     }
-    else {
-      if (!rerollEnabled && !selectedAsset) {
-        toast({
-          title: "No NFT selected",
-          description: "Please select an NFT to receive",
-          variant: "Warning",
-        });
-        setIsTransacting(false);
-        return;
-      }
-    }
 
-    swap({ swapOption: tradeState, selectedNft: selectedAsset })
-      .then(() => {
-        toast({
-          title: "Swap Successful",
-          description: "Your swap was successful",
-        });
-        setIsTransacting(false);
-        setSelectedAsset(undefined);
+   
+  swap({ swapOption: tradeState, selectedAssets })
+  .then(() => {
+    toast({
+      title: "Swap Successful",
+      description: "Your swap was successful",
+    });
+    setIsTransacting(false);
+    setSelectedAssets([]); // Clear selected assets after swap
 
-        setShowConfetti(true);
-        setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
-      })
-      .catch(async (error) => {
-        console.log(error);
-
-        // if (width <= 768) { // Check if screen width is mobile size
-          
-        //   if (error?.message?.includes("")) {
-        //     toast({
-        //       title: "Swap Error",
-        //       description: "Cancel swap.",
-        //       variant: "destructive",
-        //     });
-        //   }
-        //   else {
-        //     toast({
-        //       title: "Swap Error",
-        //       description: error.message,
-        //       variant: "destructive",
-        //     });
-        //   }
-
-        //   await new Promise(resolve => setTimeout(resolve, 3000));
-        //   window.location.reload();
-        // }
-        // else {
-
-          // if (error?.message?.includes("")) {
-          //   toast({
-          //     title: "Swap Error",
-          //     description: "Cancel swap.",
-          //     variant: "destructive",
-          //   });
-          // }
-          // else {
-            toast({
-              title: "Swap Error",
-              description: error.message,
-              variant: "destructive",
-            });
-        //   }
-        // }
-
-      }
-    )
-      .finally(() => setIsTransacting(false))
-
-  };
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
+  })
+  .catch((error) => {
+    console.error(error);
+    toast({
+      title: "Swap Error",
+      description: error.message,
+      variant: "destructive",
+    });
+  })
+  .finally(() => setIsTransacting(false));
+};
 
   useEffect(() => {
     // Fetch/Refresh Escrow
-    fetchEscrow()
+    //const swapArgs: SwapArgs = { name: "zodiac" };
+    fetchEscrow(swapArgs)
       .then((escrowData) => {
         useEscrowStore.setState({ escrow: escrowData });
       })
@@ -151,13 +117,16 @@ const SwapWrapper = () => {
         )} */}
 
 
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4">
+        <div
+          // className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4"
+          className="flex flex-col items-center justify-center space-y-4"
+        >
 
-          <div className="px-2 p-0 border border-gray-300 rounded-lg bg-gray-200 text-right">
+          {/* <div className="px-2 p-0 border border-gray-300 rounded-lg bg-gray-200 text-right">
             <div className="text-1xl md:text-2xl font-bold text-black ">
               <TokenBalance />
             </div>
-            {selectedAsset && (
+            {selectedAssets && (
 
 
               <div className="text-1xl md:text-2xl font-bold animate-pulse ">
@@ -167,38 +136,81 @@ const SwapWrapper = () => {
               </div>
 
             )}
-          </div>
 
-          {tradeState === TradeState.nft ? (
-            <div className={selectedAsset ? "" : "animate-pulse"}>
+
+
+            <div className=""></div>
+          </div> */}
+
+          <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 p-0 flex flex-col items-center justify-center space-y-4">
+
+            <div className="px-2 p-0 border border-gray-300 rounded-lg bg-gray-200 text-right">
+              <div className="text-1xl md:text-2xl font-bold text-black ">
+                <TokenBalance />
+              </div>
+              {selectedAssets && (
+
+
+                <div className="text-1xl md:text-2xl font-bold animate-pulse ">
+                  {tradeState === TradeState.nft && escrow?.amount !== undefined
+                    ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount * BigInt(selectedAssets.length), 8)}</div>
+                    : <div className="text-red-700"> -{formatTokenAmount(escrow?.amount ?? BigInt(0), 8)}</div>}
+                </div>
+
+              )}
+            </div>
+
+
+
+
+            {tradeState === TradeState.nft ? (
+              <div className={selectedAssets ? "" : "animate-pulse"}>
+                <NftCard
+                  tradeState={TradeState.nft}
+                  selectedAssets={selectedAssets}
+                  setSelectedAssets={setSelectedAssets}
+                  swapArgs={swapArgs}
+                />
+
+                {/* {selectedAssets.length > 0 ? (
+              selectedAssets.map((asset, index) => (
+                <NftCard
+                key={index}
+                tradeState={TradeState.nft}
+                selectedAssets={[asset]}
+                setSelectedAssets={setSelectedAssets}
+                />
+              ))
+              ) : (
               <NftCard
-                tradeState={tradeState}
-                setSelectedAsset={(asset) => setSelectedAsset(asset)}
-                selectedAsset={selectedAsset}
+                tradeState={TradeState.nft}
+                selectedAssets={selectedAssets}
+                setSelectedAssets={setSelectedAssets}
               />
-            </div>
-          ) : (
-            <TokenCard tradeState={tradeState} />
-          )}
+              )} */}
+              </div>
+            ) : (
+              <TokenCard tradeState={tradeState} />
+            )}
 
-          {process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === "1" && wallet.connected && selectedAsset && (
-            <div className="flex items-center justify-center">
+            {process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === "1" && wallet.connected && selectedAssets.length>0 && (
+              <div className="flex items-center justify-center">
 
-              <Button
-                onClick={handleSwap}
-                disabled={isTransacting}
-                className="text-1xl md:text-2xl px-4 h-12 animate-pulse bg-gray-800 text-white dark:bg-gray-700 dark:text-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                variant="default"
-              >
-                Swap
-                <ArrowPathIcon className="w-10 h-10 m-1" />
-              </Button>
+                <Button
+                  onClick={handleSwap}
+                  disabled={isTransacting}
+                  className="text-1xl md:text-2xl px-4 h-12 animate-pulse bg-gray-800 text-white dark:bg-gray-700 dark:text-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  variant="default"
+                >
+                  Swap
+                  <ArrowPathIcon className="w-10 h-10 m-1" />
+                </Button>
 
-            </div>
+              </div>
 
-          )}
+            )}
+          </div>
         </div>
-
         {isTransacting && (
           <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white p-10 rounded-lg shadow-lg">

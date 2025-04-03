@@ -51,7 +51,7 @@ export default function SwapCounter() {
       <div className="max-w-[500px] mx-auto flex flex-col space-y-4">
 
         <motion.div
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.02 }}
         >
           <Card >
             <span className="text-1xl font-semibold ">
@@ -101,7 +101,7 @@ export default function SwapCounter() {
           </Card>
         </motion.div>
         <motion.div
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.02 }}
         >
           <Card >
             <span className="text-1xl font-semibold">
