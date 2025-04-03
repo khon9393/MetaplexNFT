@@ -97,7 +97,7 @@ const SwapWrapper = (swapArgs: SwapArgs) => {
       .catch((error) =>
         toast({ title: "Escrow Error", description: error.message })
       );
-  }, []);
+  }, [swapArgs]);
 
   return (
     <>

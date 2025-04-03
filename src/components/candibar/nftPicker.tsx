@@ -120,7 +120,7 @@ const NftPicker = ({
         }
       });
     }
-  }, [isOpen, wallet, wallet1.connected]);
+  }, [isOpen, wallet, wallet1.connected, swapArgs]);
 
   const assetList = assets[0]?.items?.map((asset) => {
     const image =

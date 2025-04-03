@@ -184,41 +184,6 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
     } catch (error: any) {
 
       setIsTransacting(false);
-      // if (width <= 768) { // Check if screen width is mobile size
-
-      //   setIsCandibarModalOpen(true);
-        
-      //   if (error?.message?.includes("")) {
-      //     setCandibarModalMsgTxt("Cancel minting.");
-      //   } else if (error?.message?.includes("0x137")) {
-      //     setCandibarModalMsgTxt("Mint limit reached for this Candy Machine.");
-      //   } else if (error?.message?.includes("0x135")) {
-      //     setCandibarModalMsgTxt("Mint limit reached for this Candy Guard.");
-      //   } else {
-      //     setCandibarModalTitle("Mint failed!");
-      //     setCandibarModalMsgTxt(`description: ${error}`);
-      //   }
-
-      //   await new Promise(resolve => setTimeout(resolve, 3000));
-      //   window.location.reload();
-      // }
-      // else {
-
-        // if (error?.message?.includes("")) {
-        //   toast({
-        //     title: "Mint failed!",
-        //     description: "Cancel swap.",
-        //     variant: "destructive",
-        //     style: {
-        //       backgroundColor: "white",
-        //       color: "white",
-        //       animation: "pulse 2s infinite",
-        //       backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
-        //     },
-        //   });
-        // }
-        // else
-        // {
           toast({
             title: "Mint failed!",
             description: error.message,
@@ -230,11 +195,9 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
               backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
             },
           });
-      //   }
-      // }
 
     }
-  }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress, width]);
+  }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
 
   return (
     <div className="flex flex-row justify-center">
