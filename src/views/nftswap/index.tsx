@@ -3,13 +3,14 @@ import { SwapDrawerWindow } from "@/components/candibar/swapWrapper/SwapDrawerWi
 import { Inter } from "next/font/google";
 import { UmiProvider } from "@/providers/umiProvider";
 import jadeEmperor from "../../../public/images/jadeEmp2.jpeg";
+import { useWallet } from "@solana/wallet-adapter-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const NFTSwapView: FC = () => {
+  const wallet = useWallet();
   const [selectedOption, setSelectedOption] = useState<"default" | "zodiac">("default");
 
-  
   return (
     <div
       className="w-full h-[100%]"
@@ -23,7 +24,7 @@ export const NFTSwapView: FC = () => {
     >
       <div className="mt-4 flex justify-center items-center">
         {/* Dropdown or Button Selection */}
-        <div className="mb-4">
+        {wallet.connected && process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === '1' && (<div className="mb-4">
             <select
             id="swap-selection"
             value={selectedOption}
@@ -34,7 +35,7 @@ export const NFTSwapView: FC = () => {
             <option value="candi">Candi Swap</option>
             <option value="zodiac">Complete Collection Swap</option>
             </select>
-            </div>
+            </div>)}
 
             <UmiProvider>
             {selectedOption !== "default" && 
