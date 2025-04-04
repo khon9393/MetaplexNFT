@@ -1,27 +1,18 @@
-import useUmiStore from "../../stores/useUmiStore";
-import { publicKey } from '@metaplex-foundation/umi';
+
 import axios from 'axios';
-import { CandiZodiacSigns, getCurrentZodiacSign } from "../../stores/useCandiZodiacSignsStore";
-// import { getCollection } from "@/stores/useCandibardataStorefromDB";
-import { MenuItems } from "@headlessui/react";
 import { getCompleteCollectionNames } from "../fetchCompleteCollection";
 interface SearchAssetArgs {
   owner: string;
+  collectionkeys: string[];
   burnt: boolean;
 }
 
 const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
-  if (!CandiZodiacSigns || CandiZodiacSigns.length === 0) {
-    throw new Error("No collections found in CandiZodiacSigns");
-  }
 
-  //const collectionPublicKeys = CandiZodiacSigns.map(sign => sign.collectionPublicKey).filter(Boolean);
-
-  // Testing
-   const collectionPublicKeys = [getCurrentZodiacSign().collectionPublicKey];
-
+   const collectionPublicKeys = searchAssetArgs.collectionkeys;
+   
   if (collectionPublicKeys.length === 0) {
-    throw new Error("No valid collectionPublicKeys found in CandiZodiacSigns");
+    throw new Error("No valid collectionPublicKeys found in SearchAssetArgs");
   }
 
   let allAssets: any[] = []; // Store all assets across collections
@@ -91,21 +82,6 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
 
         // Fetch collection details
         const completeCollectionNames = await getCompleteCollectionNames(collectionPublicKey);
-
-       
-       // let completeCollectionNames = (collection).images.map(image => `Zodiac ${image.name}`);
-        
-        // completeCollectionNames = completeCollectionNames.filter(name =>
-        //   [
-        //     "Zodiac Capricorn NFT #1"
-        //     , "Zodiac Capricorn NFT #2"
-        //   ].includes(name)
-        // );
-        // completeCollectionNames = completeCollectionNames.filter(name => 
-        //   name !== "Zodiac Capricorn NFT #3" 
-        //  && name !== "Zodiac Capricorn NFT #4"
-
-        // )
 
         //exract collection names from the result
         const walletCollectionNames = result.items.map((item: any) => item.content.metadata.description);

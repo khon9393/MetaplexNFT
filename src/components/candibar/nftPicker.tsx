@@ -7,8 +7,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import fetchEscrowAssets from "../../lib/fetchEscrowAssets";
-import fetchUserCompleteCollectionAssets from "../../lib/searchCompleteCollectionAssets";
-import fetchUserCandiAssets from "../../lib/fetchUserAssets";
+// import fetchUserCompleteCollectionAssets from "../../lib/trash/searchCompleteCollectionAssets";
+import fetchUserAssets from "../../lib/fetchUserAssets";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -99,7 +99,7 @@ const NftPicker = ({
     setIsSearching(true);
     if (wallet === "user" && wallet1.connected) {
       // Fetch user assets
-      (swapArgs.name === 'zodiac' ? fetchUserCompleteCollectionAssets() : fetchUserCandiAssets()).then((assets) => {
+      fetchUserAssets(swapArgs).then((assets) => {
         console.log({ assets });
         setIsSearching(false);
         if (Array.isArray(assets)) {

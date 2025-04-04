@@ -1,27 +1,38 @@
 import { AssetV1, fetchAssetsByOwner } from "@metaplex-foundation/mpl-core";
 import searchAssets from "./das/searchAssets";
+import searchCollection from "./das/searchCollection";
 import umiWithCurrentWalletAdapter from "./umi/umiWithCurrentWalletAdapter";
 import { ConnectionContext } from "@solana/wallet-adapter-react";
 import { getCurrentZodiacSign } from "@/stores/useCandiZodiacSignsStore";
-import {fetchSwapSelector, SwapArgs} from "./swapselector";
+import { fetchSwapSelector, SwapArgs } from "./swapselector";
 
-const fetchUserAssets = async (SwapArgs?) => {
+const fetchUserAssets = async (SwapArgs?: SwapArgs) => {
   const umi = umiWithCurrentWalletAdapter();
 
-  //const collectionId = process.env.NEXT_PUBLIC_COLLECTION;
-    const collectionId =  fetchSwapSelector(SwapArgs)?.collectionPublicKey;
+  const collectionId = fetchSwapSelector(SwapArgs)?.collectionPublicKey;
 
   if (!collectionId) {
     throw new Error("Collection not found");
   }
 
-  return await searchAssets({
-    owner: umi.identity.publicKey,
-    collection: collectionId,
-    burnt: false,
-  });
+  if (SwapArgs.name === 'candi') {
 
-};
+    return await searchAssets({
+      owner: umi.identity.publicKey,
+      collection: collectionId,
+      burnt: false,
+    });
+  }
+  else if (SwapArgs.name === 'zodiac') {
+    return await searchCollection({
+      owner: umi.identity.publicKey,
+      collectionkeys: [collectionId],
+      burnt: false,
+    });
+
+  };
+
+}
 export default fetchUserAssets;
 
 

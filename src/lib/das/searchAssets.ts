@@ -2,7 +2,7 @@ import useUmiStore from "../../stores/useUmiStore";
 import { publicKey } from '@metaplex-foundation/umi';
 import axios from 'axios';
 import { forEach } from "lodash";
-
+import {SwapArgs} from "./../swapselector";
 /*
 Shortcut Keys
 
@@ -25,7 +25,7 @@ interface SearchAssetArgs {
 const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
   //const umi = useUmiStore.getState().umi;
 
-  const collectionId = process.env.NEXT_PUBLIC_COLLECTION;
+  const collectionId = searchAssetArgs.collection;
 
   if (!collectionId) {
     throw new Error("Collection not found");
@@ -33,7 +33,6 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
 
   let page = 1;
   let continueFetch = true;
- // let ownerpk = publicKey(searchAssetArgs.owner);
   let assets: any | undefined;
 
   while (continueFetch) {
