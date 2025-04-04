@@ -69,9 +69,9 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
       if (Array.isArray(filesData)) {
         // Insert the new data into the files array
         item.content.files = [...(item.content.files || []), ...filesData];
-        if (!item.content.metadata.description) {
-          item.content.metadata.description = jsonResponse.data?.description;
-        }
+        // if (!item.content.metadata.description) {
+        //   item.content.metadata.description = jsonResponse.data?.description;
+        // }
       }
       }
     }));
@@ -82,7 +82,7 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
       continueFetch = false;
     }
     else {
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Pause for 2.5 seconds
+      await new Promise(resolve => setTimeout(resolve, 1500)); // Pause for 2.5 seconds
     }
 
     if (!assets) {
