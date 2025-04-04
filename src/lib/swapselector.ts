@@ -4,6 +4,7 @@ import { getCurrentZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 export interface SwapKeys {
     escrowPublickey: string | undefined;
     collectionPublicKey: string | undefined;
+    zodiacExists: boolean;
 }
 
 export interface SwapArgs {
@@ -21,7 +22,7 @@ export const fetchSwapSelector = (swapArgs: SwapArgs): SwapKeys | null => {
             const { escrowPublickey, collectionPublicKey } = zodiacSign;
 
             return escrowPublickey && collectionPublicKey
-                ? { escrowPublickey, collectionPublicKey }
+                ? { escrowPublickey, collectionPublicKey, zodiacExists: true }
                 : getDefaultSwapKeys();
         }
         default:
@@ -32,4 +33,5 @@ export const fetchSwapSelector = (swapArgs: SwapArgs): SwapKeys | null => {
 const getDefaultSwapKeys = (): SwapKeys => ({
     escrowPublickey: process.env.NEXT_PUBLIC_ESCROW,
     collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_ID05,
+    zodiacExists: false,
 });
