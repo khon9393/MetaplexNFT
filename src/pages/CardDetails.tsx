@@ -163,7 +163,7 @@ const CardDetails: FC = () => {
                         <div className="w-full h-full flex justify-center items-center relative">
                           <motion.div
                             initial={{ scale: 1 }}
-                            whileHover={{ scale: 1.03 }}
+                            whileHover={{ scale: 1.02 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             className="w-full h-full"
                           >
@@ -226,7 +226,7 @@ const CardDetails: FC = () => {
                           onClick={() => setSelectedImage(pic.url)}
                           className="cursor-pointer"
                           initial={{ scale: 1 }}
-                          whileHover={{ scale: 1.1 }}
+                          whileHover={{ scale: 1.02 }}
                           transition={{ type: "spring", stiffness: 300 }}
                         />
                       </div>
@@ -278,7 +278,7 @@ const CardDetails: FC = () => {
                   <div key={machine.id} >
 
                     <motion.div
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                     >
                       <Card >
                         <span className="text-1xl font-semibold">
@@ -352,7 +352,7 @@ const CardDetails: FC = () => {
                     <br />
 
                     <motion.div
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                     >
                       <Card >
                         <span className="text-1xl font-semibold">
@@ -468,7 +468,7 @@ const CardDetails: FC = () => {
                   ].filter(Boolean).map((item, index) => (
                     <motion.div
                       key={index}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                       className="p-4 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
                     >
                       <h3 className="text-xl font-semibold">{item.icon} {item.title}</h3>

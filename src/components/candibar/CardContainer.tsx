@@ -32,7 +32,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
   const imageVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
-    hover: { scale: 1.05 },
+    hover: { scale: 1.02 },
   };
 
 
