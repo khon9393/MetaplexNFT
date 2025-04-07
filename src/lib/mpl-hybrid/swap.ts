@@ -7,6 +7,9 @@ import umiWithCurrentWalletAdapter from "../umi/umiWithCurrentWalletAdapter";
 import { REROLL_PATH } from '../constants';
 import { Asset } from "../../utils/index";
 import { publicKey, transactionBuilder } from "@metaplex-foundation/umi";
+import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
+
+const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit);
 
 const swap = async ({
   swapOption,
@@ -35,15 +38,18 @@ const swap = async ({
 
       // Use TransactionBuilder to batch multiple releaseV1 calls
       let releaseBuilder = transactionBuilder();
+      releaseBuilder = releaseBuilder.add(
+        setComputeUnitLimit(umi, { units: ComputeUnitLimit })
+      );
       selectedAssets.forEach((asset) => {
         releaseBuilder = releaseBuilder.add(
           releaseV1(umi, {
-            owner: umi.identity,
-            escrow: escrow.publicKey,
-            asset: publicKey(asset.id),
-            collection: escrow.collection,
-            token: escrow.token,
-            feeProjectAccount: escrow.feeLocation,
+        owner: umi.identity,
+        escrow: escrow.publicKey,
+        asset: publicKey(asset.id),
+        collection: escrow.collection,
+        token: escrow.token,
+        feeProjectAccount: escrow.feeLocation,
           })
         );
       });
@@ -57,15 +63,18 @@ const swap = async ({
 
       // Use TransactionBuilder to batch multiple captureV1 calls
       let captureBuilder = transactionBuilder();
+      captureBuilder = captureBuilder.add(
+        setComputeUnitLimit(umi, { units: ComputeUnitLimit })
+      );
       selectedAssets.forEach((asset) => {
         captureBuilder = captureBuilder.add(
           captureV1(umi, {
-            owner: umi.identity,
-            escrow: escrow.publicKey,
-            asset: publicKey(asset.id),
-            collection: escrow.collection,
-            token: escrow.token,
-            feeProjectAccount: escrow.feeLocation,
+        owner: umi.identity,
+        escrow: escrow.publicKey,
+        asset: publicKey(asset.id),
+        collection: escrow.collection,
+        token: escrow.token,
+        feeProjectAccount: escrow.feeLocation,
           })
         );
       });
