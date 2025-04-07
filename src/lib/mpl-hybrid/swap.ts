@@ -9,7 +9,7 @@ import { Asset } from "../../utils/index";
 import { publicKey, transactionBuilder } from "@metaplex-foundation/umi";
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
 
-const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit);
+const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 800_000;
 
 const swap = async ({
   swapOption,
@@ -39,7 +39,7 @@ const swap = async ({
       // Use TransactionBuilder to batch multiple releaseV1 calls
       let releaseBuilder = transactionBuilder();
       releaseBuilder = releaseBuilder.add(
-        setComputeUnitLimit(umi, { units: ComputeUnitLimit })
+        setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) })
       );
       selectedAssets.forEach((asset) => {
         releaseBuilder = releaseBuilder.add(
@@ -64,7 +64,7 @@ const swap = async ({
       // Use TransactionBuilder to batch multiple captureV1 calls
       let captureBuilder = transactionBuilder();
       captureBuilder = captureBuilder.add(
-        setComputeUnitLimit(umi, { units: ComputeUnitLimit })
+        setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) })
       );
       selectedAssets.forEach((asset) => {
         captureBuilder = captureBuilder.add(
