@@ -25,6 +25,7 @@ const options: TransactionBuilderSendAndConfirmOptions = {
   confirm: { commitment: "confirmed" }
 };
 
+const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 800_000;
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
@@ -128,7 +129,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       // Mint from the Candy Machine.
       const nftMint = generateSigner(umi);
       const transaction = transactionBuilder()
-        .add(setComputeUnitLimit(umi, { units: 800_000 }))
+        .add(setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) }))
         .add(
           mintV1(umi, {
             candyMachine: publicKey(candyMachineaddress),
