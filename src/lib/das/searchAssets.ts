@@ -81,7 +81,7 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
       continueFetch = false;
     }
     else {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Pause for 2.5 seconds
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Pause for 2.5 seconds
     }
 
     if (!assets) {
