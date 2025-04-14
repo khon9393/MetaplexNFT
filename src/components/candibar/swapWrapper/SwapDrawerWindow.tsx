@@ -43,7 +43,7 @@ export const SwapDrawerWindow: FC<{ swapArg: SwapArgs }> = ({ swapArg }) => {
                 className="text-white hover:text-blue-600 sm:text-2xl"
                 variant="default"
               >
-                {swapArg.name === "zodiac" ? `Swap Entire ${currentZodiacSign.name} Zodiac Collection (${currentZodiacSign.dateRange})`: "Candi Swap"}
+                {swapArg.name === "zodiac" ? `Swap Full ${currentZodiacSign.name} Zodiac Collection (${currentZodiacSign.dateRange})`: "Candi Swap"}
                 <ArrowUpTrayIcon
                   className='w-15 h-15 m-1'
                 />
