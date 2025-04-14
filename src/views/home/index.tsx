@@ -139,7 +139,7 @@ export const HomeView: FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
           Swap Full Zodiac Collection Set
         </h2>
-        <p className="text-lg text-center mb-6">Exchange your Full Zodiac NFT Collection Set for exciting rewards tailored to the current month's sign!</p>
+        <p className="text-lg text-center mb-6">Exchange your Full Zodiac NFT Collection Set for exciting rewards tailored to the current month&apos;s sign!</p>
         <p className="text-lg text-center mb-6">Complete a full set of Zodiac NFTs from the same sign and trade them for exclusive benefits.</p>
         <div className="flex justify-center">
           <SwapDetails />
