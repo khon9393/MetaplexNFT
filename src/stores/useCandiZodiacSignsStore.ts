@@ -12,11 +12,10 @@ export interface ZodiacSign {
 export const CandiZodiacSigns: ZodiacSign[] = [
     { name: "Capricorn", icon: "♑", dateRange: "December 21-January 20", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_CAPRIC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_CAPRIC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_CAPRIC1 },
     { name: "Aquarius", icon: "♒", dateRange: "January 21-February 18", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_AQUIC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_AQUIC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_AQUIC1 },
+    { name: "Pisces", icon: "♓", dateRange: "February 19-March 20", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_PISCC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_PISCC1 },
+    { name: "Aries", icon: "♈", dateRange: "March 21-April 19", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_ARIESC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_ARIESC1 },
     
-    //{ name: "Pisces", icon: "♓", dateRange: "March 21-April 19", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_PISCC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_PISCC1 },
-     { name: "Pisces", icon: "♓", dateRange: "February 19-March 20", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_PISCC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_PISCC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_PISCC1 },
-     { name: "Aries", icon: "♈", dateRange: "March 21-April 19", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_ARIESC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_ARIESC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_ARIESC1 },
-    
+    //{ name: "Taurus", icon: "♉", dateRange: "March 21-April 19", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_TAURC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_TAURC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_TAURC1 },
     { name: "Taurus", icon: "♉", dateRange: "April 20-May 20", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_TAURC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_TAURC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_TAURC1 },
     { name: "Gemini", icon: "♊", dateRange: "May 21-June 20", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_GEMINIC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_GEMINIC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_GEMINIC1 },
     { name: "Cancer", icon: "♋", dateRange: "June 21-July 22", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_CANCERC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_CANCERC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_CANCERC1 },
