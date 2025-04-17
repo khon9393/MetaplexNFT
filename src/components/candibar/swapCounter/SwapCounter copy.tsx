@@ -65,7 +65,6 @@ export default function SwapCounter() {
                   const [endMonth, endDay] = dateRange.split("-")[1].trim().split(" ");
                   const startDate = new Date(`${startMonth} ${startDay}, ${serverDate.getFullYear()}`);
                   const endDate = new Date(`${endMonth} ${endDay}, ${serverDate.getFullYear()}`);
-                  endDate.setHours(23, 59, 59, 999);
 
                   const isActive = serverDate >= startDate && serverDate <= endDate;
 
