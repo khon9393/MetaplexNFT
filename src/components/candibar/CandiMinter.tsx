@@ -81,7 +81,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
-      const AmountAlreadyMinted = fetchCandyGuardUserMintlimit(umi.identity.publicKey.toString()
+      const AmountAlreadyMinted = await fetchCandyGuardUserMintlimit(umi.identity.publicKey.toString()
         , candyMachineaddress
         , results[0].candyGuardpk
         , results[0].candyGuardId)
@@ -121,7 +121,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Wallet Mint Limit Reached");
-        setCandibarModalMsgTxt(`Wallet max mint limit of ${results[0].candyGuardMinLimit} reached. Unable to mint!`);
+        setCandibarModalMsgTxt(`You have reached the maximum mint limit of ${results[0].candyGuardMinLimit} for this wallet. You have already minted ${Number(AmountAlreadyMinted)} from this collection. Please select a different Candi Zodiac to mint.`);
         setIsTransacting(false);
         return;
       }
