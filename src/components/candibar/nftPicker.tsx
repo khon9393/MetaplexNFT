@@ -86,7 +86,12 @@ const NftPicker = ({
     }
 
  }
-    setSelectedAssets(selectedAssets); // Pass selected assets to parent
+
+    const filteredSelectedAssets = selectedAssets.filter((selected) =>
+      assets[0]?.items?.some((asset) => asset.id === selected.id)
+    );
+    setSelectedAssets(filteredSelectedAssets); // Pass filtered selected assets to parent
+
     setIsOpen(false); // Close the dialog
     console.log("Selected Assets:", selectedAssets); // Debugging
  
