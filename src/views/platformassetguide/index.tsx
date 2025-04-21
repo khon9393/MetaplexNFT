@@ -112,7 +112,7 @@ export const CPAGView: FC = ({ }) => {
         {/* Candi Collection */}
         <div className="mb-0 text-left p-6">
 
-          <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4] && candicollection[4].collectionsubtitles} (Swappable)</h4>
+          <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4] && candicollection[4].collectionsubtitles} (Swappable!)</h4>
 
           {candicollection.length > 0 && (
             <>
