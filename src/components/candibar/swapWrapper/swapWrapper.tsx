@@ -71,7 +71,7 @@ const SwapWrapper = (swapArgs: SwapArgs) => {
       description: "Your swap was successful",
     });
     setIsTransacting(false);
-    setSelectedAssets([]); // Clear selected assets after swap
+    setSelectedAssets(() => []); // Clear selected assets after swap
 
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds

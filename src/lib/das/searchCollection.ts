@@ -66,15 +66,27 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
         await Promise.all(result.items.map(async (item) => {
           if (item.content.files.length <= 0) {
             const jsonUri = item.content.json_uri;
-            const jsonResponse = await axios.get(jsonUri);
-            const filesData = jsonResponse.data.properties?.files;
-            if (Array.isArray(filesData)) {
-              item.content.files = [...(item.content.files || []), ...filesData];
-              if (!item.content.metadata.description) {
-                item.content.metadata.description = jsonResponse.data?.description;
+            // Make a GET request to the json_uri
+            try {
+              const jsonResponse = await axios.get(jsonUri);
+              // Extract the files array from the properties object in the response
+              const filesData = jsonResponse.data.properties?.files;
+              if (Array.isArray(filesData)) {
+                // Insert the new data into the files array
+                item.content.files = [...(item.content.files || []), ...filesData];
+                if (!item.content.metadata.description) {
+                  item.content.metadata.description = jsonResponse.data?.description;
+                }
+              }
+            } catch (error) {
+              if (axios.isAxiosError(error) && error.response?.status === 404) {
+                console.warn(`Item with json_uri ${jsonUri} not found, removing item.`);
+                result.items = result.items.filter((i) => i !== item);
+              } else {
+                throw error;
               }
             }
-          }
+            }
 
           item.content.collectionid = collectionPublicKey;
 

@@ -33,7 +33,7 @@ export const NFTSwapView: FC = () => {
             >
             <option value="default" disabled>Choose Swap Type</option>
             <option value="candi">Candi Swap</option>
-            <option value="zodiac">Complete Collection Swap</option>
+            <option value="zodiac">Full Collection Swap</option>
             </select>
             </div>)}
 

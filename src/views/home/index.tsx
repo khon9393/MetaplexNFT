@@ -137,16 +137,17 @@ export const HomeView: FC = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500">
-          Swap Zodiac Collections
+          Swap Full Zodiac Collection Set
         </h2>
-        <p className="text-lg text-center mb-6">Trade your Zodiac NFTs based on the current month for massive rewards!</p>
+        <p className="text-lg text-center mb-6">Exchange your Full Zodiac NFT Collection Set for exciting rewards tailored to the current month&apos;s sign!</p>
+        <p className="text-lg text-center mb-6">Complete a full set of Zodiac NFTs from the same sign and trade them for exclusive benefits.</p>
         <div className="flex justify-center">
           <SwapDetails />
         </div>
         <div className="text-center mt-4">
     
           <Link href="/nftswap" className="text-blue-400 hover:underline inline-flex items-center gap-2">
-            <LinkIcon /> Swap Full Zodiac Collection for 20,000 Candi Tokens
+            <LinkIcon /> Swap Full Zodiac Collection Set for 20,000 Candi Tokens
           </Link>
         </div>
       </motion.section>

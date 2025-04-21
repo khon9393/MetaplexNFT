@@ -29,10 +29,10 @@ const SwapDetails: FC = () => {
 
   return (
     <>
-      <div className="max-w-[500px]">
+      <div className="max-w-[520px]">
         <div className="p-1">
           <div className="flex-col justify-center mx-auto p-4 sm:p-6 text-center bg-gradient-to-br from-purple-500 to-indigo-800 text-white rounded-2xl shadow-xl">
-            <h1 className="text-1xl sm:text-2xl font-bold p-3"> Swap the Entire Zodiac Collection</h1>
+            <h1 className="text-1xl sm:text-2xl font-bold p-3"> Swap the Entire Zodiac Collection Set</h1>
             {/* <motion.div 
              whileHover={{ scale: 1.02 }}
              className="p-5 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
