@@ -329,9 +329,9 @@ const CardDetails: FC = () => {
                                       viewBox="0 0 24 24"
                                       fill="none"
                                       stroke="currentColor"
-                                      stroke-width="2"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
                                       className="lucide lucide-link text-blue-600 hover:text-blue-400 p-1">
                                       <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                                       <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
@@ -472,9 +472,9 @@ const CardDetails: FC = () => {
                       className="p-4 text-md bg-white dark:bg-black text-gray-900 dark:text-gray-100 rounded-xl shadow-md transition-transform"
                     >
                       <h3 className="text-xl font-semibold">{item.icon} {item.title}</h3>
-                      <p className="mt-2 text-1xl sm:text-1xl break-words ">
+                      <div className="mt-2 text-1xl sm:text-1xl break-words ">
                         {item.desc}
-                      </p>
+                      </div>
                     </motion.div>
                   ))}
                 </div>

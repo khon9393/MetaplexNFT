@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
+  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
@@ -87,24 +88,33 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
       <Drawer>
 
         <DrawerTrigger>
-          <button
-            className="px-2 p-0 rounded-md border hover:underline animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500"
+          <div
+            className="px-2 p-0 rounded-md border hover:underline animate-pulse bg-gradient-to-br from-lime-400 to-yellow-500 hover:from-white hover:to-purple-300 text-black hover:text-blue-500 cursor-pointer"
           >
             <span>{`View ${sign} Zodiac Reading`}</span>
-          </button>
+          </div>
         </DrawerTrigger>
-
+        <DrawerTitle>
+          <div className="visually-hidden">
+            {zodiacSign
+              ? `${zodiacSign.icon} ${sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} Horoscope ${zodiacSign.icon}`
+              : `${sign.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')}`}
+          </div>
+        </DrawerTitle>
         <DrawerContent className="h-[90vh] bg-gray-400"
           style={{ backgroundImage: `url(${bgreading.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         // style={{ backgroundImage: `url(/api/image/CandibarImg/Candi/collection_01-d2uDCK56e8T5KJCGR2aTRayvFYVYZL.jpeg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
-          <DrawerHeader className="flex flex-col justify-center items-center text-center"
-          >
+          {/* Accessible Drawer Header */}
+          <DrawerHeader className="flex flex-col justify-center items-center text-center">
+
             {horoscope && (
               <p className="text-xs absolute top-2 left-2">
                 Reading updated: {lastupdate}
               </p>
             )}
+
+
             <DrawerClose asChild>
 
               <div className='absolute top-3 right-2'>
@@ -172,3 +182,4 @@ export const ZodiacReadingDrawerWindow: FC<HoroscopeProps> = ({ sign }) => {
     </div>
   )
 }
+

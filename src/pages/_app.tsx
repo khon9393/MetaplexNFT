@@ -14,6 +14,7 @@ import FirstVisitModal from '@/components/candibar/FirstVisitModal';
 import appletouch from '../../public/apple-touch-icon.png';
 import { Toaster } from '@/components/ui/toaster';
 import { UmiProvider } from "../providers/umiProvider";
+import { WalletAdapterProvider } from '@/providers/walletAdapterProvider';
 
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
@@ -39,7 +40,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             {/* <link rel="apple-touch-icon" sizes="180x180" href={appletouch.src} /> */}
             </Head>
           {/* <FirstVisitModal /> */}
-
+          <WalletAdapterProvider>
           <UmiProvider>
 
           <ContextProvider>
@@ -55,6 +56,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           </ContextProvider>
 
           </UmiProvider>
+          </WalletAdapterProvider>
           <Toaster />
         </>
     );
