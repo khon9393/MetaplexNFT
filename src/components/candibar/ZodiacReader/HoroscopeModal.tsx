@@ -55,10 +55,13 @@ export default function HoroscopeModal({ sign, isOpen, onClose }: HoroscopeProps
       <Dialog as="div" className="relative z-50" onClose={onClose}>
         <div className="fixed inset-0 bg-black bg-opacity-0 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-xl shadow-lg w-full max-h-[95vh] overflow-hidden">
-            <DialogTitle className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900 dark:text-white flex items-center justify-center font-mono underline">
-              {sign} Horoscope Outlook
-               {/* {month && ` - ${month}`} {year && `(${year})`} */}
-            </DialogTitle>
+        {/* Dialog Title */}
+        <DialogTitle
+          as="h2"
+          className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900 dark:text-white flex items-center justify-center font-mono underline"
+        >
+          {sign} Horoscope Outlook
+        </DialogTitle>
 
             {/* Buttons for selecting reading type */}
             <div className="flex justify-around mt-4">

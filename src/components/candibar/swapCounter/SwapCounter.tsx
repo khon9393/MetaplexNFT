@@ -72,8 +72,8 @@ export default function SwapCounter() {
                   if (isActive) {
                   return (
                     <div key={sign} className="p-4 border-gray-600 rounded-lg">
-                    <p className="text-sm sm:text-sm">{icon} {name} NFT Collection {dateRange}</p>
-                    <p className='font-bold'><Countdown endDate={endDate} /></p>
+                    <div className="text-sm sm:text-sm">{icon} {name} NFT Collection {dateRange}</div>
+                    <div className='font-bold'><Countdown endDate={endDate} /></div>
                     </div>
                   );
                   }
@@ -128,12 +128,12 @@ export default function SwapCounter() {
 
                       {index === 0 ? (
                         <>
-                        <p className="space-y-2 mt-2">{icon} {name} NFT Collection {dateRange}</p>
+                        <div className="space-y-2 mt-2">{icon} {name} NFT Collection {dateRange}</div>
                         </>
                       ) : (
 
                         <CollapsibleContent className="space-y-2 mt-2">
-                        <p>{icon} {name} NFT Collection {dateRange}</p>
+                        <div>{icon} {name} NFT Collection {dateRange}</div>
                         </CollapsibleContent>
 
                       )}

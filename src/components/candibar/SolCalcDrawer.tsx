@@ -28,24 +28,27 @@ export const SolCalcDrawer: FC = () => {
       <Drawer>
 
         <DrawerTrigger>
-          
-          <Button
-            className="text-white hover:text-blue-600 text-1xl md:text-1xl mb-2"
-            variant="default"
+          <div
+            className="text-white hover:text-blue-600 text-1xl md:text-1xl mb-2 flex items-center cursor-pointer"
           >
             SOL &rarr; USD Calc.
-            <ArrowUpTrayIcon className="w-15 h-15 m-1" />
-          </Button>
-
+            <ArrowUpTrayIcon className="w-4 h-4 m-1" />
+          </div>
         </DrawerTrigger>
 
         <DrawerContent className="h-[90vh] bg-gray-400"
-        style={{ backgroundImage: `url(${CandiCollection.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
+          style={{ backgroundImage: `url(${CandiCollection.src})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', opacity: 1 }}
         >
           <DrawerHeader
             //className="absolute left-0 top-0"
             className="justify-center items-center"
           >
+            <DrawerTitle>
+              <div className="visually-hidden">
+                Solana to USD Calculator
+              </div>
+            </DrawerTitle>
+
             <DrawerClose asChild>
 
               <ArrowDownTrayIcon
@@ -55,7 +58,7 @@ export const SolCalcDrawer: FC = () => {
           </DrawerHeader>
           <Soltousdtcalc />
           <DrawerFooter>
-           
+
           </DrawerFooter>
 
         </DrawerContent>
