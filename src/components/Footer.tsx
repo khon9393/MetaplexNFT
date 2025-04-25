@@ -5,8 +5,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Button } from '@/components/ui/button';
-import NavElement from './nav-element';
 import Image from 'next/image';
 import solanaLogo from "../../public/logos/solanaLogo.png";
 import metaplexLogo from "../../public/logos/metaplex-logo.png";

@@ -201,7 +201,11 @@ const NftPicker = ({
         ) : (
           !isSearching && (
             <div className="flex flex-1 flex-col justify-center w-full items-center">
-              <div>No assets found!</div>
+                {swapArgs.name === 'zodiac' ? (
+                <div>The wallet does not contain a complete collection!</div>
+                ) : (
+                <div>No assets found!</div>
+                )}
             </div>
           )
         )}
