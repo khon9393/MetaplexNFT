@@ -121,8 +121,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Wallet Mint Limit Reached");
-        setCandibarModalMsgTxt(`You have reached the maximum mint limit of ${results[0].candyGuardMinLimit} for this wallet. 
-          You have already minted ${Number(AmountAlreadyMinted)} from this collection. 
+        setCandibarModalMsgTxt(`You have reached the maximum mint limit of ${results[0].candyGuardMinLimit} for this wallet, having already minted ${Number(AmountAlreadyMinted)} from this collection. 
           Please explore other collections to mint or trade with fellow Candibar collectors.`);
         setIsTransacting(false);
         return;
