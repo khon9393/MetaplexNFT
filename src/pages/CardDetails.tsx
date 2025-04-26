@@ -104,6 +104,7 @@ const CardDetails: FC = () => {
           images,
           itemsAvailable: balance.itemsAvailable,
           itemsRedeemed: balance.itemsRedeemed,
+          redeemedAmountMaxLimit: balance.redeemedAmountMaxLimit,
           collectionMint: balance.collectionMint,
           collectionName: balance.collectionName,
           candyGuardMinLimit: balance.candyGuardMinLimit,
@@ -311,6 +312,11 @@ const CardDetails: FC = () => {
                               <div className="rounded-md border py-1 font-mono text-md">
                                 Wallet mint limit: {machine.candyGuardMinLimit}
                               </div>
+
+                              {machine.redeemedAmountMaxLimit > 0 && (
+                              <div className="rounded-md border py-1 font-mono text-md">
+                                Collection mint limit: {machine.redeemedAmountMaxLimit}
+                              </div>)}
 
                               {/* <div className="rounded-md border px-4 py-1 font-mono text-md">
                               Traits: N/A
