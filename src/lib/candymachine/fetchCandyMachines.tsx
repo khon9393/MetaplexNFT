@@ -58,9 +58,15 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
           const collectionName = collection ? collection.name : "";
 
           const candyGuard = await fetchCandyGuard(umi, candyMachine.mintAuthority);
+
+          const redeemedAmountMaxLimit = candyGuard?.guards.redeemedAmount.__option === "Some" 
+          ? Number(candyGuard.guards.redeemedAmount.value.maximum)
+           : 0;
+
           const candyGuardBasisPoints = candyGuard?.guards.solPayment.__option === 'Some'
             ? Number(candyGuard.guards.solPayment.value.lamports.basisPoints) / LAMPORTS_PER_SOL
             : 0;
+
           const { id: candyGuardId, limit: candyGuardMinLimit } = candyGuard?.guards.mintLimit.__option === 'Some'
             ? candyGuard.guards.mintLimit.value
             : { id: 0, limit: 0 };
@@ -75,6 +81,7 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
             itemsAvailable: Number(candyMachine.data.itemsAvailable),
             collectionMint: String(candyMachine.collectionMint),
             collectionName,
+            redeemedAmountMaxLimit,
             SolCost: candyGuardBasisPoints,
             candyGuardpk: candyMachine.mintAuthority,
             candyGuardId,
@@ -89,6 +96,7 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
             itemsAvailable: 0,
             collectionMint: "",
             collectionName: "",
+            redeemedAmountMaxLimit: 0,
             SolCost: 0,
             candyGuardpk: "",
             candyGuardId: 0,

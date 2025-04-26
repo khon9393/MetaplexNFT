@@ -96,6 +96,15 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
       const usersolbalance = await getUserSOLBalance(wallet.publicKey);
 
+      if (results[0].redeemedAmountMaxLimit > 0 &&  results[0].itemsRedeemed >= results[0].redeemedAmountMaxLimit) {
+
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Maximum Mint Limit Reached");
+        setCandibarModalMsgTxt(`The maximum mint limit of: ${results[0].redeemedAmountMaxLimit} has been reached for this collection.`);
+        setIsTransacting(false);
+        return;
+      }
+
       //must be greater than and not equal to.
       //must be greater than to cover transaction fees.
       if (Number(usersolbalance) <= results[0].SolCost) {
@@ -121,8 +130,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Wallet Mint Limit Reached");
-        setCandibarModalMsgTxt(`You have reached the maximum mint limit of ${results[0].candyGuardMinLimit} for this wallet. 
-          You have already minted ${Number(AmountAlreadyMinted)} from this collection. 
+        setCandibarModalMsgTxt(`You have reached the maximum mint limit of ${results[0].candyGuardMinLimit} for this wallet, having already minted ${Number(AmountAlreadyMinted)} from this collection. 
           Please explore other collections to mint or trade with fellow Candibar collectors.`);
         setIsTransacting(false);
         return;
