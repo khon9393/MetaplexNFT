@@ -11,7 +11,8 @@ import metaplexLogo from "../../public/logos/metaplex-logo.png";
 import Link from 'next/link';
 import candibarQRcode from "../../public/logos/candibarQRcode.png";
 import { SolCalcDrawer } from './candibar/SolCalcDrawer';
-
+import coinGecko from "../../public/logos/geckoterminal_dark.png";
+import dexscreener from "../../public/logos/dex-screener-icon-filled-256.png";
 
 export const Footer: FC = () => {
   return (
@@ -193,7 +194,7 @@ export const Footer: FC = () => {
                 <span className="text-sm">Follow us on X</span>
               </a>
               <a
-                href={process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}
+                href={`mailto:${process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}`}
                 className="flex items-center space-x-2 hover:text-gray-400 transition"
               >
                 <svg
@@ -227,6 +228,34 @@ export const Footer: FC = () => {
                     className="inline-block p-2"
                   />
                 </a>
+              </div>
+
+              <div className="flex flex-col mb-0 p-5">
+                <span className="italic">Buy & Trade Candibar Tokens</span>
+                <a href="https://www.geckoterminal.com/solana/pools/64abbHKzpwxKDvG1h7ytY2F4tgS594s8HmBABntjGYme" target="_blank" rel="noopener noreferrer" className="mr-4">
+                  <Image
+                    src={coinGecko}
+                    alt="Coin Gecko Logo"
+                    width={150}
+                    height={150}
+                    className="inline-block p-2"
+                  />
+                </a>
+
+
+                <a href="https://dexscreener.com/solana/64abbhkzpwxkdvg1h7yty2f4tgs594s8hmbabntjgyme" target="_blank" rel="noopener noreferrer" className="mr-4 relative">
+
+                <Image
+                    src={dexscreener}
+                    alt="Dex Screener Logo"
+                    width={40}
+                    height={40}
+                    className="inline-block p-2"
+                  />
+                  <span className="chakra-text custom-165o9w8"><span className="chakra-text custom-2ygcmq">DEX</span><span className="chakra-text custom-12v4f4h">SCREENER</span></span>
+                </a>
+
+
               </div>
 
             </div>
