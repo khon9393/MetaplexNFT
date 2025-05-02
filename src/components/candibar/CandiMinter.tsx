@@ -120,7 +120,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Not Enough Candibar Tokens.");
-        setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`);
+        setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount.toLocaleString()} Candibar Tokens`);
         setIsTransacting(false);
         return;
       }
