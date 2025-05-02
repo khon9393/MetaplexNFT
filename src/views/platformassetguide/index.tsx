@@ -127,7 +127,7 @@ export const CPAGView: FC = ({ }) => {
                       {image.iscollectioncover ? (
                         <span>{image.name}</span>
                       ) : (
-                        <span>{image.name} → {candicollection[4].collectioncandibarvalue} Candibar Tokens</span>
+                        <span>{image.name} → {Number(candicollection[4].collectioncandibarvalue).toLocaleString()} Candibar Tokens</span>
                       )}
                     </li>
                   </ul>
