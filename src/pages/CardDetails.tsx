@@ -405,7 +405,7 @@ const CardDetails: FC = () => {
                                     height={16}
                                     className="mr-1"
                                   />
-                                  {machine.tokenPaymentAmount || 0} Candibar Tokens
+                                  {machine.tokenPaymentAmount.toLocaleString() || 0} Candibar Tokens
                                 </div>
                               )}
 

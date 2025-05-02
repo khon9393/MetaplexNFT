@@ -52,7 +52,7 @@ const TokenCard = (props: TokenCardProps) => {
 
       {escrow && !loading ? (
         <div className="flex flex-col">
-          {formatTokenAmount(escrow.amount,8)}{" "}
+          {formatTokenAmount(escrow.amount,8).toLocaleString()}{" "}
           {tokenAsset?.content.metadata.name}
         </div>
       ) : (

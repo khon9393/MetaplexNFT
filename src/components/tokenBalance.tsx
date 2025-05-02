@@ -49,7 +49,7 @@ const TokenBalance = () => {
         <div className="w-full text-center">
           {tokenAccount === null || !wallet.connected
             ? "0"
-            : "Balance: " +  formatTokenAmount(tokenAccount,8)}
+            : `Balance: ${Number(formatTokenAmount(tokenAccount,8)).toLocaleString()}`}
         </div>
       ) : (
         <Skeleton className="w-full min-w-[150px] h-8" /> 

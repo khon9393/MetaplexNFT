@@ -28,7 +28,7 @@ export const ZodiacReading: FC<ZodiacReadingProps> = ({ sign }) => {
       try {
         const fetchedBalance = await fetchTokenBalance(tokenMint, wallet.publicKey.toString());
         const formattedBalance = formatTokenAmount(fetchedBalance.amount, 8);
-        UserTokenBalance = formattedBalance;
+        UserTokenBalance = formattedBalance.toLocaleString();
       } catch (error) {
         UserTokenBalance = '0';
       }
