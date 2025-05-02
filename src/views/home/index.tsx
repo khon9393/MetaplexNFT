@@ -147,7 +147,7 @@ export const HomeView: FC = () => {
         <div className="text-center mt-4">
     
           <Link href="/nftswap" className="text-blue-400 hover:underline inline-flex items-center gap-2">
-            <LinkIcon /> Swap Full Zodiac Collection Set for 20,000 Candi Tokens
+            <LinkIcon /> Swap Full Zodiac Collection Set for 1,200,000 Candi Tokens
           </Link>
         </div>
       </motion.section>
