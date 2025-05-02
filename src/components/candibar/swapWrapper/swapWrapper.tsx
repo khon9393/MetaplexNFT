@@ -153,8 +153,8 @@ const SwapWrapper = (swapArgs: SwapArgs) => {
 
                 <div className="text-1xl md:text-2xl font-bold animate-pulse ">
                   {tradeState === TradeState.nft && escrow?.amount !== undefined
-                    ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount * BigInt(selectedAssets.length), 8)}</div>
-                    : <div className="text-red-700"> -{formatTokenAmount(escrow?.amount ?? BigInt(0), 8)}</div>}
+                    ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount * BigInt(selectedAssets.length), 8).toLocaleString()}</div>
+                    : <div className="text-red-700"> -{formatTokenAmount(escrow?.amount ?? BigInt(0), 8).toLocaleString()}</div>}
                 </div>
 
               )}

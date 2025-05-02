@@ -39,7 +39,7 @@ export function formatTokenAmount(tokenAccountOrAmount: Token | bigint, decimals
   // Remove trailing zeros and add commas for cleaner display
   //const formatted = `${whole.toLocaleString()}.${remainderStr}`.replace(/\.?0+$/, '');
   const formatted = `${whole.toLocaleString()}`;
-  return formatted;
+  return formatted.replace(/,/g, '');
 
 }
 

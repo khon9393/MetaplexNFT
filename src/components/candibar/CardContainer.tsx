@@ -172,7 +172,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                               height={16}
                               className="mr-1"
                             />
-                            {machine.tokenPaymentAmount || 0}
+                            {machine.tokenPaymentAmount.toLocaleString() || 0}
                           </div>
 
                         )}
