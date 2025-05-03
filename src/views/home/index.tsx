@@ -62,9 +62,9 @@ export const HomeView: FC = () => {
           <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-pink-400 to-blue-400">
             Welcome to Candibar
           </h1>
-          <div className="text-lg md:text-xl font-medium">
-            Buy & Trade Unique Digital Art NFTs on the Solana Blockchain.
-          </div>
+            <div className="text-lg md:text-xl font-medium">
+            Explore and Trade Unique Digital Art NFTs on Solana — Powered by the Official Candibar Token.
+            </div>
 
           <div className="text-lg md:text-xl font-medium">
             Explore Candibar metrics on Gecko Terminal
