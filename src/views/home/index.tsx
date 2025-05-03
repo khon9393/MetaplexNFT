@@ -11,6 +11,7 @@ import tokenimg from '../../../public/images/token.jpg';
 import jadeEmperor from '../../../public/images/jadeEmp2.jpeg';
 import { LinkIcon } from 'lucide-react';
 import SwapDetails from '@/components/candibar/swapCounter/SwapDetails';
+import coinGecko from "../../../public/logos/geckoterminal_dark.png";
 
 const items = [
   {
@@ -61,16 +62,34 @@ export const HomeView: FC = () => {
           <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-pink-400 to-blue-400">
             Welcome to Candibar
           </h1>
-          <p className="text-lg md:text-xl font-medium">
+          <div className="text-lg md:text-xl font-medium">
             Buy & Trade Unique Digital Art NFTs on the Solana Blockchain.
-          </p>
+          </div>
+
+          <div className="text-lg md:text-xl font-medium">
+            Explore Candibar metrics on Gecko Terminal
+          </div>
+          <a href="https://www.geckoterminal.com/solana/pools/64abbHKzpwxKDvG1h7ytY2F4tgS594s8HmBABntjGYme" target="_blank" rel="noopener noreferrer" className="mr-4">
+            <Image
+              src={coinGecko}
+              alt="Coin Gecko Logo"
+              width={175}
+              height={175}
+              className="inline-block p-2"
+            />
+          </a>
+
           <Image src={tokenimg} alt="Candibar Token" width={100} height={100} className="mx-auto rounded-xl" />
+
           <div className="flex justify-center items-center gap-2 mt-2">
             <LinkIcon className="text-blue-400" />
             <Link href={`https://solscan.io/token/${process.env.NEXT_PUBLIC_TOKEN}`} target="_blank" className="hover:underline">
               {process.env.NEXT_PUBLIC_TOKEN}
             </Link>
           </div>
+            <div className="text-md md:text-lg font-medium py-2 text-gray-300">
+            Buy and trade CANDIBAR/SOL on Raydium, Maestro Bot, Soul Sniper, Jupiter, Phantom, and MEXC DEX+
+            </div>
         </div>
       </motion.section>
 
@@ -104,9 +123,9 @@ export const HomeView: FC = () => {
             <h3 className="text-xl font-bold mb-2">2. Swap Candi NFT</h3>
             <p className="text-lg text-gray-300 mb-[15%]">Trade your unique Candi NFTs with the Jade Emperor to access premium token benefits and rare collectibles.</p>
             <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }}>
-            <motion.div whileHover={{ scale: 1.02 }}>
-              <Image src={jadeEmperor} alt="Jade Emperor" className="rounded-xl mb-4 object-cover h-[450px] w-full" width={600} height={600} />
-            </motion.div>
+              <motion.div whileHover={{ scale: 1.02 }}>
+                <Image src={jadeEmperor} alt="Jade Emperor" className="rounded-xl mb-4 object-cover h-[450px] w-full" width={600} height={600} />
+              </motion.div>
             </motion.div>
             <Link href="/nftswap" className="block w-full text-center bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-black font-semibold rounded-lg">
               Candi Swap
@@ -122,7 +141,7 @@ export const HomeView: FC = () => {
             ))}
             <div className="flex justify-center">
               <Link href="/AstrologyZodiac" className="mt-4 inline-flex items-center gap-2 text-blue-300 hover:underline">
-              <LinkIcon /> Explore Full Collection
+                <LinkIcon /> Explore Full Collection
               </Link>
             </div>
           </div>
@@ -145,7 +164,7 @@ export const HomeView: FC = () => {
           <SwapDetails />
         </div>
         <div className="text-center mt-4">
-    
+
           <Link href="/nftswap" className="text-blue-400 hover:underline inline-flex items-center gap-2">
             <LinkIcon /> Swap Full Zodiac Collection Set for 1,200,000 Candi Tokens
           </Link>
