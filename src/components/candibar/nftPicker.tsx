@@ -36,7 +36,7 @@ const NftPicker = ({
   const [isSearching, setIsSearching] = useState(false);
   const [assets, setAssets] = useState<Assets[]>([]);
   const [selectedAssets, setLocalSelectedAssets] = useState<Asset[]>([]);
-  const overrideZodiacSwap = process.env.OVERRIDE_ZODIAC_SWAP || 0;
+  const overrideZodiacSwap = Number(process.env.NEXT_PUBLIC_OVERRIDE_ZODIAC_SWAP) || 0;
   const wallet1 = useWallet();
 
   const handleSelection = (asset: Asset) => {
