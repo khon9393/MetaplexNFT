@@ -101,7 +101,7 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
         const walletCollectionNames = result.items.map((item: any) => item.content.metadata.description);
 
         // Validate if walletCollectionNames contains all items in completeCollectionNames
-        if(overrideZodiacSwap === '0') {
+        if(Number(overrideZodiacSwap) === 0) {
         const isValidCollection = completeCollectionNames.every(name => walletCollectionNames.includes(name));
         if (!isValidCollection) {
           console.log(`Valid collection found for: ${collectionPublicKey}`);
