@@ -14,7 +14,7 @@ export const validateCollection = async (collectionPublicKey: string, selectedAs
   // Check if all selected names are in the complete collection names
   const boolresult = completeCollectionNames.every(description => selectedNames.includes(description));
 
-if (overrideZodiacSwap === '0') {
+if (Number(overrideZodiacSwap) === 0) {
   return boolresult;
 }
   return true;
