@@ -53,7 +53,7 @@ const NftPicker = ({
 
   const handleConfirmSelection = async () => {
 
-    if (selectedAssets.length > 0 && overrideZodiacSwap === '0') {
+    if (selectedAssets.length > 0 && Number(overrideZodiacSwap) === 0) {
 
       if(swapArgs.name === 'zodiac') {
   
