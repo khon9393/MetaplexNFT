@@ -7,7 +7,7 @@ interface SearchAssetArgs {
   burnt: boolean;
 }
 
-const overrideZodiacSwap = process.env.OVERRIDE_ZODIAC_SWAP || 0;
+const overrideZodiacSwap = Number(process.env.NEXT_PUBLIC_OVERRIDE_ZODIAC_SWAP) || 0;
 
 const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
 
