@@ -3,7 +3,7 @@ import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { notify } from "../../utils/notifications";
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { generateSigner, transactionBuilder, publicKey, some, TransactionBuilderSendAndConfirmOptions } from '@metaplex-foundation/umi';
+import { generateSigner, transactionBuilder, publicKey, some, TransactionBuilderSendAndConfirmOptions, amountToNumber } from '@metaplex-foundation/umi';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { findAssociatedTokenPda, setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
@@ -117,13 +117,31 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       }
 
       if (results[0].tokenPaymentAmount > 0 && (userTokenbalance < results[0].tokenPaymentAmount)) {
-
+         
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Not Enough Candibar Tokens.");
-        setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount.toLocaleString()} Candibar Tokens`);
+
+        if (results[0].tokenPaymentAmount > 0) {
+          setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount.toLocaleString()} Candibar Tokens`);
+
         setIsTransacting(false);
         return;
       }
+    }
+
+      if (results[0].tokenBurnAmount > 0 && (userTokenbalance < results[0].tokenBurnAmount)) {
+         
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Not Enough Candibar Tokens.");
+
+        if (results[0].tokenBurnAmount > 0) {
+          setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenBurnAmount.toLocaleString()} Candibar Tokens to burn`);
+        }
+        
+        setIsTransacting(false);
+        return;
+      }
+
 
       if (results[0].candyGuardMinLimit > 0 && (Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit)) {
 
@@ -148,6 +166,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
             mintArgs: {
               solPayment: some({ destination: treasury }),
               mintLimit: some({ id: results[0].candyGuardId }),
+              
               ...(results[0].tokenPaymentAmount > 0 ? {
                 tokenPayment: some({
                   mint: tokenMint,
@@ -157,6 +176,14 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
                   }))[0],
                 }),
               } : {}),
+
+              ...(results[0].tokenBurnAmount > 0 ? {
+                tokenBurn: some({
+                  mint: tokenMint,
+                  amount: results[0].tokenBurnAmount,
+                }),
+              } : {}),
+
             },
           })
         );
@@ -183,14 +210,23 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         setShowFireworks(true);
         setShowConfetti(true);
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
-        setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 9 seconds
+         setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 9 seconds
+        // setTimeout(() => {
+        //   setShowConfetti(false);
+        //   window.location.reload();
+        // }, 9000);
       }
       else {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 9000); // Confetti for 9 seconds
+        // setTimeout(() => {
+        //   setShowConfetti(false);
+        //   window.location.reload();
+        // }, 9000);
       }
 
       setIsTransacting(false);
+
 
     } catch (error: any) {
 

@@ -115,6 +115,7 @@ const CardDetails: FC = () => {
           collectionStatus: collectionData.collectionstatus as NFTStatusTypes,
           isSwappable: collectionData.isswappable,
           tokenPaymentAmount: balance.tokenPaymentAmount,
+          tokenBurnAmount: balance.tokenBurnAmount,
         };
       }
       return null;
@@ -176,7 +177,9 @@ const CardDetails: FC = () => {
                               height={400}
                               className="rounded-xl shadow-lg"
                             />
-                            {machine.itemsRedeemed === machine.itemsAvailable && (
+                            {machine.itemsRedeemed === machine.itemsAvailable || 
+                             machine.itemsRedeemed === machine.redeemedAmountMaxLimit
+                            && (
                               <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-8xl font-bold text-red-500 opacity-75 transform rotate-45">
                                   SOLD OUT
@@ -384,6 +387,7 @@ const CardDetails: FC = () => {
                             </div>
 
                             <CollapsibleContent className="space-y-1">
+                            
 
                               <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                                 <Image
@@ -396,8 +400,9 @@ const CardDetails: FC = () => {
                                 {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} SOL (excl. txn fees)
                               </div>
 
-                              {machine.tokenPaymentAmount > 0 && (
+                              {(machine.tokenPaymentAmount > 0 || machine.tokenBurnAmount) && (
                                 <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center">
+                                  {machine.tokenBurnAmount > 0 && <span >🔥</span>}
                                   <Image
                                     src={tokenimg}
                                     alt="Solana Icon"
@@ -405,7 +410,14 @@ const CardDetails: FC = () => {
                                     height={16}
                                     className="mr-1"
                                   />
-                                  {machine.tokenPaymentAmount.toLocaleString() || 0} Candibar Tokens
+                                    {machine.tokenPaymentAmount > 0 &&
+                                  <span >{`${machine.tokenPaymentAmount.toLocaleString()} Candibar Tokens`}</span>}
+                                  
+                                  {machine.tokenBurnAmount > 0 &&
+                                    <span className="text-red-500">
+                                     {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens to Burn`}
+                                    </span>}
+
                                 </div>
                               )}
 

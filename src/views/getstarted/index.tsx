@@ -128,44 +128,30 @@ export const GetStartedView: FC = ({ }) => {
               Note: All transactions will require a small amount of Solana (SOL) tokens to cover network fees.
             </h6>
             <Accordion type="single" collapsible={true}>
-              <AccordionItem value="step1">
-                <AccordionTrigger className="text-xl font-bold">Step 1: Get Candi NFTs</AccordionTrigger>
-                <AccordionContent>
-                  <h2 className="text-xl">
-                    Candi NFTs are essential for accessing the Candibar platform. 
-                    They grant you entry to exclusive features, rewards, and the vibrant Candibar community. 
-                    Additionally, they can be exchanged for official Candibar tokens, which can be used to purchase items in the Candibar marketplace. 
-                    You can mint them directly from our offical website here:
-                  </h2>
-                  <ul className="list-disc pl-5 mt-3 text-xl">
-                    <li>
-                      <Link href="/Candi" className="text-blue-300 hover:underline">
-                        2025 Candi Collection NFTs
-                      </Link>
-                    </li>
-                  </ul>
-                </AccordionContent>
+            <AccordionItem value="step1">
+              <AccordionTrigger className="text-xl font-bold">Step 1: Purchase and Exchange Candibar Tokens</AccordionTrigger>
+              <AccordionContent>
+                <h2 className="text-xl mt-4">
+                To begin using the Candibar platform, you need to acquire Candibar tokens. These tokens can be purchased and exchanged on various platforms. Follow these steps to get started:
+                </h2>
+                <div className="text-md md:text-lg font-medium py-2 text-gray-300">
+                <span>Purchase and exchange CANDIBAR/SOL on platforms like </span> 
+                <a href="https://raydium.io/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Raydium </a>, 
+                <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Dexscreener </a>, 
+                <a href="https://jup.ag/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Jupiter </a>, or directly via the 
+                <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Solflare wallet </a>.
+                </div>
+                <ul className="list-disc pl-5 mt-3 text-xl">
+                <li>Ensure your wallet is set up and funded with SOL tokens.</li>
+                <li>Visit one of the recommended platforms to exchange SOL for Candibar tokens.</li>
+                <li>Follow the platform&apos;s instructions to complete the transaction.</li>
+                <li>Once the transaction is confirmed, the Candibar tokens will be credited to your wallet.</li>
+                </ul>
+              </AccordionContent>
               </AccordionItem>
-
+              
               <AccordionItem value="step2">
-                <AccordionTrigger className="text-xl font-bold">Step 2: Swap Candi NFTs for Candibar Tokens</AccordionTrigger>
-                <AccordionContent>
-                  <h2 className="text-xl">
-                    Once you have your Candi NFTs, you can swap them for Candibar tokens. 
-                    These tokens are used for transactions within the Candibar ecosystem and can be traded on various exchanges in the near future. 
-                    To swap your Candi NFTs for Candibar tokens, follow these steps (and imagine you&apos;re visiting the Jade Emperor to make the swap!):
-                  </h2>
-                  <ul className="list-disc pl-5 mt-3 text-xl">
-                    <li>Go to the <Link href="/nftswap" className="text-blue-300 hover:underline">Candibar Swap Page</Link>.</li>
-                    <li>Connect your wallet by clicking on the &quot;Select Wallet&quot; button.</li>
-                    <li>Choose the Candi NFTs you want to swap from your wallet.</li>
-                    <li>Confirm the swap transaction to receive your Candibar tokens.</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="step3">
-                <AccordionTrigger className="text-xl font-bold">Step 3: Redeem Candibar Tokens for NFTs in the Marketplace</AccordionTrigger>
+                <AccordionTrigger className="text-xl font-bold">Step 2: Redeem Candibar Tokens for NFTs in the Marketplace</AccordionTrigger>
                 <AccordionContent>
                   <h2 className="text-xl mt-4">
                   After swapping your Candi NFTs for Candibar tokens, you can use them to acquire exclusive items in the Candibar marketplace or swap them for other NFTs. 
@@ -182,8 +168,8 @@ export const GetStartedView: FC = ({ }) => {
                 </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="step4">
-                <AccordionTrigger className="text-xl font-bold">Step 4: See Candibar Platform Asset Guide (CPAG)</AccordionTrigger>
+                <AccordionItem value="step3">
+                <AccordionTrigger className="text-xl font-bold">Step 3: See Candibar Platform Asset Guide (CPAG)</AccordionTrigger>
                 <AccordionContent>
                   <h2 className="text-xl">
                     The Candibar Platform Asset Guide (CPAG) provides a comprehensive overview of all assets available within the Candibar ecosystem. 
