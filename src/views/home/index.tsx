@@ -124,7 +124,7 @@ export const HomeView: FC = () => {
             </h3>
             <div className="text-3xl text-gray-300 mb-4 font-medium p-2">3 Billion</div>
             <div className="line-clamp-1 flex gap-2 font-medium text-gray-200">
-              100% of Total Supply
+              Entire Candibar Token Supply
             </div>
             <hr className="my-6 border-gray-700" />
 
@@ -143,7 +143,7 @@ export const HomeView: FC = () => {
             </h3>
             <div className="text-3xl text-gray-300 mb-4 font-medium p-2">600 Million</div>
             <div className="line-clamp-1 flex gap-2 font-medium text-gray-200">
-              20% of Total Supply
+              Represents 20% of the Circulating Supply
             </div>
             <hr className="my-6 border-gray-700" />
             <div className="text-gray-300 mb-4">
