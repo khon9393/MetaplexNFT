@@ -118,40 +118,39 @@ export const HomeView: FC = () => {
         <div className="grid md:grid-cols-3 gap-6 ">
 
           {/* Promo NFT Card */}
-          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-80">
+          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-[355px]">
             <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-teal-400">
               Total Circulating Supply
             </h3>
-            <div className="text-3xl text-gray-300 mb-4 font-medium">3 Billion</div>
+            <div className="text-3xl text-gray-300 mb-4 font-medium p-2">3 Billion</div>
             <div className="line-clamp-1 flex gap-2 font-medium text-gray-200">
               100% of Total Supply
             </div>
             <hr className="my-6 border-gray-700" />
 
-            <div className="text-gray-300">
+            <div className="text-gray-300 mb-4">
               2 Billion available for trading (66.67%)
             </div>
-            <div className="text-gray-300 mb-4">
+            <div className="text-gray-300" >
               1 Billion in platform escrow (33.33%)
             </div>
           </div>
 
-          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-80">
+          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-[355px]">
 
             <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400">
-              Token Burn Target
+              🔥 Token Burn Target
             </h3>
-            <div className="text-3xl text-gray-300 mb-4 font-medium">600 Million</div>
+            <div className="text-3xl text-gray-300 mb-4 font-medium p-2">600 Million</div>
             <div className="line-clamp-1 flex gap-2 font-medium text-gray-200">
               20% of Total Supply
             </div>
             <hr className="my-6 border-gray-700" />
             <div className="text-gray-300 mb-4">
-              Burn candibar tokens in exchange for NFTs.
+              Exchange your Candibar tokens for exclusive NFTs by burning them.
             </div>
-             <div className="text-gray-300">
-              Each time you burn tokens, the supply decreases
-
+            <div className="text-gray-300">
+              Token burning helps decrease the total supply, strenghthening the value of remaining tokens.
             </div>
           </div>
 
@@ -203,9 +202,9 @@ export const HomeView: FC = () => {
         </div>
         <div className="text-center mt-4">
 
-          <Link href="/nftswap" className="text-blue-400 hover:underline inline-flex items-center gap-2">
-            <LinkIcon /> Swap Full Zodiac Collection Set for 1,200,000 Candi Tokens
-          </Link>
+            <Link href="/nftswap" className="text-blue-400 hover:underline inline-flex items-center gap-2">
+            <LinkIcon /> Trade a Complete Zodiac Collection for 1,200,000 Candi Tokens
+            </Link>
         </div>
       </motion.section>
 
