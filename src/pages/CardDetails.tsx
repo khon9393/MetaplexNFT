@@ -387,6 +387,7 @@ const CardDetails: FC = () => {
                             </div>
 
                             <CollapsibleContent className="space-y-1">
+                            
 
                               <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                                 <Image
@@ -401,6 +402,7 @@ const CardDetails: FC = () => {
 
                               {(machine.tokenPaymentAmount > 0 || machine.tokenBurnAmount) && (
                                 <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center">
+                                  {machine.tokenBurnAmount > 0 && <span >🔥</span>}
                                   <Image
                                     src={tokenimg}
                                     alt="Solana Icon"
@@ -413,7 +415,7 @@ const CardDetails: FC = () => {
                                   
                                   {machine.tokenBurnAmount > 0 &&
                                     <span className="text-red-500">
-                                     {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens to Burn`} 🔥
+                                     {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens to Burn`}
                                     </span>}
 
                                 </div>
