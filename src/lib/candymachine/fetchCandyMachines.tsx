@@ -75,19 +75,25 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
             ? Number(formatTokenAmount(candyGuard.guards.tokenPayment.value.amount, 8))
             : 0;
 
-          results.push({
-            publicKey: key.toString(),
-            itemsRedeemed: Number(candyMachine.itemsRedeemed),
-            itemsAvailable: Number(candyMachine.data.itemsAvailable),
-            collectionMint: String(candyMachine.collectionMint),
-            collectionName,
-            redeemedAmountMaxLimit,
-            SolCost: candyGuardBasisPoints,
-            candyGuardpk: candyMachine.mintAuthority,
-            candyGuardId,
-            candyGuardMinLimit,
-            tokenPaymentAmount,
-          });
+              const { mint: tokenBurnMintAddress, amount: tokenBurnAmount } = candyGuard?.guards.tokenBurn.__option === 'Some'
+              ? candyGuard.guards.tokenBurn.value
+              : { mint: "", amount: 0 };
+
+                results.push({
+                publicKey: key.toString(),
+                itemsRedeemed: Number(candyMachine.itemsRedeemed),
+                itemsAvailable: Number(candyMachine.data.itemsAvailable),
+                collectionMint: String(candyMachine.collectionMint),
+                collectionName,
+                redeemedAmountMaxLimit,
+                SolCost: candyGuardBasisPoints,
+                candyGuardpk: candyMachine.mintAuthority,
+                candyGuardId,
+                candyGuardMinLimit,
+                tokenPaymentAmount,
+                tokenBurnMintAddress: tokenBurnMintAddress.toString(),
+                tokenBurnAmount: tokenBurnAmount !== 0 ? Number(tokenBurnAmount) / 10 ** 8 : 0,
+                });
         } catch (error: any) {
           console.error(`Error fetching candy machine balance for key ${key}:`, error);
           results.push({
@@ -102,6 +108,8 @@ export const getCandyMachinesBalance = async (publicKeys: PublicKey[]) => {
             candyGuardId: 0,
             candyGuardMinLimit: 0,
             tokenPaymentAmount: 0,
+            tokenBurnMintAddress: "",
+            tokenBurnAmount: 0,
           });
         } finally {
           resolve();
