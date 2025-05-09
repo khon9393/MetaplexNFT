@@ -128,15 +128,13 @@ export const HomeView: FC = () => {
             </div>
             <hr className="my-6 border-gray-700" />
 
-            <div className="text-gray-300 mb-4">
-              2 Billion available for trading (66.67%)
-            </div>
-            <div className="text-gray-300" >
-              1 Billion in platform escrow (33.33%)
-            </div>
+            <ul className="list-disc list-inside text-gray-300 space-y-2">
+              <li>2 Billion available for trading (66.67%)</li>
+              <li>1 Billion in platform escrow (33.33%)</li>
+            </ul>
           </div>
 
-          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-[355px]">
+          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-[600px]">
 
             <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400">
               🔥 Token Burn Target
@@ -146,12 +144,13 @@ export const HomeView: FC = () => {
               Represents 20% of the Circulating Supply
             </div>
             <hr className="my-6 border-gray-700" />
-            <div className="text-gray-300 mb-4">
-              Exchange your Candibar tokens for exclusive NFTs by burning them.
-            </div>
-            <div className="text-gray-300">
-              Token burning helps decrease the total supply, strenghthening the value of remaining tokens.
-            </div>
+            
+            <ul className="list-disc list-inside text-gray-300 space-y-2">
+              <li>Exchange your Candibar tokens for exclusive NFTs by burning them.</li>
+              <li>Token burning helps decrease the total supply, strengthening the value of remaining tokens.</li>
+                <li>Complete NFT sets can be exchanged for tokens on the Candibar platform. Individual NFTs can also be traded on leading NFT marketplaces.</li>
+            </ul>
+
           </div>
 
           {/* Swap Card */}
