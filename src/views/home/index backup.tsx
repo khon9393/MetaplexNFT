@@ -62,9 +62,9 @@ export const HomeView: FC = () => {
           <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-pink-400 to-blue-400">
             Welcome to Candibar
           </h1>
-          <div className="text-lg md:text-xl font-medium">
+            <div className="text-lg md:text-xl font-medium">
             Explore and Trade Unique Digital Art NFTs on Solana — Powered by the Official Candibar Token.
-          </div>
+            </div>
 
           <div className="text-lg md:text-xl font-medium">
             Explore Candibar metrics on Gecko Terminal
@@ -87,14 +87,9 @@ export const HomeView: FC = () => {
               {process.env.NEXT_PUBLIC_TOKEN}
             </Link>
           </div>
-          <div className="text-md md:text-lg font-medium py-2 text-gray-300">
-            <span>Purchase and exchange CANDIBAR/SOL on platforms like </span>
-            <a href="https://raydium.io/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Raydium</a>,
-            <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Dexscreener</a>,
-            <a href="https://jup.ag/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Jupiter</a>,
-            or directly via the
-            <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Solflare wallet</a>.
-          </div>
+            <div className="text-md md:text-lg font-medium py-2 text-gray-300">
+            Purchase and exchange CANDIBAR/SOL on platforms like Raydium, Dexscreener, Jupiter, or directly via the Solflare wallet.
+            </div>
         </div>
       </motion.section>
 
@@ -115,49 +110,17 @@ export const HomeView: FC = () => {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 ">
-
+        <div className="grid md:grid-cols-3 gap-6">
           {/* Promo NFT Card */}
-          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-80">
-            <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-teal-400">
-              Total Circulating Supply
-            </h3>
-            <div className="text-3xl text-gray-300 mb-4 font-medium">3 Billion</div>
-            <div className="line-clamp-1 flex gap-2 font-medium text-gray-200">
-              100% of Total Supply
-            </div>
-            <hr className="my-6 border-gray-700" />
-
-            <div className="text-gray-300">
-              2 Billion available for trading (66.67%)
-            </div>
-            <div className="text-gray-300 mb-4">
-              1 Billion in platform escrow (33.33%)
-            </div>
-          </div>
-
-          <div className="bg-gray-900 p-6 rounded-xl shadow-md h-80">
-
-            <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400">
-              Token Burn Target
-            </h3>
-            <div className="text-3xl text-gray-300 mb-4 font-medium">600 Million</div>
-            <div className="line-clamp-1 flex gap-2 font-medium text-gray-200">
-              20% of Total Supply
-            </div>
-            <hr className="my-6 border-gray-700" />
-            <div className="text-gray-300 mb-4">
-              Burn candibar tokens in exchange for NFTs.
-            </div>
-             <div className="text-gray-300">
-              Each time you burn tokens, the supply decreases
-
-            </div>
+          <div className="bg-gray-900 p-6 rounded-xl shadow-md">
+            <h3 className="text-xl font-bold mb-2">1. Promotional NFT</h3>
+            <p className="text-lg text-gray-300 mb-4">Unlock limited-edition NFTs and trade them for exclusive Candibar Token rewards.</p>
+            <CardContainer candyMachineKeys={PromotioncandyMachineKeys} />
           </div>
 
           {/* Swap Card */}
-          {/* <div className="bg-gray-900 p-6 rounded-xl shadow-md">
-            <h3 className="text-xl font-bold mb-2">Swap Candi NFT</h3>
+          <div className="bg-gray-900 p-6 rounded-xl shadow-md">
+            <h3 className="text-xl font-bold mb-2">2. Swap Candi NFT</h3>
             <p className="text-lg text-gray-300 mb-[15%]">Trade your unique Candi NFTs with the Jade Emperor to access premium token benefits and rare collectibles.</p>
             <motion.div whileInView={{ opacity: 1, y: 0, scale: [0.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }}>
               <motion.div whileHover={{ scale: 1.02 }}>
@@ -167,11 +130,11 @@ export const HomeView: FC = () => {
             <Link href="/nftswap" className="block w-full text-center bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-black font-semibold rounded-lg">
               Candi Swap
             </Link>
-          </div> */}
+          </div>
 
           {/* Zodiac Card */}
           <div className="bg-gray-900 p-6 rounded-xl shadow-md">
-            <h3 className="text-xl font-bold mb-2">Zodiac Candi Art NFT</h3>
+            <h3 className="text-xl font-bold mb-2">3. Zodiac Candi Art NFT</h3>
             <p className="text-lg text-gray-300 mb-4">Exclusive NFTs available only with Candibar tokens.</p>
             {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
               <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
@@ -184,7 +147,6 @@ export const HomeView: FC = () => {
           </div>
         </div>
       </motion.section>
-
 
       {/* Swap Details Section */}
       <motion.section
@@ -209,7 +171,28 @@ export const HomeView: FC = () => {
         </div>
       </motion.section>
 
-
+      {/* Sponsor Highlight */}
+      <motion.section
+        className="max-w-4xl mx-auto bg-gray-900 text-white p-6 rounded-xl shadow-md"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h3 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-br from-pink-400 to-blue-400">
+          Early Sponsors & Donors
+        </h3>
+        <p className="mt-2 text-lg text-center">Support the Candibar NFT Kickstarter by owning a Snake Coin NFT and enjoy exclusive recognition.</p>
+        <div className="mt-6">
+          <Image src={items[0].image} alt={items[0].text} width={400} height={200} className="rounded-xl mx-auto" />
+          <p className="text-center mt-2 text-md">{items[0].titledesc}</p>
+          <p className="text-center text-lg text-gray-300">{items[0].subtitledesc}</p>
+          <div className="flex justify-center mt-2">
+            <Link href={items[0].pageloc} className="text-blue-400 hover:underline inline-flex items-center gap-2">
+              <LinkIcon /> Learn more
+            </Link>
+          </div>
+        </div>
+      </motion.section>
     </main>
   );
 };
