@@ -65,6 +65,7 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
             zodiacSign: collection.zodiacsign,
             zodiacYear: collection.zodiacyear,
             zodiacIcon: collection.zodiacicon,
+            tokenBurnAmount: balance.tokenBurnAmount,
           };
         }
         return null;
@@ -111,10 +112,10 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
         )}
 
         {candyMachines.map((machine, machineIndex) => (
-        <div key={machine.id} className="flex lg:w-3/8 p-4">
-          <motion.div whileInView={{ opacity: 1, y: 0, scale: [.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
-            <motion.div whileHover={{ scale: 1.02 }}>
-            
+          <div key={machine.id} className="flex lg:w-3/8 p-4">
+            <motion.div whileInView={{ opacity: 1, y: 0, scale: [.9, 1] }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 1 }} className="text-center mt-4 p-2">
+              <motion.div whileHover={{ scale: 1.02 }}>
+
                 <Card className="w-80 h-full rounded-lg">
                   <span className="text-1xl font-semibold">
 
@@ -163,16 +164,24 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                         <span>{parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')}
                         </span>
 
-                        {machine.tokenPaymentAmount > 0 && (
+                        {(machine.tokenPaymentAmount > 0 || machine.tokenBurnAmount) && (
                           <div className="px-1 py-1 font-mono text-sm shadow-sm flex items-center justify-center whitespace-nowrap">
-                            &nbsp;|&nbsp;<Image
+                            &nbsp;| {machine.tokenBurnAmount > 0 && <span >🔥</span>}<Image
                               src={tokenimg}
                               alt="Candibar Icon"
                               width={16}
                               height={16}
                               className="mr-1"
                             />
-                            {machine.tokenPaymentAmount.toLocaleString() || 0}
+
+                            {machine.tokenPaymentAmount > 0 &&
+                              <span >{`${machine.tokenPaymentAmount.toLocaleString()} Candibar Tokens`}</span>}
+
+                            {machine.tokenBurnAmount > 0 &&
+                              <span className="text-red-700">
+                                {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens`}
+                              </span>}
+
                           </div>
 
                         )}
@@ -209,13 +218,15 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                                     className="object-cover w-full h-full rounded-2xl"
                                   />
 
-                                  {machine.itemsRedeemed === machine.itemsAvailable && (
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                      <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
-                                        {NFTStatusTypes.SoldOut}
-                                      </span>
-                                    </div>
-                                  )}
+                                  {machine.itemsRedeemed === machine.itemsAvailable ||
+                                    machine.itemsRedeemed === machine.redeemedAmountMaxLimit
+                                    && (
+                                      <div className="absolute inset-0 flex items-center justify-center">
+                                        <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
+                                          {NFTStatusTypes.SoldOut}
+                                        </span>
+                                      </div>
+                                    )}
 
                                   {machine.collectionStatus !== NFTStatusTypes.Available && (
                                     <div className="absolute inset-0 flex items-center justify-center">
@@ -277,9 +288,9 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                     </Link>
                   </span>
                 </Card>
-             
+
+              </motion.div>
             </motion.div>
-          </motion.div>
           </div>
         ))}
 
