@@ -242,7 +242,7 @@ export const CPAGView: FC = ({ }) => {
           <ul className="text-xl list-disc list-inside pl-6 space-y-2">
             <li>Collect all four Zodiac NFTs of the same sign to unlock a special reward!</li>
             {/* <li>Collect all four Zodiac NFTs of the same sign + the Cover NFT to unlock a massive ?? ??</li> */}
-            <li><strong>20,000 Candibar Tokens</strong>!</li>
+            <li><strong>1,200,000 Candibar Tokens</strong>!</li>
           </ul>
         </div> 
         <SwapDetails/>
