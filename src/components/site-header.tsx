@@ -13,7 +13,7 @@ export function SiteHeader() {
         /> */}
         <Image src={tokenimg} alt="Candibar Token" width={25} height={25} />
         <h1 className="text-lg sm:text-2xl font-medium break-words">
-          Candibar Token
+          Candibar Tokens
         </h1>
       </div>
     </header>
