@@ -130,7 +130,7 @@ export const HomeView: FC = () => {
               <li>Tokens are automatically burned 🔥 upon redemption for Zodiac NFTs.</li>
               <li>Complete NFT sets can be exchanged for tokens on the Candibar platform.</li>
                 <li>Individual NFTs can also be traded on leading NFT marketplaces. </li>
-               <li>I   If you don't have a complete collection and want one, consider trading with fellow Candibar NFT collectors.</li>
+                 <li>If you don&apos;t have a complete collection and want one, consider trading with fellow Candibar NFT collectors.</li>
             </ul>
             <h3 className="text-xl font-bold">Featured Month:</h3>
             {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
