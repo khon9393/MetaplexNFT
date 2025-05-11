@@ -23,7 +23,7 @@ const chartData = [
   { zodiac: "Aquarius", burn: 50000000-200000, color: "hsl(var(--chart-1))" },
   { zodiac: "Pisces", burn: 50000000, color: "hsl(var(--chart-1))" },
   { zodiac: "Aries", burn: 50000000-200000, color: "hsl(var(--chart-1))" },
-  { zodiac: "Taurus", burn: 50000000-24000000, color: "hsl(var(--chart-1))" },
+  { zodiac: "Taurus", burn: 50000000-2400000, color: "hsl(var(--chart-1))" },
   { zodiac: "Gemini", burn: 50000000-400000, color: "hsl(var(--chart-1))" },
   { zodiac: "Cancer", burn: 50000000-600000, color: "hsl(var(--chart-1))" },
   { zodiac: "Leo", burn: 50000000-200000, color: "hsl(var(--chart-1))" },
@@ -62,25 +62,41 @@ export function Component() {
               cursor={false}
               content={<ChartTooltipContent indicator="dashed" />}
             />
-            {/* <Bar
+            <Bar
               dataKey="burn"
               radius={4}
               isAnimationActive={false}
               shape={(props) => {
               const { x, y, width, height, payload } = props;
+              const fillColor = payload.burn === 50000000 
+              ? "hsl(var(--chart-2))" 
+              : "hsl(var(--chart-1))";
               return (
-                <rect
-                x={x}
-                y={y}
-                width={width}
-                height={height}
-                fill={payload.color}
-                radius={4}
-                />
+              <rect
+              x={x}
+              y={y}
+              width={width}
+              height={height}
+              fill={fillColor}
+              radius={4}
+              />
               );
               }}
-            /> */}
-            <Bar dataKey="burn" fill="var(--color-burn)" radius={4} />
+              label={(props) => {
+              const { x, y, value } = props;
+              return (
+              <text
+                x={x + 10}
+                y={y - 10}
+                fill="hsl(var(--foreground))"
+                fontSize={12}
+                textAnchor="middle"
+              >
+                {value.toLocaleString()}
+              </text>
+              );
+              }}
+            />
             </BarChart>
         </ChartContainer>
       </CardContent>
