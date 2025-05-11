@@ -33,7 +33,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
             href="/"
             source='mobile'
           />
-                    <li className="mt-auto">
+          <li className="mt-auto">
             <NavElement
               label="Get&nbsp;Started?"
               href="/getstarted"
@@ -51,6 +51,13 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
             <NavElement
               label="Zodiac&nbsp;NFT"
               href="/AstrologyZodiac"
+              source='mobile'
+            />
+          </li>
+            <li>
+            <NavElement
+              label="Candi&nbsp;NFT"
+              href="/Candi"
               source='mobile'
             />
           </li>
