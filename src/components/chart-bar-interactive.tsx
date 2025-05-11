@@ -23,7 +23,7 @@ const chartData = [
   { zodiac: "Aquarius", burn: 50000000-200000, color: "hsl(var(--chart-1))" },
   { zodiac: "Pisces", burn: 50000000, color: "hsl(var(--chart-1))" },
   { zodiac: "Aries", burn: 50000000-200000, color: "hsl(var(--chart-1))" },
-  { zodiac: "Taurus", burn: 50000000-24000000, color: "hsl(var(--chart-1))" },
+  { zodiac: "Taurus", burn: 50000000-2400000, color: "hsl(var(--chart-1))" },
   { zodiac: "Gemini", burn: 50000000-400000, color: "hsl(var(--chart-1))" },
   { zodiac: "Cancer", burn: 50000000-600000, color: "hsl(var(--chart-1))" },
   { zodiac: "Leo", burn: 50000000-200000, color: "hsl(var(--chart-1))" },
