@@ -91,6 +91,18 @@ export function Component() {
         <div className="leading-none text-muted-foreground">
           Starting supply: 50 million candibar tokens accross 12 Candi Zodiac NFT collections.
         </div>
+        <div className="leading-none text-muted-foreground">
+          <strong>Disclaimer: Data Accuracy</strong>
+          <p>
+            The information presented on this website, including but not limited to cryptocurrency prices, market capitalization, token supply, and other statistical data, is provided for general informational purposes only. While we strive to ensure the accuracy and timeliness of the data, we do not guarantee its completeness, reliability, or availability at all times.
+          </p>
+          <p>
+            Cryptocurrency markets are highly volatile and data may change rapidly. Our statistics may be sourced from third-party APIs or external platforms, which are subject to their own limitations and delays. As such, we do not accept any liability for losses or damages arising from the use of or reliance on the data displayed on this site.
+          </p>
+          <p>
+            Always conduct your own research and consult a financial advisor before making any investment decisions.
+          </p>
+        </div>
       </CardFooter>
     </Card>
   )
