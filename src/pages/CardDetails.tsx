@@ -144,10 +144,7 @@ const CardDetails: FC = () => {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
-
       >
-
-
 
         {/* Begin - Left Side Details Section */}
 
@@ -177,17 +174,17 @@ const CardDetails: FC = () => {
                               height={400}
                               className="rounded-xl shadow-lg"
                             />
-                            {machine.itemsRedeemed === machine.itemsAvailable || 
-                             machine.itemsRedeemed === machine.redeemedAmountMaxLimit
+                            {machine.itemsRedeemed === machine.itemsAvailable 
                             && (
                               <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-8xl font-bold text-red-500 opacity-75 transform rotate-45">
-                                  SOLD OUT
-                                </span>
+                              <span className="text-8xl font-bold text-red-500 opacity-75 transform rotate-45">
+                                {NFTStatusTypes.SoldOut}
+                              </span>
                               </div>
                             )}
 
-                            {machine.collectionStatus !== NFTStatusTypes.Available && (
+                            {(machine.collectionStatus !== NFTStatusTypes.Available) ||
+                            (machine.itemsRedeemed === machine.redeemedAmountMaxLimit) && (
                               <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
                                   {NFTStatusTypes.ComingSoon}

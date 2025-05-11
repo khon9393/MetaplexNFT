@@ -30,12 +30,12 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             <meta property="og:title" content="Candibar NFTs" />
             <meta property="og:description" content="Candibar NFTs - Buy, and Trade Unique Digital Assets | $CANDIBAR Tokens Marketplace" />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://www.candibar.com" />
-            <meta property="og:image" content="https://www.candibar.com/images/candi_collection_cover.jpeg" />
+            <meta property="og:url" content="https://www.candibarnft.com" />
+            <meta property="og:image" content="https://www.candibarnft.com/images/candi_collection_cover.jpeg" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content="Candibar NFTs" />
-            <meta name="twitter:description" content="Burn $CANDIBAR tokens to redeem limited Zodiac NFTs. Join the 600M token burn mission." />
-            <meta name="twitter:image" content="https://www.candibar.com/images/candi_collection_cover.jpeg" />
+            <meta name="twitter:description" content="Candibar NFTs - Buy, and Trade Unique Digital Assets | $CANDIBAR Tokens Marketplace" />
+            <meta name="twitter:image" content="https://www.candibarnft.com/images/candi_collection_cover.jpeg" />
             <meta name="seobility" content="c04242ff42b70e2b459d7520c519e14e" />
             {/* <link rel="apple-touch-icon" sizes="180x180" href={appletouch.src} /> */}
             </Head>
