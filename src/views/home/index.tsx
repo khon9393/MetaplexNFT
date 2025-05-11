@@ -42,7 +42,7 @@ export const HomeView: FC = () => {
     if (currentSigns) {
       setZodiacSigns(currentSigns);
     }
-  }, []);
+  }, [setZodiacSigns]);
 
   useEffect(() => {
     if (wallet.publicKey) {
@@ -128,9 +128,9 @@ export const HomeView: FC = () => {
 
             <ul className="text-lg text-gray-300 mb-4 list-disc list-outside text-left">
               <li>Tokens are automatically burned 🔥 upon redemption for Zodiac NFTs.</li>
-              <li>Complete NFT sets can be exchanged for tokens on the Candibar platform.</li>
-                <li>Individual NFTs can also be traded on leading NFT marketplaces. </li>
-                 <li>If you don&apos;t have a complete collection and want one, consider trading with fellow Candibar NFT collectors.</li>
+              <li>Individual NFTs can also be traded on leading NFT marketplaces. </li>
+              <li>Complete NFT sets can be redeemed for exclusive rewards on the Candibar platform. Collaborate with other collectors to complete your set and unlock unique benefits.</li>
+                
             </ul>
             <h3 className="text-xl font-bold">Featured Month:</h3>
             {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
@@ -145,7 +145,7 @@ export const HomeView: FC = () => {
 
           {/* Swap full collection */}
             <div className="bg-gray-900 p-6 rounded-xl shadow-md text-center">
-            <h3 className="text-xl font-bold mb-2">Exchange your full zodiac NFT collection tailored to the current month&apos;s sign.</h3>
+            <h3 className="text-xl font-bold mb-2">Exchange Your Full Zodiac NFT Collection Tailored To The Current Month&apos;s Sign.</h3>
             <div className="text-lg text-gray-300 mb-4">Complete a set and exchange it for exclusive perks.</div>
             <div className="flex justify-center">
               <motion.section
@@ -182,7 +182,7 @@ export const HomeView: FC = () => {
 
       {/* Swap Burn Metrics Section */}
       <motion.section
-        className="max-w-6xl mx-auto bg-gray-950 p-8 rounded-2xl shadow-lg"
+        className="max-w-7xl mx-auto bg-gray-950 p-8 rounded-2xl shadow-lg"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -190,10 +190,12 @@ export const HomeView: FC = () => {
         <h2 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-400 via-pink-400 to-red-500 text-center mb-6">
           Be Part of the Sweet Revolution: Candibar Token Burn
         </h2>
-        <h2 className="text-2xl text-center font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400 p-3">
+        {/* <h2 className="text-2xl text-center font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400 p-3">
             Token burning reduces the overall supply, thereby enhancing the candibar ecosystem.
-            </h2>
-        <div className="text-3xl text-center text-gray-300 mb-4 font-medium p-2">600 Million</div>
+            </h2> */}
+        <div className="text-2xl text-center text-gray-300 mb-4 font-medium p-2">
+          600 Million Tokens to Burn From a Total Supply of 3 Billion
+        </div>
 
         <div className="flex justify-center rounded-2xl">
           <Candibardashboard />
