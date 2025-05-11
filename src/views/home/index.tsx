@@ -122,8 +122,17 @@ export const HomeView: FC = () => {
           {/* Zodiac Card */}
           <div className="bg-gray-900 p-6 rounded-xl shadow-md text-center">
             <h3 className="text-xl font-bold mb-2">Featured Month: <br /> Zodiac Candi Art NFT</h3>
-            <p className="text-lg text-gray-300 mb-4">Exclusive NFTs available only with Candibar tokens.</p>
-            <p className="text-lg text-gray-300 mb-4"> Tokens are automatically burned 🔥 upon redemption for Zodiac NFTs. </p>
+
+
+            <div className="text-lg text-gray-300 mb-4">Exclusive NFTs available only with Candibar tokens.</div>
+
+            <ul className="text-lg text-gray-300 mb-4 list-disc list-outside text-left">
+              <li>Tokens are automatically burned 🔥 upon redemption for Zodiac NFTs.</li>
+              <li>Complete NFT sets can be exchanged for tokens on the Candibar platform.</li>
+                <li>Individual NFTs can also be traded on leading NFT marketplaces. </li>
+               <li>I   If you don't have a complete collection and want one, consider trading with fellow Candibar NFT collectors.</li>
+            </ul>
+           
             {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
               <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
             ))}
@@ -181,9 +190,9 @@ export const HomeView: FC = () => {
         <h2 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-400 via-pink-400 to-red-500 text-center mb-6">
           Be Part of the Sweet Revolution: Candibar Token Burn
         </h2>
-        {/* <h2 className="text-2xl text-center font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400 p-3">
-            Token Burn Target
-            </h2> */}
+        <h2 className="text-2xl text-center font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400 p-3">
+            Token burning reduces the overall supply, thereby enhancing the candibar ecosystem.
+            </h2>
         <div className="text-3xl text-center text-gray-300 mb-4 font-medium p-2">600 Million</div>
 
         <div className="flex justify-center rounded-2xl">
