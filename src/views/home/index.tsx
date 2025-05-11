@@ -123,6 +123,7 @@ export const HomeView: FC = () => {
           <div className="bg-gray-900 p-6 rounded-xl shadow-md text-center">
             <h3 className="text-xl font-bold mb-2">Featured Month: <br /> Zodiac Candi Art NFT</h3>
             <p className="text-lg text-gray-300 mb-4">Exclusive NFTs available only with Candibar tokens.</p>
+            <p className="text-lg text-gray-300 mb-4"> Tokens are automatically burned 🔥 upon redemption for Zodiac NFTs. </p>
             {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
               <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
             ))}
@@ -177,8 +178,8 @@ export const HomeView: FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-yellow-400 to-blue-500 text-center mb-6">
-          Join the Candibar Token Burn Revolution
+        <h2 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-400 via-pink-400 to-red-500 text-center mb-6">
+          Be Part of the Sweet Revolution: Candibar Token Burn
         </h2>
         {/* <h2 className="text-2xl text-center font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-orange-400 p-3">
             Token Burn Target
