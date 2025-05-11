@@ -218,23 +218,23 @@ export const CardContainer: FC<CandyMachineKeysProps> = ({ candyMachineKeys }) =
                                     className="object-cover w-full h-full rounded-2xl"
                                   />
 
-                                  {machine.itemsRedeemed === machine.itemsAvailable ||
-                                    machine.itemsRedeemed === machine.redeemedAmountMaxLimit
+                                  {/* {machine.itemsRedeemed === machine.itemsAvailable
                                     && (
                                       <div className="absolute inset-0 flex items-center justify-center">
                                         <span className="text-6xl font-bold text-red-500 opacity-75 transform rotate-45">
                                           {NFTStatusTypes.SoldOut}
                                         </span>
                                       </div>
-                                    )}
+                                    )} */}
 
-                                  {machine.collectionStatus !== NFTStatusTypes.Available && (
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                      <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
-                                        {NFTStatusTypes.ComingSoon}
-                                      </span>
-                                    </div>
-                                  )}
+                                  {(machine.collectionStatus !== NFTStatusTypes.Available) ||
+                                    (machine.itemsRedeemed === machine.redeemedAmountMaxLimit) && (
+                                      <div className="absolute inset-0 flex items-center justify-center">
+                                        <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
+                                          {NFTStatusTypes.ComingSoon}
+                                        </span>
+                                      </div>
+                                    )}
 
                                 </motion.div>
                               </CardContent>
