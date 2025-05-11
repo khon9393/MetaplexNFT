@@ -121,7 +121,7 @@ export const HomeView: FC = () => {
 
           {/* Zodiac Card */}
           <div className="bg-gray-900 p-6 rounded-xl shadow-md text-center">
-            <h3 className="text-xl font-bold mb-2">Featured Month: <br /> Zodiac Candi Art NFT</h3>
+            <h3 className="text-xl font-bold mb-2">Zodiac Candi Art NFT</h3>
 
 
             <div className="text-lg text-gray-300 mb-4">Exclusive NFTs available only with Candibar tokens.</div>
@@ -132,7 +132,7 @@ export const HomeView: FC = () => {
                 <li>Individual NFTs can also be traded on leading NFT marketplaces. </li>
                <li>I   If you don't have a complete collection and want one, consider trading with fellow Candibar NFT collectors.</li>
             </ul>
-           
+            <h3 className="text-xl font-bold">Featured Month:</h3>
             {zodiacSigns.length > 0 && zodiacSigns.map((sign, index) => (
               <CardContainer key={index} candyMachineKeys={[publicKey(sign.machinePublicKey)]} />
             ))}
