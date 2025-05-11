@@ -17,13 +17,15 @@ import { formatTokenAmount } from "@/lib/utils";
 
 export function SectionCards() {
 
-  const [candibarToken, setcandibarToken] = useState<DigitalAsset | undefined>(undefined);
-
+  //const [candibarToken, setcandibarToken] = useState<DigitalAsset | undefined>(undefined);
+const [candibarToken, setcandibarToken] = useState(BigInt(0));
   useEffect(() => {
     const fetchTokenData = async () => {
       try {
         const asset = await fetchDigitalAssetByMint(process.env.NEXT_PUBLIC_TOKEN);
-        setcandibarToken(asset);
+        if (asset?.mint?.supply) {
+          setcandibarToken(asset.mint.supply);
+        }
       } catch (error) {
         console.error("Error fetching asset:", error);
       }
@@ -48,7 +50,7 @@ export function SectionCards() {
 
         <CardFooter className="flex-col items-start gap-1 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium text-black dark:text-white">
-            Current Supply: {Number(formatTokenAmount(candibarToken?.mint.supply,8)).toLocaleString() || "Supply data not available"}
+            Current Supply: {Number(formatTokenAmount(candibarToken,8)).toLocaleString() || "Supply data not available"}
           </div>
           {/* <div className="text-gray-500 dark:text-gray-400">
             2 Billion available for trading (66.67%)
