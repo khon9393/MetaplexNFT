@@ -67,13 +67,11 @@ export const Component = () => {
             ])
           )
 
-          let totalBurn = 0
           const updatedChartData = initialChartData.map((data) => {
             const collection = zodiacMap.get(data.zodiac)
             if (collection) {
               const burnAmount = (collection.tokenBurnAmount || 0) * collection.itemsRedeemed;
-              //settotalburn((prevTotal) => prevTotal + burnAmount);
-              totalBurn += burnAmount;
+              settotalburn((prevTotal) => prevTotal + burnAmount);
               return {
                 ...data,
                 itemsRedeemed: collection.itemsRedeemed || 0,
@@ -83,7 +81,6 @@ export const Component = () => {
             return data
           })
 
-          settotalburn(totalBurn) // Update total burn amount
           setChartData(updatedChartData) // Update state to trigger re-render
         }
       } catch (error) {
@@ -98,7 +95,7 @@ export const Component = () => {
     <Card>
       <CardHeader>
         <CardTitle className="text-black dark:text-white">
-          Tokens Burned By Zodiac Sign
+          Candibar Token Burn Progress by Zodiac Sign
         </CardTitle>
         <CardTitle className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold tabular-nums text-black dark:text-white p-1">
           🔥 Total Burned: {Number(totalburn).toLocaleString()}
