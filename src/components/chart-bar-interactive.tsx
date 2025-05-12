@@ -153,7 +153,7 @@ export const Component = () => {
                 if (window.innerWidth > 640) {
                   return (
                     <g>
-                      <text
+                      {/* <text
                         x={x + 30}
                         y={y - 30}
                         fill="hsl(var(--foreground))"
@@ -162,7 +162,7 @@ export const Component = () => {
                       >
                         {value !== 50000000 ? "" : " "}
                         {value.toLocaleString()}
-                      </text>
+                      </text> */}
                       <text
                         x={x + 30}
                         y={y - 10}
