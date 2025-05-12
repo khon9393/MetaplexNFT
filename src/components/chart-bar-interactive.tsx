@@ -103,9 +103,14 @@ export const Component = () => {
         <CardTitle className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold tabular-nums text-black dark:text-white p-1">
           🔥 Total Burned: {Number(totalburn).toLocaleString()}
         </CardTitle>
-        {/* <CardDescription className="break-words">
-           Token Address: {process.env.NEXT_PUBLIC_TOKEN}
-         </CardDescription> */}
+        {/* <div className="leading-none text-muted-foreground">
+          Starting supply: 50 million candibar tokens across 12 Candi Zodiac
+          NFT collections.
+        </div> */}
+                <div className="text-black dark:text-white px-2 text-gray-500 text-sm">
+                 Starting supply: 50 million candibar tokens across 12 Candi Zodiac
+          NFT collections.
+        </div>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -179,15 +184,6 @@ export const Component = () => {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Each Candi Zodiac aims to burn to zero{" "}
-          <TrendingDown className="h-4 w-4" />
-          0
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Starting supply: 50 million candibar tokens across 12 Candi Zodiac
-          NFT collections.
-        </div>
         <div className="leading-none text-muted-foreground p-1">
           <strong>Disclaimer: Data Accuracy</strong>
           <div className="text-primary p-1"></div>
