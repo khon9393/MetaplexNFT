@@ -100,9 +100,9 @@ export const Component = () => {
         <CardTitle className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold tabular-nums text-black dark:text-white p-1">
          🔥 Total Burned: {Number(4600000).toLocaleString()} 
         </CardTitle>
-         <CardDescription className="break-words">
+         {/* <CardDescription className="break-words">
            Token Address: {process.env.NEXT_PUBLIC_TOKEN}
-         </CardDescription>
+         </CardDescription> */}
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

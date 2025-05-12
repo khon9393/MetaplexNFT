@@ -122,14 +122,14 @@ export const HomeView: FC = () => {
           {/* Zodiac Card */}
           <div className="bg-gray-900 p-6 rounded-xl shadow-md text-center">
             <h3 className="text-xl font-bold mb-2">Zodiac Candi Art NFT</h3>
-
-
             <div className="text-lg text-gray-300 mb-4">Exclusive NFTs available only with Candibar tokens.</div>
 
             <ul className="text-lg text-gray-300 mb-4 list-disc list-outside text-left">
+                 <li className="text-yellow-400 font-semibold">What is your Candi Zodiac Sign? Click on <Link href="/AstrologyZodiac" className="text-blue-400 hover:underline">Explore Full Collection</Link> to access Free Candi Zodiac Readings.</li>
               <li>Tokens are automatically burned 🔥 upon redemption for Zodiac NFTs.</li>
-              <li>Individual NFTs can also be traded on leading NFT marketplaces. </li>
-              <li>Complete NFT sets can be redeemed for exclusive rewards on the Candibar platform. Collaborate with other collectors to complete your set and unlock unique benefits.</li>
+                <li>Each NFT is compatible on top Solana NFT marketplaces. Partner with fellow collectors to complete your set.</li>
+              <li>Complete NFT sets can be redeemed for exclusive rewards on the Candibar platform. </li>
+              
                 
             </ul>
             <h3 className="text-xl font-bold">Featured Month:</h3>
@@ -138,9 +138,10 @@ export const HomeView: FC = () => {
             ))}
             <div className="flex justify-center">
               <Link href="/AstrologyZodiac" className="mt-4 inline-flex items-center gap-2 text-blue-300 hover:underline">
-                <LinkIcon /> Explore Full Collection
+              <LinkIcon /> Explore Full Collection
               </Link>
             </div>
+            <div className="text-center mt-4"></div>
           </div>
 
           {/* Swap full collection */}

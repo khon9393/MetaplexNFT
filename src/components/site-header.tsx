@@ -15,7 +15,17 @@ export function SiteHeader() {
         <h1 className="text-lg sm:text-2xl font-medium break-words">
           Candibar Tokens
         </h1>
+
+
+      </div>
+        <Separator
+          orientation="vertical"
+          className="mx-2 data-[orientation=vertical]:h-4 hidden sm:block"
+        />
+      <div className="break-all w-full hidden sm:block text-1xl text-gray-300 dark:text-gray-400">
+        Token Address: {process.env.NEXT_PUBLIC_TOKEN}
       </div>
     </header>
+    
   )
 }
