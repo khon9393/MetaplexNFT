@@ -108,9 +108,9 @@ export const Component = () => {
           NFT collections.
         </div> */}
                 <div className="text-black dark:text-white px-2 text-gray-500 text-sm">
-                 Starting supply: 50 million candibar tokens across 12 Candi Zodiac
-          NFT collections.
-        </div>
+                  Starting supply: 50 million candibar tokens distributed across 12 Candi Zodiac
+              NFT collections.
+                </div>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
