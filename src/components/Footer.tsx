@@ -194,9 +194,25 @@ export const Footer: FC = () => {
                 </svg>
                 <span className="text-sm">Follow us on X</span>
               </a>
+
+              <a
+                href={`https://t.me/candibarnft`}
+                className="flex items-center hover:text-gray-400 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path d="M22.5 3.5L19.5 20.5C19.5 20.5 19 22 17.5 21.5L12.5 17.5L10 20C10 20 9.5 20.5 9 20.5C8.5 20.5 8.5 20 8.5 20L9.5 15.5L18.5 6.5C18.5 6.5 19 6 18.5 5.5C18 5 17.5 5.5 17.5 5.5L6.5 11L2 9.5C2 9.5 1 9 2 8.5L21 2C21 2 22 1.5 22.5 2C23 2.5 22.5 3.5 22.5 3.5Z" />
+                </svg>
+                <span className="text-sm p-4">t.me/candibarnft</span>
+              </a>
+
               <a
                 href={`mailto:${process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}`}
-                className="flex items-center space-x-2 hover:text-gray-400 transition"
+                className="flex items-center hover:text-gray-400 transition"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
