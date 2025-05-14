@@ -28,7 +28,6 @@ const options: TransactionBuilderSendAndConfirmOptions = {
 };
 
 const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 800_000;
-const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
 
@@ -64,15 +63,6 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         .use(mplCandyMachine()),
     []
   );
-
-  // Create an Umi instance
-  // const umi = useMemo(() =>
-  //   createUmi(quicknodeEndpoint)
-  //     .use(walletAdapterIdentity(wallet))
-  //     .use(mplCandyMachine())
-  //     .use(mplTokenMetadata()),
-  //   [wallet]
-  // );
 
   const onClick = useCallback(async () => {
     setIsTransacting(true);
