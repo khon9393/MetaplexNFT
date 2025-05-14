@@ -59,14 +59,21 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   const [CandibarModalTitle, setCandibarModalTitle] = useState<string>('');
   const [CandibarModalMsgTxt, setCandibarModalMsgTxt] = useState<string>('');
 
-  // Create an Umi instance
-  const umi = useMemo(() =>
-    createUmi(quicknodeEndpoint)
-      .use(walletAdapterIdentity(wallet))
-      .use(mplCandyMachine())
+  // Use umiWithCurrentWalletAdapter to create the Umi instance
+  const umi = useMemo(() => umiWithCurrentWalletAdapter()
+        .use(mplCandyMachine())
       .use(mplTokenMetadata()),
-    [wallet]
+    []
   );
+
+  // Create an Umi instance
+  // const umi = useMemo(() =>
+  //   createUmi(quicknodeEndpoint)
+  //     .use(walletAdapterIdentity(wallet))
+  //     .use(mplCandyMachine())
+  //     .use(mplTokenMetadata()),
+  //   [wallet]
+  // );
 
   const onClick = useCallback(async () => {
     setIsTransacting(true);
