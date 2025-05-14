@@ -59,7 +59,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   const [CandibarModalTitle, setCandibarModalTitle] = useState<string>('');
   const [CandibarModalMsgTxt, setCandibarModalMsgTxt] = useState<string>('');
 
-  // Use umiWithCurrentWalletAdapter to create the Umi instance t
+  // Use umiWithCurrentWalletAdapter to create the Umi instance
   const umi = useMemo(() => umiWithCurrentWalletAdapter()
         .use(mplCandyMachine())
       .use(mplTokenMetadata()),
