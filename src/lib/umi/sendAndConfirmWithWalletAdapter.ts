@@ -28,7 +28,7 @@ const sendAndConfirmWalletAdapter = async (
     .sendTransaction(signedTx, {
       preflightCommitment: settings?.commitment || "confirmed",
       commitment: settings?.commitment || "confirmed",
-      skipPreflight: settings?.skipPreflight || false,
+       skipPreflight: settings?.skipPreflight || false,
     })
     .catch((err) => {
       throw new Error(`Transaction failed: ${err}`);
