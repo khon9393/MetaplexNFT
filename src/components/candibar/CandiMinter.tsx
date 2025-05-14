@@ -1,14 +1,10 @@
-import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { FC, useCallback, useMemo, useState } from 'react';
 import { notify } from "../../utils/notifications";
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
-import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { generateSigner, transactionBuilder, publicKey, some, TransactionBuilderSendAndConfirmOptions, amountToNumber } from '@metaplex-foundation/umi';
-import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
-import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
+import { generateSigner, transactionBuilder, publicKey, some} from '@metaplex-foundation/umi';
 import { findAssociatedTokenPda, setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
-import * as bs58 from 'bs58';
-import { fetchCandyMachine, mintV1, mplCandyMachine, safeFetchCandyGuard } from "@metaplex-foundation/mpl-core-candy-machine";
+import {  mintV1, mplCandyMachine } from "@metaplex-foundation/mpl-core-candy-machine";
 import { Fireworks } from "@fireworks-js/react";
 import useViewportSize from "./useViewportSize";
 import Confetti from "react-confetti";
@@ -21,11 +17,6 @@ import fetchTokenBalance from "../../lib/fetchTokenBalance";
 import CandibarModal from "../../components/candibar/CandibarModal";
 import umiWithCurrentWalletAdapter from "../../lib/umi/umiWithCurrentWalletAdapter";
 import sendAndConfirmWalletAdapter from "../../lib/umi/sendAndConfirmWithWalletAdapter";
-
-const options: TransactionBuilderSendAndConfirmOptions = {
-  send: { skipPreflight: true },
-  confirm: { commitment: "confirmed" }
-};
 
 const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 800_000;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -59,8 +50,9 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   const [CandibarModalMsgTxt, setCandibarModalMsgTxt] = useState<string>('');
 
   // Use umiWithCurrentWalletAdapter to create the Umi instance rs
-  const umi = useMemo(() => umiWithCurrentWalletAdapter()
-        .use(mplCandyMachine()),
+  const umi = useMemo(() => 
+      umiWithCurrentWalletAdapter()
+      .use(mplCandyMachine()), 
     []
   );
 
