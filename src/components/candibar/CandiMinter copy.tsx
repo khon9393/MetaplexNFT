@@ -19,7 +19,6 @@ import { toast } from "../../hooks/use-toast";
 import { formatTokenAmount } from '@/lib/utils';
 import fetchTokenBalance from "../../lib/fetchTokenBalance";
 import CandibarModal from "../../components/candibar/CandibarModal";
-import sendAndConfirmWalletAdapter from "../../lib/umi/sendAndConfirmWithWalletAdapter";
 
 const options: TransactionBuilderSendAndConfirmOptions = {
   send: { skipPreflight: true },
@@ -194,10 +193,9 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       //   confirm: { commitment: "confirmed" },
       // });
 
-      // Use sendAndConfirmWalletAdapter instead of transaction.sendAndConfirm
-      await sendAndConfirmWalletAdapter(transaction);
+      const { signature } = await transaction.sendAndConfirm(umi, options);
 
-      //const txid = bs58.encode(signature);
+      const txid = bs58.encode(signature);
 
       toast({
         title: "Successful",

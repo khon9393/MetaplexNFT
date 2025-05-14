@@ -89,7 +89,7 @@ export const HomeView: FC = () => {
             </Link>
           </div>
           <div className="text-md md:text-lg font-medium py-2 text-gray-300">
-            <span>Purchase and exchange CANDIBAR/SOL on platforms like </span>
+            <span>Acquire and trade CANDIBAR/SOL on platforms such as </span>
             <a href="https://raydium.io/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Raydium</a>,
             <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Dexscreener</a>,
             <a href="https://jup.ag/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Jupiter</a>,
