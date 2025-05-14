@@ -19,8 +19,6 @@ import { toast } from "../../hooks/use-toast";
 import { formatTokenAmount } from '@/lib/utils';
 import fetchTokenBalance from "../../lib/fetchTokenBalance";
 import CandibarModal from "../../components/candibar/CandibarModal";
-import umiWithCurrentWalletAdapter from "../../lib/umi/umiWithCurrentWalletAdapter";
-import sendAndConfirmWalletAdapter from "../../lib/umi/sendAndConfirmWithWalletAdapter";
 
 const options: TransactionBuilderSendAndConfirmOptions = {
   send: { skipPreflight: true },
@@ -59,21 +57,14 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   const [CandibarModalTitle, setCandibarModalTitle] = useState<string>('');
   const [CandibarModalMsgTxt, setCandibarModalMsgTxt] = useState<string>('');
 
-  // Use umiWithCurrentWalletAdapter to create the Umi instance
-  const umi = useMemo(() => umiWithCurrentWalletAdapter()
-        .use(mplCandyMachine())
-      .use(mplTokenMetadata()),
-    []
-  );
-
   // Create an Umi instance
-  // const umi = useMemo(() =>
-  //   createUmi(quicknodeEndpoint)
-  //     .use(walletAdapterIdentity(wallet))
-  //     .use(mplCandyMachine())
-  //     .use(mplTokenMetadata()),
-  //   [wallet]
-  // );
+  const umi = useMemo(() =>
+    createUmi(quicknodeEndpoint)
+      .use(walletAdapterIdentity(wallet))
+      .use(mplCandyMachine())
+      .use(mplTokenMetadata()),
+    [wallet]
+  );
 
   const onClick = useCallback(async () => {
     setIsTransacting(true);
@@ -85,27 +76,28 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       return;
     }
 
+
     try {
+
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
-      const AmountAlreadyMinted = await fetchCandyGuardUserMintlimit(
-        umi.identity.publicKey.toString(),
-        candyMachineaddress,
-        results[0].candyGuardpk,
-        results[0].candyGuardId
-      );
+      const AmountAlreadyMinted = await fetchCandyGuardUserMintlimit(umi.identity.publicKey.toString()
+        , candyMachineaddress
+        , results[0].candyGuardpk
+        , results[0].candyGuardId)
 
       let userTokenbalance;
       try {
         userTokenbalance = await fetchTokenBalance(tokenMint, wallet.publicKey.toString());
-        userTokenbalance = formatTokenAmount(userTokenbalance.amount, 8);
+        userTokenbalance = formatTokenAmount(userTokenbalance.amount, 8)
       } catch (error) {
         userTokenbalance = 0;
       }
 
       const usersolbalance = await getUserSOLBalance(wallet.publicKey);
 
-      if (results[0].redeemedAmountMaxLimit > 0 && results[0].itemsRedeemed >= results[0].redeemedAmountMaxLimit) {
+      if (results[0].redeemedAmountMaxLimit > 0 &&  results[0].itemsRedeemed >= results[0].redeemedAmountMaxLimit) {
+
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Maximum Mint Limit Reached");
         setCandibarModalMsgTxt(`The maximum mint limit of: ${results[0].redeemedAmountMaxLimit} has been reached for this collection.`);
@@ -113,7 +105,10 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         return;
       }
 
+      //must be greater than and not equal to.
+      //must be greater than to cover transaction fees.
       if (Number(usersolbalance) <= results[0].SolCost) {
+
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Not enough solana SOL amount.");
         setCandibarModalMsgTxt(`NFT requires: ${results[0].SolCost} SOL`);
@@ -121,23 +116,36 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         return;
       }
 
-      if (results[0].tokenPaymentAmount > 0 && userTokenbalance < results[0].tokenPaymentAmount) {
+      if (results[0].tokenPaymentAmount > 0 && (userTokenbalance < results[0].tokenPaymentAmount)) {
+         
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Not Enough Candibar Tokens.");
-        setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount.toLocaleString()} Candibar Tokens`);
+
+        if (results[0].tokenPaymentAmount > 0) {
+          setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount.toLocaleString()} Candibar Tokens`);
+
+        setIsTransacting(false);
+        return;
+      }
+    }
+
+      if (results[0].tokenBurnAmount > 0 && (userTokenbalance < results[0].tokenBurnAmount)) {
+         
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Not Enough Candibar Tokens.");
+
+        if (results[0].tokenBurnAmount > 0) {
+          setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenBurnAmount.toLocaleString()} Candibar Tokens to burn`);
+        }
+        
         setIsTransacting(false);
         return;
       }
 
-      if (results[0].tokenBurnAmount > 0 && userTokenbalance < results[0].tokenBurnAmount) {
-        setIsCandibarModalOpen(true);
-        setCandibarModalTitle("Not Enough Candibar Tokens.");
-        setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenBurnAmount.toLocaleString()} Candibar Tokens to burn`);
-        setIsTransacting(false);
-        return;
-      }
 
-      if (results[0].candyGuardMinLimit > 0 && Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit) {
+      if (results[0].candyGuardMinLimit > 0 && (Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit)) {
+
+
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Wallet Mint Limit Reached");
         setCandibarModalMsgTxt(`You have reached the maximum mint limit of ${results[0].candyGuardMinLimit} for this wallet, having already minted ${Number(AmountAlreadyMinted)} from this collection. 
@@ -158,66 +166,83 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
             mintArgs: {
               solPayment: some({ destination: treasury }),
               mintLimit: some({ id: results[0].candyGuardId }),
-              ...(results[0].tokenPaymentAmount > 0
-                ? {
-                    tokenPayment: some({
-                      mint: tokenMint,
-                      destinationAta: (
-                        await findAssociatedTokenPda(umi, {
-                          mint: tokenMint,
-                          owner: treasury,
-                        })
-                      )[0],
-                    }),
-                  }
-                : {}),
-              ...(results[0].tokenBurnAmount > 0
-                ? {
-                    tokenBurn: some({
-                      mint: tokenMint,
-                      amount: results[0].tokenBurnAmount,
-                    }),
-                  }
-                : {}),
+              
+              ...(results[0].tokenPaymentAmount > 0 ? {
+                tokenPayment: some({
+                  mint: tokenMint,
+                  destinationAta: (await findAssociatedTokenPda(umi, {
+                    mint: tokenMint,
+                    owner: treasury,
+                  }))[0],
+                }),
+              } : {}),
+
+              ...(results[0].tokenBurnAmount > 0 ? {
+                tokenBurn: some({
+                  mint: tokenMint,
+                  amount: results[0].tokenBurnAmount,
+                }),
+              } : {}),
+
             },
           })
         );
 
-      // Use sendAndConfirmWalletAdapter instead of transaction.sendAndConfirm
-      await sendAndConfirmWalletAdapter(transaction);
+
+      // const { signature } = await transaction.sendAndConfirm(umi, {
+      //   confirm: { commitment: "confirmed" },
+      // });
+
+      const { signature } = await transaction.sendAndConfirm(umi, options);
+
+      const txid = bs58.encode(signature);
 
       toast({
         title: "Successful",
         description: "Mint successful!",
       });
 
-      if (candyMachineKeysforConfetti[0].toString() === candyMachineaddress) {
+      if (candyMachineKeysforConfetti[0].toString() == candyMachineaddress) {
         setShowFireworks(true);
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
-      } else if (candyMachineKeysforConfetti[3].toString() === candyMachineaddress) {
+      }
+      else if (candyMachineKeysforConfetti[3].toString() == candyMachineaddress) {
         setShowFireworks(true);
         setShowConfetti(true);
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
-        setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 9 seconds
-      } else {
+         setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 9 seconds
+        // setTimeout(() => {
+        //   setShowConfetti(false);
+        //   window.location.reload();
+        // }, 9000);
+      }
+      else {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 9000); // Confetti for 9 seconds
+        // setTimeout(() => {
+        //   setShowConfetti(false);
+        //   window.location.reload();
+        // }, 9000);
       }
 
       setIsTransacting(false);
+
+
     } catch (error: any) {
+
       setIsTransacting(false);
-      toast({
-        title: "Mint failed!",
-        description: error.message,
-        variant: "destructive",
-        style: {
-          backgroundColor: "white",
-          color: "white",
-          animation: "pulse 2s infinite",
-          backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
-        },
-      });
+          toast({
+            title: "Mint failed!",
+            description: error.message,
+            variant: "destructive",
+            style: {
+              backgroundColor: "white",
+              color: "white",
+              animation: "pulse 2s infinite",
+              backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
+            },
+          });
+
     }
   }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
 
@@ -226,15 +251,13 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       <div className="relative group items-center">
         <div className="m-1 absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 
           rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-        {wallet.connected && (
-          <button
-            className="px-8 m-2 z-50 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
-            onClick={onClick}
-            disabled={isTransacting}
-          >
-            <span>{buttonText || "Mint NFT"}</span>
-          </button>
-        )}
+        {wallet.connected && (<button
+          className="px-8 m-2 z-50 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+          onClick={onClick}
+          disabled={isTransacting}
+        >
+          <span>{buttonText || "Mint NFT"}</span>
+        </button>)}
 
         {isTransacting && (
           <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-50">
@@ -244,6 +267,8 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
             </div>
           </div>
         )}
+
+
       </div>
       {showConfetti && (
         <Confetti
@@ -252,10 +277,11 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           numberOfPieces={650} // Dense confetti
           gravity={0.2} // Slow falling effect
           wind={0.02} // Slight drift
-          colors={
-            candyMachineKeysforConfetti[3].toString() === candyMachineaddress
-              ? ["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"]
-              : ["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]
+          colors={candyMachineKeysforConfetti[3].toString() == candyMachineaddress ?
+            ["#ffd700", "#f5f5dc", "#f0e68c", "#fcc200", "#ffdf00", "#d4af37"]
+            :
+            // ["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd", "#ffbfd9"]
+            ["#ffd700", "#ff477e", "#f0e68c", "#ff85a1", "#fbb1bd", "#daa520"]
           }
         />
       )}
