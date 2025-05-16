@@ -254,7 +254,7 @@ const CardDetails: FC = () => {
                   candyMachines[0]?.collectionStatus === NFTStatusTypes.Available &&
                   (
                     <div>
-                      <CandiMinter
+                     <CandiMinter
                         candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
                         collectionaddress={candyMachines[0]?.collectionMint || ''}
                         buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
