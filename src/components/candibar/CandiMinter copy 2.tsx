@@ -17,7 +17,6 @@ import fetchTokenBalance from "../../lib/fetchTokenBalance";
 import CandibarModal from "../../components/candibar/CandibarModal";
 import umiWithCurrentWalletAdapter from "../../lib/umi/umiWithCurrentWalletAdapter";
 import sendAndConfirmWalletAdapter from "../../lib/umi/sendAndConfirmWithWalletAdapter";
-import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 
 const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 800_000;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
@@ -53,8 +52,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   // Use umiWithCurrentWalletAdapter to create the Umi instance rs
   const umi = useMemo(() => 
       umiWithCurrentWalletAdapter()
-      .use(mplCandyMachine())
-       .use(mplTokenMetadata()),
+      .use(mplCandyMachine()), 
     []
   );
 
