@@ -11,7 +11,10 @@ const umiWithCurrentWalletAdapter = () => {
   const umi = useUmiStore.getState().umi;
   const currentWallet = useUmiStore.getState().signer;
 
-  if (!currentWallet) throw new Error("No wallet selected");
+  if (!currentWallet) {
+    console.warn("No wallet selected. Returning Umi instance without signer identity.");
+    return umi;
+  }
 
   return umi.use(signerIdentity(currentWallet));
 };
