@@ -160,31 +160,33 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         .add(setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) }))
         .add(
           mintV1(umi, {
-            candyMachine: publicKey(candyMachineaddress),
-            asset: nftMint,
-            collection: publicKey(collectionaddress),
-            mintArgs: {
-              solPayment: some({ destination: treasury }),
-              mintLimit: some({ id: results[0].candyGuardId }),
-              
-              ...(results[0].tokenPaymentAmount > 0 ? {
-                tokenPayment: some({
-                  mint: tokenMint,
-                  destinationAta: (await findAssociatedTokenPda(umi, {
-                    mint: tokenMint,
-                    owner: treasury,
-                  }))[0],
-                }),
-              } : {}),
+        candyMachine: publicKey(candyMachineaddress),
+        asset: nftMint,
+        collection: publicKey(collectionaddress),
+        mintArgs: {
+          ...(results[0].SolCost > 0 ? {
+            solPayment: some({ destination: treasury }),
+          } : {}),
 
-              ...(results[0].tokenBurnAmount > 0 ? {
-                tokenBurn: some({
-                  mint: tokenMint,
-                  amount: results[0].tokenBurnAmount,
-                }),
-              } : {}),
+          mintLimit: some({ id: results[0].candyGuardId }),
+          
+          ...(results[0].tokenPaymentAmount > 0 ? {
+            tokenPayment: some({
+          mint: tokenMint,
+          destinationAta: (await findAssociatedTokenPda(umi, {
+            mint: tokenMint,
+            owner: treasury,
+          }))[0],
+            }),
+          } : {}),
 
-            },
+          ...(results[0].tokenBurnAmount > 0 ? {
+            tokenBurn: some({
+          mint: tokenMint,
+          amount: results[0].tokenBurnAmount,
+            }),
+          } : {}),
+        },
           })
         );
 
