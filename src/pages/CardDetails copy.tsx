@@ -144,12 +144,7 @@ const CardDetails: FC = () => {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
 
-{/* <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
-  <h4 className="text-center text-lg font-bold">
-    🚨 Due to ongoing issues with Phantom Wallet blocking minting requests, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Solflare provides a hassle-free transaction process, making it the preferred choice for minting. 🚨
-  </h4>
-</div> */}
-
+      sss
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
       >
 
