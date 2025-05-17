@@ -125,7 +125,7 @@ export const HomeView: FC = () => {
             <div className="text-lg text-gray-300 mb-4">Exclusive NFTs available only with Candibar tokens.</div>
 
             <ul className="text-lg text-gray-300 mb-4 list-disc list-outside text-left">
-                 <li className="text-yellow-400 font-semibold">What is your Candi Zodiac Sign? Click on <Link href="/AstrologyZodiac" className="text-blue-400 hover:underline">Explore Full Collection</Link> to access Free Candi Zodiac Readings.</li>
+                 <li className="text-yellow-400 font-semibold">What&apos;s your sign? <Link href="/AstrologyZodiac" className="text-blue-400 hover:underline">Free Candi Zodiac Reading!</Link></li>
               <li>Candibar tokens are automatically burned 🔥 upon redemption for Zodiac NFTs.</li>
                 <li>Each NFT is compatible on leading Solana NFT marketplaces.</li> 
                  <li> Partner with fellow collectors in <a href="https://twitter.com/i/communities/1923819855888908676" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">X Communities</a> to complete your set.</li>
