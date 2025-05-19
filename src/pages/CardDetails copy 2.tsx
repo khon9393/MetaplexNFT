@@ -2,6 +2,7 @@
 
 import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
+
 import { getCollection } from "../stores/useCandibardataStorefromDB";
 import { getCandyMachinesBalance } from '../lib/candymachine/fetchCandyMachines';
 import { publicKey } from '@metaplex-foundation/umi';
@@ -25,14 +26,12 @@ import { NFTStatusTypes } from "@/models/types";
 import Head from "next/head";
 import { ZodiacReading } from "@/components/candibar/ZodiacReader/ZodiacReading";
 import { ZodiacReadingDrawerWindow } from "@/components/candibar/ZodiacReader/ZodiacReadingDrawerWindow";
-import { getZodiacSignByName } from "../stores/useCandiZodiacSignsStore";
-import { ZodiacSign } from "../stores/useCandiZodiacSignsStore"
 import SwapCounter from "@/components/candibar/swapCounter/SwapCounter";
 import SwapDetails from "@/components/candibar/swapCounter/SwapDetails";
-import { fetchPromoGiveaway, savePromoGiveaway, fetchPromoGiveawayByMachine } from '@/stores/usePromoGiveAwayDB';
 
-const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const CardDetails: FC = () => {
+
+  const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 
   const [isOpenStates, setIsOpenStates] = useState([true, true]);
   const [selectedImage, setSelectedImage] = useState('');
@@ -44,9 +43,6 @@ const CardDetails: FC = () => {
   const [paramuserZodiacName, setparamuserZodiacName] = useState(null);
   const [paramuserZodiacYear, setparamuserZodiacYear] = useState(null);
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
-  const [refreshKey, setRefreshKey] = useState(0);
-
-
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("userData");
@@ -72,40 +68,7 @@ const CardDetails: FC = () => {
 
   }, [setParamCollectionaddress, paramuserZodiacName, paramuserZodiacYear]);
 
-  const [hasPromoGiveaway, setHasPromoGiveaway] = useState(false);
-
   useEffect(() => {
-    const fetchPromoGiveawayData = async () => {
-      if (paramCollectionaddress) {
-        const promoGiveawayByMachine = await fetchPromoGiveawayByMachine('',paramCollectionaddress);
-        if (promoGiveawayByMachine.length > 0) {
-          setHasPromoGiveaway(true);
-        } else {
-          setHasPromoGiveaway(false);
-        }
-      }
-    };
-
-    fetchPromoGiveawayData();
-  }, [paramCollectionaddress]);
-
-  useEffect(() => {
-
-
-    // Get zodiac name from URL if present and fetch corresponding data
-    const urlParams = new URLSearchParams(window.location.search);
-    const zodiacNameFromUrl = urlParams.get('zodiac');
-    if (zodiacNameFromUrl) {
-      const zodiacData: ZodiacSign | undefined = getZodiacSignByName(zodiacNameFromUrl);
-      if (zodiacData && zodiacData.collectionPublicKey) {
-        setParamCollectionaddress(zodiacData.collectionPublicKey);
-        setparamuserZodiacName(zodiacData.name);
-        sessionStorage.clear();
-      }
-    }
-
-
-
     const fetchBalances = async () => {
       if (paramCollectionaddress) {
         const collection = await getCollection(paramCollectionaddress);
@@ -120,7 +83,7 @@ const CardDetails: FC = () => {
     };
 
     fetchBalances();
-  }, [paramCollectionaddress, refreshKey, paramuserZodiacName]); // <-- add refreshKey
+  }, [paramCollectionaddress]);
 
   const [candyMachines, setCandyMachines] = useState([]);
 
@@ -159,7 +122,7 @@ const CardDetails: FC = () => {
     }).filter(Boolean);
 
     setCandyMachines(updatedCandyMachines);
-  }, [balances, collectionData, refreshKey]); // <-- add refreshKey
+  }, [balances, collectionData]);
 
   return (
     <>
@@ -181,24 +144,11 @@ const CardDetails: FC = () => {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
 
-      {hasPromoGiveaway && (
-        <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4 animate-pulse">
-          <h4 className="text-center text-2xl font-bold">
-        🎉 Giveaway Mode is Active! Claim your exclusive rewards now! 🎉
-          </h4>
-        </div>
-      )}
-
-      {!hasPromoGiveaway && (
-        <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
-          <h4 className="text-center text-lg font-bold">
-        🚨 We are actively working with <strong>Phantom Wallet</strong> to resolve ongoing issues affecting minting requests. In the meantime, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Thank you for your patience and understanding. 🚨
-          </h4>
-        </div>
-      )}
-
-
-
+      <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
+        <h4 className="text-center text-lg font-bold">
+          🚨 We are actively working with <strong>Phantom Wallet</strong> to resolve ongoing issues affecting minting requests. In the meantime, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Thank you for your patience and understanding. 🚨
+        </h4>
+      </div>
 
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
       >
@@ -308,18 +258,6 @@ const CardDetails: FC = () => {
                         candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
                         collectionaddress={candyMachines[0]?.collectionMint || ''}
                         buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
-                        // onMintSuccess={() => setTimeout(() => window.location.reload(), 8000)}
-                        // onMintSuccess={() => {
-                        //   setTimeout(() => setRefreshKey(prev => prev + 1), 6000); // Wait 3 seconds before refresh
-                        // }}
-                        // onMintSuccess={() => {
-                        //   console.log('Mint success, incrementing refreshKey');
-                        //   setRefreshKey(prev => prev + 1);
-                        // }}
-                        onMintSuccess={() => {
-                          const zodiac = paramuserZodiacName || '';
-                          window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
-                        }}
                       />
                     </div>
                   )}
