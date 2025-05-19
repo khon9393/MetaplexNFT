@@ -18,7 +18,7 @@ import fetchCandyGuardUserMintlimit from "../../lib/candymachine/fetchCandyGuard
 import { toast } from "../../hooks/use-toast";
 import { formatTokenAmount } from '@/lib/utils';
 import fetchTokenBalance from "../../lib/fetchTokenBalance";
-import CandibarModal from "../../components/candibar/CandibarModal";
+import CandibarModal from "./CandibarModal";
 
 const options: TransactionBuilderSendAndConfirmOptions = {
   send: { skipPreflight: true },
