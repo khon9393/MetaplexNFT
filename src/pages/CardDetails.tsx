@@ -29,7 +29,6 @@ import {getZodiacSignByName} from "../stores/useCandiZodiacSignsStore";
 import {ZodiacSign} from "../stores/useCandiZodiacSignsStore"
 import SwapCounter from "@/components/candibar/swapCounter/SwapCounter";
 import SwapDetails from "@/components/candibar/swapCounter/SwapDetails";
-import JupiterBuyModal from "@/components/candibar/JupiterBuyModal";
 
   const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const CardDetails: FC = () => {
