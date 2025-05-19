@@ -2,6 +2,7 @@
 
 import React, { FC, useEffect, useState } from "react";
 import Image from 'next/image';
+
 import { getCollection } from "../stores/useCandibardataStorefromDB";
 import { getCandyMachinesBalance } from '../lib/candymachine/fetchCandyMachines';
 import { publicKey } from '@metaplex-foundation/umi';
@@ -25,14 +26,12 @@ import { NFTStatusTypes } from "@/models/types";
 import Head from "next/head";
 import { ZodiacReading } from "@/components/candibar/ZodiacReader/ZodiacReading";
 import { ZodiacReadingDrawerWindow } from "@/components/candibar/ZodiacReader/ZodiacReadingDrawerWindow";
-import {getZodiacSignByName} from "../stores/useCandiZodiacSignsStore";
-import {ZodiacSign} from "../stores/useCandiZodiacSignsStore"
 import SwapCounter from "@/components/candibar/swapCounter/SwapCounter";
 import SwapDetails from "@/components/candibar/swapCounter/SwapDetails";
-import JupiterBuyModal from "@/components/candibar/JupiterBuyModal";
+
+const CardDetails: FC = () => {
 
   const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
-const CardDetails: FC = () => {
 
   const [isOpenStates, setIsOpenStates] = useState([true, true]);
   const [selectedImage, setSelectedImage] = useState('');
@@ -44,7 +43,6 @@ const CardDetails: FC = () => {
   const [paramuserZodiacName, setparamuserZodiacName] = useState(null);
   const [paramuserZodiacYear, setparamuserZodiacYear] = useState(null);
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
-  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("userData");
@@ -71,22 +69,6 @@ const CardDetails: FC = () => {
   }, [setParamCollectionaddress, paramuserZodiacName, paramuserZodiacYear]);
 
   useEffect(() => {
-
-
-    // Get zodiac name from URL if present and fetch corresponding data
-    const urlParams = new URLSearchParams(window.location.search);
-    const zodiacNameFromUrl = urlParams.get('zodiac');
-    if (zodiacNameFromUrl) {
-      const zodiacData: ZodiacSign | undefined = getZodiacSignByName(zodiacNameFromUrl);
-      if (zodiacData && zodiacData.collectionPublicKey) {
-      setParamCollectionaddress(zodiacData.collectionPublicKey);
-      setparamuserZodiacName(zodiacData.name);
-      sessionStorage.clear();
-      }
-    }
-
-
-
     const fetchBalances = async () => {
       if (paramCollectionaddress) {
         const collection = await getCollection(paramCollectionaddress);
@@ -101,7 +83,7 @@ const CardDetails: FC = () => {
     };
 
     fetchBalances();
-  }, [paramCollectionaddress, refreshKey,paramuserZodiacName]); // <-- add refreshKey
+  }, [paramCollectionaddress]);
 
   const [candyMachines, setCandyMachines] = useState([]);
 
@@ -140,7 +122,7 @@ const CardDetails: FC = () => {
     }).filter(Boolean);
 
     setCandyMachines(updatedCandyMachines);
-  }, [balances, collectionData, refreshKey]); // <-- add refreshKey
+  }, [balances, collectionData]);
 
   return (
     <>
@@ -276,18 +258,6 @@ const CardDetails: FC = () => {
                         candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
                         collectionaddress={candyMachines[0]?.collectionMint || ''}
                         buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
-                        // onMintSuccess={() => setTimeout(() => window.location.reload(), 8000)}
-                        // onMintSuccess={() => {
-                        //   setTimeout(() => setRefreshKey(prev => prev + 1), 6000); // Wait 3 seconds before refresh
-                        // }}
-                        // onMintSuccess={() => {
-                        //   console.log('Mint success, incrementing refreshKey');
-                        //   setRefreshKey(prev => prev + 1);
-                        // }}
-                        onMintSuccess={() => {
-                          const zodiac = paramuserZodiacName || '';
-                          window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
-                        }}
                       />
                     </div>
                   )}
