@@ -90,9 +90,9 @@ export const HomeView: FC = () => {
           </div>
           <div className="text-md md:text-lg font-medium py-2 text-gray-300">
             <span>Acquire and trade CANDIBAR/SOL on platforms such as </span>
-            <a href="https://raydium.io/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Raydium</a>,
-            <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Dexscreener</a>,
-            <a href="https://jup.ag/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Jupiter</a>,
+            <a href="https://raydium.io/swap/?inputMint=sol&outputMint=AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Raydium</a>,
+            <a href="https://dexscreener.com/solana/afmyy9uivm7z3twx3a8cc8v5jw8fy3escegux6tgny4s" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Dexscreener</a>,
+            <a href="https://jup.ag/tokens/AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Jupiter</a>,
             or directly via the Solflare wallet.
           </div>
         </div>

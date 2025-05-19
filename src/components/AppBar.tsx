@@ -120,13 +120,13 @@ export const AppBar: React.FC = () => {
       </div> */}
 
       {!wallet.connected && (
-      <div className='border-gray-300 bg-orange-500 text-center w-full min-w-[400px]'>
-         <div className="text-black px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
-           Please connect your wallet
-         </div>
-       </div>
+        <div className='border-gray-300 bg-gray-800 text-center w-full min-w-[400px]'>
+          <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
+            Please connect your wallet
+          </div>
+        </div>
       )}
-
+      
       {/* {!wallet.connected && (
         <div className='bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4" text-center w-full min-w-[400px]'>
           <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
