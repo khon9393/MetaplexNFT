@@ -25,11 +25,11 @@ export default function CandibarModal({ MessageTitle: msgtitle, MessageTxt: msgt
             <h1 className="text-1xl font-bold text-gray-600 dark:text-white p-2">
               {msgtxt}
             </h1>
-            {msgtitle === "Not Enough Candibar Tokens." && candibarTokenAddress && (
+            {(msgtitle === "Not Enough Candibar Tokens." || msgtitle === "Not enough solana SOL amount.") && candibarTokenAddress && (
               <div className="mt-4 text-center text-gray-900 dark:text-white">
-              <span>You can buy Candibar tokens on&nbsp;</span>
+              <span>You can buy {msgtitle === "Not Enough Candibar Tokens." ? "Candibar tokens" : "Solana (SOL)"} on&nbsp;</span>
               <Link
-                href={`https://raydium.io/swap/?input=sol&output=${candibarTokenAddress}`}
+                href={`https://raydium.io/swap/?input=${msgtitle === "Not Enough Candibar Tokens." ? "sol" : "usdc"}&output=${candibarTokenAddress}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline"
@@ -38,7 +38,7 @@ export default function CandibarModal({ MessageTitle: msgtitle, MessageTxt: msgt
               </Link>
               <span>&nbsp;or&nbsp;</span>
               <Link
-                href={`https://jup.ag/swap/SOL-${candibarTokenAddress}`}
+                href={`https://jup.ag/swap/${msgtitle === "Not Enough Candibar Tokens." ? `SOL-${candibarTokenAddress}` : "USDC-SOL"}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline"
@@ -46,7 +46,6 @@ export default function CandibarModal({ MessageTitle: msgtitle, MessageTxt: msgt
                 Jupiter
               </Link>
               <span>&nbsp;or swap directly from your wallet (e.g.,&nbsp;</span>
-
               <span>Solflare, etc.).</span>
               </div>
             )}
