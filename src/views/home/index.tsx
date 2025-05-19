@@ -93,8 +93,7 @@ export const HomeView: FC = () => {
             <a href="https://raydium.io/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Raydium</a>,
             <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Dexscreener</a>,
             <a href="https://jup.ag/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Jupiter</a>,
-            or directly via the
-            <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Solflare wallet</a>.
+            or directly via the Solflare wallet.
           </div>
         </div>
       </motion.section>
@@ -151,7 +150,7 @@ export const HomeView: FC = () => {
                  <li className="text-yellow-400 font-semibold">What&apos;s your sign? <Link href="/AstrologyZodiac" className="text-blue-400 hover:underline">Free Candi Zodiac Reading!</Link></li>
               <li>Candibar tokens are automatically burned 🔥 upon redemption for Zodiac NFTs.</li>
                 <li>Each NFT is compatible on leading Solana NFT marketplaces.</li> 
-                 <li> Partner with fellow collectors in <a href="https://twitter.com/i/communities/1923819855888908676" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">X Communities</a> to complete your set.</li>
+                <li>Collaborate with other collectors in the <a href="https://twitter.com/i/communities/1923819855888908676" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">X Candibar Trade Zone Community</a> to complete your collection.</li>
               <li>Complete NFT sets can be redeemed for exclusive rewards on the Candibar platform. </li>
               
                 
