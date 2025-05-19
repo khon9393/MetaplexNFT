@@ -316,10 +316,10 @@ const CardDetails: FC = () => {
                         //   console.log('Mint success, incrementing refreshKey');
                         //   setRefreshKey(prev => prev + 1);
                         // }}
-                        // onMintSuccess={() => {
-                        //   const zodiac = paramuserZodiacName || '';
-                        //   window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
-                        // }}
+                        onMintSuccess={() => {
+                          const zodiac = paramuserZodiacName || '';
+                          window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
+                        }}
                       />
                     </div>
                   )}
