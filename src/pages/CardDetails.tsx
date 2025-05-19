@@ -25,12 +25,13 @@ import { NFTStatusTypes } from "@/models/types";
 import Head from "next/head";
 import { ZodiacReading } from "@/components/candibar/ZodiacReader/ZodiacReading";
 import { ZodiacReadingDrawerWindow } from "@/components/candibar/ZodiacReader/ZodiacReadingDrawerWindow";
-import {getZodiacSignByName} from "../stores/useCandiZodiacSignsStore";
-import {ZodiacSign} from "../stores/useCandiZodiacSignsStore"
+import { getZodiacSignByName } from "../stores/useCandiZodiacSignsStore";
+import { ZodiacSign } from "../stores/useCandiZodiacSignsStore"
 import SwapCounter from "@/components/candibar/swapCounter/SwapCounter";
 import SwapDetails from "@/components/candibar/swapCounter/SwapDetails";
+import { fetchPromoGiveaway, savePromoGiveaway, fetchPromoGiveawayByMachine } from '@/stores/usePromoGiveAwayDB';
 
-  const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
+const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const CardDetails: FC = () => {
 
   const [isOpenStates, setIsOpenStates] = useState([true, true]);
@@ -44,6 +45,8 @@ const CardDetails: FC = () => {
   const [paramuserZodiacYear, setparamuserZodiacYear] = useState(null);
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
+
+
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("userData");
@@ -69,6 +72,23 @@ const CardDetails: FC = () => {
 
   }, [setParamCollectionaddress, paramuserZodiacName, paramuserZodiacYear]);
 
+  const [hasPromoGiveaway, setHasPromoGiveaway] = useState(false);
+
+  useEffect(() => {
+    const fetchPromoGiveawayData = async () => {
+      if (paramCollectionaddress) {
+        const promoGiveawayByMachine = await fetchPromoGiveawayByMachine('',paramCollectionaddress);
+        if (promoGiveawayByMachine.length > 0) {
+          setHasPromoGiveaway(true);
+        } else {
+          setHasPromoGiveaway(false);
+        }
+      }
+    };
+
+    fetchPromoGiveawayData();
+  }, [paramCollectionaddress]);
+
   useEffect(() => {
 
 
@@ -78,9 +98,9 @@ const CardDetails: FC = () => {
     if (zodiacNameFromUrl) {
       const zodiacData: ZodiacSign | undefined = getZodiacSignByName(zodiacNameFromUrl);
       if (zodiacData && zodiacData.collectionPublicKey) {
-      setParamCollectionaddress(zodiacData.collectionPublicKey);
-      setparamuserZodiacName(zodiacData.name);
-      sessionStorage.clear();
+        setParamCollectionaddress(zodiacData.collectionPublicKey);
+        setparamuserZodiacName(zodiacData.name);
+        sessionStorage.clear();
       }
     }
 
@@ -100,7 +120,7 @@ const CardDetails: FC = () => {
     };
 
     fetchBalances();
-  }, [paramCollectionaddress, refreshKey,paramuserZodiacName]); // <-- add refreshKey
+  }, [paramCollectionaddress, refreshKey, paramuserZodiacName]); // <-- add refreshKey
 
   const [candyMachines, setCandyMachines] = useState([]);
 
@@ -161,11 +181,24 @@ const CardDetails: FC = () => {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
 
-      <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
-        <h4 className="text-center text-lg font-bold">
-          🚨 We are actively working with <strong>Phantom Wallet</strong> to resolve ongoing issues affecting minting requests. In the meantime, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Thank you for your patience and understanding. 🚨
-        </h4>
-      </div>
+      {hasPromoGiveaway && (
+        <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4 animate-pulse">
+          <h4 className="text-center text-2xl font-bold">
+        🎉 Giveaway Mode is Active! Claim your exclusive rewards now! 🎉
+          </h4>
+        </div>
+      )}
+
+      {!hasPromoGiveaway && (
+        <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
+          <h4 className="text-center text-lg font-bold">
+        🚨 We are actively working with <strong>Phantom Wallet</strong> to resolve ongoing issues affecting minting requests. In the meantime, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Thank you for your patience and understanding. 🚨
+          </h4>
+        </div>
+      )}
+
+
+
 
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
       >
