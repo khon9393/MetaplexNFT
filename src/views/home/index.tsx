@@ -99,6 +99,29 @@ export const HomeView: FC = () => {
         </div>
       </motion.section>
 
+
+{/* <iframe
+  src="https://jup.ag/swap/SOL-CANDIBAR"
+  width="50%"
+  height="800"
+  allowFullScreen
+  style={{ borderRadius: '12px' }}
+></iframe> */}
+{/* <button
+  onClick={() => window.open('https://raydium.io/swap/?inputCurrency=sol&outputCurrency=AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s', '_blank')}
+  style={{
+    background: '#8b4513',
+    color: 'white',
+    padding: '12px 20px',
+    fontSize: '16px',
+    border: 'none',
+    borderRadius: '10px',
+    cursor: 'pointer'
+  }}
+>
+  🔥 Buy CANDIBAR Now
+</button> */}
+
       {/* Platform Overview */}
       <motion.section
         className="max-w-8x1 mx-auto space-y-12"

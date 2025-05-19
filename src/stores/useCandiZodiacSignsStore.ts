@@ -38,6 +38,22 @@ export const CandiZodiacSigns: ZodiacSign[] = [
     // { name: "Sagittarius", icon: "♐", dateRange: "November 22-December 21", machinePublicKey: process.env.NEXT_PUBLIC_CANDY_MACHINE_SAGC1, collectionPublicKey: process.env.NEXT_PUBLIC_COLLECTION_SAGC1, escrowPublickey: process.env.NEXT_PUBLIC_ESCROW_SAGC1 },
 ];
 
+// Function to get the zodiac sign based on the name
+export const getZodiacSignByName = (name: string): ZodiacSign | undefined => {
+    return CandiZodiacSigns.find(sign => sign.name.toLowerCase() === name.toLowerCase());
+};
+
+// Function to get the zodiac sign based on the machinePublicKey
+export const getZodiacSignByMachinePublicKey = (machinePublicKey: string): ZodiacSign | undefined => {
+    return CandiZodiacSigns.find(sign => sign.machinePublicKey === machinePublicKey);
+};
+
+// Function to get the zodiac sign based on the collectionPublicKey
+export const getZodiacSignByCollectionPublicKey = (collectionPublicKey: string): ZodiacSign | undefined => {
+    return CandiZodiacSigns.find(sign => sign.collectionPublicKey === collectionPublicKey);
+};
+
+
 export const getCurrentZodiacSign = (): ZodiacSign | null => {
     const currentDate = new Date();
 

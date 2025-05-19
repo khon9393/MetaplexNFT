@@ -113,14 +113,27 @@ export const AppBar: React.FC = () => {
           </div>
         )}
 
+      {/* <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
+        <h4 className="text-center text-lg font-bold">
+          🚨 We are actively working with <strong>Phantom Wallet</strong> to resolve ongoing issues affecting minting requests. In the meantime, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Thank you for your patience and understanding. 🚨
+        </h4>
+      </div> */}
 
       {!wallet.connected && (
-        <div className='border-gray-300 bg-gray-800 text-center w-full min-w-[400px]'>
+      <div className='border-gray-300 bg-orange-500 text-center w-full min-w-[400px]'>
+         <div className="text-black px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
+           Please connect your wallet
+         </div>
+       </div>
+      )}
+
+      {/* {!wallet.connected && (
+        <div className='bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4" text-center w-full min-w-[400px]'>
           <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
             Please connect your wallet
           </div>
         </div>
-      )}
+      )} */}
 
       <UmiProvider>
 

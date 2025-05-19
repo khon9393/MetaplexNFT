@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Fragment } from "react";
 import { Dialog, DialogTitle, Transition } from "@headlessui/react";
+import Link from "next/link";
 
 interface ModalProps {
   MessageTitle: string;
@@ -9,6 +10,8 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const candibarTokenAddress = process.env.NEXT_PUBLIC_TOKEN;
 
 export default function CandibarModal({ MessageTitle: msgtitle, MessageTxt: msgtxt, isOpen, onClose }: ModalProps) {
   return (
@@ -22,6 +25,32 @@ export default function CandibarModal({ MessageTitle: msgtitle, MessageTxt: msgt
             <h1 className="text-1xl font-bold text-gray-600 dark:text-white p-2">
               {msgtxt}
             </h1>
+            {msgtitle === "Not Enough Candibar Tokens." && candibarTokenAddress && (
+              <div className="mt-4 text-center text-gray-900 dark:text-white">
+              <span>You can buy Candibar tokens on&nbsp;</span>
+              <Link
+                href={`https://raydium.io/swap/?input=sol&output=${candibarTokenAddress}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                Raydium
+              </Link>
+              <span>&nbsp;or&nbsp;</span>
+              <Link
+                href={`https://jup.ag/swap/SOL-${candibarTokenAddress}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                Jupiter
+              </Link>
+              <span>&nbsp;or swap directly from your wallet (e.g.,&nbsp;</span>
+
+              <span>Solflare, etc.).</span>
+              </div>
+            )}
+
             <div className="flex items-center justify-center">
               {/* ✅ Close Button */}
               <button
