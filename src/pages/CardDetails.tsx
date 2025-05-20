@@ -77,7 +77,7 @@ const CardDetails: FC = () => {
   useEffect(() => {
     const fetchPromoGiveawayData = async () => {
       if (paramCollectionaddress) {
-        const promoGiveawayByMachine = await fetchPromoGiveawayByMachine('',paramCollectionaddress);
+        const promoGiveawayByMachine = await fetchPromoGiveawayByMachine('', paramCollectionaddress);
         if (promoGiveawayByMachine.length > 0) {
           setHasPromoGiveaway(true);
         } else {
@@ -184,20 +184,26 @@ const CardDetails: FC = () => {
       {hasPromoGiveaway && (
         <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4 animate-pulse">
           <h4 className="text-center text-2xl font-bold">
-        🎉 Giveaway Mode is Active! Claim your exclusive rewards now! 🎉
+            🎉 Giveaway Mode is Active!🎉
           </h4>
         </div>
       )}
 
-      {!hasPromoGiveaway && (
+      {/* {!hasPromoGiveaway && (
         <div className="flex justify-center items-center bg-orange-500 text-black p-4 rounded-lg shadow-lg mt-4 animate-pulse">
             <h4 className="text-center text-lg font-bold">
           🚨 Minting issues with <strong>Phantom Wallet</strong>. Recommend <strong>Solflare Wallet</strong> for a smoother experience. Thank you! 🚨
             </h4>
         </div>
-      )}
+      )} */}
 
-
+      {/* {!hasPromoGiveaway && (
+        <div className="flex justify-center items-center bg-orange-500 text-black p-4 rounded-lg shadow-lg mt-4 animate-pulse">
+            <h4 className="text-center text-lg font-bold">
+          🚨 Minting issues with <strong>Phantom Wallet</strong>. Recommend <strong>Solflare Wallet</strong> for a smoother experience. Thank you! 🚨
+            </h4>
+        </div>
+      )} */}
 
 
       <div className="flex flex-col md:flex-row gap-4 mt-4 pl-0 pr-0 justify-center"
@@ -231,23 +237,21 @@ const CardDetails: FC = () => {
                               height={400}
                               className="rounded-xl shadow-lg"
                             />
-                            {machine.itemsRedeemed === machine.itemsAvailable
-                              && (
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <span className="text-8xl font-bold text-red-500 opacity-75 transform rotate-45">
-                                    {NFTStatusTypes.SoldOut}
-                                  </span>
-                                </div>
-                              )}
 
-                            {(machine.collectionStatus !== NFTStatusTypes.Available) ||
-                              (machine.itemsRedeemed === machine.redeemedAmountMaxLimit) && (
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
-                                    {NFTStatusTypes.ComingSoon}
-                                  </span>
-                                </div>
-                              )}
+                            {machine.itemsRedeemed === machine.itemsAvailable ||
+                              (machine.itemsRedeemed === machine.redeemedAmountMaxLimit) ? (
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-8xl font-bold text-red-500 opacity-75 transform rotate-45">
+                                {NFTStatusTypes.SoldOut}
+                                </span>
+                              </div>
+                              ) : machine.collectionStatus !== NFTStatusTypes.Available ? (
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
+                                {machine.collectionStatus}
+                                </span>
+                              </div>
+                              ) : null}
 
                           </motion.div>
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
@@ -298,36 +302,32 @@ const CardDetails: FC = () => {
 
             {/* Begin - Minting Button compoenent Section */}
 
-            {candyMachines[0]?.images.length > 0 ? (
-              <div className="p-4">
-                {candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.itemsAvailable &&
-                  candyMachines[0]?.collectionStatus === NFTStatusTypes.Available &&
-                  (
-                    <div>
-                      <CandiMinter
-                        candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
-                        collectionaddress={candyMachines[0]?.collectionMint || ''}
-                        buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
-                        // onMintSuccess={() => setTimeout(() => window.location.reload(), 8000)}
-                        // onMintSuccess={() => {
-                        //   setTimeout(() => setRefreshKey(prev => prev + 1), 6000); // Wait 3 seconds before refresh
-                        // }}
-                        // onMintSuccess={() => {
-                        //   console.log('Mint success, incrementing refreshKey');
-                        //   setRefreshKey(prev => prev + 1);
-                        // }}
-                        onMintSuccess={() => {
-                          const zodiac = paramuserZodiacName || '';
-                          window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
-                        }}
-                      />
-                    </div>
-                  )}
-              </div>
-            ) : (
-              <h1>Item not Found.</h1>
+            {!hasPromoGiveaway && (
+              <>
+                {candyMachines[0]?.images.length > 0 ? (
+                  <div className="p-4">
+                    {candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.itemsAvailable &&
+                    candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.redeemedAmountMaxLimit &&
+                      candyMachines[0]?.collectionStatus === NFTStatusTypes.Available &&
+                      (
+                        <div>
+                          <CandiMinter
+                            candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
+                            collectionaddress={candyMachines[0]?.collectionMint || ''}
+                            buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
+                            onMintSuccess={() => {
+                              const zodiac = paramuserZodiacName || '';
+                              window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
+                            }}
+                          />
+                        </div>
+                      )}
+                  </div>
+                ) : (
+                  <h1>Item not Found.</h1>
+                )}
+              </>
             )}
-
 
             {/* End - Minting Button compoenent Section */}
 
@@ -426,72 +426,110 @@ const CardDetails: FC = () => {
 
                       <br />
 
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                      >
-                        <Card >
-                          <span className="text-1xl font-semibold">
-                            <Collapsible
-                              open={isOpenStates[machineIndex + candyMachines.length]}
-                              onOpenChange={(isOpen) => {
-                                const updatedStates = [...isOpenStates];
-                                updatedStates[machineIndex + candyMachines.length] = isOpen;
-                                setIsOpenStates(updatedStates);
-                              }}
-                              className="space-y-1"
-                            >
-                              <div className="flex items-center justify-between space-x-4 px-4">
-                                <h4 className="text-lg font-semibold">
-                                  Associated Costs
-                                </h4>
-                                <CollapsibleTrigger asChild>
-                                  <Button variant="ghost" size="sm">
-                                    <ChevronsUpDown className="h-4 w-4" />
-                                    <span className="sr-only">Toggle</span>
-                                  </Button>
-                                </CollapsibleTrigger>
-                              </div>
-
-                              <CollapsibleContent className="space-y-1">
-
-
-                                <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
-                                  <Image
-                                    src={solanaLogo}
-                                    alt="Solana Icon"
-                                    width={16}
-                                    height={16}
-                                    className="mr-1"
-                                  />
-                                  {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} SOL (excl. txn fees)
+                      {!hasPromoGiveaway && (
+                        <motion.div
+                          whileHover={{ scale: 1.02 }}
+                        >
+                          <Card >
+                            <span className="text-1xl font-semibold">
+                              <Collapsible
+                                open={isOpenStates[machineIndex + candyMachines.length]}
+                                onOpenChange={(isOpen) => {
+                                  const updatedStates = [...isOpenStates];
+                                  updatedStates[machineIndex + candyMachines.length] = isOpen;
+                                  setIsOpenStates(updatedStates);
+                                }}
+                                className="space-y-1"
+                              >
+                                <div className="flex items-center justify-between space-x-4 px-4">
+                                  <h4 className="text-lg font-semibold">
+                                    Associated Costs
+                                  </h4>
+                                  <CollapsibleTrigger asChild>
+                                    <Button variant="ghost" size="sm">
+                                      <ChevronsUpDown className="h-4 w-4" />
+                                      <span className="sr-only">Toggle</span>
+                                    </Button>
+                                  </CollapsibleTrigger>
                                 </div>
 
-                                {(machine.tokenPaymentAmount > 0 || machine.tokenBurnAmount) && (
-                                  <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center">
-                                    {machine.tokenBurnAmount > 0 && <span >🔥</span>}
+                                <CollapsibleContent className="space-y-1">
+
+
+                                  <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center whitespace-nowrap">
                                     <Image
-                                      src={tokenimg}
+                                      src={solanaLogo}
                                       alt="Solana Icon"
                                       width={16}
                                       height={16}
                                       className="mr-1"
                                     />
-                                    {machine.tokenPaymentAmount > 0 &&
-                                      <span >{`${machine.tokenPaymentAmount.toLocaleString()} Candibar Tokens`}</span>}
-
-                                    {machine.tokenBurnAmount > 0 &&
-                                      <span className="text-red-500">
-                                        {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens to Burn`}
-                                      </span>}
-
+                                    {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} SOL (excl. txn fees)
                                   </div>
-                                )}
 
-                              </CollapsibleContent>
-                            </Collapsible>
-                          </span>
-                        </Card>
-                      </motion.div>
+                                  {(machine.tokenPaymentAmount > 0 || machine.tokenBurnAmount) && (
+                                    <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center">
+                                      {machine.tokenBurnAmount > 0 && <span >🔥</span>}
+                                      <Image
+                                        src={tokenimg}
+                                        alt="Solana Icon"
+                                        width={16}
+                                        height={16}
+                                        className="mr-1"
+                                      />
+                                      {machine.tokenPaymentAmount > 0 &&
+                                        <span >{`${machine.tokenPaymentAmount.toLocaleString()} Candibar Tokens`}</span>}
+
+                                      {machine.tokenBurnAmount > 0 &&
+                                        <span className="text-red-500">
+                                          {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens to Burn`}
+                                        </span>}
+
+                                    </div>
+                                  )}
+
+                                </CollapsibleContent>
+                              </Collapsible>
+                            </span>
+                          </Card>
+                        </motion.div>
+                      )}
+
+                      {hasPromoGiveaway && (
+                        <>
+                          <div className="p-4">
+                            {candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.itemsAvailable &&
+                              candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.redeemedAmountMaxLimit &&
+                              candyMachines[0]?.collectionStatus === NFTStatusTypes.Available ? (
+                              <div>
+                                <div className="flex justify-center items-center bg-green-500 text-white p-4 rounded-lg shadow-lg mt-4 animate-bounce">
+                                <h4 className="text-center text-2xl font-bold">
+                                  🎁 Mint a Free NFT! Claim your exclusive Candibar NFT now! 🎁
+                                </h4>
+                                </div>
+                                <CandiMinter
+                                candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
+                                collectionaddress={candyMachines[0]?.collectionMint || ''}
+                                buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
+                                onMintSuccess={() => {
+                                  const zodiac = paramuserZodiacName || '';
+                                  window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
+                                }}
+                                />
+                              </div>
+                              ) : (
+                              <div className="flex justify-center items-center bg-red-500 text-white p-4 rounded-lg shadow-lg mt-4">
+                                <h4 className="text-center text-2xl font-bold">
+                                🚫 Sold Out! All NFTs have been claimed. 🚫
+                                </h4>
+                              </div>
+                              )}
+                          </div>
+                        </>
+                      )}
+
+                      <br />
+
                     </div>
 
                   ))}
