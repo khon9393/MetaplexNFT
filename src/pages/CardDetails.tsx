@@ -190,10 +190,10 @@ const CardDetails: FC = () => {
       )}
 
       {!hasPromoGiveaway && (
-        <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
-          <h4 className="text-center text-lg font-bold">
-        🚨 We are actively working with <strong>Phantom Wallet</strong> to resolve ongoing issues affecting minting requests. In the meantime, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Thank you for your patience and understanding. 🚨
-          </h4>
+        <div className="flex justify-center items-center bg-orange-500 text-black p-4 rounded-lg shadow-lg mt-4 animate-pulse">
+            <h4 className="text-center text-lg font-bold">
+          🚨 Minting issues with <strong>Phantom Wallet</strong>. Recommend <strong>Solflare Wallet</strong> for a smoother experience. Thank you! 🚨
+            </h4>
         </div>
       )}
 
