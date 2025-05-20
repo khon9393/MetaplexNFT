@@ -324,7 +324,7 @@ const CardDetails: FC = () => {
                       )}
                   </div>
                 ) : (
-                  <h1>Item not Found.</h1>
+                  <h1>loading... or Item not Found.</h1>
                 )}
               </>
             )}
