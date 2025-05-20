@@ -84,7 +84,6 @@ export const getCurrentZodiacSignTopN = (n: number): ZodiacSign[] => {
 
         const startDate = new Date(`${startMonth} ${startDay}, ${currentDate.getFullYear()}`);
         const endDate = new Date(`${endMonth} ${endDay}, ${currentDate.getFullYear()}`);
-        endDate.setHours(23, 59, 59, 999); // Set end date to the end of the day
 
         return { ...sign, startDate, endDate };
     }).sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
