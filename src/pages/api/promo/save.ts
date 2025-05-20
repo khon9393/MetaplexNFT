@@ -6,9 +6,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const {
         walletpk,
-        assetId,
-        collectionId,
-        candymachineId,
+        assetid,
+        collectionid,
+        candymachineid,
+        promo_mint,
         name,
         description,
         enabled,
@@ -17,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         update_user,
     } = req.body;
 
-    if (!walletpk || !assetId || !collectionId || !candymachineId) {
+    if (!walletpk || !assetid || !collectionid || !candymachineid) {
         return res.status(400).json({
             error: 'walletpk, assetId, collectionId, and candymachineId are required',
         });
@@ -25,27 +26,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const client = await pool.connect();
     try {
-        const check = await client.query(
-            'SELECT 1 FROM Promo_giveaway WHERE walletpk = $1 AND assetId = $2 LIMIT 1',
-            [walletpk, assetId]
-        );
+        // const check = await client.query(
+        //     'SELECT 1 FROM Promo_giveaway WHERE walletpk = $1 AND assetId = $2 LIMIT 1',
+        //     [walletpk, assetid]
+        // );
 
-        if (check.rowCount > 0) {
-            return res.status(200).json({ message: 'Entry already exists' });
-        }
+        // if (check.rowCount > 0) {
+        //     return res.status(200).json({ message: 'Entry already exists' });
+        // }
 
         await client.query(
             `INSERT INTO Promo_giveaway (
-                walletpk, assetId, collectionId, candymachineId, name, description, enabled, update_time, create_time, update_user
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+                walletpk, assetid, collectionid, candymachineid, name, description, enabled, promo_mint, update_time, create_time, update_user
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
             [
                 walletpk,
-                assetId,
-                collectionId,
-                candymachineId,
+                assetid,
+                collectionid,
+                candymachineid,
                 name || null,
                 description || null,
                 enabled || true,
+                promo_mint || false,
                 update_time || new Date(),
                 create_time || new Date(),
                 update_user || null,

@@ -242,16 +242,16 @@ const CardDetails: FC = () => {
                               (machine.itemsRedeemed === machine.redeemedAmountMaxLimit) ? (
                               <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-8xl font-bold text-red-500 opacity-75 transform rotate-45">
-                                {NFTStatusTypes.SoldOut}
+                                  {NFTStatusTypes.SoldOut}
                                 </span>
                               </div>
-                              ) : machine.collectionStatus !== NFTStatusTypes.Available ? (
+                            ) : machine.collectionStatus !== NFTStatusTypes.Available ? (
                               <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-5xl font-bold text-white opacity-75 transform rotate-45">
-                                {machine.collectionStatus}
+                                  {machine.collectionStatus}
                                 </span>
                               </div>
-                              ) : null}
+                            ) : null}
 
                           </motion.div>
                           <div className="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-3 rounded-tl-xl">
@@ -307,7 +307,7 @@ const CardDetails: FC = () => {
                 {candyMachines[0]?.images.length > 0 ? (
                   <div className="p-4">
                     {candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.itemsAvailable &&
-                    candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.redeemedAmountMaxLimit &&
+                      candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.redeemedAmountMaxLimit &&
                       candyMachines[0]?.collectionStatus === NFTStatusTypes.Available &&
                       (
                         <div>
@@ -315,6 +315,8 @@ const CardDetails: FC = () => {
                             candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
                             collectionaddress={candyMachines[0]?.collectionMint || ''}
                             buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
+                            PromoGiveaway={hasPromoGiveaway || false}
+                            mintdescription={candyMachines[0]?.collectionName || ''}
                             onMintSuccess={() => {
                               const zodiac = paramuserZodiacName || '';
                               window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
@@ -503,27 +505,29 @@ const CardDetails: FC = () => {
                               candyMachines[0]?.collectionStatus === NFTStatusTypes.Available ? (
                               <div>
                                 <div className="flex justify-center items-center bg-green-500 text-white p-4 rounded-lg shadow-lg mt-4 animate-bounce">
-                                <h4 className="text-center text-2xl font-bold">
-                                  🎁 Mint a Free NFT! Claim your exclusive Candibar NFT now! 🎁
-                                </h4>
+                                  <h4 className="text-center text-2xl font-bold">
+                                    🎁 Mint a Free NFT! Claim your exclusive Candibar NFT now! 🎁
+                                  </h4>
                                 </div>
                                 <CandiMinter
-                                candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
-                                collectionaddress={candyMachines[0]?.collectionMint || ''}
-                                buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
-                                onMintSuccess={() => {
-                                  const zodiac = paramuserZodiacName || '';
-                                  window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
-                                }}
+                                  candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
+                                  collectionaddress={candyMachines[0]?.collectionMint || ''}
+                                  buttonText={candyMachines[0]?.images.filter(img => !img.iscollectioncover).length > 1 ? "Mint Random NFT" : ""}
+                                  PromoGiveaway={hasPromoGiveaway || false}
+                                  mintdescription={candyMachines[0]?.collectionName || ''}
+                                  onMintSuccess={() => {
+                                    const zodiac = paramuserZodiacName || '';
+                                    window.location.href = `/CardDetails/?zodiac=${encodeURIComponent(zodiac)}`;
+                                  }}
                                 />
                               </div>
-                              ) : (
+                            ) : (
                               <div className="flex justify-center items-center bg-red-500 text-white p-4 rounded-lg shadow-lg mt-4">
                                 <h4 className="text-center text-2xl font-bold">
-                                🚫 Sold Out! All NFTs have been claimed. 🚫
+                                  🚫 Sold Out! All NFTs have been claimed. 🚫
                                 </h4>
                               </div>
-                              )}
+                            )}
                           </div>
                         </>
                       )}
