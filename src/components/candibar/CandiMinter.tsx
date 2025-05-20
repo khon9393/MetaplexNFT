@@ -32,6 +32,7 @@ const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
+const systemenv = process.env.NEXT_PUBLIC_RPC_ENV;
 
 const candyMachineKeysforConfetti = [
   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
@@ -44,10 +45,12 @@ interface CandiMintersProps {
   candyMachineaddress: string;
   collectionaddress: string;
   buttonText?: string;
+  PromoGiveaway?: boolean;
+  mintdescription?: string;
   onMintSuccess?: () => void; // <-- add this line
 }
 
-export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress, buttonText, onMintSuccess }) => {
+export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress, buttonText, PromoGiveaway, mintdescription, onMintSuccess }) => {
   const wallet = useWallet();
   const { getUserSOLBalance } = useUserSOLBalanceStore();
 
@@ -81,10 +84,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       return;
     }
 
-
     try {
-
-
       // Mint from the Candy Machine give away
       let useWalletPk: boolean = false; 
       let walletprivatekey = '';
@@ -193,7 +193,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       }
 
 
-      const nftMint = generateSigner(umi);
+       const nftMint = generateSigner(umi);
       const transaction = transactionBuilder()
         .add(setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) }))
         .add(
@@ -254,6 +254,20 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         description: "Mint successful!",
       });
 
+        try {
+          savePromoGiveaway({
+            walletpk: walletPublicKey || 'YourWalletPublicKeyHere',
+            assetid: nftMint.publicKey,
+            collectionid: collectionaddress,
+            candymachineid: candyMachineaddress,
+            name: systemenv,
+            description: 'Promo Giveaway NFT: ' + mintdescription,
+            promo_mint: PromoGiveaway,
+          });
+        } catch (error) {
+          // Do nothing
+        }
+
       if (candyMachineKeysforConfetti[0].toString() == candyMachineaddress) {
         setShowFireworks(true);
         setTimeout(() => {
@@ -286,18 +300,6 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
           window.location.reload();
         }, 9000);
       }
-
-
-      savePromoGiveaway({
-        walletpk: walletPublicKey || 'YourWalletPublicKeyHere',
-        assetId: nftMint.publicKey,
-        collectionId: collectionaddress,
-        candymachineId: candyMachineaddress,
-        name: 'Promo Giveaway NFT ' + results[0].name,
-        description: 'NFT Mint Promo Giveaway'
-      });
-
-      // setIsTransacting(false);
 
     } catch (error: any) {
 
@@ -341,17 +343,6 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
             <span>{buttonText || "Mint NFT"}</span>
           </button>
         )}
-
-        {/* Refresh Button (always show if mintSuccess) */}
-        {/* {mintSuccess && (
-      <button
-        className="px-8 m-2 z-70 btn bg-yellow-400 text-black font-bold"
-        style={{ position: "relative", zIndex: 100 }}
-        onClick={() => window.location.reload()}
-      >
-        Mint successful! Click here to refresh/update page.
-      </button>
-    )} */}
 
         {/* Minting in progress overlay */}
         {isTransacting && (
