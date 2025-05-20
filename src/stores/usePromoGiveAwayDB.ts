@@ -1,10 +1,11 @@
 export async function savePromoGiveaway(promoData: {
   walletpk: string;
-  assetId: string;
-  collectionId: string;
-  candymachineId: string;
+  assetid: string;
+  collectionid: string;
+  candymachineid: string;
   name: string;
-  description: string;
+  description: string;  
+  promo_mint: boolean,
   enabled?: boolean;
 }) {
   const response = await fetch('/api/promo/save', {
