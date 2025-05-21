@@ -30,6 +30,7 @@ import { ZodiacSign } from "../stores/useCandiZodiacSignsStore"
 import SwapCounter from "@/components/candibar/swapCounter/SwapCounter";
 import SwapDetails from "@/components/candibar/swapCounter/SwapDetails";
 import { fetchPromoGiveaway, savePromoGiveaway, fetchPromoGiveawayByMachine } from '@/stores/usePromoGiveAwayDB';
+import { useWallet } from "@solana/wallet-adapter-react";
 
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const CardDetails: FC = () => {
@@ -46,7 +47,7 @@ const CardDetails: FC = () => {
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
 
-
+  const wallet = useWallet();
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("userData");
@@ -504,11 +505,26 @@ const CardDetails: FC = () => {
                               candyMachines[0]?.itemsRedeemed !== candyMachines[0]?.redeemedAmountMaxLimit &&
                               candyMachines[0]?.collectionStatus === NFTStatusTypes.Available ? (
                               <div>
-                                <div className="flex justify-center items-center bg-green-500 text-white p-4 rounded-lg shadow-lg mt-4 animate-bounce">
-                                  <h4 className="text-center text-2xl font-bold">
-                                    🎁 Mint a Free NFT! Claim your exclusive Candibar NFT now! 🎁
-                                  </h4>
-                                </div>
+
+                                {wallet.connected && wallet.publicKey ? (
+                                  <>
+                                    <div className="flex justify-center items-center bg-green-500 text-white p-4 rounded-lg shadow-lg mt-4">
+                                      <h4 className="text-center text-2xl font-bold">
+                                        🎁 Mint a Free NFT! Claim your exclusive Candibar NFT now! 🎁
+                                      </h4>
+                                    </div>
+                                    <div className="text-3xl animate-bounce p-2">
+                                      👇
+                                    </div>
+                                  </>
+                                ) : (
+                                  <div className="flex justify-center items-center bg-blue-500 text-white p-4 rounded-lg shadow-lg mt-4">
+                                    <h4 className="text-center text-2xl font-bold">
+                                     Connect your wallet to claim your NFT!
+                                    </h4>
+                                  </div>
+                                )}
+
                                 <CandiMinter
                                   candyMachineaddress={candyMachines[0]?.candymachineaddress || ''}
                                   collectionaddress={candyMachines[0]?.collectionMint || ''}
