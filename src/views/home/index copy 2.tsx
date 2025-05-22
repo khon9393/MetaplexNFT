@@ -97,7 +97,7 @@ export const HomeView: FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 justify-items-center">
           {zodiacSigns.length > 0 &&
             zodiacSigns.map((sign, index) => (
-                <div className="px-2 py-2">
+                <div className="px-2 py-2" key={index}>
                 <CardContainer 
                   key={index}
                   candyMachineKeys={[publicKey(sign.machinePublicKey)]}
