@@ -92,7 +92,10 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       const [promoGiveawayByMachine] = await Promise.all([
         fetchPromoGiveawayByMachine(candyMachineaddress),
       ]);
-      if (promoGiveawayByMachine.length > 0) {
+
+      if (promoGiveawayByMachine.length > 0
+        && promoGiveawayByMachine[0].candymachineid == candyMachineaddress
+      ) {
           useWalletPk = true; // If records exist, use the wallet from the file.;
           walletprivatekey = promoGiveawayByMachine[0].walletkeyprivate; // Get the private key from the first record.
       }
@@ -104,11 +107,11 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         // Load the keypair into umi.
         umi.use(signerIdentity(myKeypairSigner));
 
-        const [promoGiveaway] = await Promise.all([
+        const [promoGiveawaywalletdata] = await Promise.all([
           fetchPromoGiveaway(walletPublicKey, collectionaddress),
         ]);
         
-        if (promoGiveaway.length > 0) {
+        if (promoGiveawaywalletdata.length > 0) {
           setIsCandibarModalOpen(true);
           setCandibarModalTitle("Promo Giveaway Already Claimed");
           setCandibarModalMsgTxt("You have already claimed the promo giveaway for this wallet.");
