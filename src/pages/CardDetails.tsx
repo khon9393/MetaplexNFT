@@ -470,26 +470,25 @@ const CardDetails: FC = () => {
                                     {parseFloat(machine.cost).toFixed(4).replace(/\.?0+$/, '')} SOL (excl. txn fees)
                                   </div>
 
-                                  {(machine.tokenPaymentAmount > 0 || machine.tokenBurnAmount) && (
+                                    {(machine.tokenPaymentAmount > 0 || machine.tokenBurnAmount > 0) ? (
                                     <div className="rounded-md border py-1 font-mono text-md shadow-sm flex items-center justify-center">
-                                      {machine.tokenBurnAmount > 0 && <span >🔥</span>}
+                                      {machine.tokenBurnAmount > 0 && <span>🔥</span>}
                                       <Image
-                                        src={tokenimg}
-                                        alt="Solana Icon"
-                                        width={16}
-                                        height={16}
-                                        className="mr-1"
+                                      src={tokenimg}
+                                      alt="Solana Icon"
+                                      width={16}
+                                      height={16}
+                                      className="mr-1"
                                       />
                                       {machine.tokenPaymentAmount > 0 &&
-                                        <span >{`${machine.tokenPaymentAmount.toLocaleString()} Candibar Tokens`}</span>}
+                                      <span>{`${machine.tokenPaymentAmount.toLocaleString()} Candibar Tokens`}</span>}
 
                                       {machine.tokenBurnAmount > 0 &&
-                                        <span className="text-red-500">
-                                          {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens to Burn`}
-                                        </span>}
-
+                                      <span className="text-red-500">
+                                        {`${machine.tokenBurnAmount.toLocaleString()} Candibar Tokens to Burn`}
+                                      </span>}
                                     </div>
-                                  )}
+                                    ) : null}
 
                                 </CollapsibleContent>
                               </Collapsible>
