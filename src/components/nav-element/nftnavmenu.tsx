@@ -111,7 +111,7 @@ export function CandibarDropdownMenu1() {
           </Button>
         </DropdownMenuItem>
 
-        <DropdownMenuSeparator />
+        {/* <DropdownMenuSeparator />
 
         <DropdownMenuItem>
 
@@ -120,7 +120,7 @@ export function CandibarDropdownMenu1() {
           >
            Top Zodiac NFT Holders
           </Button>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
       </DropdownMenuContent>
     </DropdownMenu>

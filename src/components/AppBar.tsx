@@ -83,10 +83,10 @@ export const AppBar: React.FC = () => {
               label="Home"
               href="/"
             /> */}
-            {/* <NavElement
-              label="Getting&nbsp;Started"
-              href="/getstarted"
-            /> */}
+            <NavElement
+              label="NFT&nbsp;Holders"
+              href="/ZodiacTopHolderDashboard"
+            />
             <div>
               < CandibarDropdownMenu1 />
             </div>
