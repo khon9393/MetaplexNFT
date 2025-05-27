@@ -39,6 +39,7 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
               limit: 1000,
               burnt: searchAssetArgs.burnt,
               ownerAddress: searchAssetArgs.owner
+              
             }
           })
         });

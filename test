@@ -1,0 +1,931 @@
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "total": 10,
+        "limit": 10,
+        "cursor": "3hRqfX6KqiNXKgLuX9o2iiAG7XwaAA5kPDqpo9NAiigo",
+        "items": [
+            {
+                "interface": "MplCoreAsset",
+                "id": "GRvxDtbhtVHUsPCw94QB1YTA8tqqyeDaFZCGUFa48Kng",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #3",
+                        "name": "Gemini Candibar #163",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "6Jesgk16VzE7GXDaot8E5RVgEKeseaSkQQWUBPNpBtcu"
+                },
+                "mutable": true,
+                "burnt": true,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "CcD96e8X3Z3dKuSSs1razVB8eLyF2cGV5EjFgwKJwkqS",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/FK8MPRcYK-ZTuJyIeaY4Bo195HmBQQHqTsHwWagelFE?ext=json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #4",
+                        "name": "Gemini Candibar #16",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "23xL28eG4Ywv1V1tk6EkywFsCrDpXgjXKQAqHKrKRiu5"
+                },
+                "mutable": true,
+                "burnt": true,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "BW2R9zgHyL46ZbufZNjaEePQgT4wFUbJTBHyyXqFTeav",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini4C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #4",
+                        "name": "Gemini Candibar #180",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "B8TAfRnkjcwwuYZfU6bCxW6ycupP7VhXswbE77AbyzRP"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "9ch21XzdUgd3WKiTd67R5JTbVWb9WRn3uj1BNETXSTB9",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini1C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC1.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #1",
+                        "name": "Gemini Candibar #25",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC1.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "EBtdzsF2w94ojFbzzTqFe7xnvgUvCQNyqbZV4famYH2c"
+                },
+                "mutable": true,
+                "burnt": true,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "8nHZzvuVMrzrRQU41k2m1R7GYszxZaDiQh37TTp3QywA",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/x2CODVZiHaWIXyH5owTplqXi1bOZij7H16nyYJmxqqs?ext=json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #2",
+                        "name": "Gemini Candibar #166",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "H32qsZzzW5iihveevGbTQvHwhZzTVGYVcWzduKoMFdW7"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "8MCqVSJ1129ez8BMsoJQCgPQBTzoBN7yEszGH26ETLAh",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini2C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #2",
+                        "name": "Gemini Candibar #178",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "external_url": "https://candibarnft.com",
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "7m3yDzkN7QhkBc6QfoF8eusfTM1kKouLybEutj3qLwk1",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #3",
+                        "name": "Gemini Candibar #175",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "78P29ECVrxq8EWTaPkY4K5nWsEVi7xxAzbcaUCaqSK6w"
+                },
+                "mutable": true,
+                "burnt": true,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "6wP6z6BnLcr3apWm2w4BvHeF1gL59uoiExpRDcTF53Fn",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini2C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #2",
+                        "name": "Gemini Candibar #126",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "5aJ9dRsUfGvCTgHHYRFhvULptZvP2yz56C2yJ1q2PciB",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini4C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #4",
+                        "name": "Gemini Candibar #212",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "3hRqfX6KqiNXKgLuX9o2iiAG7XwaAA5kPDqpo9NAiigo",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Gemini"
+                            },
+                            {
+                                "value": "Air",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Mutable",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Mercury",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "Twins",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Gemini NFT #3",
+                        "name": "Gemini Candibar #203",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "external_url": "https://candibarnft.com",
+                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            }
+        ]
+    },
+    "id": 1
+}
