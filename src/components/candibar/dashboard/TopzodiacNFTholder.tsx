@@ -72,8 +72,8 @@ export const TopzodiacNFTholder: FC = () => {
 
   const maskWalletAddress = (address: string): string => {
     if (address.length <= 8) return address;
-    // return `${address.slice(0, 4)}******${address.slice(-4)}`;
-    return address;
+     return `${address.slice(0, 4)}******${address.slice(-4)}`;
+    //return address;
   };
 
   return (
