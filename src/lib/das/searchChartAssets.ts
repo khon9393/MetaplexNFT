@@ -2,7 +2,7 @@ import axios from "axios";
 
 interface SearchAssetArgs {
   collection: string;
-  burnt: boolean;
+  // burnt: boolean;
 }
 
 const rpcRateLimit = Number(process.env.NEXT_PUBLIC_RPC_RATE_LIMIT) || 10; // RPC requests per second
@@ -60,7 +60,7 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
               params: {
                 grouping: ["collection", collectionId],
                 limit: 1000,
-                burnt: searchAssetArgs.burnt,
+                // burnt: searchAssetArgs.burnt,
               },
             });
 
