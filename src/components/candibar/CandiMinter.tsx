@@ -326,7 +326,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       });
 
     }
-  }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress, onMintSuccess]);
+  }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress, onMintSuccess,PromoGiveaway, mintdescription]);
 
   return (
 
