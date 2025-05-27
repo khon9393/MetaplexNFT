@@ -5,7 +5,7 @@ const fetchUserAssets = async (collectionAddresses: string[]) => {
     collectionAddresses.map(async (collectionaddress) => {
       const searchParams = {
         collection: collectionaddress,
-        burnt: false,
+        // burnt: false,
       };
       return await searchChartAssets(searchParams);
     })
