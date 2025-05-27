@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react";
 import fetchChartData from "@/lib/fetchChartData";
 import { getCurrentZodiacSignTopN, ZodiacSign } from "@/stores/useCandiZodiacSignsStore";
-import { Spinner } from "../../../components/ui/spinner";
+import { Spinner } from "../../ui/spinner";
 
-export const TopzodiacNFTholders: FC = () => {
+export const TopzodiacNFTholder: FC = () => {
   const [zodiacSigns, setZodiacSigns] = useState<ZodiacSign[]>([]);
   const [zodiacDetails, setZodiacDetails] = useState<Record<string, any>>({});
   const [sortedZodiacSigns, setSortedZodiacSigns] = useState<ZodiacSign[]>([]);
@@ -26,7 +26,9 @@ export const TopzodiacNFTholders: FC = () => {
           // Remove data for the specified owner
           if (data && data[0]?.items) {
             data[0].items = data[0].items.filter(
-              (item: any) => item.ownership?.owner !== "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+              (item: any) =>
+              item.ownership?.owner !== "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai" &&
+              item.ownership?.owner !== "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
             );
           }
           return { [key]: data };
@@ -70,7 +72,8 @@ export const TopzodiacNFTholders: FC = () => {
 
   const maskWalletAddress = (address: string): string => {
     if (address.length <= 8) return address;
-    return `${address.slice(0, 4)}******${address.slice(-4)}`;
+    // return `${address.slice(0, 4)}******${address.slice(-4)}`;
+    return address;
   };
 
   return (
@@ -147,4 +150,4 @@ export const TopzodiacNFTholders: FC = () => {
   );
 };
 
-export default TopzodiacNFTholders;
+export default TopzodiacNFTholder;
