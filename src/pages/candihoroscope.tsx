@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getCurrentZodiacSignTopN, ZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 
-const candihoroscope: NextPage = () => {
+const Candihoroscope: NextPage = () => {
     // const urlParams = new URLSearchParams(window.location.search);
     // const zodiacNameFromUrl = urlParams.get('zodiacSign');
       const [zodiacSigns, setZodiacSigns] = useState<ZodiacSign[]>([]);
@@ -48,4 +48,4 @@ const candihoroscope: NextPage = () => {
     );
 };
 
-export default candihoroscope;
+export default Candihoroscope;

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import fetchChartData from "@/lib/fetchChartData";
 import { getCurrentZodiacSignTopN, ZodiacSign } from "@/stores/useCandiZodiacSignsStore";
 import { Spinner } from "../../../components/ui/spinner";
@@ -16,7 +16,7 @@ export const TopzodiacNFTholder: FC = () => {
     }
   }, []);
 
-  const fetchAssets = async () => {
+  const fetchAssets = useCallback(async () => {
     setIsLoading(true); // Start loading
     try {
       const currentSignKeys = zodiacSigns.map((sign: ZodiacSign) => sign.collectionPublicKey);
@@ -24,14 +24,6 @@ export const TopzodiacNFTholder: FC = () => {
         currentSignKeys.map(async (key) => {
           const data = await fetchChartData([key]);
           // Remove data for the specified owner
-          // if (data && data[0]?.items) {
-          //   data[0].items = data[0].items.filter(
-          //     (item: any) =>
-          //     item.ownership?.owner !== "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai" &&
-          //     item.ownership?.owner !== "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
-          //   );
-          // }
-
           // if (data && data[0]?.items) {
           //   data[0].items = data[0].items.filter(
           //     (item: any) =>
@@ -70,13 +62,13 @@ export const TopzodiacNFTholder: FC = () => {
     } finally {
       setIsLoading(false); // Stop loading
     }
-  };
+  }, [zodiacSigns]);
 
   useEffect(() => {
     if (zodiacSigns.length > 0) {
       fetchAssets();
     }
-  }, [zodiacSigns]);
+  }, [zodiacSigns, fetchAssets]);
 
   const maskWalletAddress = (address: string): string => {
     if (address === zodiacSigns.find(sign => sign.escrowTokenAcct === address)?.escrowTokenAcct) {
