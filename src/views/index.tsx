@@ -10,5 +10,5 @@ export {PrivacyPolicyView} from "./pp";
 export {AstrologyZodiacView} from "./astrology/zodiac/index";
 export {AstrologySignView} from "./astrology/sign";
 export {CPAGView} from "./platformassetguide";
-export { AstrologyZodiacTopHoldersChartView } from "./astrology/topzodiacholder";
+export { ZodiacTopHolderView } from "./astrology/topzodiacholder";
 

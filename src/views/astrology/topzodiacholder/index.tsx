@@ -1,8 +1,8 @@
 
 import { FC } from "react";
-import TopzodiacNFTholder from "@/components/candibar/dashboard/TopzodiacNFTholder";
+import {TopzodiacNFTholder} from "@/views/astrology/topzodiacholder/TopzodiacNFTholder";
 
-export const AstrologyZodiacTopHoldersChartView: FC = ({ }) => {
+export const ZodiacTopHolderView: FC = ({ }) => {
   return (
 
       <div className="p-4 max-w-7xl text-center mx-auto">
@@ -17,3 +17,4 @@ export const AstrologyZodiacTopHoldersChartView: FC = ({ }) => {
 
   );
 };
+export default ZodiacTopHolderView;

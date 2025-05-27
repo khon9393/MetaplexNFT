@@ -54,7 +54,7 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
               source='mobile'
             />
           </li>
-            <li>
+          <li>
             <NavElement
               label="Candi&nbsp;NFT"
               href="/Candi"
@@ -75,9 +75,9 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
               source='mobile'
             />
           </li>
-                      <li>
+          <li>
             <NavElement
-              label="Top&nbsp;NFT&nbsp;Holders"
+              label="NFT&nbsp;Holders"
               href="/ZodiacTopHolderDashboard"
               source='mobile'
             />

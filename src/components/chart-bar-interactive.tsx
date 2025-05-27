@@ -21,6 +21,7 @@ import { useEffect, useState } from "react"
 import { getCurrentZodiacSignTopN } from "@/stores/useCandiZodiacSignsStore"
 import { getCandyMachinesBalance } from "@/lib/candymachine/fetchCandyMachines"
 import { PublicKey } from "@metaplex-foundation/umi"
+import { Spinner } from "./ui/spinner"
 
 const initialChartData = [
   { zodiac: "Capricorn", burn: 0, unburn: 0, itemsRedeemed: 0 },
@@ -47,9 +48,11 @@ const chartConfig = {
 export const Component = () => {
   const [chartData, setChartData] = useState(initialChartData)
   const [totalburn, settotalburn] = useState(0)
+ const [isLoading, setIsLoading] = useState(false); // State to track loading status
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true); // Start loading
       try {
         const currentSigns = await getCurrentZodiacSignTopN(12)
         if (currentSigns) {
@@ -72,7 +75,6 @@ export const Component = () => {
             const collection = zodiacMap.get(data.zodiac)
             if (collection) {
               const burnAmount = (collection.tokenBurnAmount || 0) * collection.itemsRedeemed;
-              //settotalburn((prevTotal) => prevTotal + burnAmount);
               totalBurn += burnAmount;
               return {
                 ...data,
@@ -88,6 +90,8 @@ export const Component = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error)
+      } finally {
+        setIsLoading(false); // Finish loading
       }
     }
 
@@ -113,6 +117,13 @@ export const Component = () => {
                 </div>
       </CardHeader>
       <CardContent>
+
+              {isLoading && (
+                <div className="flex items-center justify-center">
+                  <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
+                  <p className="mt-4 text-center text-xl font-semibold text-black">Loading assets...</p>
+                </div>
+              )}
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
