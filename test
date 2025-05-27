@@ -1,19 +1,19 @@
 {
     "jsonrpc": "2.0",
     "result": {
-        "total": 10,
-        "limit": 10,
-        "cursor": "3hRqfX6KqiNXKgLuX9o2iiAG7XwaAA5kPDqpo9NAiigo",
+        "total": 20,
+        "limit": 100,
+        "cursor": "LcY5289BaWVz85ZA9W35uDfLHdFVfKy5FMLCSGsVUCP",
         "items": [
             {
                 "interface": "MplCoreAsset",
-                "id": "GRvxDtbhtVHUsPCw94QB1YTA8tqqyeDaFZCGUFa48Kng",
+                "id": "J8Ng1ya8RZE9cUsKFniAVgQmMQAAEWnTQ91UasaZb57D",
                 "content": {
                     "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini3C.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta1C.json",
                     "files": [
                         {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
                             "mime": "image/jpg"
                         }
                     ],
@@ -21,31 +21,31 @@
                         "attributes": [
                             {
                                 "value": "500",
-                                "trait_type": "Gemini"
+                                "trait_type": "Taurus"
                             },
                             {
-                                "value": "Air",
+                                "value": "Earth",
                                 "trait_type": "Element"
                             },
                             {
-                                "value": "Mutable",
+                                "value": "Fixed",
                                 "trait_type": "Quality"
                             },
                             {
-                                "value": "Mercury",
+                                "value": "Venus",
                                 "trait_type": "Ruling Planet"
                             },
                             {
-                                "value": "Twins",
+                                "value": "The Bull",
                                 "trait_type": "Symbol"
                             }
                         ],
-                        "description": "Zodiac Gemini NFT #3",
-                        "name": "Gemini Candibar #163",
+                        "description": "Zodiac Taurus NFT #1",
+                        "name": "Taurus Candibar #117",
                         "symbol": ""
                     },
                     "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
                         "external_url": "https://candibarnft.com"
                     }
                 },
@@ -70,7 +70,7 @@
                 "grouping": [
                     {
                         "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
                     }
                 ],
                 "royalty": {
@@ -87,191 +87,7 @@
                     "delegated": false,
                     "delegate": null,
                     "ownership_model": "single",
-                    "owner": "6Jesgk16VzE7GXDaot8E5RVgEKeseaSkQQWUBPNpBtcu"
-                },
-                "mutable": true,
-                "burnt": true,
-                "plugins": {},
-                "mpl_core_info": {
-                    "plugins_json_version": 1
-                },
-                "external_plugins": []
-            },
-            {
-                "interface": "MplCoreAsset",
-                "id": "CcD96e8X3Z3dKuSSs1razVB8eLyF2cGV5EjFgwKJwkqS",
-                "content": {
-                    "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/FK8MPRcYK-ZTuJyIeaY4Bo195HmBQQHqTsHwWagelFE?ext=json",
-                    "files": [
-                        {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
-                            "mime": "image/jpg"
-                        }
-                    ],
-                    "metadata": {
-                        "attributes": [
-                            {
-                                "value": "500",
-                                "trait_type": "Gemini"
-                            },
-                            {
-                                "value": "Air",
-                                "trait_type": "Element"
-                            },
-                            {
-                                "value": "Mutable",
-                                "trait_type": "Quality"
-                            },
-                            {
-                                "value": "Mercury",
-                                "trait_type": "Ruling Planet"
-                            },
-                            {
-                                "value": "Twins",
-                                "trait_type": "Symbol"
-                            }
-                        ],
-                        "description": "Zodiac Gemini NFT #4",
-                        "name": "Gemini Candibar #16",
-                        "symbol": ""
-                    },
-                    "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
-                        "external_url": "https://candibarnft.com"
-                    }
-                },
-                "authorities": [
-                    {
-                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
-                        "scopes": [
-                            "full"
-                        ]
-                    }
-                ],
-                "compression": {
-                    "eligible": false,
-                    "compressed": false,
-                    "data_hash": "",
-                    "creator_hash": "",
-                    "asset_hash": "",
-                    "tree": "",
-                    "seq": 0,
-                    "leaf_id": 0
-                },
-                "grouping": [
-                    {
-                        "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
-                    }
-                ],
-                "royalty": {
-                    "royalty_model": "creators",
-                    "target": null,
-                    "percent": 0.0,
-                    "basis_points": 0,
-                    "primary_sale_happened": false,
-                    "locked": false
-                },
-                "creators": [],
-                "ownership": {
-                    "frozen": false,
-                    "delegated": false,
-                    "delegate": null,
-                    "ownership_model": "single",
-                    "owner": "23xL28eG4Ywv1V1tk6EkywFsCrDpXgjXKQAqHKrKRiu5"
-                },
-                "mutable": true,
-                "burnt": true,
-                "plugins": {},
-                "mpl_core_info": {
-                    "plugins_json_version": 1
-                },
-                "external_plugins": []
-            },
-            {
-                "interface": "MplCoreAsset",
-                "id": "BW2R9zgHyL46ZbufZNjaEePQgT4wFUbJTBHyyXqFTeav",
-                "content": {
-                    "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini4C.json",
-                    "files": [
-                        {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
-                            "mime": "image/jpg"
-                        }
-                    ],
-                    "metadata": {
-                        "attributes": [
-                            {
-                                "value": "500",
-                                "trait_type": "Gemini"
-                            },
-                            {
-                                "value": "Air",
-                                "trait_type": "Element"
-                            },
-                            {
-                                "value": "Mutable",
-                                "trait_type": "Quality"
-                            },
-                            {
-                                "value": "Mercury",
-                                "trait_type": "Ruling Planet"
-                            },
-                            {
-                                "value": "Twins",
-                                "trait_type": "Symbol"
-                            }
-                        ],
-                        "description": "Zodiac Gemini NFT #4",
-                        "name": "Gemini Candibar #180",
-                        "symbol": ""
-                    },
-                    "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
-                        "external_url": "https://candibarnft.com"
-                    }
-                },
-                "authorities": [
-                    {
-                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
-                        "scopes": [
-                            "full"
-                        ]
-                    }
-                ],
-                "compression": {
-                    "eligible": false,
-                    "compressed": false,
-                    "data_hash": "",
-                    "creator_hash": "",
-                    "asset_hash": "",
-                    "tree": "",
-                    "seq": 0,
-                    "leaf_id": 0
-                },
-                "grouping": [
-                    {
-                        "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
-                    }
-                ],
-                "royalty": {
-                    "royalty_model": "creators",
-                    "target": null,
-                    "percent": 0.0,
-                    "basis_points": 0,
-                    "primary_sale_happened": false,
-                    "locked": false
-                },
-                "creators": [],
-                "ownership": {
-                    "frozen": false,
-                    "delegated": false,
-                    "delegate": null,
-                    "ownership_model": "single",
-                    "owner": "B8TAfRnkjcwwuYZfU6bCxW6ycupP7VhXswbE77AbyzRP"
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
                 },
                 "mutable": true,
                 "burnt": false,
@@ -283,13 +99,13 @@
             },
             {
                 "interface": "MplCoreAsset",
-                "id": "9ch21XzdUgd3WKiTd67R5JTbVWb9WRn3uj1BNETXSTB9",
+                "id": "HbkWKyTzeVHbrKxkTX5YK3pm5uygLs1Fc5j1q5TmYHTe",
                 "content": {
                     "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini1C.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta2C.json",
                     "files": [
                         {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC1.jpg",
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
                             "mime": "image/jpg"
                         }
                     ],
@@ -297,31 +113,31 @@
                         "attributes": [
                             {
                                 "value": "500",
-                                "trait_type": "Gemini"
+                                "trait_type": "Taurus"
                             },
                             {
-                                "value": "Air",
+                                "value": "Earth",
                                 "trait_type": "Element"
                             },
                             {
-                                "value": "Mutable",
+                                "value": "Fixed",
                                 "trait_type": "Quality"
                             },
                             {
-                                "value": "Mercury",
+                                "value": "Venus",
                                 "trait_type": "Ruling Planet"
                             },
                             {
-                                "value": "Twins",
+                                "value": "The Bull",
                                 "trait_type": "Symbol"
                             }
                         ],
-                        "description": "Zodiac Gemini NFT #1",
-                        "name": "Gemini Candibar #25",
+                        "description": "Zodiac Taurus NFT #2",
+                        "name": "Taurus Candibar #30",
                         "symbol": ""
                     },
                     "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC1.jpg",
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
                         "external_url": "https://candibarnft.com"
                     }
                 },
@@ -346,7 +162,7 @@
                 "grouping": [
                     {
                         "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
                     }
                 ],
                 "royalty": {
@@ -363,99 +179,7 @@
                     "delegated": false,
                     "delegate": null,
                     "ownership_model": "single",
-                    "owner": "EBtdzsF2w94ojFbzzTqFe7xnvgUvCQNyqbZV4famYH2c"
-                },
-                "mutable": true,
-                "burnt": true,
-                "plugins": {},
-                "mpl_core_info": {
-                    "plugins_json_version": 1
-                },
-                "external_plugins": []
-            },
-            {
-                "interface": "MplCoreAsset",
-                "id": "8nHZzvuVMrzrRQU41k2m1R7GYszxZaDiQh37TTp3QywA",
-                "content": {
-                    "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/x2CODVZiHaWIXyH5owTplqXi1bOZij7H16nyYJmxqqs?ext=json",
-                    "files": [
-                        {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
-                            "mime": "image/jpg"
-                        }
-                    ],
-                    "metadata": {
-                        "attributes": [
-                            {
-                                "value": "500",
-                                "trait_type": "Gemini"
-                            },
-                            {
-                                "value": "Air",
-                                "trait_type": "Element"
-                            },
-                            {
-                                "value": "Mutable",
-                                "trait_type": "Quality"
-                            },
-                            {
-                                "value": "Mercury",
-                                "trait_type": "Ruling Planet"
-                            },
-                            {
-                                "value": "Twins",
-                                "trait_type": "Symbol"
-                            }
-                        ],
-                        "description": "Zodiac Gemini NFT #2",
-                        "name": "Gemini Candibar #166",
-                        "symbol": ""
-                    },
-                    "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
-                        "external_url": "https://candibarnft.com"
-                    }
-                },
-                "authorities": [
-                    {
-                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
-                        "scopes": [
-                            "full"
-                        ]
-                    }
-                ],
-                "compression": {
-                    "eligible": false,
-                    "compressed": false,
-                    "data_hash": "",
-                    "creator_hash": "",
-                    "asset_hash": "",
-                    "tree": "",
-                    "seq": 0,
-                    "leaf_id": 0
-                },
-                "grouping": [
-                    {
-                        "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
-                    }
-                ],
-                "royalty": {
-                    "royalty_model": "creators",
-                    "target": null,
-                    "percent": 0.0,
-                    "basis_points": 0,
-                    "primary_sale_happened": false,
-                    "locked": false
-                },
-                "creators": [],
-                "ownership": {
-                    "frozen": false,
-                    "delegated": false,
-                    "delegate": null,
-                    "ownership_model": "single",
-                    "owner": "H32qsZzzW5iihveevGbTQvHwhZzTVGYVcWzduKoMFdW7"
+                    "owner": "3YBnNQVVEcBoAKkr7YkMzMoXufMXNb3JqhdKipmGCPCX"
                 },
                 "mutable": true,
                 "burnt": false,
@@ -467,13 +191,13 @@
             },
             {
                 "interface": "MplCoreAsset",
-                "id": "8MCqVSJ1129ez8BMsoJQCgPQBTzoBN7yEszGH26ETLAh",
+                "id": "Fvx9JdGuLYwcyZyWxz8FdZu7uLriE7cp3SfEnpvAR2eA",
                 "content": {
                     "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini2C.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta2C.json",
                     "files": [
                         {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
                             "mime": "image/jpg"
                         }
                     ],
@@ -481,32 +205,1044 @@
                         "attributes": [
                             {
                                 "value": "500",
-                                "trait_type": "Gemini"
+                                "trait_type": "Taurus"
                             },
                             {
-                                "value": "Air",
+                                "value": "Earth",
                                 "trait_type": "Element"
                             },
                             {
-                                "value": "Mutable",
+                                "value": "Fixed",
                                 "trait_type": "Quality"
                             },
                             {
-                                "value": "Mercury",
+                                "value": "Venus",
                                 "trait_type": "Ruling Planet"
                             },
                             {
-                                "value": "Twins",
+                                "value": "The Bull",
                                 "trait_type": "Symbol"
                             }
                         ],
-                        "description": "Zodiac Gemini NFT #2",
-                        "name": "Gemini Candibar #178",
+                        "description": "Zodiac Taurus NFT #2",
+                        "name": "Taurus Candibar #134",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "EB1X1dpPLCW6D3EUyGPP1z6q81PZE5ipGE44B5oHD4PR",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #3",
+                        "name": "Taurus Candibar #67",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "DpfwHjiwNsTYpPEAsAudDfhnKpmU7b2njWvPz86SibNq",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #3",
+                        "name": "Taurus Candibar #187",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "DMsjWvn9vap7TkECAWcGKCMeQPg3gj5aWcTiHt75fAe4",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta2C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #2",
+                        "name": "Taurus Candibar #214",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "EBmXHgTzqFfhNHaGYtXEy2M42koUGydfwyPFEm9ELA9j"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "AuWxn6AsUBgDUTeGhBaEfEMRcoK2SCTGDEP11Rw6sCnX",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta1C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #1",
+                        "name": "Taurus Candibar #33",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "7aTRyFgbdaXn1kMv4vVcJxz1zn2kZqHam59KsCS88Uv3"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "73c5KEiZggf9PARtYVFGAdDapTzh1uNp5XvuzVi7T3C2",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta4C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC4.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #4",
+                        "name": "Taurus Candibar #36",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC4.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "JtRoJFErJReWJM8bzwng9sWK9d9tEPZXrpTvFRRg885"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "6GRVnjssVFH2XrBTvcUyGuVgNNZkJXerpBDMCyFtsDM7",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta1C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #1",
+                        "name": "Taurus Candibar #1",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "icASruiaQPVUuR4yswvu3857B3oTLDCwfzP8W9NJ681"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "5KvLPKiweJ3ga2mtiFYNHxTQKgt4y4xEYWaYNutXNeRb",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta1C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #1",
+                        "name": "Taurus Candibar #13",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "4ppCjqF9gyYo85oXJd4oedMHFm4CNDJSxCmzLhWmPbee",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta4C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC4.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #4",
+                        "name": "Taurus Candibar #200",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC4.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "4duXpGX2F9pAHcUTK7ictmhuxHPtXYbrP8nCJntUvRs8",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta4C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC4.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #4",
+                        "name": "Taurus Candibar #236",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC4.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "4ad6jHuiqEg9CwqYzpEpTLd2g27EkzXA6ErTdgibJU8z",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #3",
+                        "name": "Taurus Candibar #7",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "8wJDZCpN6rrhtZXFkcLtnoH6ppWUT2Ybvpi2KBZoq4GQ"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "4Ex3uyQZ32t4N6YmPSUB6EFyDnw8BC9E9sJrKTdUQ5ir",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta2C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #2",
+                        "name": "Taurus Candibar #178",
                         "symbol": ""
                     },
                     "links": {
                         "external_url": "https://candibarnft.com",
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg"
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg"
                     }
                 },
                 "authorities": [
@@ -530,7 +1266,7 @@
                 "grouping": [
                     {
                         "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
                     }
                 ],
                 "royalty": {
@@ -547,7 +1283,7 @@
                     "delegated": false,
                     "delegate": null,
                     "ownership_model": "single",
-                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+                    "owner": "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
                 },
                 "mutable": true,
                 "burnt": false,
@@ -559,13 +1295,13 @@
             },
             {
                 "interface": "MplCoreAsset",
-                "id": "7m3yDzkN7QhkBc6QfoF8eusfTM1kKouLybEutj3qLwk1",
+                "id": "3rJ9K2zZdWttoyJudavbpfwQoTNxZVanKVMve6QAvdGm",
                 "content": {
                     "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini3C.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta2C.json",
                     "files": [
                         {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
                             "mime": "image/jpg"
                         }
                     ],
@@ -573,31 +1309,31 @@
                         "attributes": [
                             {
                                 "value": "500",
-                                "trait_type": "Gemini"
+                                "trait_type": "Taurus"
                             },
                             {
-                                "value": "Air",
+                                "value": "Earth",
                                 "trait_type": "Element"
                             },
                             {
-                                "value": "Mutable",
+                                "value": "Fixed",
                                 "trait_type": "Quality"
                             },
                             {
-                                "value": "Mercury",
+                                "value": "Venus",
                                 "trait_type": "Ruling Planet"
                             },
                             {
-                                "value": "Twins",
+                                "value": "The Bull",
                                 "trait_type": "Symbol"
                             }
                         ],
-                        "description": "Zodiac Gemini NFT #3",
-                        "name": "Gemini Candibar #175",
+                        "description": "Zodiac Taurus NFT #2",
+                        "name": "Taurus Candibar #50",
                         "symbol": ""
                     },
                     "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
                         "external_url": "https://candibarnft.com"
                     }
                 },
@@ -622,7 +1358,7 @@
                 "grouping": [
                     {
                         "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
                     }
                 ],
                 "royalty": {
@@ -639,7 +1375,99 @@
                     "delegated": false,
                     "delegate": null,
                     "ownership_model": "single",
-                    "owner": "78P29ECVrxq8EWTaPkY4K5nWsEVi7xxAzbcaUCaqSK6w"
+                    "owner": "EDXjVB5Czq6A4YKcMaaoozeZ2aesDXSK4yWGX2wXX2WW"
+                },
+                "mutable": true,
+                "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "3M8juZGh5yUoje6XAF1xqFjvpfbej5nVuz1vTLQGYHex",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #3",
+                        "name": "Taurus Candibar #91",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                        "external_url": "https://candibarnft.com"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "47U9HAKvS7iG5ukRYiHmE5A5hiZwkUr7A5cXFaakhLeV"
                 },
                 "mutable": true,
                 "burnt": true,
@@ -651,13 +1479,13 @@
             },
             {
                 "interface": "MplCoreAsset",
-                "id": "6wP6z6BnLcr3apWm2w4BvHeF1gL59uoiExpRDcTF53Fn",
+                "id": "2qTR8MTamQnG3iawH8KtARU5uxPH2pH3KY6g1puo9zNx",
                 "content": {
                     "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini2C.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta1C.json",
                     "files": [
                         {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
                             "mime": "image/jpg"
                         }
                     ],
@@ -665,31 +1493,31 @@
                         "attributes": [
                             {
                                 "value": "500",
-                                "trait_type": "Gemini"
+                                "trait_type": "Taurus"
                             },
                             {
-                                "value": "Air",
+                                "value": "Earth",
                                 "trait_type": "Element"
                             },
                             {
-                                "value": "Mutable",
+                                "value": "Fixed",
                                 "trait_type": "Quality"
                             },
                             {
-                                "value": "Mercury",
+                                "value": "Venus",
                                 "trait_type": "Ruling Planet"
                             },
                             {
-                                "value": "Twins",
+                                "value": "The Bull",
                                 "trait_type": "Symbol"
                             }
                         ],
-                        "description": "Zodiac Gemini NFT #2",
-                        "name": "Gemini Candibar #126",
+                        "description": "Zodiac Taurus NFT #1",
+                        "name": "Taurus Candibar #233",
                         "symbol": ""
                     },
                     "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC2.jpg",
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
                         "external_url": "https://candibarnft.com"
                     }
                 },
@@ -714,7 +1542,7 @@
                 "grouping": [
                     {
                         "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
                     }
                 ],
                 "royalty": {
@@ -731,10 +1559,10 @@
                     "delegated": false,
                     "delegate": null,
                     "ownership_model": "single",
-                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+                    "owner": "BXrMiZmMjpCeABYYK3hUWi5hMLYhuSpW2LZrqVGCGZfA"
                 },
                 "mutable": true,
-                "burnt": false,
+                "burnt": true,
                 "plugins": {},
                 "mpl_core_info": {
                     "plugins_json_version": 1
@@ -743,13 +1571,13 @@
             },
             {
                 "interface": "MplCoreAsset",
-                "id": "5aJ9dRsUfGvCTgHHYRFhvULptZvP2yz56C2yJ1q2PciB",
+                "id": "2iLZkUacGx1B11pXVR56fnKgBzkt6eiC6W1h2mxFshAc",
                 "content": {
                     "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini4C.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta1C.json",
                     "files": [
                         {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg",
                             "mime": "image/jpg"
                         }
                     ],
@@ -757,124 +1585,32 @@
                         "attributes": [
                             {
                                 "value": "500",
-                                "trait_type": "Gemini"
+                                "trait_type": "Taurus"
                             },
                             {
-                                "value": "Air",
+                                "value": "Earth",
                                 "trait_type": "Element"
                             },
                             {
-                                "value": "Mutable",
+                                "value": "Fixed",
                                 "trait_type": "Quality"
                             },
                             {
-                                "value": "Mercury",
+                                "value": "Venus",
                                 "trait_type": "Ruling Planet"
                             },
                             {
-                                "value": "Twins",
+                                "value": "The Bull",
                                 "trait_type": "Symbol"
                             }
                         ],
-                        "description": "Zodiac Gemini NFT #4",
-                        "name": "Gemini Candibar #212",
-                        "symbol": ""
-                    },
-                    "links": {
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC4.jpg",
-                        "external_url": "https://candibarnft.com"
-                    }
-                },
-                "authorities": [
-                    {
-                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
-                        "scopes": [
-                            "full"
-                        ]
-                    }
-                ],
-                "compression": {
-                    "eligible": false,
-                    "compressed": false,
-                    "data_hash": "",
-                    "creator_hash": "",
-                    "asset_hash": "",
-                    "tree": "",
-                    "seq": 0,
-                    "leaf_id": 0
-                },
-                "grouping": [
-                    {
-                        "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
-                    }
-                ],
-                "royalty": {
-                    "royalty_model": "creators",
-                    "target": null,
-                    "percent": 0.0,
-                    "basis_points": 0,
-                    "primary_sale_happened": false,
-                    "locked": false
-                },
-                "creators": [],
-                "ownership": {
-                    "frozen": false,
-                    "delegated": false,
-                    "delegate": null,
-                    "ownership_model": "single",
-                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
-                },
-                "mutable": true,
-                "burnt": false,
-                "plugins": {},
-                "mpl_core_info": {
-                    "plugins_json_version": 1
-                },
-                "external_plugins": []
-            },
-            {
-                "interface": "MplCoreAsset",
-                "id": "3hRqfX6KqiNXKgLuX9o2iiAG7XwaAA5kPDqpo9NAiigo",
-                "content": {
-                    "$schema": "https://schema.metaplex.com/nft1.0.json",
-                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Gemini3C.json",
-                    "files": [
-                        {
-                            "uri": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg",
-                            "mime": "image/jpg"
-                        }
-                    ],
-                    "metadata": {
-                        "attributes": [
-                            {
-                                "value": "500",
-                                "trait_type": "Gemini"
-                            },
-                            {
-                                "value": "Air",
-                                "trait_type": "Element"
-                            },
-                            {
-                                "value": "Mutable",
-                                "trait_type": "Quality"
-                            },
-                            {
-                                "value": "Mercury",
-                                "trait_type": "Ruling Planet"
-                            },
-                            {
-                                "value": "Twins",
-                                "trait_type": "Symbol"
-                            }
-                        ],
-                        "description": "Zodiac Gemini NFT #3",
-                        "name": "Gemini Candibar #203",
+                        "description": "Zodiac Taurus NFT #1",
+                        "name": "Taurus Candibar #37",
                         "symbol": ""
                     },
                     "links": {
                         "external_url": "https://candibarnft.com",
-                        "image": "https://arweave.net/0rSHIh22N9Yy11a82pKQW4ZnRogDRk4N8buPMFctSIw/GeminiC3.jpg"
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC1.jpg"
                     }
                 },
                 "authorities": [
@@ -898,7 +1634,7 @@
                 "grouping": [
                     {
                         "group_key": "collection",
-                        "group_value": "CbVCKag9quPY98kYb4w6Mqgj7Ti4pcaLfqzuWqcVFH86"
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
                     }
                 ],
                 "royalty": {
@@ -915,10 +1651,194 @@
                     "delegated": false,
                     "delegate": null,
                     "ownership_model": "single",
-                    "owner": "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai"
+                    "owner": "2bsJo2e4awE6VURUvfsbmNsyBY6g6eSv6BsKvcANTQAC"
                 },
                 "mutable": true,
                 "burnt": false,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "2CFm6uWbrioxbAqnbuacdRU89NUiVcD8MoTtnKSHk4kk",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta3C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #3",
+                        "name": "Taurus Candibar #211",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "external_url": "https://candibarnft.com",
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC3.jpg"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "BGjyGeXZFYL2NRrDUJ13RgvoiYmrfAXAt4MBsi344Dgz"
+                },
+                "mutable": true,
+                "burnt": true,
+                "plugins": {},
+                "mpl_core_info": {
+                    "plugins_json_version": 1
+                },
+                "external_plugins": []
+            },
+            {
+                "interface": "MplCoreAsset",
+                "id": "LcY5289BaWVz85ZA9W35uDfLHdFVfKy5FMLCSGsVUCP",
+                "content": {
+                    "$schema": "https://schema.metaplex.com/nft1.0.json",
+                    "json_uri": "https://arweave.net/Ty81KmWyL8OV0Csczp8GDZgVMFaCyPefdLNWfi_H6bg/Ta2C.json",
+                    "files": [
+                        {
+                            "uri": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg",
+                            "mime": "image/jpg"
+                        }
+                    ],
+                    "metadata": {
+                        "attributes": [
+                            {
+                                "value": "500",
+                                "trait_type": "Taurus"
+                            },
+                            {
+                                "value": "Earth",
+                                "trait_type": "Element"
+                            },
+                            {
+                                "value": "Fixed",
+                                "trait_type": "Quality"
+                            },
+                            {
+                                "value": "Venus",
+                                "trait_type": "Ruling Planet"
+                            },
+                            {
+                                "value": "The Bull",
+                                "trait_type": "Symbol"
+                            }
+                        ],
+                        "description": "Zodiac Taurus NFT #2",
+                        "name": "Taurus Candibar #38",
+                        "symbol": ""
+                    },
+                    "links": {
+                        "external_url": "https://candibarnft.com",
+                        "image": "https://arweave.net/aNYlFZ2fn8jryt08yaq2z7wkZ-MX_gKsujB1mcvvB9o/TaurusC2.jpg"
+                    }
+                },
+                "authorities": [
+                    {
+                        "address": "GjdhEy2FARKkr38g8j1KNG9tGJEEejyU5vSCAbZojHKY",
+                        "scopes": [
+                            "full"
+                        ]
+                    }
+                ],
+                "compression": {
+                    "eligible": false,
+                    "compressed": false,
+                    "data_hash": "",
+                    "creator_hash": "",
+                    "asset_hash": "",
+                    "tree": "",
+                    "seq": 0,
+                    "leaf_id": 0
+                },
+                "grouping": [
+                    {
+                        "group_key": "collection",
+                        "group_value": "6zkpNWemvYcJR1rZtUKc1zKgoBfGhPDq8F8UbmqBCwBJ"
+                    }
+                ],
+                "royalty": {
+                    "royalty_model": "creators",
+                    "target": null,
+                    "percent": 0.0,
+                    "basis_points": 0,
+                    "primary_sale_happened": false,
+                    "locked": false
+                },
+                "creators": [],
+                "ownership": {
+                    "frozen": false,
+                    "delegated": false,
+                    "delegate": null,
+                    "ownership_model": "single",
+                    "owner": "4bjxfnXxHqkBwNAPahGu4arzdQpPQX5oWXiLTBne5h2m"
+                },
+                "mutable": true,
+                "burnt": true,
                 "plugins": {},
                 "mpl_core_info": {
                     "plugins_json_version": 1
