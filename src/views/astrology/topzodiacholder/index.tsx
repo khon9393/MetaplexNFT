@@ -1,6 +1,6 @@
 
 import { FC } from "react";
-import { TopzodiacNFTholders } from "@/components/candibar/dashboard/topzodiacNFTholders";
+import TopzodiacNFTholder from "@/components/candibar/dashboard/TopzodiacNFTholder";
 
 export const AstrologyZodiacTopHoldersChartView: FC = ({ }) => {
   return (
@@ -11,7 +11,7 @@ export const AstrologyZodiacTopHoldersChartView: FC = ({ }) => {
         </h1>
         {/* CONTENT GOES HERE */}
         <div className="text-center">
-          <TopzodiacNFTholders />
+          <TopzodiacNFTholder />
         </div>
       </div>
 
