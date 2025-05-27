@@ -111,6 +111,17 @@ export function CandibarDropdownMenu1() {
           </Button>
         </DropdownMenuItem>
 
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem>
+
+          <Button variant="link" onClick={() => { window.location.href = '/ZodiacTopHolderDashboard'; }}
+            className="w-full justify-start"
+          >
+           Top Zodiac NFT Holders
+          </Button>
+        </DropdownMenuItem>
+
       </DropdownMenuContent>
     </DropdownMenu>
   )

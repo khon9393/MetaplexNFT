@@ -2275,6 +2275,11 @@
     "@noble/hashes" "^1.2.0"
     merkletreejs "^0.3.9"
 
+"@metaplex-foundation/mpl-core-das@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@metaplex-foundation/mpl-core-das/-/mpl-core-das-0.0.3.tgz#342a89d0f7e0ebd18718bc0c89f6e879e53d8477"
+  integrity sha512-5rx4R1F8VdSVcO1+sJMw0dhZ3S6E7H8GcWy0n+hTOxvUAIidD57AMoT0JuWuuDtedHO6/XmzueOXQvWFoCSmeA==
+
 "@metaplex-foundation/mpl-core@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@metaplex-foundation/mpl-core/-/mpl-core-1.2.0.tgz#8acdbe8cb8cee1aed173cb587205fc7ffcbe1849"
