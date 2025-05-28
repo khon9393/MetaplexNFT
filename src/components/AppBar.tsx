@@ -84,7 +84,7 @@ export const AppBar: React.FC = () => {
               href="/"
             /> */}
             <NavElement
-              label="NFT&nbsp;Holders"
+              label="NFT&nbsp;Leaderboard"
               href="/ZodiacTopHolderDashboard"
             />
             <div>
