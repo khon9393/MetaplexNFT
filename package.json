@@ -115,7 +115,7 @@
     "babel-jest": "^29.7.0",
     "babel-plugin-istanbul": "^6.1.1",
     "babel-plugin-jest-hoist": "^29.6.3",
-    "babel-plugin-polyfill-corejs2": "^0.4.12",
+    "babel-plugin-polyfill-corejs2": "^0.4.13",
     "babel-plugin-polyfill-corejs3": "^0.10.6",
     "babel-plugin-polyfill-regenerator": "^0.6.3",
     "babel-plugin-syntax-hermes-parser": "^0.25.1",
