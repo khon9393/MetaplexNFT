@@ -201,7 +201,7 @@
     "color": "^4.2.3",
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",
-    "color-string": "^1.9.1",
+    "color-string": "^2.0.1",
     "colorette": "^2.0.20",
     "commander": "^12.1.0",
     "commondir": "^1.0.1",
