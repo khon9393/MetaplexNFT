@@ -23,14 +23,6 @@ export const TopzodiacNFTholder: FC = () => {
       const detailsArray = await Promise.all(
         currentSignKeys.map(async (key) => {
           const data = await fetchChartData([key]);
-          // Remove data for the specified owner
-          // if (data && data[0]?.items) {
-          //   data[0].items = data[0].items.filter(
-          //     (item: any) =>
-          //     item.ownership?.owner !== "9edke98gDD1MYwjc9pgnhDu9bmXngip82YWKwHMHboai" &&
-          //     item.ownership?.owner !== "BbnxkwNm2tfMZig2uCq19shxXFujm7zWZhbFD4DcyLP3"
-          //   );
-          // }
           return { [key]: data };
         })
       );
@@ -125,23 +117,6 @@ export const TopzodiacNFTholder: FC = () => {
         ))}
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {isLoading && (
         <div className="flex items-center justify-center">
