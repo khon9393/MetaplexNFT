@@ -83,10 +83,17 @@ export const AppBar: React.FC = () => {
               label="Home"
               href="/"
             /> */}
+<<<<<<< HEAD
             {/* <NavElement
               label="Getting&nbsp;Started"
               href="/getstarted"
             /> */}
+=======
+            <NavElement
+              label="NFT&nbsp;Leaderboard"
+              href="/ZodiacTopHolderDashboard"
+            />
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             <div>
               < CandibarDropdownMenu1 />
             </div>
@@ -113,13 +120,33 @@ export const AppBar: React.FC = () => {
           </div>
         )}
 
+<<<<<<< HEAD
 
+=======
+      {/* <div className="flex justify-center items-center bg-yellow-300 text-black p-4 rounded-lg shadow-lg mt-4">
+        <h4 className="text-center text-lg font-bold">
+          🚨 We are actively working with <strong>Phantom Wallet</strong> to resolve ongoing issues affecting minting requests. In the meantime, we recommend using <strong>Solflare Wallet</strong> for a smoother and more reliable minting experience. Thank you for your patience and understanding. 🚨
+        </h4>
+      </div> */}
+{/* 
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
       {!wallet.connected && (
         <div className='border-gray-300 bg-gray-800 text-center w-full min-w-[400px]'>
           <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
             Please connect your wallet
           </div>
         </div>
+<<<<<<< HEAD
+=======
+      )} */}
+
+      {!wallet.connected && (
+         <div className="flex justify-center items-center bg-orange-500 text-black rounded-lg shadow-lg animate-pulse">
+          <div className="text-white px-2 font-mono text-sm md:text-lg lg:text-xl xl:text-2xl animate-pulse whitespace-nowrap overflow-hidden text-ellipsis">
+            Please connect your wallet
+          </div>
+        </div>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
       )}
 
       <UmiProvider>

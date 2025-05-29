@@ -5,9 +5,12 @@ import {fetchSwapSelector, SwapArgs} from "./swapselector";
 
 const fetchEscrowAssets = async (SwapArgs?) => {
  
+<<<<<<< HEAD
   // const escrowAddress = process.env.NEXT_PUBLIC_ESCROW;
   // const collectionId = process.env.NEXT_PUBLIC_COLLECTION;
 
+=======
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
   const escrowAddress = fetchSwapSelector(SwapArgs)?.escrowPublickey;
   const collectionId = fetchSwapSelector(SwapArgs)?.collectionPublicKey;
 

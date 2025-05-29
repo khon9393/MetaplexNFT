@@ -49,7 +49,11 @@ const TokenEscrowSummary = () => {
         <div>
           Balance:{" "}
           {escrowTokenAccount &&
+<<<<<<< HEAD
             formatTokenAmount(escrowTokenAccount,8)
+=======
+            formatTokenAmount(escrowTokenAccount,8).toLocaleString()
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             }
         </div>
       </div>

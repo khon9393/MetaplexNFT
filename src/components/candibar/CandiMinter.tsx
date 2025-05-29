@@ -3,7 +3,11 @@ import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { notify } from "../../utils/notifications";
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
+<<<<<<< HEAD
 import { generateSigner, transactionBuilder, publicKey, some, TransactionBuilderSendAndConfirmOptions } from '@metaplex-foundation/umi';
+=======
+import { generateSigner, transactionBuilder, publicKey, some, TransactionBuilderSendAndConfirmOptions, amountToNumber, createSignerFromKeypair, signerIdentity } from '@metaplex-foundation/umi';
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { findAssociatedTokenPda, setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
@@ -19,15 +23,29 @@ import { toast } from "../../hooks/use-toast";
 import { formatTokenAmount } from '@/lib/utils';
 import fetchTokenBalance from "../../lib/fetchTokenBalance";
 import CandibarModal from "../../components/candibar/CandibarModal";
+<<<<<<< HEAD
+=======
+import { fetchPromoGiveaway, savePromoGiveaway, fetchPromoGiveawayByMachine } from '@/stores/usePromoGiveAwayDB';
+
+
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
 const options: TransactionBuilderSendAndConfirmOptions = {
   send: { skipPreflight: true },
   confirm: { commitment: "confirmed" }
 };
 
+<<<<<<< HEAD
 const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
 const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
 const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
+=======
+const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 800_000;
+const quicknodeEndpoint = process.env.NEXT_PUBLIC_RPC;
+const treasury = publicKey(process.env.NEXT_PUBLIC_TREASURY);
+const tokenMint = publicKey(process.env.NEXT_PUBLIC_TOKEN);
+const systemenv = process.env.NEXT_PUBLIC_RPC_ENV;
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
 const candyMachineKeysforConfetti = [
   publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID01),
@@ -40,9 +58,18 @@ interface CandiMintersProps {
   candyMachineaddress: string;
   collectionaddress: string;
   buttonText?: string;
+<<<<<<< HEAD
 }
 
 export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress, buttonText }) => {
+=======
+  PromoGiveaway?: boolean;
+  mintdescription?: string;
+  onMintSuccess?: () => void; // <-- add this line
+}
+
+export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collectionaddress, buttonText, PromoGiveaway, mintdescription, onMintSuccess }) => {
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
   const wallet = useWallet();
   const { getUserSOLBalance } = useUserSOLBalanceStore();
 
@@ -55,6 +82,10 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   const [isCandibarModalOpen, setIsCandibarModalOpen] = useState(false);
   const [CandibarModalTitle, setCandibarModalTitle] = useState<string>('');
   const [CandibarModalMsgTxt, setCandibarModalMsgTxt] = useState<string>('');
+<<<<<<< HEAD
+=======
+  const [mintSuccess, setMintSuccess] = useState(false);
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
   // Create an Umi instance
   const umi = useMemo(() =>
@@ -75,12 +106,56 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       return;
     }
 
+<<<<<<< HEAD
 
     try {
 
       const candyMachineKeys = [publicKey(candyMachineaddress)];
       const results = await getCandyMachinesBalance(candyMachineKeys);
       const AmountAlreadyMinted = fetchCandyGuardUserMintlimit(umi.identity.publicKey.toString()
+=======
+    try {
+      // Mint from the Candy Machine give away
+      let useWalletPk: boolean = false; 
+      let walletprivatekey = '';
+      // Check if any records exist for the Candy Machine.
+      const [promoGiveawayByMachine] = await Promise.all([
+        fetchPromoGiveawayByMachine(candyMachineaddress),
+      ]);
+
+      if (promoGiveawayByMachine.length > 0
+        && promoGiveawayByMachine[0].candymachineid == candyMachineaddress
+      ) {
+          useWalletPk = true; // If records exist, use the wallet from the file.;
+          walletprivatekey = promoGiveawayByMachine[0].walletkeyprivate; // Get the private key from the first record.
+      }
+     
+      const walletPublicKey = wallet.publicKey.toString();
+      if (useWalletPk) {
+        const keypair = umi.eddsa.createKeypairFromSecretKey(Uint8Array.from(bs58.decode(walletprivatekey)));
+        const myKeypairSigner = createSignerFromKeypair(umi, keypair);
+        // Load the keypair into umi.
+        umi.use(signerIdentity(myKeypairSigner));
+
+        const [promoGiveawaywalletdata] = await Promise.all([
+          fetchPromoGiveaway(walletPublicKey, collectionaddress),
+        ]);
+        
+        if (promoGiveawaywalletdata.length > 0) {
+          setIsCandibarModalOpen(true);
+          setCandibarModalTitle("Promo Giveaway Already Claimed");
+          setCandibarModalMsgTxt("You have already claimed the promo giveaway for this wallet.");
+          setIsTransacting(false);
+          return;
+        }
+      }
+
+
+      setIsCandibarModalOpen(false); // Close the modal if it was open
+      const candyMachineKeys = [publicKey(candyMachineaddress)];
+      const results = await getCandyMachinesBalance(candyMachineKeys);
+      const AmountAlreadyMinted = await fetchCandyGuardUserMintlimit(umi.identity.publicKey.toString()
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
         , candyMachineaddress
         , results[0].candyGuardpk
         , results[0].candyGuardId)
@@ -95,6 +170,18 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
       const usersolbalance = await getUserSOLBalance(wallet.publicKey);
 
+<<<<<<< HEAD
+=======
+      if (results[0].redeemedAmountMaxLimit > 0 && results[0].itemsRedeemed >= results[0].redeemedAmountMaxLimit) {
+
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Maximum Mint Limit Reached");
+        setCandibarModalMsgTxt(`The maximum mint limit of: ${results[0].redeemedAmountMaxLimit} has been reached for this collection.`);
+        setIsTransacting(false);
+        return;
+      }
+
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
       //must be greater than and not equal to.
       //must be greater than to cover transaction fees.
       if (Number(usersolbalance) <= results[0].SolCost) {
@@ -110,6 +197,7 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Not Enough Candibar Tokens.");
+<<<<<<< HEAD
         setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount} Candibar Tokens`);
         setIsTransacting(false);
         return;
@@ -121,22 +209,70 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
         setIsCandibarModalOpen(true);
         setCandibarModalTitle("Wallet Mint Limit Reached");
         setCandibarModalMsgTxt(`Wallet max mint limit of ${results[0].candyGuardMinLimit} reached. Unable to mint!`);
+=======
+
+        if (results[0].tokenPaymentAmount > 0) {
+          setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenPaymentAmount.toLocaleString()} Candibar Tokens`);
+
+          setIsTransacting(false);
+          return;
+        }
+      }
+
+      if (results[0].tokenBurnAmount > 0 && (userTokenbalance < results[0].tokenBurnAmount)) {
+
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Not Enough Candibar Tokens.");
+
+        if (results[0].tokenBurnAmount > 0) {
+          setCandibarModalMsgTxt(`NFT requires: ${results[0].tokenBurnAmount.toLocaleString()} Candibar Tokens to burn`);
+        }
+
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
         setIsTransacting(false);
         return;
       }
 
+<<<<<<< HEAD
       // Mint from the Candy Machine.
       const nftMint = generateSigner(umi);
       const transaction = transactionBuilder()
         .add(setComputeUnitLimit(umi, { units: 800_000 }))
+=======
+
+      if (results[0].candyGuardMinLimit > 0 && (Number(AmountAlreadyMinted) >= results[0].candyGuardMinLimit)) {
+        setIsCandibarModalOpen(true);
+        setCandibarModalTitle("Wallet Mint Limit Reached");
+        setCandibarModalMsgTxt(`You have reached the maximum mint limit of ${results[0].candyGuardMinLimit} for this wallet, having already minted ${Number(AmountAlreadyMinted)} from this collection. 
+          Please explore other collections to mint or trade with fellow Candibar collectors.`);
+        setIsTransacting(false);
+        return;
+      }
+
+
+       const nftMint = generateSigner(umi);
+      const transaction = transactionBuilder()
+        .add(setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) }))
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
         .add(
           mintV1(umi, {
             candyMachine: publicKey(candyMachineaddress),
             asset: nftMint,
             collection: publicKey(collectionaddress),
             mintArgs: {
+<<<<<<< HEAD
               solPayment: some({ destination: treasury }),
               mintLimit: some({ id: results[0].candyGuardId }),
+=======
+              ...(results[0].SolCost > 0 ? {
+                solPayment: some({ destination: treasury }),
+              } : {}),
+
+              mintLimit: some({ id: results[0].candyGuardId }),
+
+              ...(useWalletPk ? { owner: publicKey(walletPublicKey) } : {}),
+
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
               ...(results[0].tokenPaymentAmount > 0 ? {
                 tokenPayment: some({
                   mint: tokenMint,
@@ -146,10 +282,21 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
                   }))[0],
                 }),
               } : {}),
+<<<<<<< HEAD
+=======
+
+              ...(results[0].tokenBurnAmount > 0 ? {
+                tokenBurn: some({
+                  mint: tokenMint,
+                  amount: results[0].tokenBurnAmount,
+                }),
+              } : {}),
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             },
           })
         );
 
+<<<<<<< HEAD
 
       // const { signature } = await transaction.sendAndConfirm(umi, {
       //   confirm: { commitment: "confirmed" },
@@ -158,19 +305,66 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
       const { signature } = await transaction.sendAndConfirm(umi, options);
 
       const txid = bs58.encode(signature);
+=======
+      const { signature } = await transaction.sendAndConfirm(umi, options);
+
+      if (useWalletPk) {
+        if (!signature || !(signature instanceof Uint8Array)) {
+          console.error("Failed to encode transaction ID: Invalid signature format.");
+          return;
+        }
+        const txid = bs58.encode(signature);
+        console.log("Transaction ID:", txid); // Log the transaction ID
+        toast({
+          title: "Transaction ID",
+          description: `Transaction ID: ${txid}`,
+          style: {
+            backgroundColor: "white",
+            color: "black",
+          },
+        });
+      }
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
       toast({
         title: "Successful",
         description: "Mint successful!",
       });
 
+<<<<<<< HEAD
       if (candyMachineKeysforConfetti[0].toString() == candyMachineaddress) {
         setShowFireworks(true);
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
+=======
+        try {
+          savePromoGiveaway({
+            walletpk: walletPublicKey || 'YourWalletPublicKeyHere',
+            assetid: nftMint.publicKey,
+            collectionid: collectionaddress,
+            candymachineid: candyMachineaddress,
+            name: systemenv,
+            description: 'Promo Giveaway NFT: ' + mintdescription,
+            promo_mint: PromoGiveaway,
+          });
+        } catch (error) {
+          // Do nothing
+        }
+
+      if (candyMachineKeysforConfetti[0].toString() == candyMachineaddress) {
+        setShowFireworks(true);
+        setTimeout(() => {
+          setShowFireworks(false);
+          setIsTransacting(false);   // <-- move here
+          setMintSuccess(true);      // <-- after animation, show refresh button
+          onMintSuccess();
+          window.location.reload();
+        }, 9000);
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
       }
       else if (candyMachineKeysforConfetti[3].toString() == candyMachineaddress) {
         setShowFireworks(true);
         setShowConfetti(true);
+<<<<<<< HEAD
         setTimeout(() => setShowFireworks(false), 9000); // Fireworks for 9 seconds
         setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 9 seconds
       }
@@ -200,10 +394,59 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
   }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress]);
 
   return (
+=======
+        setTimeout(() => {
+          setShowFireworks(false);
+          setShowConfetti(false);
+          setIsTransacting(false);   // <-- move here
+          setMintSuccess(true);      // <-- after animation, show refresh button
+          onMintSuccess();
+          window.location.reload();
+        }, 9000);
+      }
+      else {
+        setShowConfetti(true);
+        setTimeout(() => {
+          setShowConfetti(false);
+          setIsTransacting(false);   // <-- move here
+          setMintSuccess(true);      // <-- after animation, show refresh button
+          onMintSuccess();
+          window.location.reload();
+        }, 9000);
+      }
+
+    } catch (error: any) {
+
+      setIsTransacting(false);
+
+
+      const errorMessage = error.message.includes("Not enough tokens on the account")
+        ? "not have enough tokens to complete the mint."
+        : error.message;
+
+      toast({
+        title: "Mint failed!",
+        description: errorMessage,
+        variant: "destructive",
+        style: {
+          backgroundColor: "white",
+          color: "white",
+          animation: "pulse 2s infinite",
+          backgroundImage: "linear-gradient(to bottom right, #6366f1, #d946ef)",
+        },
+      });
+
+    }
+  }, [wallet, getUserSOLBalance, umi, candyMachineaddress, collectionaddress, onMintSuccess,PromoGiveaway, mintdescription]);
+
+  return (
+
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     <div className="flex flex-row justify-center">
       <div className="relative group items-center">
         <div className="m-1 absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 
           rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+<<<<<<< HEAD
         {wallet.connected && (<button
           className="px-8 m-2 z-50 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
           onClick={onClick}
@@ -214,14 +457,35 @@ export const CandiMinter: FC<CandiMintersProps> = ({ candyMachineaddress, collec
 
         {isTransacting && (
           <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-50">
+=======
+
+        {/* Mint Button */}
+        {wallet.connected && !mintSuccess && !isTransacting && (
+          <button
+            className="px-8 m-2 z-50 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+            onClick={onClick}
+            disabled={isTransacting}
+            style={{ display: isTransacting ? "none" : "block" }}
+          >
+            <span>{buttonText || "Mint NFT"}</span>
+          </button>
+        )}
+
+        {/* Minting in progress overlay */}
+        {isTransacting && (
+          <div className="fixed inset-0 z-80 flex items-center justify-center bg-black bg-opacity-50">
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             <div className="bg-white p-10 rounded-lg shadow-lg">
               <Spinner size="lg" className="bg-red-500 dark:bg-red-500" />
               <p className="mt-4 text-center text-xl font-semibold text-black">Minting in progress...</p>
             </div>
           </div>
         )}
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
       </div>
       {showConfetti && (
         <Confetti

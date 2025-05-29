@@ -7,6 +7,12 @@ import umiWithCurrentWalletAdapter from "../umi/umiWithCurrentWalletAdapter";
 import { REROLL_PATH } from '../constants';
 import { Asset } from "../../utils/index";
 import { publicKey, transactionBuilder } from "@metaplex-foundation/umi";
+<<<<<<< HEAD
+=======
+import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
+
+const ComputeUnitLimit = Number(process.env.NEXT_PUBLIC_setComputeUnitLimit) || 800_000;
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
 const swap = async ({
   swapOption,
@@ -35,6 +41,7 @@ const swap = async ({
 
       // Use TransactionBuilder to batch multiple releaseV1 calls
       let releaseBuilder = transactionBuilder();
+<<<<<<< HEAD
       selectedAssets.forEach((asset) => {
         releaseBuilder = releaseBuilder.add(
           releaseV1(umi, {
@@ -44,6 +51,20 @@ const swap = async ({
             collection: escrow.collection,
             token: escrow.token,
             feeProjectAccount: escrow.feeLocation,
+=======
+      releaseBuilder = releaseBuilder.add(
+        setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) })
+      );
+      selectedAssets.forEach((asset) => {
+        releaseBuilder = releaseBuilder.add(
+          releaseV1(umi, {
+        owner: umi.identity,
+        escrow: escrow.publicKey,
+        asset: publicKey(asset.id),
+        collection: escrow.collection,
+        token: escrow.token,
+        feeProjectAccount: escrow.feeLocation,
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
           })
         );
       });
@@ -57,6 +78,7 @@ const swap = async ({
 
       // Use TransactionBuilder to batch multiple captureV1 calls
       let captureBuilder = transactionBuilder();
+<<<<<<< HEAD
       selectedAssets.forEach((asset) => {
         captureBuilder = captureBuilder.add(
           captureV1(umi, {
@@ -66,6 +88,20 @@ const swap = async ({
             collection: escrow.collection,
             token: escrow.token,
             feeProjectAccount: escrow.feeLocation,
+=======
+      captureBuilder = captureBuilder.add(
+        setComputeUnitLimit(umi, { units: Number(ComputeUnitLimit) })
+      );
+      selectedAssets.forEach((asset) => {
+        captureBuilder = captureBuilder.add(
+          captureV1(umi, {
+        owner: umi.identity,
+        escrow: escrow.publicKey,
+        asset: publicKey(asset.id),
+        collection: escrow.collection,
+        token: escrow.token,
+        feeProjectAccount: escrow.feeLocation,
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
           })
         );
       });

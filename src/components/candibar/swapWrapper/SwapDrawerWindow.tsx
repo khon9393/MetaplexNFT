@@ -38,6 +38,7 @@ export const SwapDrawerWindow: FC<{ swapArg: SwapArgs }> = ({ swapArg }) => {
         <DrawerTrigger>
 
           <div className='absolute top-[60px] left-1/2 transform -translate-x-1/2 '>
+<<<<<<< HEAD
             {wallet.connected && process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === '1' && (
               <Button
                 className="text-white hover:text-blue-600 sm:text-2xl"
@@ -50,6 +51,19 @@ export const SwapDrawerWindow: FC<{ swapArg: SwapArgs }> = ({ swapArg }) => {
               </Button>
             )}
           </div>
+=======
+          {wallet.connected && process.env.NEXT_PUBLIC_RPC_ENABLE_SWAPPING === '1' && (
+              <div
+              className="text-white hover:text-blue-700 sm:text-1xl px-4 py-2 bg-gray-900 rounded-md flex items-center cursor-pointer"
+              >
+              {swapArg.name === "zodiac" ? `Swap Full ${currentZodiacSign.name} Zodiac Collection (${currentZodiacSign.dateRange})` : "Candi Swap"}
+              <ArrowUpTrayIcon
+                className='w-5 h-5 ml-2'
+              />
+              </div>
+            )}
+            </div>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
 
         </DrawerTrigger>
@@ -65,6 +79,15 @@ export const SwapDrawerWindow: FC<{ swapArg: SwapArgs }> = ({ swapArg }) => {
           }}
         >
           <DrawerHeader className="justify-center items-center">
+<<<<<<< HEAD
+=======
+          <DrawerTitle>
+          <div className="visually-hidden">
+            {swapArg.name === "zodiac" ? `${currentZodiacSign.icon} ${currentZodiacSign.name} Zodiac Collection (${currentZodiacSign.dateRange})` : "Candi Swap"}
+          </div>
+        </DrawerTitle>
+
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             <DrawerClose asChild>
               <ArrowDownTrayIcon
                 className="w-10 h-10 m-1 bg-gray-800 text-grey-900 hover:text-blue-600 cursor-pointer rounded-lg z-50"

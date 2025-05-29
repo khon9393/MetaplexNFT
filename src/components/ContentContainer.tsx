@@ -33,7 +33,11 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
             href="/"
             source='mobile'
           />
+<<<<<<< HEAD
                     <li className="mt-auto">
+=======
+          <li className="mt-auto">
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             <NavElement
               label="Get&nbsp;Started?"
               href="/getstarted"
@@ -56,6 +60,16 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           </li>
           <li>
             <NavElement
+<<<<<<< HEAD
+=======
+              label="Candi&nbsp;NFT"
+              href="/Candi"
+              source='mobile'
+            />
+          </li>
+          <li>
+            <NavElement
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
               label="Snake&nbsp;NFT"
               href="/AstrologySign"
               source='mobile'
@@ -70,6 +84,16 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
           </li>
           <li>
             <NavElement
+<<<<<<< HEAD
+=======
+              label="NFT&nbsp;Leaderboard"
+              href="/ZodiacTopHolderDashboard"
+              source='mobile'
+            />
+          </li>
+          <li>
+            <NavElement
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
               label="FAQ"
               href="/faq"
               source='mobile'

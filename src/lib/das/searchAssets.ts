@@ -2,7 +2,11 @@ import useUmiStore from "../../stores/useUmiStore";
 import { publicKey } from '@metaplex-foundation/umi';
 import axios from 'axios';
 import { forEach } from "lodash";
+<<<<<<< HEAD
 
+=======
+import {SwapArgs} from "./../swapselector";
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 /*
 Shortcut Keys
 
@@ -25,7 +29,11 @@ interface SearchAssetArgs {
 const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
   //const umi = useUmiStore.getState().umi;
 
+<<<<<<< HEAD
   const collectionId = process.env.NEXT_PUBLIC_COLLECTION;
+=======
+  const collectionId = searchAssetArgs.collection;
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
   if (!collectionId) {
     throw new Error("Collection not found");
@@ -33,7 +41,10 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
 
   let page = 1;
   let continueFetch = true;
+<<<<<<< HEAD
  // let ownerpk = publicKey(searchAssetArgs.owner);
+=======
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
   let assets: any | undefined;
 
   while (continueFetch) {
@@ -63,6 +74,7 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
       if (item.content.files.length <= 0) {
       const jsonUri = item.content.json_uri;
       // Make a GET request to the json_uri
+<<<<<<< HEAD
       const jsonResponse = await axios.get(jsonUri);
       // Extract the files array from the properties object in the response
       const filesData = jsonResponse.data.properties?.files;
@@ -72,6 +84,26 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
         // if (!item.content.metadata.description) {
         //   item.content.metadata.description = jsonResponse.data?.description;
         // }
+=======
+      try {
+        const jsonResponse = await axios.get(jsonUri);
+        // Extract the files array from the properties object in the response
+        const filesData = jsonResponse.data.properties?.files;
+        if (Array.isArray(filesData)) {
+          // Insert the new data into the files array
+          item.content.files = [...(item.content.files || []), ...filesData];
+          if (!item.content.metadata.description) {
+            item.content.metadata.description = jsonResponse.data?.description;
+          }
+        }
+      } catch (error) {
+        if (axios.isAxiosError(error) && error.response?.status === 404) {
+          console.warn(`Item with json_uri ${jsonUri} not found, removing item.`);
+          result.items = result.items.filter((i) => i !== item);
+        } else {
+          throw error;
+        }
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
       }
       }
     }));
@@ -82,7 +114,11 @@ const searchAssets = async (searchAssetArgs: SearchAssetArgs) => {
       continueFetch = false;
     }
     else {
+<<<<<<< HEAD
       await new Promise(resolve => setTimeout(resolve, 1500)); // Pause for 2.5 seconds
+=======
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Pause for 2.5 seconds
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     }
 
     if (!assets) {

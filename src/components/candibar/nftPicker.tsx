@@ -7,8 +7,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import fetchEscrowAssets from "../../lib/fetchEscrowAssets";
+<<<<<<< HEAD
 import fetchUserCompleteCollectionAssets from "../../lib/searchCompleteCollectionAssets";
 import fetchUserCandiAssets from "../../lib/fetchUserAssets";
+=======
+// import fetchUserCompleteCollectionAssets from "../../lib/trash/searchCompleteCollectionAssets";
+import fetchUserAssets from "../../lib/fetchUserAssets";
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -36,7 +41,11 @@ const NftPicker = ({
   const [isSearching, setIsSearching] = useState(false);
   const [assets, setAssets] = useState<Assets[]>([]);
   const [selectedAssets, setLocalSelectedAssets] = useState<Asset[]>([]);
+<<<<<<< HEAD
 
+=======
+  const overrideZodiacSwap = Number(process.env.NEXT_PUBLIC_OVERRIDE_ZODIAC_SWAP) || 0;
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
   const wallet1 = useWallet();
 
   const handleSelection = (asset: Asset) => {
@@ -53,7 +62,11 @@ const NftPicker = ({
 
   const handleConfirmSelection = async () => {
 
+<<<<<<< HEAD
     if (selectedAssets.length > 0) {
+=======
+    if (selectedAssets.length > 0 && Number(overrideZodiacSwap) === 0) {
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
       if(swapArgs.name === 'zodiac') {
   
@@ -86,7 +99,16 @@ const NftPicker = ({
     }
 
  }
+<<<<<<< HEAD
     setSelectedAssets(selectedAssets); // Pass selected assets to parent
+=======
+
+    const filteredSelectedAssets = selectedAssets.filter((selected) =>
+      assets[0]?.items?.some((asset) => asset.id === selected.id)
+    );
+    setSelectedAssets(filteredSelectedAssets); // Pass filtered selected assets to parent
+
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     setIsOpen(false); // Close the dialog
     console.log("Selected Assets:", selectedAssets); // Debugging
  
@@ -99,7 +121,11 @@ const NftPicker = ({
     setIsSearching(true);
     if (wallet === "user" && wallet1.connected) {
       // Fetch user assets
+<<<<<<< HEAD
       (swapArgs.name === 'zodiac' ? fetchUserCompleteCollectionAssets() : fetchUserCandiAssets()).then((assets) => {
+=======
+      fetchUserAssets(swapArgs).then((assets) => {
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
         console.log({ assets });
         setIsSearching(false);
         if (Array.isArray(assets)) {
@@ -196,7 +222,15 @@ const NftPicker = ({
         ) : (
           !isSearching && (
             <div className="flex flex-1 flex-col justify-center w-full items-center">
+<<<<<<< HEAD
               <div>No assets found!</div>
+=======
+                {swapArgs.name === 'zodiac' ? (
+                <div>The wallet does not contain a complete collection!</div>
+                ) : (
+                <div>No assets found!</div>
+                )}
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             </div>
           )
         )}

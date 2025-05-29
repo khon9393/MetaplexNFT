@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import useUmiStore from "../../stores/useUmiStore";
 import { publicKey } from '@metaplex-foundation/umi';
 import axios from 'axios';
@@ -22,6 +23,25 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
 
   if (collectionPublicKeys.length === 0) {
     throw new Error("No valid collectionPublicKeys found in CandiZodiacSigns");
+=======
+
+import axios from 'axios';
+import { getCompleteCollectionNames } from "../fetchCompleteCollection";
+interface SearchAssetArgs {
+  owner: string;
+  collectionkeys: string[];
+  burnt: boolean;
+}
+
+const overrideZodiacSwap = Number(process.env.NEXT_PUBLIC_OVERRIDE_ZODIAC_SWAP) || 0;
+
+const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
+
+   const collectionPublicKeys = searchAssetArgs.collectionkeys;
+   
+  if (collectionPublicKeys.length === 0) {
+    throw new Error("No valid collectionPublicKeys found in SearchAssetArgs");
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
   }
 
   let allAssets: any[] = []; // Store all assets across collections
@@ -46,6 +66,10 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
               limit: 1000,
               burnt: searchAssetArgs.burnt,
               ownerAddress: searchAssetArgs.owner
+<<<<<<< HEAD
+=======
+              
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             }
           })
         });
@@ -75,6 +99,7 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
         await Promise.all(result.items.map(async (item) => {
           if (item.content.files.length <= 0) {
             const jsonUri = item.content.json_uri;
+<<<<<<< HEAD
             const jsonResponse = await axios.get(jsonUri);
             const filesData = jsonResponse.data.properties?.files;
             if (Array.isArray(filesData)) {
@@ -84,6 +109,29 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
               }
             }
           }
+=======
+            // Make a GET request to the json_uri
+            try {
+              const jsonResponse = await axios.get(jsonUri);
+              // Extract the files array from the properties object in the response
+              const filesData = jsonResponse.data.properties?.files;
+              if (Array.isArray(filesData)) {
+                // Insert the new data into the files array
+                item.content.files = [...(item.content.files || []), ...filesData];
+                if (!item.content.metadata.description) {
+                  item.content.metadata.description = jsonResponse.data?.description;
+                }
+              }
+            } catch (error) {
+              if (axios.isAxiosError(error) && error.response?.status === 404) {
+                console.warn(`Item with json_uri ${jsonUri} not found, removing item.`);
+                result.items = result.items.filter((i) => i !== item);
+              } else {
+                throw error;
+              }
+            }
+            }
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
           item.content.collectionid = collectionPublicKey;
 
@@ -92,6 +140,7 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
         // Fetch collection details
         const completeCollectionNames = await getCompleteCollectionNames(collectionPublicKey);
 
+<<<<<<< HEAD
        
        // let completeCollectionNames = (collection).images.map(image => `Zodiac ${image.name}`);
         
@@ -107,10 +156,16 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
 
         // )
 
+=======
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
         //exract collection names from the result
         const walletCollectionNames = result.items.map((item: any) => item.content.metadata.description);
 
         // Validate if walletCollectionNames contains all items in completeCollectionNames
+<<<<<<< HEAD
+=======
+        if(Number(overrideZodiacSwap) === 0) {
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
         const isValidCollection = completeCollectionNames.every(name => walletCollectionNames.includes(name));
         if (!isValidCollection) {
           console.log(`Valid collection found for: ${collectionPublicKey}`);
@@ -118,6 +173,10 @@ const searchCollection = async (searchAssetArgs: SearchAssetArgs) => {
           await new Promise(resolve => setTimeout(resolve, 1000));
           continue;
         }
+<<<<<<< HEAD
+=======
+      }
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
         console.log(`Collection: ${collectionPublicKey}, Page: ${page}, Total assets: `, result.total);
 

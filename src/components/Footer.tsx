@@ -5,15 +5,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+<<<<<<< HEAD
 import { Button } from '@/components/ui/button';
 import NavElement from './nav-element';
+=======
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 import Image from 'next/image';
 import solanaLogo from "../../public/logos/solanaLogo.png";
 import metaplexLogo from "../../public/logos/metaplex-logo.png";
 import Link from 'next/link';
 import candibarQRcode from "../../public/logos/candibarQRcode.png";
 import { SolCalcDrawer } from './candibar/SolCalcDrawer';
+<<<<<<< HEAD
 
+=======
+import JupAg from "../../public/logos/jupiter-logo.webp";
+import dexscreener from "../../public/logos/dex-screener-icon-filled-256.png";
+import raydium from "../../public/logos/Raydium-Logo-min.png";
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
 export const Footer: FC = () => {
   return (
@@ -194,9 +203,31 @@ export const Footer: FC = () => {
                 </svg>
                 <span className="text-sm">Follow us on X</span>
               </a>
+<<<<<<< HEAD
               <a
                 href={process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}
                 className="flex items-center space-x-2 hover:text-gray-400 transition"
+=======
+
+              <a
+                href={`https://t.me/candibarnft`}
+                className="flex items-center hover:text-gray-400 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path d="M22.5 3.5L19.5 20.5C19.5 20.5 19 22 17.5 21.5L12.5 17.5L10 20C10 20 9.5 20.5 9 20.5C8.5 20.5 8.5 20 8.5 20L9.5 15.5L18.5 6.5C18.5 6.5 19 6 18.5 5.5C18 5 17.5 5.5 17.5 5.5L6.5 11L2 9.5C2 9.5 1 9 2 8.5L21 2C21 2 22 1.5 22.5 2C23 2.5 22.5 3.5 22.5 3.5Z" />
+                </svg>
+                <span className="text-sm p-4">t.me/candibarnft</span>
+              </a>
+
+              <a
+                href={`mailto:${process.env.NEXT_PUBLIC_RPC_SUPPORT_EMAIL}`}
+                className="flex items-center hover:text-gray-400 transition"
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -230,9 +261,47 @@ export const Footer: FC = () => {
                   />
                 </a>
               </div>
+<<<<<<< HEAD
 
             </div>
 
+=======
+              <div className="flex flex-col mb-0 p-5">
+                <span className="italic">Buy & Trade Candibar Tokens</span>
+                <a href="https://jup.ag/tokens/AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s" target="_blank" rel="noopener noreferrer" className="mr-4">
+                  <Image
+                    src={JupAg}
+                    alt="Jup.ag Logo"
+                    width={35}
+                    height={35}
+                    className="inline-block p-2"
+                  />
+                   <span>Jup.ag</span>
+                </a>
+                <a href="https://dexscreener.com/solana/64abbhkzpwxkdvg1h7yty2f4tgs594s8hmbabntjgyme" target="_blank" rel="noopener noreferrer" className="mr-4 relative">
+                <Image
+                    src={dexscreener}
+                    alt="Dex Screener Logo"
+                    width={40}
+                    height={40}
+                    className="inline-block p-2"
+                  />
+                  <span>DEXSCREENER</span>
+                </a>
+
+                <a href="https://raydium.io/swap/?inputMint=sol&outputMint=AfMyy9uiVM7Z3Twx3A8cc8V5jW8fY3escEgUX6tGnY4s" target="_blank" rel="noopener noreferrer" className="mr-4 relative">
+                <Image
+                    src={raydium}
+                    alt="Raydium Logo"
+                    width={40}
+                    height={40}
+                    className="inline-block p-2"
+                  />
+                  <span>Raydium</span>
+                </a>
+              </div>
+            </div>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
             <div className="mb-6 items-center mx-auto max-w-screen-lg">
 
             </div>

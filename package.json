@@ -23,13 +23,28 @@
     "postbuild": "node sitemap-generator.js"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@fireworks-js/react": "^2.10.8",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+=======
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/modifiers": "^9.0.0",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@fireworks-js/react": "^2.10.8",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@jup-ag/react-hook": "^6.2.0",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "@metaplex-foundation/digital-asset-standard-api": "^1.0.5",
     "@metaplex-foundation/js": "^0.20.1",
     "@metaplex-foundation/mpl-core": "^1.2.0",
     "@metaplex-foundation/mpl-core-candy-machine": "^0.3.0",
+<<<<<<< HEAD
+=======
+    "@metaplex-foundation/mpl-core-das": "^0.0.3",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "@metaplex-foundation/mpl-hybrid": "^0.2.0",
     "@metaplex-foundation/mpl-token-metadata": "^3.3.0",
     "@metaplex-foundation/mpl-toolbox": "^0.10.0",
@@ -37,6 +52,7 @@
     "@metaplex-foundation/umi-bundle-defaults": "^1.0.0",
     "@metaplex-foundation/umi-signer-wallet-adapters": "^1.0.0",
     "@radix-ui/react-accordion": "^1.2.2",
+<<<<<<< HEAD
     "@radix-ui/react-checkbox": "^1.1.3",
     "@radix-ui/react-collapsible": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.5",
@@ -46,11 +62,33 @@
     "@radix-ui/react-navigation-menu": "^1.2.4",
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-toast": "^1.2.5",
+=======
+    "@radix-ui/react-avatar": "^1.1.9",
+    "@radix-ui/react-checkbox": "^1.3.1",
+    "@radix-ui/react-collapsible": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.1.13",
+    "@radix-ui/react-dropdown-menu": "^2.1.14",
+    "@radix-ui/react-icons": "^1.3.2",
+    "@radix-ui/react-label": "^2.1.6",
+    "@radix-ui/react-navigation-menu": "^1.2.4",
+    "@radix-ui/react-select": "^2.2.4",
+    "@radix-ui/react-separator": "^1.1.6",
+    "@radix-ui/react-slot": "^1.2.2",
+    "@radix-ui/react-tabs": "^1.1.11",
+    "@radix-ui/react-toast": "^1.2.5",
+    "@radix-ui/react-toggle": "^1.1.8",
+    "@radix-ui/react-toggle-group": "^1.1.9",
+    "@radix-ui/react-tooltip": "^1.2.6",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/wallet-adapter-wallets": "^0.19.32",
     "@solana/web3.js": "^1.98.0",
     "@tailwindcss/typography": "^0.5.16",
+<<<<<<< HEAD
+=======
+    "@tanstack/react-table": "^8.21.3",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "@vercel/blob": "^0.27.2",
     "JSONStream": "^1.3.5",
     "abort-controller": "^3.0.0",
@@ -587,7 +625,11 @@
     "lowercase-keys": "^1.0.1",
     "lru-cache": "^10.4.3",
     "ltgt": "^2.2.1",
+<<<<<<< HEAD
     "lucide-react": "^0.473.0",
+=======
+    "lucide-react": "^0.509.0",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "make-dir": "^2.1.0",
     "makeerror": "^1.0.12",
     "marky": "^1.2.5",
@@ -643,7 +685,11 @@
     "next": "^15.1.5",
     "next-compose-plugins": "^2.2.1",
     "next-ssl-redirect-middleware": "^0.1.5",
+<<<<<<< HEAD
     "next-themes": "^0.4.4",
+=======
+    "next-themes": "^0.4.6",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "next-transpile-modules": "^10.0.1",
     "no-case": "^3.0.4",
     "node-abort-controller": "^3.1.1",
@@ -797,6 +843,10 @@
     "readline": "^1.3.0",
     "real-require": "^0.1.0",
     "recast": "^0.23.9",
+<<<<<<< HEAD
+=======
+    "recharts": "^2.15.3",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "rechoir": "^0.8.0",
     "reflect.getprototypeof": "^1.0.10",
     "regenerate": "^1.4.2",
@@ -882,6 +932,10 @@
     "socks": "^2.8.3",
     "socks-proxy-agent": "^8.0.4",
     "sonic-boom": "^2.8.0",
+<<<<<<< HEAD
+=======
+    "sonner": "^2.0.3",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "source-map": "^0.6.1",
     "source-map-js": "^1.2.1",
     "source-map-support": "^0.5.21",
@@ -1052,6 +1106,10 @@
     "yargs": "^17.7.2",
     "yargs-parser": "^21.1.1",
     "yocto-queue": "^0.1.0",
+<<<<<<< HEAD
+=======
+    "zod": "^3.24.4",
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
     "zustand": "^5.0.3"
   },
   "devDependencies": {

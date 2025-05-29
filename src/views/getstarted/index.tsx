@@ -128,6 +128,7 @@ export const GetStartedView: FC = ({ }) => {
               Note: All transactions will require a small amount of Solana (SOL) tokens to cover network fees.
             </h6>
             <Accordion type="single" collapsible={true}>
+<<<<<<< HEAD
               <AccordionItem value="step1">
                 <AccordionTrigger className="text-xl font-bold">Step 1: Get Candi NFTs</AccordionTrigger>
                 <AccordionContent>
@@ -166,6 +167,32 @@ export const GetStartedView: FC = ({ }) => {
 
               <AccordionItem value="step3">
                 <AccordionTrigger className="text-xl font-bold">Step 3: Redeem Candibar Tokens for NFTs in the Marketplace</AccordionTrigger>
+=======
+            <AccordionItem value="step1">
+              <AccordionTrigger className="text-xl font-bold">Step 1: Purchase and Exchange Candibar Tokens</AccordionTrigger>
+              <AccordionContent>
+                <h2 className="text-xl mt-4">
+                To begin using the Candibar platform, you need to acquire Candibar tokens. These tokens can be purchased and exchanged on various platforms. Follow these steps to get started:
+                </h2>
+                <div className="text-md md:text-lg font-medium py-2 text-gray-300">
+                <span>Purchase and exchange CANDIBAR/SOL on platforms like </span> 
+                <a href="https://raydium.io/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Raydium </a>, 
+                <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Dexscreener </a>, 
+                <a href="https://jup.ag/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Jupiter </a>, or directly via the 
+                <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Solflare wallet </a>.
+                </div>
+                <ul className="list-disc pl-5 mt-3 text-xl">
+                <li>Ensure your wallet is set up and funded with SOL tokens.</li>
+                <li>Visit one of the recommended platforms to exchange SOL for Candibar tokens.</li>
+                <li>Follow the platform&apos;s instructions to complete the transaction.</li>
+                <li>Once the transaction is confirmed, the Candibar tokens will be credited to your wallet.</li>
+                </ul>
+              </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="step2">
+                <AccordionTrigger className="text-xl font-bold">Step 2: Redeem Candibar Tokens for NFTs in the Marketplace</AccordionTrigger>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
                 <AccordionContent>
                   <h2 className="text-xl mt-4">
                   After swapping your Candi NFTs for Candibar tokens, you can use them to acquire exclusive items in the Candibar marketplace or swap them for other NFTs. 
@@ -182,8 +209,13 @@ export const GetStartedView: FC = ({ }) => {
                 </AccordionContent>
                 </AccordionItem>
 
+<<<<<<< HEAD
                 <AccordionItem value="step4">
                 <AccordionTrigger className="text-xl font-bold">Step 4: See Candibar Platform Asset Guide (CPAG)</AccordionTrigger>
+=======
+                <AccordionItem value="step3">
+                <AccordionTrigger className="text-xl font-bold">Step 3: See Candibar Platform Asset Guide (CPAG)</AccordionTrigger>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
                 <AccordionContent>
                   <h2 className="text-xl">
                     The Candibar Platform Asset Guide (CPAG) provides a comprehensive overview of all assets available within the Candibar ecosystem. 

@@ -71,7 +71,11 @@ const SwapWrapper = (swapArgs: SwapArgs) => {
       description: "Your swap was successful",
     });
     setIsTransacting(false);
+<<<<<<< HEAD
     setSelectedAssets([]); // Clear selected assets after swap
+=======
+    setSelectedAssets(() => []); // Clear selected assets after swap
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 9000); // Show confetti for 8 seconds
@@ -153,8 +157,13 @@ const SwapWrapper = (swapArgs: SwapArgs) => {
 
                 <div className="text-1xl md:text-2xl font-bold animate-pulse ">
                   {tradeState === TradeState.nft && escrow?.amount !== undefined
+<<<<<<< HEAD
                     ? <div className="text-green-700"> +{formatTokenAmount(escrow.amount * BigInt(selectedAssets.length), 8)}</div>
                     : <div className="text-red-700"> -{formatTokenAmount(escrow?.amount ?? BigInt(0), 8)}</div>}
+=======
+                    ? <div className="text-green-700"> +{Number(formatTokenAmount(escrow.amount * BigInt(selectedAssets.length), 8)).toLocaleString()}</div>
+                    : <div className="text-red-700"> -{Number(formatTokenAmount(escrow?.amount ?? BigInt(0), 8)).toLocaleString()}</div>}
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
                 </div>
 
               )}

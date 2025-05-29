@@ -112,7 +112,11 @@ export const CPAGView: FC = ({ }) => {
         {/* Candi Collection */}
         <div className="mb-0 text-left p-6">
 
+<<<<<<< HEAD
           <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4] && candicollection[4].collectionsubtitles} (Swappable!)</h4>
+=======
+          <h4 className="text-2xl font-semibold mb-3">🍬 {candicollection[4] && candicollection[4].collectionsubtitles} (Swappable)</h4>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
 
           {candicollection.length > 0 && (
             <>
@@ -127,7 +131,11 @@ export const CPAGView: FC = ({ }) => {
                       {image.iscollectioncover ? (
                         <span>{image.name}</span>
                       ) : (
+<<<<<<< HEAD
                         <span>{image.name} → {candicollection[4].collectioncandibarvalue} Candibar Tokens</span>
+=======
+                        <span>{image.name} → {Number(candicollection[4].collectioncandibarvalue).toLocaleString()} Candibar Tokens</span>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
                       )}
                     </li>
                   </ul>
@@ -242,7 +250,11 @@ export const CPAGView: FC = ({ }) => {
           <ul className="text-xl list-disc list-inside pl-6 space-y-2">
             <li>Collect all four Zodiac NFTs of the same sign to unlock a special reward!</li>
             {/* <li>Collect all four Zodiac NFTs of the same sign + the Cover NFT to unlock a massive ?? ??</li> */}
+<<<<<<< HEAD
             <li><strong>20,000 Candibar Tokens</strong>!</li>
+=======
+            <li><strong>1,200,000 Candibar Tokens</strong>!</li>
+>>>>>>> 512e5360dcfc79e95f622d3ff68c966bfb184451
           </ul>
         </div> 
         <SwapDetails/>
