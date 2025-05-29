@@ -14,7 +14,7 @@ export function getExplorerUrl(
           'http://127.0.0.1:8899'
         )}`
       } else if (endpoint === 'https://api.devnet.solana.com' 
-      || endpoint === 'https://solemn-skilled-bird.solana-devnet.quiknode.pro/9b1c696d40e39deec224a3d6f9cd956d58eda1dd') {
+      || endpoint === process.env.NEXT_PUBLIC_RPC_ENV) {
         cluster = 'devnet'
       }
   
